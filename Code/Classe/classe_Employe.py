@@ -1,21 +1,31 @@
 from datetime import date, datetime
+from classe_ContratEmploi import ContratEmploi
+
+# +contrat: ContratEmploi = None
+# +contrat = ContratEmploi: ContratEmploi
+#
+#
+#
+#
+#
 
 
 class Employe:
     """
-    Classe M�re Employe
+    Classe Mére Employe
     """
     list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: str = "", p_date_engagement: date = None):
+                 p_poste: str = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
         """
-        Le constructeur de la classe m�re Employe
-        :param p_identifiant: L'identifiant unique de l'employ�. (7 digits, str)
-        :param p_nom: Le nom de l'employ�.
-        :param p_prenom: Le pr�nom de l'employ�.
-        :param p_poste: Le poste qu'occupe l'employ�.
-        :param p_date_engagement: La date d'engagement de l'employ� dans l'entreprise.
+        Le constructeur de la classe mére Employe
+        :param p_identifiant: L'identifiant unique de l'employé. (7 digits, str)
+        :param p_nom: Le nom de l'employé.
+        :param p_prenom: Le prénom de l'employé.
+        :param p_poste: Le poste qu'occupe l'employé.
+        :param p_date_engagement: La date d'engagement de l'employé dans l'entreprise.
+        :param p_contrat: Le contrat d'engagement de l'employé par l'entreprise.
         """
 
         self._identifiant = p_identifiant
@@ -23,6 +33,7 @@ class Employe:
         self._prenom = p_prenom
         self._poste = p_poste
         self._date_engagement = p_date_engagement
+        self.contrat = p_contrat
 
         Employe.list_employe.append(self)
 
@@ -31,7 +42,7 @@ class Employe:
         return self._identifiant
 
     @identifiant.setter
-    def identifiant(self, v_identifiant):
+    def identifiant(self, v_identifiant: str):
         if len(v_identifiant) == 7 and isinstance(v_identifiant, str) and v_identifiant.isdigit:
             self._identifiant = v_identifiant
 
@@ -40,7 +51,7 @@ class Employe:
         return self._nom
 
     @nom.setter
-    def nom(self, v_nom):
+    def nom(self, v_nom: str):
         if isinstance(v_nom, str) and v_nom.isalpha():
             self._nom = v_nom
 
@@ -49,7 +60,7 @@ class Employe:
         return self._nom
 
     @prenom.setter
-    def prenom(self, v_prenom):
+    def prenom(self, v_prenom: str):
         if isinstance(v_prenom, str) and v_prenom.isalpha():
             self._prenom = v_prenom
 
@@ -58,10 +69,44 @@ class Employe:
         return self._date_engagement
 
     @date_engagement.setter
-    def date_engagement(self, v_date_engagement):
+    def date_engagement(self, v_date_engagement: str):
         date_naissance_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
         self._date_engagement = date_naissance_formatee
 
-    def obtenir_anciennete(self):
+    def obtenir_anciennete(self) -> int:
+        """
+        Une méthode qui permet d'obtenir l'ancienneté de l'employé.
+        :return: Le nombre d'années d'ancienneté
+        """
+        return (datetime.now() - self._date_engagement).days // 365
 
-        return self._date_engagement
+    def est_temps_plein(self) -> bool:
+        """
+        Une méthode qui retourne True si l'employe travail plus de 40 heures / semaine.
+        :return: True si l'employé est à temps plein
+        """
+
+        return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

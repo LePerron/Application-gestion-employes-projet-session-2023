@@ -1,4 +1,4 @@
-class ContrateEmploi:
+class ContratEmploi:
     """
     Classe Equipe
     """
@@ -48,7 +48,6 @@ class ContrateEmploi:
 
     def set_facteur_salaire(self, facteur_salaire):
         self.facteur_salaire =
-
 
     def __str__(self):
         return f"Le joueur"
