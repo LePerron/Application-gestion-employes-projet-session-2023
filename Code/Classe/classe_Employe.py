@@ -1,10 +1,11 @@
-from datetime import date
+from datetime import date, datetime
 
 
 class Employe:
     """
     Classe Mère Employe
     """
+    list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
                  p_poste: str = "", p_date_engagement: date = None):
@@ -23,5 +24,43 @@ class Employe:
         self._poste = p_poste
         self._date_engagement = p_date_engagement
 
+        Employe.list_employe.append(self)
 
+    @property
+    def identifiant(self):
+        return self._identifiant
 
+    @identifiant.setter
+    def identifiant(self, v_identifiant):
+        if len(v_identifiant) == 7 and isinstance(v_identifiant, str) and v_identifiant.isdigit:
+            self._identifiant = v_identifiant
+
+    @property
+    def nom(self):
+        return self._nom
+
+    @nom.setter
+    def nom(self, v_nom):
+        if isinstance(v_nom, str) and v_nom.isalpha():
+            self._nom = v_nom
+
+    @property
+    def prenom(self):
+        return self._nom
+
+    @prenom.setter
+    def prenom(self, v_prenom):
+        if isinstance(v_prenom, str) and v_prenom.isalpha():
+            self._prenom = v_prenom
+
+    @property
+    def date_engagement(self):
+        return self._date_engagement
+
+    @date_engagement.setter
+    def date_engagement(self, v_date_engagement):
+        date_naissance_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
+        self._date_engagement = date_naissance_formatee
+
+    def anciennete(self):
+        return
