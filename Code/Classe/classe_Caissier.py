@@ -29,4 +29,5 @@ class Caissier:
 
     @specialite.setter
     def specialite(self, specialite: str):
-        self._specialite = specialite
+        if specialite in Caissier.list_specialite:
+            self._specialite = specialite

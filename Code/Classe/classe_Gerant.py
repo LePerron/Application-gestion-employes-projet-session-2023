@@ -7,6 +7,9 @@ class Gerant:
     Classe Gerant
     """
 
+    # Création de liste_specialite
+    list_specialite = []
+
     def __init__(self, p_specialite: str = "", p_liste_gestionnaire: list = [Gestionnaire]):
         """
         Constructeur de la classe Gerant
@@ -23,7 +26,8 @@ class Gerant:
 
     @specialite.setter
     def specialite(self, specialite: str):
-        self._specialite = specialite
+        if specialite in Gerant.list_specialite:
+            self._specialite = specialite
 
     # Ajouter un gestionnaire dans liste_gestionnaire à gérer
 
