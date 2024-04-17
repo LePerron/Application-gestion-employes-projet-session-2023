@@ -19,17 +19,8 @@ class Commis:
         :param p_gestionnaire: Base de donner des gestionnaires
         :param p_specialite: Spécialiter du commis
         """
-        self._gestionnaire = p_gestionnaire
+        self.gestionnaire = p_gestionnaire
         self._specialite = p_specialite
-
-    # Get/Set gestionnaire
-    @property
-    def gestionnaire(self):
-        return self._gestionnaire
-
-    @gestionnaire.setter
-    def gestionnaire(self, gestionnaire):
-        self._gestionnaire = gestionnaire
 
     # Get/Set specialite
     @property

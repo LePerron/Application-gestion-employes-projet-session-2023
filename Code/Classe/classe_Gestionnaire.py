@@ -23,19 +23,10 @@ class Gestionnaire:
         :param p_liste_commis: Base de données des commis
         :param p_liste_caissier: Base de données des caissier
         """
-        self._gerant = p_gerant
+        self.gerant = p_gerant
         self._specialite = p_specialite
-        self._liste_commis = p_liste_commis
-        self._liste_caissier = p_liste_caissier
-
-    # Get/Set gerant
-    @property
-    def gerant(self):
-        return self._gerant
-
-    @gerant.setter
-    def gerant(self, gerant):
-        self._gerant = gerant
+        self.liste_commis = p_liste_commis
+        self.liste_caissier = p_liste_caissier
 
     # Get/Set specialite
     @property
