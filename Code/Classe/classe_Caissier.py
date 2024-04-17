@@ -1,3 +1,4 @@
+# Importation de la classe Gestionnaire
 from Code.Classe.classe_Gestionnaire import Gestionnaire
 
 
