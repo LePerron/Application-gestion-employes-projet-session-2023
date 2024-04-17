@@ -45,6 +45,7 @@ class Gestionnaire:
         :return: La liste des commis avec le commis ajouter
         """
         self.liste_commis.append(commis_a_ajouter)
+
     # Supprimer un Commis dans liste_commis à gérer
     def supprimer_commis_a_liste(self, commis_a_supprimer: Commis) -> list:
         """
@@ -62,6 +63,7 @@ class Gestionnaire:
         :return: La liste des caissier avec le caissier ajouter
         """
         self.liste_caissier.append(caissier_a_ajouter)
+
     # Supprimer un Caissier dans liste_caissier à gérer
     def supprimer_caissier_a_liste(self, caissier_a_supprimer: Caissier) -> list:
         """
