@@ -1,3 +1,4 @@
+from Code.Classe.classe_Gestionnaire import Gestionnaire
 
 
 class Caissier:
