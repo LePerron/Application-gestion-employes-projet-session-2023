@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
+    <width>601</width>
     <height>655</height>
    </rect>
   </property>
@@ -189,6 +189,19 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="labelErreurSelection">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>330</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources/>
