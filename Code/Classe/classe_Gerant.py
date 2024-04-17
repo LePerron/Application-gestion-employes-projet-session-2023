@@ -14,7 +14,7 @@ class Gerant:
         :param p_liste_gestionnaire: Base de données des gestionnaires
         """
         self._specialite = p_specialite
-        self._liste_gestionnaire = p_liste_gestionnaire
+        self.liste_gestionnaire = p_liste_gestionnaire
 
     # Get/Set specialite
     @property
@@ -24,13 +24,4 @@ class Gerant:
     @specialite.setter
     def specialite(self, specialite):
         self._specialite = specialite
-
-    # Get/Set liste_gestionnaire
-    @property
-    def liste_gestionnaire(self):
-        return self._liste_gestionnaire
-
-    @liste_gestionnaire.setter
-    def liste_gestionnaire(self, liste_gestionnaire):
-        self._liste_gestionnaire = liste_gestionnaire
 
