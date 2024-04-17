@@ -14,6 +14,9 @@ class Gestionnaire:
     # Création de list_gestionnaire
     list_gestionnaire = []
 
+    # Création de liste_specialite
+    list_specialite = []
+
     def __init__(self, p_gerant: Gerant = None, p_specialite: str = "", p_liste_commis: list = [Commis],
                  p_liste_caissier: list = [Caissier]):
         """
@@ -35,7 +38,8 @@ class Gestionnaire:
 
     @specialite.setter
     def specialite(self, specialite: str):
-        self._specialite = specialite
+        if specialite in Gestionnaire.list_specialite:
+            self._specialite = specialite
 
     # Ajouter un Commis dans liste_commis à gérer
     def ajouter_commis_a_liste(self, commis_a_ajouter: Commis) -> list:
@@ -45,6 +49,7 @@ class Gestionnaire:
         :return: La liste des commis avec le commis ajouter
         """
         self.liste_commis.append(commis_a_ajouter)
+
     # Supprimer un Commis dans liste_commis à gérer
     def supprimer_commis_a_liste(self, commis_a_supprimer: Commis) -> list:
         """
@@ -62,6 +67,7 @@ class Gestionnaire:
         :return: La liste des caissier avec le caissier ajouter
         """
         self.liste_caissier.append(caissier_a_ajouter)
+
     # Supprimer un Caissier dans liste_caissier à gérer
     def supprimer_caissier_a_liste(self, caissier_a_supprimer: Caissier) -> list:
         """

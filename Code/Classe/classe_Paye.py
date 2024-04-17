@@ -19,5 +19,21 @@ class Paye:
         self.date_de_paye = p_date_de_paye
         self.employe = p_employe
 
+    def get_montant_paye(self):
+        return self.montant_paye
 
+    def set_montant_paye(self, montant_paye):
+        self.montant_paye =
+
+    def get_date_de_paye(self):
+        return self.date_de_paye
+
+    def set_date_de_paye(self, date_de_paye):
+        self.date_de_paye = date_de_paye
+
+    def get_employe(self):
+        return self
+
+    def set_employe(self, employe)
+        self.employe = employe
 

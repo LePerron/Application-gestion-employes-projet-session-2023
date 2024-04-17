@@ -25,12 +25,6 @@ class ContratEmploi:
     def set_nb_heures_semaine(self, nb_heures_semaine):
         self.nb_heures_semaine =
 
-    def get_identifiant_contrat(self):
-        return self
-
-    def set_identifiant_contrat(self, identifiant_contrat):
-        self.identifiant_contrat = identifiant_contrat
-
     def get_salaire_de_base(self):
         return self.salaire_de_base
 
