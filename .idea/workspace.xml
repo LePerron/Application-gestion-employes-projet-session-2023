@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fc8bbb1-4c9c-4b9f-bb90-a7da2a65e870" name="Changes" comment="debut la classe Caissier">
+    <list default="true" id="9fc8bbb1-4c9c-4b9f-bb90-a7da2a65e870" name="Changes" comment="debut de la class commis">
       <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Caissier.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Caissier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Commis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Commis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Gestionnaire.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Gestionnaire.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713380516963</updated>
-      <workItem from="1713380518066" duration="2382000" />
+      <workItem from="1713380518066" duration="3351000" />
     </task>
     <task id="LOCAL-00001" summary="debut la classe Caissier">
       <option name="closed" value="true" />
@@ -71,7 +73,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713382508987</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="modifiaction de la classe Caissier">
+      <option name="closed" value="true" />
+      <created>1713382918173</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713382918173</updated>
+    </task>
+    <task id="LOCAL-00003" summary="debut de la class commis">
+      <option name="closed" value="true" />
+      <created>1713383187219</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713383187219</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -79,6 +97,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="debut la classe Caissier" />
-    <option name="LAST_COMMIT_MESSAGE" value="debut la classe Caissier" />
+    <MESSAGE value="modifiaction de la classe Caissier" />
+    <MESSAGE value="debut de la class commis" />
+    <option name="LAST_COMMIT_MESSAGE" value="debut de la class commis" />
   </component>
 </project>
