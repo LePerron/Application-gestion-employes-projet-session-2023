@@ -9,7 +9,7 @@ class Employe:
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
                  p_poste: str = "", p_date_engagement: date = None):
         """
-        Le constructeur de la classe mère Employe.
+        Le constructeur de la classe mère Employe
         :param p_identifiant: L'identifiant unique de l'employé. (7 digits, str)
         :param p_nom: Le nom de l'employé.
         :param p_prenom: Le prénom de l'employé.
