@@ -11,7 +11,7 @@ class Commis:
     list_commis = []
 
     # Création de liste_specialite
-    liste_specialite = []
+    list_specialite = []
 
     def __init__(self, p_gestionnaire: Gestionnaire = None, p_specialite: str = ""):
         """
@@ -29,4 +29,5 @@ class Commis:
 
     @specialite.setter
     def specialite(self, specialite: str):
-        self._specialite = specialite
+        if specialite in Commis.list_specialite:
+            self._specialite = specialite
