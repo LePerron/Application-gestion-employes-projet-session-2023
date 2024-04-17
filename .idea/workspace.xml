@@ -4,119 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fc8bbb1-4c9c-4b9f-bb90-a7da2a65e870" name="Changes" comment="debut de la class gestionnaire">
-      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Caissier.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Caissier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Commis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Commis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Gerant.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Gerant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Gestionnaire.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Gestionnaire.py" afterDir="false" />
+    <list default="true" id="a1953449-a4da-4eab-ba85-caf54a7c9cfe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_ContratEmploi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_ContratEmploi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Paye.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Paye.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
-  <component name="ProjectId" id="2fEyQZrWhQiWlGhd7rVGyVJhEwm" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/deuxieme session/prog2/lab_prog",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/info1/Downloads/Correction_Examen_intra_2256853&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-python-sdk-50da183f06c8-2887949eec09-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.95" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+}</component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="9fc8bbb1-4c9c-4b9f-bb90-a7da2a65e870" name="Changes" comment="" />
-      <created>1713380516963</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1713380516963</updated>
-      <workItem from="1713380518066" duration="4235000" />
-    </task>
-    <task id="LOCAL-00001" summary="debut la classe Caissier">
-      <option name="closed" value="true" />
-      <created>1713382508987</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1713382508987</updated>
-    </task>
-    <task id="LOCAL-00002" summary="modifiaction de la classe Caissier">
-      <option name="closed" value="true" />
-      <created>1713382918173</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1713382918173</updated>
-    </task>
-    <task id="LOCAL-00003" summary="debut de la class commis">
-      <option name="closed" value="true" />
-      <created>1713383187219</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1713383187219</updated>
-    </task>
-    <task id="LOCAL-00004" summary="debut de la class gestionnaire">
-      <option name="closed" value="true" />
-      <created>1713383888380</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1713383888380</updated>
-    </task>
-    <task id="LOCAL-00005" summary="debut de la class gestionnaire">
-      <option name="closed" value="true" />
-      <created>1713384204674</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1713384204674</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="debut la classe Caissier" />
-    <MESSAGE value="modifiaction de la classe Caissier" />
-    <MESSAGE value="debut de la class commis" />
-    <MESSAGE value="debut de la class gestionnaire" />
-    <option name="LAST_COMMIT_MESSAGE" value="debut de la class gestionnaire" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
