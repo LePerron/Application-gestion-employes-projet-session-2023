@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fc8bbb1-4c9c-4b9f-bb90-a7da2a65e870" name="Changes" comment="debut de la class gestionnaire">
+    <list default="true" id="9fc8bbb1-4c9c-4b9f-bb90-a7da2a65e870" name="Changes" comment="publication de plusieurs liste">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Caissier.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Caissier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Commis.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Commis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Gerant.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Gerant.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/Classe/classe_Gestionnaire.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Classe/classe_Gestionnaire.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UML/~$$UML_De_Classe - PROJET INTRA.~vsdx" beforeDir="false" afterPath="$PROJECT_DIR$/UML/~$$UML_De_Classe - PROJET INTRA.~vsdx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713380516963</updated>
-      <workItem from="1713380518066" duration="4235000" />
+      <workItem from="1713380518066" duration="6027000" />
     </task>
     <task id="LOCAL-00001" summary="debut la classe Caissier">
       <option name="closed" value="true" />
@@ -106,7 +108,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713384204674</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="debut de la class gerant">
+      <option name="closed" value="true" />
+      <created>1713384781099</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713384781099</updated>
+    </task>
+    <task id="LOCAL-00007" summary="publication de plusieurs liste">
+      <option name="closed" value="true" />
+      <created>1713385036650</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713385036650</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +135,8 @@
     <MESSAGE value="modifiaction de la classe Caissier" />
     <MESSAGE value="debut de la class commis" />
     <MESSAGE value="debut de la class gestionnaire" />
-    <option name="LAST_COMMIT_MESSAGE" value="debut de la class gestionnaire" />
+    <MESSAGE value="debut de la class gerant" />
+    <MESSAGE value="publication de plusieurs liste" />
+    <option name="LAST_COMMIT_MESSAGE" value="publication de plusieurs liste" />
   </component>
 </project>

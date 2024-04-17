@@ -28,5 +28,5 @@ class Commis:
         return self._specialite
 
     @specialite.setter
-    def specialite(self, specialite):
+    def specialite(self, specialite: str):
         self._specialite = specialite
