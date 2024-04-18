@@ -1,10 +1,5 @@
+from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from datetime import date, datetime
-<<<<<<< HEAD
-=======
-
-from classe_Specialite import Specialite
->>>>>>> 3f52adaadf531f7280a1369d1799e416be02ad5e
-from classe_ContratEmploi import ContratEmploi
 
 #               UMLs            #
 # +contrat: ContratEmploi = None
@@ -24,7 +19,7 @@ class Employe:
     list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: any = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
+                 p_poste: any = None, p_date_engagement: date = None, p_contrat: ContratEmploi = None):
         """
         Le constructeur de la classe mére Employe
         :param p_identifiant: L'identifiant unique de l'employé. (7 digits, str)
@@ -41,10 +36,6 @@ class Employe:
         self._date_engagement = p_date_engagement
         self.poste = p_poste
         self.contrat = p_contrat
-
-        # for contrat in ContratEmploi.list_contrat:
-        #     if contrat.employe == self._identifiant:
-        #         self.contrat = contrat
 
         Employe.list_employe.append(self)
 
@@ -86,7 +77,7 @@ class Employe:
 
     def obtenir_anciennete(self) -> int:
         """
-        Une méthode qui permet d'obtenir l'ancienneté de l'employé.
+        Une méthode qui permet d'obtenir l'ancienneté d'un employé.
         :return: Le nombre d'années d'ancienneté
         """
         return (datetime.now() - self._date_engagement).days // 365
@@ -101,7 +92,9 @@ class Employe:
     def obtenir_specialite(self) -> str:
         return f"{self.poste.__name__} {self.poste.specialite}"
 
-    def __str__(self) -> str:
+    def afficher_informations_employe(self) -> str:
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
                 f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
+    def __str__(self) -> str:
+        return self.afficher_informations_employe()

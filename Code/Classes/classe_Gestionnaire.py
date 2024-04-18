@@ -1,72 +1,74 @@
-# Importation de la classe Caissier
-from classe_Caissier import Caissier
-# Importation de la classe Commis
-from classe_Commis import Commis
-# Importation de la classe Gerant
-from classe_Gerant import Gerant
-# Importation de la classe Specialite
-from classe_Specialite import Specialite
+from datetime import date
+
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
 
 
-class Gestionnaire:
+class Gestionnaire(Employe):
     """
     Classes Gestionnaire
     """
 
-    # Création de list_gestionnaire
     list_gestionnaire = []
 
     def __init__(self, p_gerant: Gerant = None, p_specialite: Specialite = None, p_liste_commis=None,
-                 p_liste_caissier=None):
+                 p_liste_caissier=None,  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
+                 p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
         """
-        Constructeur de la classe Gestionnaire
+        Constructeur de la classe Gestionnaire avec les attributs de sa classe mère Employe
         :param p_gerant: Le gérant du gestionnaire.
         :param p_specialite: La spécialité du gestionnaire.
         :param p_liste_commis: La liste des commis que le gestionnaire gère.
         :param p_liste_caissier: La liste des caissiers que le gestionnaire gère.
         """
-        if p_liste_commis is None:
-            p_liste_commis = [Commis]
-        if p_liste_caissier is None:
-            p_liste_caissier = [Caissier]
+        Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat)
 
         self.gerant = p_gerant
         self.specialite = p_specialite
         self.liste_commis = p_liste_commis
         self.liste_caissier = p_liste_caissier
 
-    # Ajouter un Commis dans liste_commis à gérer
-    def ajouter_commis_a_liste(self, commis_a_ajouter: Commis) -> list:
+    def ajouter_commis_a_liste(self, nom_commis_a_ajouter: str) -> None:
         """
         Ajouter un commis dans liste_commis
-        :param commis_a_ajouter: Commis à ajouter
-        :return: La liste des commis avec le commis ajouter
+        :param nom_commis_a_ajouter: Commis à ajouter
+        :return: La liste des commis avec le commis ajouté
         """
-        self.liste_commis.append(commis_a_ajouter)
+        for commis in self.liste_commis:
+            if commis.nom == nom_commis_a_ajouter:
+                return
+        self.liste_commis.append(nom_commis_a_ajouter)
 
-    # Supprimer un Commis dans liste_commis à gérer
-    def supprimer_commis_a_liste(self, commis_a_supprimer: Commis) -> list:
+    def supprimer_commis_a_liste(self, nom_commis_a_supprimer: str) -> None:
         """
         Supprimer un commis dans liste_commis
-        :param commis_a_supprimer: Commis à supprimer
-        :return: La liste des commis avec le commis supprimer
+        :param nom_commis_a_supprimer: Commis à supprimer
+        :return: La liste des commis avec le commis supprimé
         """
-        self.liste_commis.remove(commis_a_supprimer)
+        for commis in self.liste_commis:
+            if commis.nom == nom_commis_a_supprimer:
+                self.liste_commis.remove(nom_commis_a_supprimer)
 
-    # Ajouter un Caissier dans liste_caissier à gérer
-    def ajouter_caissier_a_liste(self, caissier_a_ajouter: Caissier) -> list:
+    def ajouter_caissier_a_liste(self, nom_caissier_a_ajouter: str) -> None:
         """
         Ajouter un caissier dans liste_caissier
-        :param caissier_a_ajouter: Caissier à ajouter
-        :return: La liste des caissier avec le caissier ajouter
+        :param nom_caissier_a_ajouter: Caissier à ajouter
+        :return: La liste des caissier avec le caissier ajouté
         """
-        self.liste_caissier.append(caissier_a_ajouter)
+        for caissier in self.liste_caissier:
+            if caissier.nom == nom_caissier_a_ajouter:
+                return
+        self.liste_caissier.append(nom_caissier_a_ajouter)
 
-    # Supprimer un Caissier dans liste_caissier à gérer
-    def supprimer_caissier_a_liste(self, caissier_a_supprimer: Caissier) -> list:
+    def supprimer_caissier_a_liste(self, nom_caissier_a_supprimer: str) -> None:
         """
         Supprimer un caissier dans liste_caissier
-        :param caissier_a_supprimer: Caissier à supprimer
-        :return: La liste des caissier avec le caissier supprimer
+        :param nom_caissier_a_supprimer: Caissier à supprimer
+        :return: La liste des caissier avec le caissier supprimé
         """
-        self.liste_caissier.remove(caissier_a_supprimer)
+        for caissier in self.liste_caissier:
+            if caissier.nom == nom_caissier_a_supprimer:
+                self.liste_caissier.remove(nom_caissier_a_supprimer)
+
+

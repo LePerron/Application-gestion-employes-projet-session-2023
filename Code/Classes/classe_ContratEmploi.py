@@ -1,4 +1,3 @@
-#Importation
 from classe_Employe import Employe
 
 
@@ -13,12 +12,12 @@ class ContratEmploi:
     def __init__(self, p_identifiant_contrat: str = "", p_employe: Employe = None, p_facteur_salaire: float = 0.0,
                  p_nb_heures_semaine: int = 0, p_salaire_de_base: float = 0.0, p_termes_embauche: str = ""):
         """
-        :param p_identifiant_contrat: identifiant du contrat
+        :param p_identifiant_contrat:
         :param p_employe: Le numéro de l'employé associé à ce contrat
-        :param p_facteur_salaire: multiplicateur du salaire (les bonus d'employé)
-        :param p_nb_heures_semaine: nombre d'heure de travail par semaine
-        :param p_salaire_de_base: salaire avant bonus
-        :param p_termes_embauche: les termes d'embauche
+        :param p_facteur_salaire:
+        :param p_nb_heures_semaine:
+        :param p_salaire_de_base:
+        :param p_termes_embauche:
         """
         self.identifiant_contrat = p_identifiant_contrat
         self._facteur_salaire = p_facteur_salaire
@@ -67,11 +66,11 @@ class ContratEmploi:
         return self._employe
 
     def set_employe(self, v_employe):
-        self._employe = v_employe
+        if isinstance(v_employe, Employe):
+            self._employe = v_employe
 
     employe = property(get_employe, set_employe)
 
     def __str__(self):
-        return (f"IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - NB_HEURES_SEMAINE : {self.nb_heures_semaine} "
-                f" - SALAIRE DE BASE : {self.salaire_de_base} - TERMES D'EMBAUCHE : {self.termes_embauche}"
-                f" - FACTEUR DU SALAIRE : {self.facteur_salaire} - L'EMPLOYE QUI A SIGNÉ LE CONTRAT : {self.employe}")
+        return (f"{self.identifiant_contrat} {self.nb_heures_semaine} {self.salaire_de_base} {self.termes_embauche} "
+                f"{self.facteur_salaire} {self.employe}")
