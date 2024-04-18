@@ -1,7 +1,7 @@
 # Importation de la classe Gestionnaire
-from Code.Classes.classe_Gestionnaire import Gestionnaire
+from classe_Gestionnaire import Gestionnaire
 # Importation de la class Specialite
-from Code.Classes.classe_Specialite import Specialite
+from classe_Specialite import Specialite
 from datetime import date
 from classe_Employe import Employe
 from classe_ContratEmploi import ContratEmploi
