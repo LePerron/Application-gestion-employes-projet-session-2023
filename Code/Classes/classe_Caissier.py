@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+# Importation de la classe Gestionnaire
+from classe_Gestionnaire import Gestionnaire
+# Importation de la class Specialite
+from classe_Specialite import Specialite
+
+
+class Caissier:
+=======
 from classe_Gestionnaire import Gestionnaire
 from classe_Specialite import Specialite
 from classe_ContratEmploi import ContratEmploi
@@ -6,6 +15,7 @@ from classe_Employe import Employe
 
 
 class Caissier(Employe):
+>>>>>>> 5a4444847f1bae8f08f190ee04bb38a09252d5da
     """
     Classe Caissier enfant de la classe mère Employe.
     """

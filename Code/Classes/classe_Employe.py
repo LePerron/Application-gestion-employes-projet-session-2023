@@ -1,6 +1,4 @@
 from datetime import date, datetime
-
-from classe_Specialite import Specialite
 from classe_ContratEmploi import ContratEmploi
 
 #               UMLs            #
