@@ -1,5 +1,6 @@
 from datetime import date
 from classe_Employe import Employe
+from statistics import median
 
 
 class Paye:
@@ -7,17 +8,20 @@ class Paye:
     Classes Paye
     """
     # Attribut de classe
+    liste_paye = []
+
     def __init__(self, p_identifiant_paye: str = "", p_employe: Employe = None, p_montant_paye: float = 0.0, p_date_de_paye:date = None):
         """
-        :param identifiant_paye:
-        :param p_montant_paye:
-        :param p_employe:
-        :param p_date_de_paye:
+        :param identifiant_paye: Identifiant de la paye
+        :param p_montant_paye: montant de la paye la plus récente
+        :param p_employe: l'employe qui reçoit la paye
+        :param p_date_de_paye: date de la paye la plus récente
         """
         self.identifiant_paye = p_identifiant_paye
         self._montant_paye = p_montant_paye
         self._date_de_paye = p_date_de_paye
         self._employe = p_employe
+        Paye.liste_paye.append(self)
 
     def get_montant_paye(self):
         return self._montant_paye
@@ -46,5 +50,44 @@ class Paye:
 
     employe = property(get_employe, set_employe)
 
+    @classmethod
+    def moyenne(cls):
+        """
+        Trouve le montant de la paye la plus petite de touts les employés
+        :return: le montant de la paye la plus petite
+        """
+        montants = 0
+        for paye in cls.liste_paye:
+            montants += paye.montant_paye
+        return montants / len(cls.liste_paye)
+
+    @classmethod
+    def mediane(cls):
+        """
+        Trouve le montant de la paye la plus petite de touts les employés
+        :return: le montant de la paye la plus petite
+        """
+        montants = []
+        for paye in cls.liste_paye:
+            montants += paye.montant_paye
+        return median(montants)
+
+    @classmethod
+    def min(cls) -> float:
+        """
+        Trouve le montant de la paye la plus petite de touts les employés
+        :return: le montant de la paye la plus petite
+        """
+        return min(paye.montant_paye for paye in cls.liste_paye)
+
+    @classmethod
+    def max(cls) -> float:
+        """
+        Trouve le montant de la paye la plus grosse de touts les employés
+        :return: le montant de la paye la plus haute
+        """
+        return max(paye.montant_paye for paye in cls.liste_paye)
+
     def __str__(self):
-        return f"{self.identifiant_paye}{self.nb_montant_paye} {self.date_de_paye} {self.employe}"
+        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} MONTANT DE LA PAYE : {self.nb_montant_paye}"
+                f" DATE DE LA PAYE : {self.date_de_paye} EMPLOYÉ QUI REÇOIS LA PAYE : {self.employe}")
