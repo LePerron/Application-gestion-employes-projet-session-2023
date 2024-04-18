@@ -50,6 +50,32 @@ class Paye:
     employe = property(get_employe, set_employe)
 
     @classmethod
+    def rechercher_paye_par_date(cls, date_de_paye: date) -> list:
+        """
+        Trouve les paiements effectués à une date.
+        :param date_de_paye: La date
+        :return: Une liste des paiements effectués à la date spécifiée
+        """
+        paiements_a_date = []
+        for paye in cls.liste_paye:
+            if paye.date_de_paye == date_de_paye:
+                paiements_a_date.append(paye)
+        return paiements_a_date
+
+    @classmethod
+    def rechercher_paye_par_employe(cls, employe: Employe) -> list:
+        """
+        Trouve les payes envoyées à un employé.
+        :param employe: L'employé
+        :return: Une liste des paiements envoyés à l'employé
+        """
+        paiements_par_employe = []
+        for paye in cls.liste_paye:
+            if paye.employe == employe:
+                paiements_par_employe.append(paye)
+        return paiements_par_employe
+
+    @classmethod
     def moyenne(cls):
         """
         Trouve le montant de la paye la plus petite de touts les employés
@@ -61,14 +87,14 @@ class Paye:
         return montants / len(cls.liste_paye)
 
     @classmethod
-    def mediane(cls):
+    def mediane(cls) -> float:
         """
         Trouve le montant de la paye la plus petite de touts les employés
         :return: le montant de la paye la plus petite
         """
         montants = []
         for paye in cls.liste_paye:
-            montants += paye.montant_paye
+            montants.append(paye.montant_paye)
         return median(montants)
 
     @classmethod
