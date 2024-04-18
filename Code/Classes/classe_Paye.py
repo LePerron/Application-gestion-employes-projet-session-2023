@@ -49,28 +49,30 @@ class Paye:
     employe = property(get_employe, set_employe)
 
     @classmethod
-    def rechercher_paye_par_date(cls, date_de_paye: date) -> list:
+    def rechercher_paye_par_date(cls, date_de_paye: date, date: date) -> list:
         """
         Trouve les paiements effectués à une date.
-        :param date_de_paye: La date
+        :param date_fournit: la date fournit
+        :param date_de_paye: La date des payes
         :return: Une liste des paiements effectués à la date spécifiée
         """
         paiements_a_date = []
         for paye in cls.liste_paye:
-            if paye.date_de_paye == date_de_paye:
+            if paye.date_de_paye == date:
                 paiements_a_date.append(paye)
         return paiements_a_date
 
     @classmethod
-    def rechercher_paye_par_employe(cls, employe: Employe) -> list:
+    def rechercher_paye_par_employe(cls, employe: Employe, employer_fournit : Employe) -> list:
         """
         Trouve les payes envoyées à un employé.
+        :param employer_fournit: l'employer fournit
         :param employe: L'employé
         :return: Une liste des paiements envoyés à l'employé
         """
         paiements_par_employe = []
         for paye in cls.liste_paye:
-            if paye.employe == employe:
+            if paye.employe == employer_fournit:
                 paiements_par_employe.append(paye)
         return paiements_par_employe
 
