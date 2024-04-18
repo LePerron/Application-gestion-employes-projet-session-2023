@@ -71,3 +71,4 @@ class Gestionnaire(Employe):
             if caissier.nom == nom_caissier_a_supprimer:
                 self.liste_caissier.remove(nom_caissier_a_supprimer)
 
+

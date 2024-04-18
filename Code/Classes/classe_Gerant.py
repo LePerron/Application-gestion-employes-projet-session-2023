@@ -23,21 +23,23 @@ class Gerant(Employe):
         self.liste_gestionnaire = p_liste_gestionnaire
 
 
-    def ajouter_gestionnaire_a_liste(self, gestionnaire_a_ajouter: Gestionnaire) -> None:
+    def ajouter_gestionnaire_a_liste(self, nom_gestionnaire_a_ajouter: str) -> None:
         """
         Ajouter un gestionnaire dans liste_gestionnaire
-        :param gestionnaire_a_ajouter: Gestionnaire à ajouter
+        :param nom_gestionnaire_a_ajouter: Gestionnaire à ajouter
         :return: La liste des gestionnaires avec le gestionnaire ajouté
         """
-        self.liste_gestionnaire.append(gestionnaire_a_ajouter)
+        for gestionnaire in self.liste_gestionnaire:
+            if gestionnaire.nom == nom_gestionnaire_a_ajouter:
+        self.liste_gestionnaire.append(nom_gestionnaire_a_ajouter)
 
 
-    def supprimer_gestionnaire_a_liste(self, gestionnaire_a_supprimer: Gestionnaire) -> None:
+    def supprimer_gestionnaire_a_liste(self, nom_gestionnaire_a_supprimer: str) -> None:
         """
         Supprimer un gestionnaire dans la liste_gestionnaire
-        :param gestionnaire_a_supprimer: Gestionnaire à supprimer
+        :param nom_gestionnaire_a_supprimer: Gestionnaire à supprimer
         """
-        self.liste_gestionnaire.remove(gestionnaire_a_supprimer)
+        self.liste_gestionnaire.remove(nom_gestionnaire_a_supprimer)
 
     def __str__(self):
         return "AAAAAAA faire"
