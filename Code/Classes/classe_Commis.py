@@ -9,7 +9,6 @@ class Commis(Employe):
     Classe enfant Commis de la classe mère Employe
     """
 
-    # Création de list_commis
     list_commis = []
 
     def __init__(self, p_gestionnaire: Gestionnaire = None, p_specialite: Specialite = None, p_identifiant: str = "",
