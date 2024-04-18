@@ -49,7 +49,7 @@ class Paye:
     employe = property(get_employe, set_employe)
 
     @classmethod
-    def rechercher_paye_par_date(cls, date_de_paye: date, date: date) -> list:
+    def rechercher_paye_par_date(cls, date_de_paye: date, date_fournit: date) -> list:
         """
         Trouve les paiements effectués à une date.
         :param date_fournit: la date fournit
@@ -58,7 +58,7 @@ class Paye:
         """
         paiements_a_date = []
         for paye in cls.liste_paye:
-            if paye.date_de_paye == date:
+            if paye.date_de_paye == date_fournit:
                 paiements_a_date.append(paye)
         return paiements_a_date
 
