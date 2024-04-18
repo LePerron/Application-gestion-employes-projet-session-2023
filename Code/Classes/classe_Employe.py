@@ -1,9 +1,4 @@
 from datetime import date, datetime
-<<<<<<< HEAD
-=======
-
->>>>>>> 5a4444847f1bae8f08f190ee04bb38a09252d5da
-from classe_Specialite import Specialite
 from classe_ContratEmploi import ContratEmploi
 
 #               UMLs            #
