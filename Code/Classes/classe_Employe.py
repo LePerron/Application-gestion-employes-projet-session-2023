@@ -95,11 +95,10 @@ class Employe:
         """
         return self.contrat.nb_heures_semaine >= 40
 
-    def __str__(self):
-        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
-                f"{self._prenom} - POSTE : {self._poste} - NUM CONTRAT : {self.contrat}")
-
     def obtenir_specialite(self) -> str:
         return f"{self.poste.__name__} {self.poste.specialite}"
 
+    def __str__(self) -> str:
+        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
+                f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
