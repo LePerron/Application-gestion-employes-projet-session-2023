@@ -42,6 +42,7 @@ class Gestionnaire(Employe):
                 return
         self.liste_commis.append(nom_commis_a_ajouter)
 
+
     def supprimer_commis_a_liste(self, nom_commis_a_supprimer: str) -> None:
         """
         Supprimer un commis dans liste_commis
