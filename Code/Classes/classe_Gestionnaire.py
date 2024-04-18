@@ -66,3 +66,4 @@ class Gestionnaire:
         :return: La liste des caissier avec le caissier supprimer
         """
         self.liste_caissier.remove(caissier_a_supprimer)
+
