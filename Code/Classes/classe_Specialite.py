@@ -51,14 +51,15 @@ class Specialite:
 
     # Modifier une spécialité
     @classmethod
-    def modifier_specialite(cls, specialite_a_modifier: str, nouveau_nom):
+    def modifier_specialite(cls, specialite_a_modifier: str, nouvelle_specialite: str):
         """
         Modifie le nom d'une spécialité
         :param specialite_a_modifier: Le nom actuel de la spécialité
+        :param nouvelle_specialite: Le nouveau nom de la spécialité
         """
         for specialite in cls.list_specialite:
             if specialite.nom == specialite_a_modifier:
-                specialite.nom = specialite_a_modifier
+                specialite.nom = nouvelle_specialite
 
     # Montrer tout les employer avec cette spécialité
     @staticmethod
