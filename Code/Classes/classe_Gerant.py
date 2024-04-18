@@ -1,20 +1,25 @@
-# Importation de la classe Gestionnaire
+from classe_ContratEmploi import ContratEmploi
 from classe_Gestionnaire import Gestionnaire
 from classe_Specialite import Specialite
+from classe_Employe import Employe
+from datetime import date
 
 
-
-class Gerant:
+class Gerant(Employe):
     """
-    Classes Gerant
+    Classes enfant Gerant de la classe mère Employe.
     """
 
-    def __init__(self, p_specialite: Specialite = None, p_liste_gestionnaire: list = [Gestionnaire]):
+    def __init__(self, p_specialite: Specialite = None, p_liste_gestionnaire: list = [Gestionnaire],
+                 p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
+                 p_poste: any = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
         """
-        Constructeur de la classe Gerant
+        Constructeur de la classe Gerant qui fait appel à sa classe mère Employe.
         :param p_specialite: Spécialité du gerant
         :param p_liste_gestionnaire: La liste des gestionnaires que le gérant gère.
         """
+        Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat)
+
         self.specialite = p_specialite
         self.liste_gestionnaire = p_liste_gestionnaire
 
