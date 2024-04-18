@@ -72,5 +72,6 @@ class ContratEmploi:
     employe = property(get_employe, set_employe)
 
     def __str__(self):
-        return (f"{self.identifiant_contrat} {self.nb_heures_semaine} {self.salaire_de_base} {self.termes_embauche} "
-                f"{self.facteur_salaire} {self.employe}")
+        return (f"IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine}"
+                f" - SALAIRE DE BASE : {self.salaire_de_base} - TERMES D'EMBAUCHE : {self.termes_embauche} "
+                f" - FACTEUR DU SALAIRE : {self.facteur_salaire} - NOM DE L'EMPLOYÉ{self.employe.nom}")
