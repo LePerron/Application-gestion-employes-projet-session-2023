@@ -75,3 +75,5 @@ class Specialite:
         if len(list_employes_selon_specialite) > 0:
             return list_employes_selon_specialite
 
+    def __str__(self):
+        return f"NOM DE LA SPÉCIALITÉ : {self._nom} - DESCRIPTION : {self.description}"
