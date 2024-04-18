@@ -12,7 +12,7 @@ class Caissier(Employe):
     liste_caissier = []
 
     def __init__(self, p_gestionnaire=None, p_specialite: Specialite = None, p_identifiant: str = "",
-                 p_nom: str = "", p_prenom: str = "", p_poste: any = "", p_date_engagement: date = None,
+                 p_nom: str = "", p_prenom: str = "", p_poste: any = None, p_date_engagement: date = None,
                  p_contrat=None):
         """
         Constructeur de la classe Caissier
@@ -22,3 +22,5 @@ class Caissier(Employe):
         Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat)
         self.gestionnaire = p_gestionnaire
         self.specialite = p_specialite
+
+

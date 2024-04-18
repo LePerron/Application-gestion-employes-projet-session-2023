@@ -19,7 +19,7 @@ class Employe:
     list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: any = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
+                 p_poste: any = None, p_date_engagement: date = None, p_contrat: ContratEmploi = None):
         """
         Le constructeur de la classe mére Employe
         :param p_identifiant: L'identifiant unique de l'employé. (7 digits, str)
