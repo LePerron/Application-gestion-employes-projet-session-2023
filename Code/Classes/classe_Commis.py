@@ -7,7 +7,7 @@ from classe_Employe import Employe
 from classe_ContratEmploi import ContratEmploi
 
 
-class Commis:
+class Commis(Employe):
     """
     Classe enfant Commis de la classe mère Employe
     """
