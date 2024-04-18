@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>602</width>
-    <height>349</height>
+    <width>389</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>581</width>
+     <width>381</width>
      <height>31</height>
     </rect>
    </property>
@@ -48,7 +48,7 @@
     <rect>
      <x>0</x>
      <y>40</y>
-     <width>591</width>
+     <width>391</width>
      <height>21</height>
     </rect>
    </property>
@@ -291,7 +291,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>280</y>
+     <y>250</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -312,7 +312,7 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>280</y>
+     <y>250</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -357,60 +357,6 @@
      <width>111</width>
      <height>22</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelErreurContratEngagement">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>252</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelContratEngagement">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>245</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Contrat d'engagement:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonMenu_2">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>251</y>
-     <width>101</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>8</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Créer un contrat</string>
    </property>
   </widget>
  </widget>

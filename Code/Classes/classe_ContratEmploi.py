@@ -13,7 +13,7 @@ class ContratEmploi:
                  p_salaire_de_base: float = 0.0, p_termes_embauche: str = ""):
         """
         :param p_identifiant_contrat:
-        :param p_employe:
+        :param p_employe: Le numéro de l'employé associé à ce contrat
         :param p_facteur_salaire:
         :param p_nb_heures_semaine:
         :param p_salaire_de_base:
