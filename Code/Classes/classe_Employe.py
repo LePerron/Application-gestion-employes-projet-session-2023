@@ -1,5 +1,6 @@
 from datetime import date, datetime
 
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from classe_ContratEmploi import ContratEmploi
 
 #               UMLs            #
@@ -20,7 +21,7 @@ class Employe:
     list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: str = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
+                 p_poste: any = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
         """
         Le constructeur de la classe mére Employe
         :param p_identifiant: L'identifiant unique de l'employé. (7 digits, str)
@@ -98,5 +99,7 @@ class Employe:
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
                 f"{self._prenom} - POSTE : {self._poste} - NUM CONTRAT : {self.contrat}")
 
-    def obtenir_specialite(self):
-        return self.poste
+    def obtenir_specialite(self) -> str:
+        return f"{self.poste.__name__} {self.poste.specialite}"
+
+
