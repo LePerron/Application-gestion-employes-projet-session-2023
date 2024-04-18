@@ -11,6 +11,7 @@ from classe_ContratEmploi import ContratEmploi
 #        ⇉ modifier un contrat
 #        ⇉ supprimer un contrat
 
+
 class Employe:
     """
     Classe Mére Employe
