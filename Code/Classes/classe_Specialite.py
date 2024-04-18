@@ -63,10 +63,14 @@ class Specialite:
 
     # Montrer tout les employer avec cette spécialité
     @staticmethod
-    def trouve_specialite():
+    def trouve_specialite(specialite_a_trouver: str) -> list:
         """
         Une méthode statique qui permet de trouver tout les employés qui ont selon une spécialité.
-        :return:
+        :param specialite_a_trouver: Nom de la spécialitée à trouver
         """
-        for
+        list_specialite_demmande = []
+        for specialite in Specialite.list_specialite:
+            if specialite_a_trouver == specialite.nom:
+                list_specialite_demmande.append(specialite)
+        return list_specialite_demmande
 
