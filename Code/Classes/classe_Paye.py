@@ -44,8 +44,7 @@ class Paye:
         return self._employe
 
     def set_employe(self, v_employe):
-        if isinstance(v_employe, Employe):
-            self._employe = v_employe
+        self._employe = v_employe
 
     employe = property(get_employe, set_employe)
 
