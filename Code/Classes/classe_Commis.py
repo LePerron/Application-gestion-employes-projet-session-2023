@@ -4,7 +4,7 @@ from Code.Classes.classe_Gestionnaire import Gestionnaire
 
 class Commis:
     """
-    Classes Commis
+    Classe enfant Commis de la classe mère Employe
     """
 
     # Création de list_commis
@@ -16,8 +16,8 @@ class Commis:
     def __init__(self, p_gestionnaire: Gestionnaire = None, p_specialite: str = ""):
         """
         Constructeur de la classe Commis
-        :param p_gestionnaire: Base de donner des gestionnaires
-        :param p_specialite: Spécialiter du commis
+        :param p_gestionnaire: Le gestionnaire du commis
+        :param p_specialite: La spécialité du commis
         """
         self.gestionnaire = p_gestionnaire
         self._specialite = p_specialite
@@ -28,6 +28,11 @@ class Commis:
         return self._specialite
 
     @specialite.setter
-    def specialite(self, specialite: str):
-        if specialite in Commis.list_specialite:
-            self._specialite = specialite
+    def specialite(self, v_specialite: str):
+        if v_specialite in Commis.list_specialite:
+            self._specialite = v_specialite
+
+    # | MÉTHODE À AJOUTER | #
+    # créer une nouvelle specialité (ajouter un "nom" à la liste des spécialités de la classe
+    # enlever une spécialité (supprimer de la liste des spécialités)
+    # modifier une spécialité (changer le "nom" de la spécialité dans la liste des spécialités)

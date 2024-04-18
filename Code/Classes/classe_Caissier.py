@@ -32,6 +32,7 @@ class Caissier:
         if v_specialite in Caissier.list_specialite:
             self._specialite = v_specialite
 
+    # | MÉTHODE À AJOUTER | #
     # créer une nouvelle specialité (ajouter un "nom" à la liste des spécialités de la classe
     # enlever une spécialité (supprimer de la liste des spécialités)
     # modifier une spécialité (changer le "nom" de la spécialité dans la liste des spécialités)
