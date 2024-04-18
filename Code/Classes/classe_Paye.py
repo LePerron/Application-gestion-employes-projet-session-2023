@@ -114,5 +114,5 @@ class Paye:
         return max(paye.montant_paye for paye in cls.liste_paye)
 
     def __str__(self):
-        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} MONTANT DE LA PAYE : {self.nb_montant_paye}"
-                f" DATE DE LA PAYE : {self.date_de_paye} EMPLOYÉ QUI REÇOIS LA PAYE : {self.employe}")
+        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} - MONTANT DE LA PAYE : {self.nb_montant_paye}"
+                f" - DATE DE LA PAYE : {self.date_de_paye} - EMPLOYÉ QUI REÇOIS LA PAYE : {self.employe}")
