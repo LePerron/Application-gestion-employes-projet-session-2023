@@ -31,6 +31,7 @@ class Gerant(Employe):
         """
         for gestionnaire in self.liste_gestionnaire:
             if gestionnaire.nom == nom_gestionnaire_a_ajouter:
+                return
         self.liste_gestionnaire.append(nom_gestionnaire_a_ajouter)
 
 
@@ -39,7 +40,9 @@ class Gerant(Employe):
         Supprimer un gestionnaire dans la liste_gestionnaire
         :param nom_gestionnaire_a_supprimer: Gestionnaire à supprimer
         """
-        self.liste_gestionnaire.remove(nom_gestionnaire_a_supprimer)
+        for gestionnaire in self.liste_gestionnaire:
+            if gestionnaire.nom == nom_gestionnaire_a_supprimer:
+                self.liste_gestionnaire.remove(nom_gestionnaire_a_supprimer)
 
     def __str__(self):
         return "AAAAAAA faire"
