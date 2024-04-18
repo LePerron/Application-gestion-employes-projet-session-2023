@@ -1,5 +1,6 @@
 # Importation de la classe Gestionnaire
 from Code.Classes.classe_Gestionnaire import Gestionnaire
+from Code.Classes.classe_Specialite import Specialite
 
 
 class Gerant:
@@ -7,27 +8,14 @@ class Gerant:
     Classes Gerant
     """
 
-    # Création de liste_specialite
-    list_specialite = []
-
-    def __init__(self, p_specialite: str = "", p_liste_gestionnaire: list = [Gestionnaire]):
+    def __init__(self, p_specialite: Specialite = None, p_liste_gestionnaire: list = [Gestionnaire]):
         """
         Constructeur de la classe Gerant
         :param p_specialite: Spécialité du gerant
         :param p_liste_gestionnaire: La liste des gestionnaires que le gérant gère.
         """
-        self._specialite = p_specialite
+        self.specialite = p_specialite
         self.liste_gestionnaire = p_liste_gestionnaire
-
-    # Get/Set specialite
-    @property
-    def specialite(self):
-        return self._specialite
-
-    @specialite.setter
-    def specialite(self, specialite: str):
-        if specialite in Gerant.list_specialite:
-            self._specialite = specialite
 
     # Ajouter un gestionnaire dans liste_gestionnaire à gérer
 
