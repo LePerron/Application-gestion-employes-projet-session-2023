@@ -1,7 +1,7 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
-
+##
 
 class Caissier(Employe):
     """
