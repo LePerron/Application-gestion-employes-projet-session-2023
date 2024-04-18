@@ -22,3 +22,7 @@ class Commis(Employe):
         Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat)
         self.gestionnaire = p_gestionnaire
         self.specialite = p_specialite
+
+    def __str__(self):
+        return (f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire}"
+                f" - SPÉCIALITÉ : {self.specialite}")

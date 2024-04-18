@@ -1,7 +1,7 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
-##
+
 
 class Caissier(Employe):
     """
@@ -26,6 +26,3 @@ class Caissier(Employe):
     def __str__(self):
         return (f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire}"
                 f" - SPÉCIALITÉ : {self.specialite}")
-
-
-    ##
