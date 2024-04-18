@@ -62,3 +62,4 @@ class Gestionnaire(Employe):
         :return: La liste des caissier avec le caissier supprimé
         """
         self.liste_caissier.remove(caissier_a_supprimer)
+
