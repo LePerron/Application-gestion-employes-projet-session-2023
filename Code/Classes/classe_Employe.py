@@ -37,10 +37,6 @@ class Employe:
         self.poste = p_poste
         self.contrat = p_contrat
 
-        # for contrat in ContratEmploi.list_contrat:
-        #     if contrat.employe == self._identifiant:
-        #         self.contrat = contrat
-
         Employe.list_employe.append(self)
 
     @property
@@ -99,4 +95,3 @@ class Employe:
     def __str__(self) -> str:
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
                 f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
-

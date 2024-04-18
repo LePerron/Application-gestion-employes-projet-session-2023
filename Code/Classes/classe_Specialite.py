@@ -60,7 +60,7 @@ class Specialite:
                 specialite.description = nouvelle_description
 
     @staticmethod
-    def trouve_specialite(specialite_demandee: str) -> list:
+    def trouve_employe_selon_specialite(specialite_demandee: str) -> list:
         """
         Une méthode statique qui permet de trouver tout les employés d'une même spécialité.
         :param specialite_demandee: Nom de la spécialitée demandée.
@@ -75,3 +75,5 @@ class Specialite:
         if len(list_employes_selon_specialite) > 0:
             return list_employes_selon_specialite
 
+    def __str__(self):
+        return f"NOM DE LA SPÉCIALITÉ : {self._nom} - DESCRIPTION : {self.description}"
