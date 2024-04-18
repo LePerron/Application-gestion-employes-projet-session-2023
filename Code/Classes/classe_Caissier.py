@@ -1,14 +1,20 @@
 # Importation de la classe Gestionnaire
+<<<<<<< HEAD
+from classe_Gestionnaire import Gestionnaire
+# Importation de la class Specialite
+from classe_Specialite import Specialite
+=======
 
 from classe_Gestionnaire import Gestionnaire
 from classe_Specialite import Specialite
 
 
+>>>>>>> 3f52adaadf531f7280a1369d1799e416be02ad5e
 
 
 class Caissier:
     """
-    Classe Caissier enfant de la classe Employe.
+    Classe Caissier enfant de la classe mère Employe.
     """
 
     # Création de la liste_caissier.
