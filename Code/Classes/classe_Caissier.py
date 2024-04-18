@@ -1,5 +1,6 @@
 # Importation de la classe Gestionnaire
 from Code.Classes.classe_Gestionnaire import Gestionnaire
+# Importation de la class Specialite
 from Code.Classes.classe_Specialite import Specialite
 
 

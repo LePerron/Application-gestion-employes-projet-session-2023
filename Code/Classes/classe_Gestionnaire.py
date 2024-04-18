@@ -4,6 +4,7 @@ from Code.Classes.classe_Caissier import Caissier
 from Code.Classes.classe_Commis import Commis
 # Imporation de la classe Gerant
 from Code.Classes.classe_Gerant import Gerant
+# Importation de la class Specialite
 from Code.Classes.classe_Specialite import Specialite
 
 
