@@ -2,8 +2,6 @@ from datetime import date
 
 from classe_Employe import Employe
 from classe_Specialite import Specialite
-from classe_Caissier import Caissier
-from classe_Commis import Commis
 from classe_Gerant import Gerant
 
 

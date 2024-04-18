@@ -1,5 +1,4 @@
 from classe_ContratEmploi import ContratEmploi
-from classe_Gestionnaire import Gestionnaire
 from classe_Specialite import Specialite
 from classe_Employe import Employe
 from datetime import date
@@ -12,7 +11,7 @@ class Gerant(Employe):
 
     def __init__(self, p_specialite: Specialite = None, p_liste_gestionnaire=None,
                  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: any = None, p_date_engagement: date = None, p_contrat: ContratEmploi = None):
+                 p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
         """
         Constructeur de la classe Gerant qui fait appel à sa classe mère Employe.
         :param p_specialite: Spécialité du gerant
@@ -20,13 +19,9 @@ class Gerant(Employe):
         """
         Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat)
 
-        if p_liste_gestionnaire is None:
-            p_liste_gestionnaire = [Gestionnaire]
-
         self.specialite = p_specialite
         self.liste_gestionnaire = p_liste_gestionnaire
 
-    # Ajouter un gestionnaire dans liste_gestionnaire à gérer
 
     def ajouter_gestionnaire_a_liste(self, gestionnaire_a_ajouter: Gestionnaire) -> None:
         """
@@ -36,7 +31,6 @@ class Gerant(Employe):
         """
         self.liste_gestionnaire.append(gestionnaire_a_ajouter)
 
-    # Supprimer un gestionnaire dans liste_gestionnaire à gérer
 
     def supprimer_gestionnaire_a_liste(self, gestionnaire_a_supprimer: Gestionnaire) -> None:
         """
