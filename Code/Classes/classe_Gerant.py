@@ -14,7 +14,7 @@ class Gerant:
         """
         Constructeur de la classe Gerant
         :param p_specialite: Spécialité du gerant
-        :param p_liste_gestionnaire: Base de données des gestionnaires
+        :param p_liste_gestionnaire: La liste des gestionnaires que le gérant gère.
         """
         self._specialite = p_specialite
         self.liste_gestionnaire = p_liste_gestionnaire

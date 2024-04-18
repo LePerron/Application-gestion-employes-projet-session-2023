@@ -1,4 +1,6 @@
 from datetime import date, datetime
+from encodings.punycode import selective_find
+
 from classe_ContratEmploi import ContratEmploi
 
 #               UMLs            #
@@ -33,13 +35,14 @@ class Employe:
         self._identifiant = p_identifiant
         self._nom = p_nom
         self._prenom = p_prenom
-        self._poste = p_poste
         self._date_engagement = p_date_engagement
+        self.poste = p_poste
         self.contrat = p_contrat
 
-        for contrat in ContratEmploi.list_contrat:
-            if contrat.employe == self._identifiant:
-                self.contrat = contrat
+        # for contrat in ContratEmploi.list_contrat:
+        #     if contrat.employe == self._identifiant:
+        #         self.contrat = contrat
+
 
         Employe.list_employe.append(self)
 
@@ -96,3 +99,6 @@ class Employe:
     def __str__(self):
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
                 f"{self._prenom} - POSTE : {self._poste} - NUM CONTRAT : {self.contrat}")
+
+    def obtenir_specialite(self):
+        return self.poste

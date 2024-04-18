@@ -21,10 +21,10 @@ class Gestionnaire:
                  p_liste_caissier: list = [Caissier]):
         """
         Constructeur de la classe Gestionnaire
-        :param p_gerant: Base de données des gerants
-        :param p_specialite: Spécialiter du gestionnaire
-        :param p_liste_commis: Base de données des commis
-        :param p_liste_caissier: Base de données des caissier
+        :param p_gerant: Le gérant du gestionnaire.
+        :param p_specialite: La spécialité du gestionnaire.
+        :param p_liste_commis: La liste des commis que le gestionnaire gère.
+        :param p_liste_caissier: La liste des caissiers que le gestionnaire gère.
         """
         self.gerant = p_gerant
         self._specialite = p_specialite
