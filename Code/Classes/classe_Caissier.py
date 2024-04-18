@@ -1,6 +1,6 @@
 # Importation de la classe Gestionnaire
-from Code.Classes.classe_Gestionnaire import Gestionnaire
-from Code.Classes.classe_Specialite import Specialite
+from classe_Gestionnaire import Gestionnaire
+from classe_Specialite import Specialite
 
 
 class Caissier:
