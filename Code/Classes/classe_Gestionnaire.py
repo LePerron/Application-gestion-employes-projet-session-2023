@@ -8,8 +8,6 @@ from classe_Gerant import Gerant
 from classe_Specialite import Specialite
 
 
-
-
 class Gestionnaire:
     """
     Classes Gestionnaire
@@ -18,8 +16,8 @@ class Gestionnaire:
     # Création de list_gestionnaire
     list_gestionnaire = []
 
-    def __init__(self, p_gerant: Gerant = None, p_specialite: Specialite = None, p_liste_commis: list = [Commis],
-                 p_liste_caissier: list = [Caissier]):
+    def __init__(self, p_gerant: Gerant = None, p_specialite: Specialite = None, p_liste_commis=None,
+                 p_liste_caissier=None):
         """
         Constructeur de la classe Gestionnaire
         :param p_gerant: Le gérant du gestionnaire.
@@ -27,12 +25,15 @@ class Gestionnaire:
         :param p_liste_commis: La liste des commis que le gestionnaire gère.
         :param p_liste_caissier: La liste des caissiers que le gestionnaire gère.
         """
+        if p_liste_commis is None:
+            p_liste_commis = [Commis]
+        if p_liste_caissier is None:
+            p_liste_caissier = [Caissier]
+
         self.gerant = p_gerant
         self.specialite = p_specialite
         self.liste_commis = p_liste_commis
         self.liste_caissier = p_liste_caissier
-
-
 
     # Ajouter un Commis dans liste_commis à gérer
     def ajouter_commis_a_liste(self, commis_a_ajouter: Commis) -> list:
