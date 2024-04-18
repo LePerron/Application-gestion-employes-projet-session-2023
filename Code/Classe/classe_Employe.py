@@ -1,14 +1,15 @@
 from datetime import date, datetime
 from classe_ContratEmploi import ContratEmploi
 
+#               UMLs            #
 # +contrat: ContratEmploi = None
 # +contrat = ContratEmploi: ContratEmploi
 #
-#
-#
-#
-#
-
+# À FAIRE !!!!
+#   → dans le menu, faire "Gestion des contrats des employés"
+#        ⇉ créer un contrat
+#        ⇉ modifier un contrat
+#        ⇉ supprimer un contrat
 
 class Employe:
     """
@@ -34,6 +35,10 @@ class Employe:
         self._poste = p_poste
         self._date_engagement = p_date_engagement
         self.contrat = p_contrat
+
+        for contrat in ContratEmploi.list_contrat:
+            if contrat.employe == self._identifiant:
+                self.contrat = contrat
 
         Employe.list_employe.append(self)
 
@@ -82,31 +87,11 @@ class Employe:
 
     def est_temps_plein(self) -> bool:
         """
-        Une méthode qui retourne True si l'employe travail plus de 40 heures / semaine.
-        :return: True si l'employé est à temps plein
+        Une méthode qui retourne True si l'employé travail plus de 40 heures / semaine.
+        :return: True si l'employé est à temps plein sinon False
         """
+        return self.contrat.nb_heures_semaine >= 40
 
-        return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def __str__(self):
+        return (f"IDENTIFIANT : {self._identifiant}"
+                f" - NOM COMPLET : {self._nom} {self._prenom} - POSTE : {self._poste} - NUM CONTRAT : {self.contrat}")
