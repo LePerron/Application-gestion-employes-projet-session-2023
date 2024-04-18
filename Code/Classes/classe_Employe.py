@@ -1,5 +1,5 @@
+from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from datetime import date, datetime
-from classe_ContratEmploi import ContratEmploi
 
 #               UMLs            #
 # +contrat: ContratEmploi = None
@@ -92,6 +92,9 @@ class Employe:
     def obtenir_specialite(self) -> str:
         return f"{self.poste.__name__} {self.poste.specialite}"
 
-    def __str__(self) -> str:
+    def afficher_informations_employe(self) -> str:
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
                 f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
+
+    def __str__(self) -> str:
+        return self.afficher_informations_employe()

@@ -1,6 +1,6 @@
-from classe_ContratEmploi import ContratEmploi
-from classe_Specialite import Specialite
-from classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
 
 
@@ -22,7 +22,6 @@ class Gerant(Employe):
         self.specialite = p_specialite
         self.liste_gestionnaire = p_liste_gestionnaire
 
-
     def ajouter_gestionnaire_a_liste(self, gestionnaire_a_ajouter: Gestionnaire) -> None:
         """
         Ajouter un gestionnaire dans liste_gestionnaire
@@ -30,7 +29,6 @@ class Gerant(Employe):
         :return: La liste des gestionnaires avec le gestionnaire ajouté
         """
         self.liste_gestionnaire.append(gestionnaire_a_ajouter)
-
 
     def supprimer_gestionnaire_a_liste(self, gestionnaire_a_supprimer: Gestionnaire) -> None:
         """
