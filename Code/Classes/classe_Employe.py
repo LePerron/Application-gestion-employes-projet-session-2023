@@ -1,6 +1,6 @@
 from datetime import date, datetime
-from encodings.punycode import selective_find
 
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from classe_ContratEmploi import ContratEmploi
 
 #               UMLs            #
@@ -16,12 +16,12 @@ from classe_ContratEmploi import ContratEmploi
 
 class Employe:
     """
-    Classes Mére Employe
+    Classe mère Employe
     """
     list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: str = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
+                 p_poste: any = "", p_date_engagement: date = None, p_contrat: ContratEmploi = None):
         """
         Le constructeur de la classe mére Employe
         :param p_identifiant: L'identifiant unique de l'employé. (7 digits, str)
@@ -42,7 +42,6 @@ class Employe:
         # for contrat in ContratEmploi.list_contrat:
         #     if contrat.employe == self._identifiant:
         #         self.contrat = contrat
-
 
         Employe.list_employe.append(self)
 
@@ -96,9 +95,10 @@ class Employe:
         """
         return self.contrat.nb_heures_semaine >= 40
 
-    def __str__(self):
-        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
-                f"{self._prenom} - POSTE : {self._poste} - NUM CONTRAT : {self.contrat}")
+    def obtenir_specialite(self) -> str:
+        return f"{self.poste.__name__} {self.poste.specialite}"
 
-    def obtenir_specialite(self):
-        return self.poste
+    def __str__(self) -> str:
+        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
+                f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
+
