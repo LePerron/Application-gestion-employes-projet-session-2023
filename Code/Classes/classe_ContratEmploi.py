@@ -24,7 +24,7 @@ class ContratEmploi:
         self._nb_heures_semaine = p_nb_heures_semaine
         self._salaire_de_base = p_salaire_de_base
         self._termes_embauche = p_termes_embauche
-        self._employe =
+        self._employe = p_employe
 
     def get_nb_heures_semaine(self):
         return self._nb_heures_semaine
