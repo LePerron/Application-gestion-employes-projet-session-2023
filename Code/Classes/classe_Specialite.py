@@ -61,7 +61,6 @@ class Specialite:
             if specialite.nom == specialite_a_modifier:
                 specialite.nom = nouvelle_specialite
 
-    # Montrer tout les employer avec cette spécialité
     @staticmethod
     def trouve_specialite():
         """
