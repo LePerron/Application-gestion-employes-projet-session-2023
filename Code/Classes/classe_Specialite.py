@@ -29,7 +29,7 @@ class Specialite:
     @classmethod
     def supprimer_specialite(cls, nom_specialite: str):
         """
-        Supprimer la spécialité demmander
+        Une méthode de classe qui permet de supprimer une spécialité.
         :param nom_specialite: Nom de la spécialité à enlever
         """
         for specialite in cls.list_specialite:
@@ -48,14 +48,14 @@ class Specialite:
         cls.list_specialite.append(nouvelle_specialite)
 
     @classmethod
-    def modifier_specialite(cls, specialite_modifie: str):
+    def modifier_specialite(cls, specialite_a_modifier: str, nouveau_nom):
         """
-        Modifier le nom de la spécialité
-        :param specialite_modifie: Ancien nom de la spécialité
+        Modifie le nom d'une spécialité
+        :param specialite_a_modifier: Le nom actuel de la spécialité
         """
         for specialite in cls.list_specialite:
-            if specialite.nom == specialite_modifie:
-                specialite.nom = specialite_modifie
+            if specialite.nom == specialite_a_modifier:
+                specialite.nom = specialite_a_modifier
 
     @staticmethod
     def trouve_specialite():
