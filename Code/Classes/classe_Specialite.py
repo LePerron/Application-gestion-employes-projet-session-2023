@@ -16,7 +16,7 @@ class Specialite:
         self._nom = p_nom
         self.description = p_description
 
-        # Get/Set du param nom
+    # Get/Set du param nom
     @property
     def nom(self):
         return self._nom
@@ -28,6 +28,7 @@ class Specialite:
                 if specialite == nom_specialite:
                     self._nom = nom_specialite
 
+    # Supprimer_specialite
     @classmethod
     def supprimer_specialite(cls, nom_specialite: str):
         """
@@ -38,6 +39,7 @@ class Specialite:
             if specialite.nom == nom_specialite:
                 cls.list_specialite.remove(specialite)
 
+    # Ajouter une spécialité
     @classmethod
     def ajouter_specialite(cls, nouvelle_specialite: str):
         """
@@ -49,6 +51,7 @@ class Specialite:
                 return
         cls.list_specialite.append(nouvelle_specialite)
 
+    # Modifier une spécialité
     @classmethod
     def modifier_specialite(cls, specialite_modifie: str):
         """
@@ -59,6 +62,7 @@ class Specialite:
             if specialite.nom == specialite_modifie:
                 specialite.nom = specialite_modifie
 
+    # Montrer tout les employer avec cette spécialité
     @staticmethod
     def trouve_specialite():
         for
