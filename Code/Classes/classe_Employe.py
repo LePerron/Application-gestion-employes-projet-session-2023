@@ -81,7 +81,7 @@ class Employe:
 
     def obtenir_anciennete(self) -> int:
         """
-        Une méthode qui permet d'obtenir l'ancienneté de l'employé.
+        Une méthode qui permet d'obtenir l'ancienneté d'un employé.
         :return: Le nombre d'années d'ancienneté
         """
         return (datetime.now() - self._date_engagement).days // 365

@@ -1,6 +1,3 @@
-from classe_Employe import Employe
-
-
 class ContratEmploi:
     """
     Classes Equipe
@@ -9,7 +6,7 @@ class ContratEmploi:
     list_contrat = []
 
     # Attribut de classe
-    def __init__(self, p_identifiant_contrat: str = "", p_employe: Employe = None, p_facteur_salaire: float = 0.0,
+    def __init__(self, p_identifiant_contrat: str = "", p_employe=None, p_facteur_salaire: float = 0.0,
                  p_nb_heures_semaine: int = 0, p_salaire_de_base: float = 0.0, p_termes_embauche: str = ""):
         """
         :param p_identifiant_contrat:
