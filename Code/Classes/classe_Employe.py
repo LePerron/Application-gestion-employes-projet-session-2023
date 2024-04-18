@@ -1,5 +1,4 @@
 from datetime import date, datetime
-from encodings.punycode import selective_find
 
 from classe_ContratEmploi import ContratEmploi
 
@@ -16,7 +15,7 @@ from classe_ContratEmploi import ContratEmploi
 
 class Employe:
     """
-    Classes Mére Employe
+    Classe mère Employe
     """
     list_employe = []
 
@@ -42,7 +41,6 @@ class Employe:
         # for contrat in ContratEmploi.list_contrat:
         #     if contrat.employe == self._identifiant:
         #         self.contrat = contrat
-
 
         Employe.list_employe.append(self)
 
