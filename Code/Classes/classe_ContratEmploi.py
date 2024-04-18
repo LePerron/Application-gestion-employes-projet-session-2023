@@ -1,4 +1,4 @@
-from Code.Classes.classe_Employe import Employe
+from classe_Employe import Employe
 
 
 class ContratEmploi:
