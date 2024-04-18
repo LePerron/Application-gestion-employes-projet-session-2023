@@ -1,10 +1,7 @@
-# Importation de la classe Gestionnaire
 from classe_Gestionnaire import Gestionnaire
-# Importation de la class Specialite
 from classe_Specialite import Specialite
 from datetime import date
 from classe_Employe import Employe
-from classe_ContratEmploi import ContratEmploi
 
 
 class Commis(Employe):
@@ -17,7 +14,7 @@ class Commis(Employe):
 
     def __init__(self, p_gestionnaire: Gestionnaire = None, p_specialite: Specialite = None, p_identifiant: str = "",
                  p_nom: str = "", p_prenom: str = "", p_poste: any = "", p_date_engagement: date = None,
-                 p_contrat: ContratEmploi = None):
+                 p_contrat=None):
         """
         Constructeur de la classe Commis
         :param p_gestionnaire: Le gestionnaire du commis

@@ -1,10 +1,6 @@
-# Importation de la classe Caissier
 from classe_Caissier import Caissier
-# Importation de la classe Commis
 from classe_Commis import Commis
-# Importation de la classe Gerant
 from classe_Gerant import Gerant
-# Importation de la classe Specialite
 from classe_Specialite import Specialite
 
 
