@@ -64,5 +64,9 @@ class Specialite:
     # Montrer tout les employer avec cette spécialité
     @staticmethod
     def trouve_specialite():
+        """
+        Une méthode statique qui permet de trouver tout les employés qui ont selon une spécialité.
+        :return:
+        """
         for
 
