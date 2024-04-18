@@ -31,35 +31,45 @@ class Gestionnaire(Employe):
         self.liste_commis = p_liste_commis
         self.liste_caissier = p_liste_caissier
 
-    def ajouter_commis_a_liste(self, commis_a_ajouter: Commis) -> None:
+    def ajouter_commis_a_liste(self, nom_commis_a_ajouter: str) -> None:
         """
         Ajouter un commis dans liste_commis
-        :param commis_a_ajouter: Commis à ajouter
+        :param nom_commis_a_ajouter: Commis à ajouter
         :return: La liste des commis avec le commis ajouté
         """
-        self.liste_commis.append(commis_a_ajouter)
+        for commis in self.liste_commis:
+            if commis.nom == nom_commis_a_ajouter:
+                return
+        self.liste_commis.append(nom_commis_a_ajouter)
 
-    def supprimer_commis_a_liste(self, commis_a_supprimer: Commis) -> None:
+    def supprimer_commis_a_liste(self, nom_commis_a_supprimer: str) -> None:
         """
         Supprimer un commis dans liste_commis
-        :param commis_a_supprimer: Commis à supprimer
+        :param nom_commis_a_supprimer: Commis à supprimer
         :return: La liste des commis avec le commis supprimé
         """
-        self.liste_commis.remove(commis_a_supprimer)
+        for commis in self.liste_commis:
+            if commis.nom == nom_commis_a_supprimer:
+                self.liste_commis.remove(nom_commis_a_supprimer)
 
-    def ajouter_caissier_a_liste(self, caissier_a_ajouter: Caissier) -> None:
+    def ajouter_caissier_a_liste(self, nom_caissier_a_ajouter: str) -> None:
         """
         Ajouter un caissier dans liste_caissier
-        :param caissier_a_ajouter: Caissier à ajouter
+        :param nom_caissier_a_ajouter: Caissier à ajouter
         :return: La liste des caissier avec le caissier ajouté
         """
-        self.liste_caissier.append(caissier_a_ajouter)
+        for caissier in self.liste_caissier:
+            if caissier.nom == nom_caissier_a_ajouter:
+                return
+        self.liste_caissier.append(nom_caissier_a_ajouter)
 
-    def supprimer_caissier_a_liste(self, caissier_a_supprimer: Caissier) -> None:
+    def supprimer_caissier_a_liste(self, nom_caissier_a_supprimer: str) -> None:
         """
         Supprimer un caissier dans liste_caissier
-        :param caissier_a_supprimer: Caissier à supprimer
+        :param nom_caissier_a_supprimer: Caissier à supprimer
         :return: La liste des caissier avec le caissier supprimé
         """
-        self.liste_caissier.remove(caissier_a_supprimer)
+        for caissier in self.liste_caissier:
+            if caissier.nom == nom_caissier_a_supprimer:
+                self.liste_caissier.remove(nom_caissier_a_supprimer)
 
