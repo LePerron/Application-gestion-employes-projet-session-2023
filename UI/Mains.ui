@@ -35,7 +35,7 @@
       <height>0</height>
      </size>
     </property>
-    <layout class="QVBoxLayout" name="LayoutMenu" stretch="0,0,0,5,2,0,0,1">
+    <layout class="QVBoxLayout" name="LayoutMenu" stretch="4,4,2,2,2,2,2,2">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -80,7 +80,7 @@
         <enum>Qt::Vertical</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Preferred</enum>
+        <enum>QSizePolicy::Fixed</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -99,6 +99,18 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonContrat">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>15</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <pointsize>11</pointsize>
@@ -114,6 +126,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonPaye">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
          <pointsize>11</pointsize>
@@ -130,7 +148,7 @@
      <item>
       <widget class="QPushButton" name="pushButtonEmployer">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -166,6 +184,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonQuitter">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
          <pointsize>11</pointsize>
@@ -188,7 +212,7 @@
      <x>0</x>
      <y>0</y>
      <width>372</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

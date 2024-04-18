@@ -1,10 +1,10 @@
 # Importation de la classe Gestionnaire
-from Code.Classe.classe_Gestionnaire import Gestionnaire
+from Code.Classes.classe_Gestionnaire import Gestionnaire
 
 
 class Caissier:
     """
-    Classe employer caissier
+    Classes employer caissier
     """
 
     # Création de la liste_caissier.

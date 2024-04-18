@@ -1,14 +1,14 @@
 # Importation de la classe Caissier
-from Code.Classe.classe_Caissier import Caissier
+from Code.Classes.classe_Caissier import Caissier
 # Importation de la classe Commis
-from Code.Classe.classe_Commis import Commis
+from Code.Classes.classe_Commis import Commis
 # Imporation de la classe Gerant
-from Code.Classe.classe_Gerant import Gerant
+from Code.Classes.classe_Gerant import Gerant
 
 
 class Gestionnaire:
     """
-    Classe Gestionnaire
+    Classes Gestionnaire
     """
 
     # Création de list_gestionnaire

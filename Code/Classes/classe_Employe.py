@@ -14,7 +14,7 @@ from classe_ContratEmploi import ContratEmploi
 
 class Employe:
     """
-    Classe Mére Employe
+    Classes Mére Employe
     """
     list_employe = []
 

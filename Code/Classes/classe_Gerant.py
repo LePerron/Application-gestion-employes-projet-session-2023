@@ -1,10 +1,10 @@
 # Importation de la classe Gestionnaire
-from Code.Classe.classe_Gestionnaire import Gestionnaire
+from Code.Classes.classe_Gestionnaire import Gestionnaire
 
 
 class Gerant:
     """
-    Classe Gerant
+    Classes Gerant
     """
 
     # Création de liste_specialite

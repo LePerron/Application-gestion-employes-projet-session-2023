@@ -13,24 +13,34 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="labelAjouterEmployer">
+  <widget class="QLabel" name="labelTitreAjouterEmployer">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>191</width>
+     <width>581</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>20</pointsize>
      <weight>75</weight>
+     <italic>false</italic>
      <bold>true</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
     </font>
    </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
    <property name="text">
-    <string>Ajouter un employer:</string>
+    <string>Ajouter un employer</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="Line" name="line">
@@ -42,6 +52,15 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>2</number>
+   </property>
+   <property name="midLineWidth">
+    <number>0</number>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
@@ -51,7 +70,7 @@
     <rect>
      <x>10</x>
      <y>60</y>
-     <width>71</width>
+     <width>80</width>
      <height>31</height>
     </rect>
    </property>
@@ -71,7 +90,7 @@
     <rect>
      <x>10</x>
      <y>90</y>
-     <width>31</width>
+     <width>40</width>
      <height>31</height>
     </rect>
    </property>
@@ -110,7 +129,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>150</y>
+     <y>153</y>
      <width>41</width>
      <height>31</height>
     </rect>
@@ -126,11 +145,11 @@
     <string>Poste:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelIdentifiant_2">
+  <widget class="QLabel" name="labelDateEngagement">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>210</y>
+     <y>214</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -149,8 +168,8 @@
   <widget class="QLineEdit" name="lineEditIdentifiant">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>70</y>
+     <x>93</x>
+     <y>67</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -159,7 +178,7 @@
   <widget class="QLineEdit" name="lineEditNom">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>52</x>
      <y>100</y>
      <width>113</width>
      <height>20</height>
@@ -179,8 +198,8 @@
   <widget class="QComboBox" name="comboBoxPoste">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>160</y>
+     <x>62</x>
+     <y>158</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -216,10 +235,10 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="labelErreuridentifiant">
+  <widget class="QLabel" name="labelErreurIdentifiant">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>220</x>
      <y>70</y>
      <width>151</width>
      <height>16</height>
@@ -232,8 +251,8 @@
   <widget class="QLabel" name="labelErreurNom">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>100</y>
+     <x>172</x>
+     <y>102</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -242,11 +261,11 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="labelPrenom_2">
+  <widget class="QLabel" name="labelErreurPrenom">
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>130</y>
+     <y>131</y>
      <width>131</width>
      <height>16</height>
     </rect>
@@ -259,7 +278,7 @@
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>220</y>
+     <y>223</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -272,7 +291,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>250</y>
+     <y>280</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -293,7 +312,7 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>250</y>
+     <y>280</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -314,7 +333,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>180</y>
+     <y>184</y>
      <width>71</width>
      <height>31</height>
     </rect>
@@ -330,14 +349,68 @@
     <string>Spécialité:</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBoxSpecialiter">
+  <widget class="QComboBox" name="comboBoxSpecialite">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>83</x>
      <y>190</y>
      <width>111</width>
      <height>22</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelErreurContratEngagement">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>252</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelContratEngagement">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>245</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Contrat d'engagement:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonMenu_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>251</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Créer un contrat</string>
    </property>
   </widget>
  </widget>
