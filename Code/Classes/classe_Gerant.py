@@ -1,4 +1,3 @@
-from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
@@ -43,5 +42,4 @@ class Gerant(Employe):
                 self.liste_gestionnaire.remove(nom_gestionnaire_a_supprimer)
 
     def __str__(self):
-        return (f"{self.afficher_informations_employe()} - SPÉCIALITÉ {self.specialite}"
-                f"-")
+        return f"{self.afficher_informations_employe()} - SPÉCIALITÉ {self.specialite}"
