@@ -31,49 +31,49 @@ class ContratEmploi:
         else:
             self.identifiant_contrat = len(ContratEmploi.list_contrat) + 1
 
-    def _get_nb_heures_semaine(self):
+    @property
+    def nb_heures_semaine(self):
         return self._nb_heures_semaine
 
-    def _set_nb_heures_semaine(self, v_nb_heures_semaine):
+    @nb_heures_semaine.setter
+    def nb_heures_semaine(self, v_nb_heures_semaine):
         if isinstance(v_nb_heures_semaine, int) and 40 > v_nb_heures_semaine > 0:
             self._nb_heures_semaine = v_nb_heures_semaine
 
-    nb_heures_semaine = property(_get_nb_heures_semaine, _set_nb_heures_semaine)
-
-    def _get_salaire_de_base(self):
+    @property
+    def salaire_de_base(self):
         return self._salaire_de_base
 
-    def _set_salaire_de_base(self, v_salaire_de_base):
+    @salaire_de_base.setter
+    def salaire_de_base(self, v_salaire_de_base):
         if isinstance(v_salaire_de_base, float) and v_salaire_de_base > 0:
             self._salaire_de_base = v_salaire_de_base
 
-    salaire_de_base = property(_get_salaire_de_base, _set_salaire_de_base)
-
-    def _get_termes_embauche(self):
+    @property
+    def termes_embauche(self):
         return self._termes_embauche
 
-    def _set_termes_embauche(self, v_termes_embauche):
+    @termes_embauche.setter
+    def termes_embauche(self, v_termes_embauche):
         if isinstance(v_termes_embauche, str):
             self._termes_embauche = v_termes_embauche
 
-    termes_embauche = property(_get_termes_embauche, _set_termes_embauche)
-
-    def _get_facteur_salaire(self):
+    @property
+    def facteur_salaire(self):
         return self._facteur_salaire
 
-    def _set_facteur_salaire(self, v_facteur_salaire):
+    @facteur_salaire.setter
+    def facteur_salaire(self, v_facteur_salaire):
         if isinstance(v_facteur_salaire, float) and 100 > v_facteur_salaire > 0:
             self._facteur_salaire = v_facteur_salaire
 
-    facteur_salaire = property(_get_facteur_salaire, _set_facteur_salaire)
-
-    def _get_employe(self):
+    @property
+    def employe(self):
         return self._employe
 
-    def _set_employe(self, v_employe):
+    @employe.setter
+    def employe(self, v_employe):
         self._employe = v_employe
-
-    employe = property(_get_employe, _set_employe)
 
     def __str__(self):
         return (f"- IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - SALAIRE DE BASE : {self.salaire_de_base} $"
