@@ -3,21 +3,21 @@ from classe_Employe import Employe
 
 class ContratEmploi:
     """
-    Classes Equipe
+    Classes ContratEmploi
     """
 
     list_contrat = []
 
     # Attribut de classe
-    def __init__(self, p_identifiant_contrat: str = "", p_employe: Employe = None, p_facteur_salaire: float = 0.0,
+    def __init__(self, p_identifiant_contrat: int = 0, p_employe: Employe = None, p_facteur_salaire: float = 0.0,
                  p_nb_heures_semaine: int = 0, p_salaire_de_base: float = 0.0, p_termes_embauche: str = ""):
         """
-        :param p_identifiant_contrat:
+        :param p_identifiant_contrat: L'identifiant du contrat de l'employé
         :param p_employe: Le numéro de l'employé associé à ce contrat
-        :param p_facteur_salaire:
-        :param p_nb_heures_semaine:
-        :param p_salaire_de_base:
-        :param p_termes_embauche:
+        :param p_facteur_salaire: Facteur qui affecte le salaire de l'employé
+        :param p_nb_heures_semaine: Nombre d'heure fait par l'employé
+        :param p_salaire_de_base: Le salaire de base de l'employé
+        :param p_termes_embauche: Termes d'emboche de l'employé
         """
         self.identifiant_contrat = p_identifiant_contrat
         self._facteur_salaire = p_facteur_salaire
@@ -30,7 +30,7 @@ class ContratEmploi:
         return self._nb_heures_semaine
 
     def set_nb_heures_semaine(self, v_nb_heures_semaine):
-        if isinstance(v_nb_heures_semaine, int):
+        if isinstance(v_nb_heures_semaine, int) and v_nb_heures_semaine > 0:
             self._nb_heures_semaine = v_nb_heures_semaine
 
     nb_heures_semaine = property(get_nb_heures_semaine, set_nb_heures_semaine)
@@ -39,7 +39,7 @@ class ContratEmploi:
         return self._salaire_de_base
 
     def set_salaire_de_base(self, v_salaire_de_base):
-        if isinstance(v_salaire_de_base, float) and v_salaire_de_base > 15.75:
+        if isinstance(v_salaire_de_base, float):
             self._salaire_de_base = v_salaire_de_base
 
     salaire_de_base = property(get_salaire_de_base, set_salaire_de_base)
