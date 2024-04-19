@@ -72,16 +72,21 @@ class Gestionnaire(Employe):
                 self.liste_caissier.remove(nom_caissier_a_supprimer)
 
     @staticmethod
-    def parcourir_liste(liste_a_parcourir: list[object]) -> str:
+    def parcourir_liste(liste_a_parcourir: list) -> str:
         """
         Une méthode statique qui permet de parcourir une liste et de retourner son contenus dans une chaîne de str.
-        :param liste_a_parcourir: La liste à parcourir. | TYPE: Caissier OU Commis
+        :param liste_a_parcourir: La liste à parcourir. | TYPE: list[Caissier] OU list[Commis]
         :return: La chaine de caractère contenant toute le contenu de la liste séparé pour être facilement affiché.
         """
         chaine_str = ""
         for element in liste_a_parcourir:
-            chaine_str += element
-
+            chaine_str += f"{element.nom} | "
+        return chaine_str
 
     def __str__(self):
-        return f"{self.afficher_informations_employe()} - "
+        """
+        Une fonction magique qui permet de retourner dans un bon format les informations du gestionnaire.
+        :return: Les informations du gestionnaire dans un beau format d'affichage.
+        """
+        return (f"{self.afficher_informations_employe()} - GÉRANT : {self.gerant} "
+                f"- SPÉCIALITÉ : {self.specialite}")
