@@ -93,4 +93,9 @@ class Employe:
                 f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
     def __str__(self) -> str:
+        """
+        Une fonction magique qui permet de retourner dans un bon format les informations de l'employé
+        La fonction *afficher_informations_employe* est utilisée pour permettre à ses enfants d'avoir leur propre __str__() en plus de celui de la mère.
+        :return: Les informations de l'employé dans un beau format d'affichage.
+        """
         return self.afficher_informations_employe()
