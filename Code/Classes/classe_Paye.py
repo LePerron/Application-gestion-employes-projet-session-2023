@@ -74,15 +74,10 @@ class Paye:
         Calcul la médiane de toutes les payes
         :return: La médiane de toute les payes
         """
-        montants = []
+        montant_total = []
         for paye in cls.list_paye:
-<<<<<<< HEAD
             montant_total.append(paye.montant_paye)
         return median(montant_total)
-=======
-            montants += paye.montant_paye
-        return median(montants)
->>>>>>> c2991aa0b2dd1ad3a5e5c1376ea7b1499e5950ef
 
     @classmethod
     def obtenir_paye_min(cls) -> float:
@@ -125,7 +120,6 @@ class Paye:
             if paye.employe.identifiant == identifiant_employe:
                 paiements_de_employe.append(paye)
         return paiements_de_employe
-
 
     def __str__(self):
         """
