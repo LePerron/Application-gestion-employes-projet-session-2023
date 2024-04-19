@@ -86,9 +86,17 @@ class Employe:
         return self.contrat.nb_heures_semaine >= 40
 
     def obtenir_specialite(self) -> str:
+        """
+        Une fonction qui permet d'obtenir
+        :return:
+        """
         return f"{self.poste.__name__} {self.poste.specialite}"
 
     def afficher_informations_employe(self) -> str:
+        """
+        Une fonction qui permet de retourner dans un bon format les informations de l'employé.
+        :return: Les informations de l'employé dans un beau format d'affichage.
+        """
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
                 f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
