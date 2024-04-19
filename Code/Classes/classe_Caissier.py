@@ -24,5 +24,9 @@ class Caissier(Employe):
         self.specialite = p_specialite
 
     def __str__(self):
+        """
+        Une fonction magique qui permet de retourner dans un bon format les informations du caissier.
+        :return: Les informations du caissier dans un beau format d'affichage.
+        """
         return (f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire}"
                 f" - SPÉCIALITÉ : {self.specialite}")
