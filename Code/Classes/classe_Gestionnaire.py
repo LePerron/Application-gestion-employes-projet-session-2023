@@ -1,8 +1,7 @@
-from datetime import date
-
-from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
+from datetime import date
 
 
 class Gestionnaire(Employe):

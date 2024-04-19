@@ -17,11 +17,11 @@ class Employe:
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
                  p_poste: any = None, p_date_engagement: date = None, p_contrat: ContratEmploi = None):
         """
-        Le constructeur de la classe mére Employe
-        :param p_identifiant: L'identifiant unique de l'employé. (7 digits, str)
+        Le constructeur de la classe mère Employe
+        :param p_identifiant: L'identifiant unique de l'employé. | (7 digits, str)
         :param p_nom: Le nom de l'employé.
         :param p_prenom: Le prénom de l'employé.
-        :param p_poste: Le poste qu'occupe l'employé.
+        :param p_poste: Le poste qu'occupe l'employé. | TYPE : Gerant, Gestionnaire, Commis, Caissier,
         :param p_date_engagement: La date d'engagement de l'employé dans l'entreprise.
         :param p_contrat: Le contrat d'engagement de l'employé par l'entreprise.
         """
