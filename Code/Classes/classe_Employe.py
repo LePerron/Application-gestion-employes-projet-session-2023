@@ -1,4 +1,3 @@
-from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from datetime import date, datetime
 
 # À FAIRE !!!!
@@ -15,7 +14,7 @@ class Employe:
     list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: any = None, p_date_engagement: date = None, p_contrat: ContratEmploi = None):
+                 p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
         """
         Le constructeur de la classe mère Employe
         :param p_identifiant: L'identifiant unique de l'employé. | (7 digits, str)

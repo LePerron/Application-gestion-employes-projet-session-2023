@@ -5,14 +5,14 @@ from datetime import date
 
 class Gerant(Employe):
     """
-    Classes enfant Gerant de la classe mère Employe.
+    Classe enfant Gerant de la classe mère Employe.
     """
 
     def __init__(self, p_specialite: Specialite = None, p_liste_gestionnaire=None,
                  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
                  p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
         """
-        Constructeur de la classe Gerant qui fait appel à sa classe mère Employe.
+        Constructeur de la classe Gerant qui fait app   el à sa classe mère Employe.
         :param p_specialite: Spécialité du gerant
         :param p_liste_gestionnaire: La liste des gestionnaires que le gérant gère.
         """

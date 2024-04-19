@@ -6,7 +6,7 @@ from datetime import date
 
 class Gestionnaire(Employe):
     """
-    Classes enfant Gestionnaire de la classe mère Employe
+    Classe enfant Gestionnaire de la classe mère Employe
     """
 
     list_gestionnaire = []

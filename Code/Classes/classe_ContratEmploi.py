@@ -3,7 +3,7 @@ from classe_Employe import Employe
 
 class ContratEmploi:
     """
-    Classes ContratEmploi
+    Classe ContratEmploi
     """
 
     list_contrat = []

@@ -1,6 +1,6 @@
 class Specialite:
     """
-    Class Specialite
+    Classe Specialite
     """
 
     list_specialite = []
