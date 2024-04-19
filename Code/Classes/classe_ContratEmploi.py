@@ -87,4 +87,3 @@ class ContratEmploi:
                 f"- FACTEUR DU SALAIRE : {self.facteur_salaire * 100} % - NOM DE L'EMPLOYÉ : {self.employe.nom}"
                 f"- NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine} h"
                 f"- TERMES D'EMBAUCHE : {self.termes_embauche}")
-#####ALLO

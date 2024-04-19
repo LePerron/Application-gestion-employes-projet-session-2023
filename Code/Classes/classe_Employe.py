@@ -1,5 +1,7 @@
 from datetime import date, datetime
 
+DATE_FONDATION_ENTREPRISE =
+
 # À FAIRE !!!!
 #   → dans le menu, faire "Gestion des contrats des employés"
 #        ⇉ créer un contrat

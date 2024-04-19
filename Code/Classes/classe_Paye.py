@@ -7,7 +7,7 @@ class Paye:
     """
     Classe Paye
     """
-    list_paye = []
+    list_payes = []
 
     def __init__(self, p_identifiant_paye: int = 0, p_employe: Employe = None, p_montant_paye: float = 0.0,
                  p_date_de_paye: date = None):
@@ -23,12 +23,12 @@ class Paye:
         self._date_de_paye = p_date_de_paye
         self._employe = p_employe
 
-        Paye.list_paye.append(self)
+        Paye.list_payes.append(self)
 
-        if len(self.list_paye) < 1:
+        if len(self.list_payes) < 1:
             self.identifiant_paye = 1
         else:
-            self.identifiant_paye = len(Paye.list_paye) + 1
+            self.identifiant_paye = len(Paye.list_payes) + 1
 
     @property
     def montant_paye(self):
@@ -36,7 +36,7 @@ class Paye:
 
     @montant_paye.setter
     def montant_paye(self, v_montant_paye):
-        if isinstance(v_montant_paye, float) and v_montant_paye > 0:
+        if isinstance(v_montant_paye, float) and v_montant_paye >= 0:
             self._montant_paye = v_montant_paye
 
     @property
@@ -44,8 +44,12 @@ class Paye:
         return self._employe
 
     @employe.setter
-    def employe(self, v_employe):
-        self._employe = v_employe
+    def employe(self, v_identifiant_employe):
+        for employe in Employe.list_employe:
+            if employe.identifiant != v_identifiant_employe:
+                continue
+            else:
+                self._employe = employe
 
     @property
     def date_de_paye(self):
@@ -53,8 +57,9 @@ class Paye:
 
     @date_de_paye.setter
     def date_de_paye(self, v_date_de_paye):
-        self._date_de_paye = datetime.strptime(v_date_de_paye, "%d/%m/%Y")
-
+        date_formatee = datetime.strptime(v_date_de_paye, "%d/%m/%Y")
+        if date_formatee <= datetime.now():
+            self._date_de_paye = date_formatee
 
     @classmethod
     def calculer_moyenne_payes(cls) -> float:
@@ -63,9 +68,9 @@ class Paye:
         :return: La moyenne de toutes les payes
         """
         montants = 0
-        for paye in cls.list_paye:
+        for paye in cls.list_payes:
             montants += paye.montant_paye
-        return montants / len(cls.list_paye)
+        return montants / len(cls.list_payes)
 
     @classmethod
     def calculer_mediane_payes(cls) -> float:
@@ -74,7 +79,7 @@ class Paye:
         :return: La médiane de toute les payes
         """
         montant_total = []
-        for paye in cls.list_paye:
+        for paye in cls.list_payes:
             montant_total.append(paye.montant_paye)
         return median(montant_total)
 
@@ -84,7 +89,7 @@ class Paye:
         Trouve Le montant de la paye la plus petite de toutes les payes
         :return: Le montant de la paye la plus petite
         """
-        return min(paye.montant_paye for paye in cls.list_paye)
+        return min(paye.montant_paye for paye in cls.list_payes)
 
     @classmethod
     def obtenir_paye_max(cls) -> float:
@@ -92,7 +97,7 @@ class Paye:
         Trouve Le montant de la paye la plus grosse de toutes les payes
         :return: Le montant de la paye la plus haute
         """
-        return max(paye.montant_paye for paye in cls.list_paye)
+        return max(paye.montant_paye for paye in cls.list_payes)
 
     @classmethod
     def rechercher_payes_par_date(cls, date_de_paye: date) -> list:
@@ -102,7 +107,7 @@ class Paye:
         :return: Une liste des paiements effectués à la date spécifiée
         """
         paiements_a_date = []
-        for paye in cls.list_paye:
+        for paye in cls.list_payes:
             if paye.date_de_paye == date_de_paye:
                 paiements_a_date.append(paye)
         return paiements_a_date
@@ -115,7 +120,7 @@ class Paye:
         :return: Une liste des toutes les payes de l'employé.
         """
         paiements_de_employe = []
-        for paye in cls.list_paye:
+        for paye in cls.list_payes:
             if paye.employe.identifiant == identifiant_employe:
                 paiements_de_employe.append(paye)
         return paiements_de_employe

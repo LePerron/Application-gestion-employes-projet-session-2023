@@ -4,6 +4,10 @@ class Specialite:
     """
 
     list_specialite = []
+    # list_specialite = []
+    # list_specialite = []
+    # list_specialite = []
+    # list_specialite = []
 
     def __init__(self, p_nom: str = "", p_description: str = ""):
         """

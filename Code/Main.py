@@ -1,6 +1,7 @@
-# from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
-#
-# s = Caissier()
-#
-#
-# print(s)
+import datetime
+
+date = "01/04/2024"
+
+date_formatee = datetime.datetime.strptime(date, "%d/%m/%Y")
+if date_formatee <= datetime.datetime.now():
+    print("yea")
