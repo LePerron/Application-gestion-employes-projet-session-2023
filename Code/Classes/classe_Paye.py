@@ -75,7 +75,7 @@ class Paye:
         """
         montant_total = []
         for paye in cls.list_paye:
-            montant_total += paye.montant_paye
+            montant_total.append(paye.montant_paye)
         return median(montant_total)
 
     @classmethod
@@ -93,6 +93,33 @@ class Paye:
         :return: Le montant de la paye la plus haute
         """
         return max(paye.montant_paye for paye in cls.list_paye)
+
+    @classmethod
+    def rechercher_payes_par_date(cls, date_de_paye: date) -> list:
+        """
+        Trouve les paiements effectués selon la date.
+        :param date_de_paye: La date de recherche
+        :return: Une liste des paiements effectués à la date spécifiée
+        """
+        paiements_a_date = []
+        for paye in cls.list_paye:
+            if paye.date_de_paye == date_de_paye:
+                paiements_a_date.append(paye)
+        return paiements_a_date
+
+    @classmethod
+    def rechercher_paye_par_employe(cls, identifiant_employe: str) -> list:
+        """
+        Trouve toutes les payes d'un employé.
+        :param identifiant_employe: L'identifiant de l'employé de recherche.
+        :return: Une liste des toutes les payes de l'employé.
+        """
+        paiements_de_employe = []
+        for paye in cls.list_paye:
+            if paye.employe.identifiant == identifiant_employe:
+                paiements_de_employe.append(paye)
+        return paiements_de_employe
+
 
     def __str__(self):
         """
