@@ -1,4 +1,3 @@
-from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
 
@@ -10,8 +9,8 @@ class Caissier(Employe):
 
     liste_caissier = []
 
-    def __init__(self, p_gestionnaire=None, p_specialite: Specialite = None, p_identifiant: str = "",
-                 p_nom: str = "", p_prenom: str = "", p_poste: any = None, p_date_engagement: date = None,
+    def __init__(self, p_gestionnaire=None, p_specialite=None, p_identifiant: str = "",
+                 p_nom: str = "", p_prenom: str = "", p_poste=None, p_date_engagement: date = None,
                  p_contrat=None):
         """
         Constructeur de la classe Caissier avec les attributs de sa classe mère.
@@ -29,4 +28,4 @@ class Caissier(Employe):
         :return: Les informations du caissier dans un beau format d'affichage.
         """
         return (f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire} - "
-                f"SPÉCIALITÉ : {self.specialite}")
+                f"SPÉCIALITÉ : {self.specialite.nom}")

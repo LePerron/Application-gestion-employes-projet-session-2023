@@ -69,7 +69,7 @@ class Employe:
     @date_engagement.setter
     def date_engagement(self, v_date_engagement: str) -> None:
         date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
-        if date_formatee <= DATE_FONDATION_ENTREPRISE <= datetime.now():
+        if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
             self._date_engagement = date_formatee
 
     def obtenir_anciennete(self) -> int:
@@ -91,7 +91,7 @@ class Employe:
         Une fonction qui permet d'obtenir la spécialité de l'employé
         :return: La spécialité de l'employé avec son poste.. ex: Commis Boucherie
         """
-        return f"{self.poste.__name__.capitalize()} {self.poste.specialite.nom}"
+        return f"{self.poste.__name__.capitalize()} {self.specialite.nom}"
 
     def afficher_informations_employe(self) -> str:
         """
@@ -99,7 +99,7 @@ class Employe:
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} {self._prenom} - "
-                f"POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
+                f"POSTE : {self.poste.__name__.capitalize()} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
     def __str__(self) -> str:
         """
