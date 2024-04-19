@@ -1,7 +1,7 @@
 from classe_Gestionnaire import Gestionnaire
 from classe_Specialite import Specialite
-from datetime import date
 from classe_Employe import Employe
+from datetime import date
 
 
 class Commis(Employe):
