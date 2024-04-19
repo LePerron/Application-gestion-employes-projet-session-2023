@@ -26,49 +26,49 @@ class ContratEmploi:
         self._termes_embauche = p_termes_embauche
         self._employe = p_employe
 
-    def get_nb_heures_semaine(self):
+    def _get_nb_heures_semaine(self):
         return self._nb_heures_semaine
 
-    def set_nb_heures_semaine(self, v_nb_heures_semaine):
+    def _set_nb_heures_semaine(self, v_nb_heures_semaine):
         if isinstance(v_nb_heures_semaine, int) and v_nb_heures_semaine > 0:
             self._nb_heures_semaine = v_nb_heures_semaine
 
-    nb_heures_semaine = property(get_nb_heures_semaine, set_nb_heures_semaine)
+    nb_heures_semaine = property(_get_nb_heures_semaine, _set_nb_heures_semaine)
 
-    def get_salaire_de_base(self):
+    def _get_salaire_de_base(self):
         return self._salaire_de_base
 
-    def set_salaire_de_base(self, v_salaire_de_base):
+    def _set_salaire_de_base(self, v_salaire_de_base):
         if isinstance(v_salaire_de_base, float):
             self._salaire_de_base = v_salaire_de_base
 
-    salaire_de_base = property(get_salaire_de_base, set_salaire_de_base)
+    salaire_de_base = property(_get_salaire_de_base, _set_salaire_de_base)
 
-    def get_termes_embauche(self):
+    def _get_termes_embauche(self):
         return self._termes_embauche
 
-    def set_termes_embauche(self, v_termes_embauche):
+    def _set_termes_embauche(self, v_termes_embauche):
         if isinstance(v_termes_embauche, str):
             self._termes_embauche = v_termes_embauche
 
-    termes_embauche = property(get_termes_embauche, set_termes_embauche)
+    termes_embauche = property(_get_termes_embauche, _set_termes_embauche)
 
-    def get_facteur_salaire(self):
+    def _get_facteur_salaire(self):
         return self._facteur_salaire
 
-    def set_facteur_salaire(self, v_facteur_salaire):
+    def _set_facteur_salaire(self, v_facteur_salaire):
         if isinstance(v_facteur_salaire, float):
             self._facteur_salaire = v_facteur_salaire
 
-    facteur_salaire = property(get_facteur_salaire, set_facteur_salaire)
+    facteur_salaire = property(_get_facteur_salaire, _set_facteur_salaire)
 
-    def get_employe(self):
+    def _get_employe(self):
         return self._employe
 
-    def set_employe(self, v_employe):
+    def _set_employe(self, v_employe):
         self._employe = v_employe
 
-    employe = property(get_employe, set_employe)
+    employe = property(_get_employe, _set_employe)
 
     def __str__(self):
         return (f"IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine}"
