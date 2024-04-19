@@ -79,6 +79,3 @@ class ContratEmploi:
         return (f"- IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - SALAIRE DE BASE : {self.salaire_de_base} $"
                 f"- TERMES D'EMBAUCHE : {self.termes_embauche} - NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine} h"
                 f"- FACTEUR DU SALAIRE : {self.facteur_salaire} % - NOM DE L'EMPLOYÉ : {self.employe.nom}")
-
-
-
