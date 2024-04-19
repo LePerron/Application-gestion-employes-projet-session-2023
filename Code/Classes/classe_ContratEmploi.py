@@ -75,6 +75,7 @@ class ContratEmploi:
     def employe(self, v_employe):
         self._employe = v_employe
 
+
     def __str__(self):
         return (f"- IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - SALAIRE DE BASE : {self.salaire_de_base} $"
                 f"- TERMES D'EMBAUCHE : {self.termes_embauche} - NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine} h"
