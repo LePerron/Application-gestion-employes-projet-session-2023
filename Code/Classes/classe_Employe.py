@@ -1,10 +1,6 @@
 from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from datetime import date, datetime
 
-#               UMLs            #
-# +contrat: ContratEmploi = None
-# +contrat = ContratEmploi: ContratEmploi
-#
 # À FAIRE !!!!
 #   → dans le menu, faire "Gestion des contrats des employés"
 #        ⇉ créer un contrat
