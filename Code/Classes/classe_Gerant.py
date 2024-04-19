@@ -22,12 +22,7 @@ class Gerant(Employe):
         self.specialite = p_specialite
         self.liste_gestionnaire = p_liste_gestionnaire
 
-<<<<<<< HEAD
-    def ajouter_gestionnaire_a_liste(self, gestionnaire_a_ajouter: Gestionnaire) -> None:
-=======
-
     def ajouter_gestionnaire_a_liste(self, nom_gestionnaire_a_ajouter: str) -> None:
->>>>>>> 697a3238b4faa1c88dd8f93ef8f81c44bc90465f
         """
         Ajouter un gestionnaire dans liste_gestionnaire
         :param nom_gestionnaire_a_ajouter: Gestionnaire à ajouter
@@ -38,12 +33,7 @@ class Gerant(Employe):
                 return
         self.liste_gestionnaire.append(nom_gestionnaire_a_ajouter)
 
-<<<<<<< HEAD
-    def supprimer_gestionnaire_a_liste(self, gestionnaire_a_supprimer: Gestionnaire) -> None:
-=======
-
     def supprimer_gestionnaire_a_liste(self, nom_gestionnaire_a_supprimer: str) -> None:
->>>>>>> 697a3238b4faa1c88dd8f93ef8f81c44bc90465f
         """
         Supprimer un gestionnaire dans la liste_gestionnaire
         :param nom_gestionnaire_a_supprimer: Gestionnaire à supprimer
@@ -53,4 +43,5 @@ class Gerant(Employe):
                 self.liste_gestionnaire.remove(nom_gestionnaire_a_supprimer)
 
     def __str__(self):
-        return "AAAAAAA faire"
+        return (f"{self.afficher_informations_employe()} - SPÉCIALITÉ {self.specialite}"
+                f"-")

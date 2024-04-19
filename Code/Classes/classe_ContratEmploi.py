@@ -39,7 +39,7 @@ class ContratEmploi:
         return self._salaire_de_base
 
     def set_salaire_de_base(self, v_salaire_de_base):
-        if isinstance(v_salaire_de_base, float):
+        if isinstance(v_salaire_de_base, float) and v_salaire_de_base > 15.75:
             self._salaire_de_base = v_salaire_de_base
 
     salaire_de_base = property(get_salaire_de_base, set_salaire_de_base)
@@ -66,11 +66,11 @@ class ContratEmploi:
         return self._employe
 
     def set_employe(self, v_employe):
-        if isinstance(v_employe, Employe):
-            self._employe = v_employe
+        self._employe = v_employe
 
     employe = property(get_employe, set_employe)
 
     def __str__(self):
-        return (f"{self.identifiant_contrat} {self.nb_heures_semaine} {self.salaire_de_base} {self.termes_embauche} "
-                f"{self.facteur_salaire} {self.employe}")
+        return (f"IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine}"
+                f" - SALAIRE DE BASE : {self.salaire_de_base} - TERMES D'EMBAUCHE : {self.termes_embauche} "
+                f" - FACTEUR DU SALAIRE : {self.facteur_salaire} - NOM DE L'EMPLOYÉ{self.employe.nom}")

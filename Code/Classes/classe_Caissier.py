@@ -8,7 +8,6 @@ class Caissier(Employe):
     Classe Caissier enfant de la classe mère Employe.
     """
 
-    # Création de la liste_caissier.
     liste_caissier = []
 
     def __init__(self, p_gestionnaire=None, p_specialite: Specialite = None, p_identifiant: str = "",
