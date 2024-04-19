@@ -21,7 +21,7 @@ class Specialite:
 
     @nom.setter
     def nom(self, nom_specialite: str) -> None:
-        if isinstance(nom_specialite, str):
+        if isinstance(nom_specialite, str) and nom_specialite.isalpha():
             for specialite in Specialite.list_specialite:
                 if specialite.nom == nom_specialite:
                     return

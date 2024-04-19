@@ -40,7 +40,7 @@ class Employe:
         return self._identifiant
 
     @identifiant.setter
-    def identifiant(self, v_identifiant: str):
+    def identifiant(self, v_identifiant: str) -> None:
         if len(v_identifiant) == 7 and isinstance(v_identifiant, str) and v_identifiant.isdigit:
             self._identifiant = v_identifiant
 
@@ -49,25 +49,25 @@ class Employe:
         return self._nom
 
     @nom.setter
-    def nom(self, v_nom: str):
+    def nom(self, v_nom: str) -> None:
         if isinstance(v_nom, str) and v_nom.isalpha():
-            self._nom = v_nom
+            self._nom = v_nom.capitalize()
 
     @property
     def prenom(self):
         return self._nom
 
     @prenom.setter
-    def prenom(self, v_prenom: str):
+    def prenom(self, v_prenom: str) -> None:
         if isinstance(v_prenom, str) and v_prenom.isalpha():
-            self._prenom = v_prenom
+            self._prenom = v_prenom.capitalize()
 
     @property
     def date_engagement(self):
         return self._date_engagement
 
     @date_engagement.setter
-    def date_engagement(self, v_date_engagement: str):
+    def date_engagement(self, v_date_engagement: str) -> None:
         self._date_engagement = datetime.strptime(v_date_engagement, "%d/%m/%Y")
 
     def obtenir_anciennete(self) -> int:
