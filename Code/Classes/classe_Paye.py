@@ -44,7 +44,7 @@ class Paye:
         return self._employe
 
     @employe.setter
-    def employe(self,v_employe):
+    def employe(self, v_employe):
         self._employe = v_employe
 
     @property
@@ -53,8 +53,7 @@ class Paye:
 
     @date_de_paye.setter
     def date_de_paye(self, v_date_de_paye):
-        date_paye_formatee = datetime.strptime(v_date_de_paye, "%d/%m/%Y")
-        self._date_de_paye = date_paye_formatee
+        self._date_de_paye = datetime.strptime(v_date_de_paye, "%d/%m/%Y")
 
 
     @classmethod

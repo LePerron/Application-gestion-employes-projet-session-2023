@@ -68,8 +68,7 @@ class Employe:
 
     @date_engagement.setter
     def date_engagement(self, v_date_engagement: str):
-        date_naissance_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
-        self._date_engagement = date_naissance_formatee
+        self._date_engagement = datetime.strptime(v_date_engagement, "%d/%m/%Y")
 
     def obtenir_anciennete(self) -> int:
         """
