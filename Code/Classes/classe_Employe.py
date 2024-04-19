@@ -87,10 +87,10 @@ class Employe:
 
     def obtenir_specialite(self) -> str:
         """
-        Une fonction qui permet d'obtenir
-        :return:
+        Une fonction qui permet d'obtenir la spécialité de l'employé
+        :return: La spécialité de l'employé avec son poste.. ex: Commis Boucherie
         """
-        return f"{self.poste.__name__} {self.poste.specialite}"
+        return f"{self.poste.__name__.capitalize()} {self.poste.specialite.nom}"
 
     def afficher_informations_employe(self) -> str:
         """
@@ -102,8 +102,16 @@ class Employe:
 
     def __str__(self) -> str:
         """
-        Une fonction magique qui permet de retourner dans un bon format les informations de l'employé
-        La fonction *afficher_informations_employe* est utilisée pour permettre à ses enfants d'avoir leur propre __str__() en plus de celui de la mère.
+        Une fonction magique qui permet de retourner dans un bon format les informations de l'employé. La fonction
+        *afficher_informations_employe* est utilisée pour permettre à ses enfants d'avoir leur propre __str__() en plus de celui de la mère.
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
         return self.afficher_informations_employe()
+
+    @classmethod
+    def __len__(cls) -> int:
+        """
+        Une méthode magique de classe qui permet de retourner le nombre d'employé total.
+        :return: Le nombre d'employé total.
+        """
+        return len(cls.list_employe)
