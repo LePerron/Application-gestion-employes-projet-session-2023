@@ -1,3 +1,4 @@
+from Projet_intra_Entreprise.Code.main import DATE_FONDATION_ENTREPRISE
 from classe_Employe import Employe
 from statistics import median
 from datetime import date, datetime
@@ -58,7 +59,7 @@ class Paye:
     @date_de_paye.setter
     def date_de_paye(self, v_date_de_paye):
         date_formatee = datetime.strptime(v_date_de_paye, "%d/%m/%Y")
-        if date_formatee <= datetime.now():
+        if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
             self._date_de_paye = date_formatee
 
     @classmethod
@@ -102,15 +103,15 @@ class Paye:
     @classmethod
     def rechercher_payes_par_date(cls, date_de_paye: date) -> list:
         """
-        Trouve les paiements effectués selon la date.
+        Trouve les paiements effectués selon une date.
         :param date_de_paye: La date de recherche
         :return: Une liste des paiements effectués à la date spécifiée
         """
-        paiements_a_date = []
+        list_payes_a_date = []
         for paye in cls.list_payes:
             if paye.date_de_paye == date_de_paye:
-                paiements_a_date.append(paye)
-        return paiements_a_date
+                list_payes_a_date.append(paye)
+        return list_payes_a_date
 
     @classmethod
     def rechercher_paye_par_employe(cls, identifiant_employe: str) -> list:
@@ -119,16 +120,16 @@ class Paye:
         :param identifiant_employe: L'identifiant de l'employé de recherche.
         :return: Une liste des toutes les payes de l'employé.
         """
-        paiements_de_employe = []
+        paye_a_employe = []
         for paye in cls.list_payes:
             if paye.employe.identifiant == identifiant_employe:
-                paiements_de_employe.append(paye)
-        return paiements_de_employe
+                paye_a_employe.append(paye)
+        return paye_a_employe
 
     def __str__(self):
         """
-        Une fonction magique qui permet de retourner dans un bon format les informations de la paye.
+        Une fonction magique qui permet de retourner dans un beau format les informations de la paye.
         :return: Les informations de la paye dans un beau format d'affichage.
         """
-        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} MONTANT DE LA PAYE : {self._montant_paye}"
-                f" DATE DE LA PAYE : {self._date_de_paye} EMPLOYÉ QUI REÇOIS LA PAYE : {self._employe}")
+        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} - MONTANT DE LA PAYE : {self._montant_paye}"
+                f" DATE DE LA PAYE : {self._date_de_paye} - EMPLOYÉ QUI REÇOIS LA PAYE : {self._employe}")

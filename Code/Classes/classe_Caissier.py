@@ -25,8 +25,8 @@ class Caissier(Employe):
 
     def __str__(self):
         """
-        Une fonction magique qui permet de retourner dans un bon format les informations du caissier.
+        Une fonction magique qui permet de retourner dans un beau format les informations du caissier.
         :return: Les informations du caissier dans un beau format d'affichage.
         """
-        return (f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire}"
-                f" - SPÉCIALITÉ : {self.specialite}")
+        return (f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire} - "
+                f"SPÉCIALITÉ : {self.specialite}")

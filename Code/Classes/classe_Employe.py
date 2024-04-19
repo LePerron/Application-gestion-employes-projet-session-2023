@@ -1,6 +1,5 @@
+from Projet_intra_Entreprise.Code.main import DATE_FONDATION_ENTREPRISE
 from datetime import date, datetime
-
-DATE_FONDATION_ENTREPRISE =
 
 # À FAIRE !!!!
 #   → dans le menu, faire "Gestion des contrats des employés"
@@ -69,7 +68,9 @@ class Employe:
 
     @date_engagement.setter
     def date_engagement(self, v_date_engagement: str) -> None:
-        self._date_engagement = datetime.strptime(v_date_engagement, "%d/%m/%Y")
+        date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
+        if date_formatee <= DATE_FONDATION_ENTREPRISE <= datetime.now():
+            self._date_engagement = date_formatee
 
     def obtenir_anciennete(self) -> int:
         """
@@ -97,13 +98,15 @@ class Employe:
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
-        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} "
-                f"{self._prenom} - POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
+        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} {self._prenom} - "
+                f"POSTE : {self.poste.nom} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
     def __str__(self) -> str:
         """
-        Une fonction magique qui permet de retourner dans un bon format les informations de l'employé. La fonction
-        *afficher_informations_employe* est utilisée pour permettre à ses enfants d'avoir leur propre __str__() en plus de celui de la mère.
+        Une fonction magique qui permet de retourner dans un beau format les informations de l'employé.
+         * La fonction **afficher_informations_employe** est utilisée pour permettre à ses enfants d'avoir leur propre
+           fonction magique **__str__()** en plus de celui de la classe mère.
+
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
         return self.afficher_informations_employe()

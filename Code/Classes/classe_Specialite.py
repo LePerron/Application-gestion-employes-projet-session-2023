@@ -3,11 +3,11 @@ class Specialite:
     Classe Specialite
     """
 
-    list_specialite = []
-    # list_specialite = []
-    # list_specialite = []
-    # list_specialite = []
-    # list_specialite = []
+    list_des_specialites = []
+    list_specialites_gerant = []
+    list_specialites_gestionnaire = []
+    list_specialites_caissiers = []
+    list_specialites_commis = []
 
     def __init__(self, p_nom: str = "", p_description: str = ""):
         """
@@ -17,7 +17,7 @@ class Specialite:
         """
         self._nom = p_nom
         self.description = p_description
-        Specialite.list_specialite.append(self)
+        Specialite.list_des_specialites.append(self)
 
     @property
     def nom(self):
@@ -26,7 +26,7 @@ class Specialite:
     @nom.setter
     def nom(self, nom_specialite: str) -> None:
         if isinstance(nom_specialite, str) and nom_specialite.isalpha():
-            for specialite in Specialite.list_specialite:
+            for specialite in Specialite.list_des_specialites:
                 if specialite.nom == nom_specialite:
                     return
             self._nom = nom_specialite.capitalize()
@@ -37,9 +37,9 @@ class Specialite:
         Une méthode de classe qui permet de supprimer une spécialité des spécialité existante.
         :param nom_specialite: Nom de la spécialité à enlever
         """
-        for specialite in cls.list_specialite:
+        for specialite in cls.list_des_specialites:
             if specialite.nom == nom_specialite:
-                cls.list_specialite.remove(specialite)
+                cls.list_des_specialites.remove(specialite)
 
     @classmethod
     def modifier_specialite(cls, specialite_a_modifier: str, nouvelle_specialite: str, nouvelle_description: str) -> None:
@@ -49,7 +49,7 @@ class Specialite:
         :param nouvelle_specialite: Le nouveau nom de la spécialité
         :param nouvelle_description: La nouvelle description de la spécialité
         """
-        for specialite in cls.list_specialite:
+        for specialite in cls.list_des_specialites:
             if specialite.nom == specialite_a_modifier:
                 specialite.nom = nouvelle_specialite
                 specialite.description = nouvelle_description
@@ -63,7 +63,7 @@ class Specialite:
         """
         list_employes_selon_specialite = []
 
-        for specialite in Specialite.list_specialite:
+        for specialite in Specialite.list_des_specialites:
             if specialite_demandee == specialite.nom:
                 list_employes_selon_specialite.append(specialite)
 

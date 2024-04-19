@@ -44,7 +44,7 @@ class Gerant(Employe):
 
     def __str__(self):
         """
-        Une fonction magique qui permet de retourner dans un bon format les informations du gérant.
+        Une fonction magique qui permet de retourner dans un beau format les informations du gérant.
         :return: Les informations du gérant dans un beau format d'affichage.
         """
         return f"{self.afficher_informations_employe()} - SPÉCIALITÉ {self.specialite}"
