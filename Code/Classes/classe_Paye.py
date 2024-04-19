@@ -56,7 +56,7 @@ class Paye:
     employe = property(get_employe, set_employe)
 
     @classmethod
-    def moyenne(cls):
+    def moyenne(cls) -> float:
         """
         Calcul la moyenne de toutes les payes
         :return: La moyenne de toutes les payes
@@ -67,7 +67,7 @@ class Paye:
         return montants / len(cls.list_paye)
 
     @classmethod
-    def mediane(cls):
+    def mediane(cls) -> float:
         """
         Calcul la médiane de toutes les payes
         :return: La médiane de toute les payes
