@@ -1,6 +1,6 @@
 from classe_Employe import Employe
 from statistics import median
-from datetime import date
+from datetime import date, datetime
 
 
 class Paye:
@@ -30,31 +30,32 @@ class Paye:
         else:
             self.identifiant_paye = len(Paye.list_paye) + 1
 
-    def _get_montant_paye(self):
+    @property
+    def montant_paye(self):
         return self._montant_paye
 
-    def _set_montant_paye(self, v_montant_paye):
-        if isinstance(v_montant_paye, float):
+    @montant_paye.setter
+    def montant_paye(self, v_montant_paye):
+        if isinstance(v_montant_paye, float) and v_montant_paye > 0:
             self._montant_paye = v_montant_paye
 
-    montant_paye = property(_get_montant_paye, _set_montant_paye)
-
-    def get_date_de_paye(self):
-        return self._date_de_paye
-
-    def set_date_de_paye(self, v_date_de_paye):
-        self._date_de_paye = v_date_de_paye
-
-    date_de_paye = property(get_date_de_paye, set_date_de_paye)
-
-    def get_employe(self):
+    @property
+    def employe(self):
         return self._employe
 
-    def set_employe(self, v_employe):
-        if isinstance(v_employe, Employe):
-            self._employe = v_employe
+    @employe.setter
+    def employe(self,v_employe):
+        self._employe = v_employe
 
-    employe = property(get_employe, set_employe)
+    @property
+    def date_de_paye(self):
+        return self._date_de_paye
+
+    @date_de_paye.setter
+    def date_de_paye(self, v_date_de_paye):
+        date_paye_formatee = datetime.strptime(v_date_de_paye, "%d/%m/%Y")
+        self._date_de_paye = date_paye_formatee
+
 
     @classmethod
     def calculer_moyenne_payes(cls) -> float:
