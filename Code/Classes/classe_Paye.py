@@ -1,6 +1,6 @@
-from datetime import date
 from classe_Employe import Employe
 from statistics import median
+from datetime import date
 
 
 class Paye:
@@ -12,6 +12,7 @@ class Paye:
     def __init__(self, p_identifiant_paye: int = 0, p_employe: Employe = None, p_montant_paye: float = 0.0,
                  p_date_de_paye: date = None):
         """
+        Le constructeur de la classe Paye.
         :param p_identifiant_paye: Identifiant unique de la paye
         :param p_montant_paye: Montant de la paye
         :param p_employe: L'employé qui reçoit la paye
@@ -56,7 +57,7 @@ class Paye:
     employe = property(get_employe, set_employe)
 
     @classmethod
-    def moyenne(cls) -> float:
+    def calculer_moyenne_payes(cls) -> float:
         """
         Calcul la moyenne de toutes les payes
         :return: La moyenne de toutes les payes
@@ -67,7 +68,7 @@ class Paye:
         return montants / len(cls.list_paye)
 
     @classmethod
-    def mediane(cls) -> float:
+    def calculer_mediane_payes(cls) -> float:
         """
         Calcul la médiane de toutes les payes
         :return: La médiane de toute les payes
@@ -78,7 +79,7 @@ class Paye:
         return median(montants)
 
     @classmethod
-    def min(cls) -> float:
+    def obtenir_paye_min(cls) -> float:
         """
         Trouve Le montant de la paye la plus petite de toutes les payes
         :return: Le montant de la paye la plus petite
@@ -86,7 +87,7 @@ class Paye:
         return min(paye.montant_paye for paye in cls.list_paye)
 
     @classmethod
-    def max(cls) -> float:
+    def obtenir_paye_max(cls) -> float:
         """
         Trouve Le montant de la paye la plus grosse de toutes les payes
         :return: Le montant de la paye la plus haute
