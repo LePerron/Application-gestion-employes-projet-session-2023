@@ -1,6 +1,4 @@
-from classe_Gestionnaire import Gestionnaire
-from classe_Specialite import Specialite
-from classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
 
 
@@ -11,7 +9,7 @@ class Commis(Employe):
 
     list_commis = []
 
-    def __init__(self, p_gestionnaire: Gestionnaire = None, p_specialite: Specialite = None, p_identifiant: str = "",
+    def __init__(self, p_gestionnaire=None, p_specialite=None, p_identifiant: str = "",
                  p_nom: str = "", p_prenom: str = "", p_poste: any = "", p_date_engagement: date = None,
                  p_contrat=None):
         """

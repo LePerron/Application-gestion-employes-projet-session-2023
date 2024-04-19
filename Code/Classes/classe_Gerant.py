@@ -1,4 +1,3 @@
-from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
 
@@ -8,7 +7,7 @@ class Gerant(Employe):
     Classe enfant Gerant de la classe mère Employe.
     """
 
-    def __init__(self, p_specialite: Specialite = None, p_liste_gestionnaire=None,
+    def __init__(self, p_specialite=None, p_liste_gestionnaire=None,
                  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
                  p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
         """
