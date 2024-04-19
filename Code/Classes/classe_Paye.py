@@ -5,23 +5,29 @@ from statistics import median
 
 class Paye:
     """
-    Classes Paye
+    Classe Paye
     """
-    # Attribut de classe
-    liste_paye = []
+    list_paye = []
 
-    def __init__(self, p_identifiant_paye: str = "", p_employe: Employe = None, p_montant_paye: float = 0.0, p_date_de_paye:date = None):
+    def __init__(self, p_identifiant_paye: int = 0, p_employe: Employe = None, p_montant_paye: float = 0.0,
+                 p_date_de_paye: date = None):
         """
-        :param identifiant_paye: Identifiant de la paye
-        :param p_montant_paye: montant de la paye la plus récente
-        :param p_employe: l'employe qui reçoit la paye
-        :param p_date_de_paye: date de la paye la plus récente
+        :param p_identifiant_paye: Identifiant unique de la paye
+        :param p_montant_paye: Montant de la paye
+        :param p_employe: L'employé qui reçoit la paye
+        :param p_date_de_paye: Date de la paye
         """
         self.identifiant_paye = p_identifiant_paye
         self._montant_paye = p_montant_paye
         self._date_de_paye = p_date_de_paye
         self._employe = p_employe
-        Paye.liste_paye.append(self)
+
+        Paye.list_paye.append(self)
+
+        if len(self.list_paye) < 1:
+            self.identifiant_paye = 1
+        else:
+            self.identifiant_paye += 1
 
     def get_montant_paye(self):
         return self._montant_paye
@@ -30,7 +36,7 @@ class Paye:
         if isinstance(v_montant_paye, float):
             self._montant_paye = v_montant_paye
 
-    nb_montant_paye = property(get_montant_paye, set_montant_paye)
+    montant_paye = property(get_montant_paye, set_montant_paye)
 
     def get_date_de_paye(self):
         return self._date_de_paye

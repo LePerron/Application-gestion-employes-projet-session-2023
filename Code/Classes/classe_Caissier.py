@@ -27,6 +27,3 @@ class Caissier(Employe):
     def __str__(self):
         return (f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire}"
                 f" - SPÉCIALITÉ : {self.specialite}")
-
-
-    ##
