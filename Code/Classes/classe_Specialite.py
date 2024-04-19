@@ -13,38 +13,29 @@ class Specialite:
         """
         self._nom = p_nom
         self.description = p_description
+        Specialite.list_specialite.append(self)
 
     @property
     def nom(self):
         return self._nom
 
     @nom.setter
-    def nom(self, nom_specialite):
+    def nom(self, nom_specialite: str) -> None:
         if isinstance(nom_specialite, str):
             for specialite in Specialite.list_specialite:
-                if specialite == nom_specialite:
-                    self._nom = nom_specialite
+                if specialite.nom == nom_specialite:
+                    return
+            self._nom = nom_specialite.capitalize()
 
     @classmethod
     def supprimer_specialite(cls, nom_specialite: str) -> None:
         """
-        Une méthode de classe qui permet de supprimer une spécialité.
+        Une méthode de classe qui permet de supprimer une spécialité des spécialité existante.
         :param nom_specialite: Nom de la spécialité à enlever
         """
         for specialite in cls.list_specialite:
             if specialite.nom == nom_specialite:
                 cls.list_specialite.remove(specialite)
-
-    @classmethod
-    def ajouter_specialite(cls, nouvelle_specialite: str) -> None:
-        """
-        Ajouter une spécialité dans list_specialite
-        :param nouvelle_specialite: Nom de la spécialité à ajouter
-        """
-        for specialite in cls.list_specialite:
-            if specialite.nom == nouvelle_specialite:
-                return
-        cls.list_specialite.append(nouvelle_specialite)
 
     @classmethod
     def modifier_specialite(cls, specialite_a_modifier: str, nouvelle_specialite: str, nouvelle_description: str) -> None:
@@ -62,7 +53,7 @@ class Specialite:
     @staticmethod
     def trouve_employe_selon_specialite(specialite_demandee: str) -> list:
         """
-        Une méthode statique qui permet de trouver tout les employés d'une même spécialité.
+        Une méthode statique qui permet de trouver tous les employés d'une même spécialité.
         :param specialite_demandee: Nom de la spécialitée demandée.
         :return: La liste des employés de la spécialité demandée.
         """

@@ -30,14 +30,14 @@ class Paye:
         else:
             self.identifiant_paye = len(Paye.list_paye) + 1
 
-    def _get_montant_paye(self):
+    def get_montant_paye(self):
         return self._montant_paye
 
-    def _set_montant_paye(self, v_montant_paye):
+    def set_montant_paye(self, v_montant_paye):
         if isinstance(v_montant_paye, float):
             self._montant_paye = v_montant_paye
 
-    montant_paye = property(_get_montant_paye, _set_montant_paye)
+    montant_paye = property(get_montant_paye, set_montant_paye)
 
     def get_date_de_paye(self):
         return self._date_de_paye
@@ -71,12 +71,12 @@ class Paye:
     def calculer_mediane_payes(cls) -> float:
         """
         Calcul la médiane de toutes les payes
-        :return: La médiane de toute les payes
+        :return: La médiane de toutes les payes
         """
-        montants = []
+        montant_total = []
         for paye in cls.list_paye:
-            montants += paye.montant_paye
-        return median(montants)
+            montant_total += paye.montant_paye
+        return median(montant_total)
 
     @classmethod
     def obtenir_paye_min(cls) -> float:
