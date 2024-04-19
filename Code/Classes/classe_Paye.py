@@ -92,7 +92,7 @@ class Paye:
         Trouve le montant de la paye la plus grosse de touts les employés
         :return: le montant de la paye la plus haute
         """
-        return max(paye.montant_paye for paye in cls.liste_paye)
+        return max(paye.montant_paye for paye in cls.list_paye)
 
     def __str__(self):
         return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} MONTANT DE LA PAYE : {self.nb_montant_paye}"
