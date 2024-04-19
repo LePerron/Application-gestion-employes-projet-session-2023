@@ -78,7 +78,6 @@ class ContratEmploi:
             else:
                 self._employe = employe
 
-
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un bon format les informations du contrat.
