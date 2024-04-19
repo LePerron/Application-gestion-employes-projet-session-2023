@@ -39,7 +39,7 @@ class ContratEmploi:
         return self._salaire_de_base
 
     def set_salaire_de_base(self, v_salaire_de_base):
-        if isinstance(v_salaire_de_base, float):
+        if isinstance(v_salaire_de_base, float) and v_salaire_de_base > 15.75:
             self._salaire_de_base = v_salaire_de_base
 
     salaire_de_base = property(get_salaire_de_base, set_salaire_de_base)
