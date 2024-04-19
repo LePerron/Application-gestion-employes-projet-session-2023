@@ -76,4 +76,8 @@ class Specialite:
             return list_employes_selon_specialite
 
     def __str__(self):
+        """
+        Une fonction magique qui permet de retourner dans un bon format les informations de la spécialité.
+        :return: Les informations de la spécialité dans un beau format d'affichage.
+        """
         return f"NOM DE LA SPÉCIALITÉ : {self._nom} - DESCRIPTION : {self.description}"

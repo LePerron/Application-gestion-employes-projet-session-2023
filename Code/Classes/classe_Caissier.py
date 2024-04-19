@@ -14,7 +14,7 @@ class Caissier(Employe):
                  p_nom: str = "", p_prenom: str = "", p_poste: any = None, p_date_engagement: date = None,
                  p_contrat=None):
         """
-        Constructeur de la classe Caissier
+        Constructeur de la classe Caissier avec les attributs de sa classe mère.
         :param p_gestionnaire: Le gestionnaire du caissier.
         :param p_specialite: La spécialité du caissier
         """
