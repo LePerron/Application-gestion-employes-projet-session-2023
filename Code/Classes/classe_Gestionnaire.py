@@ -7,7 +7,7 @@ from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
 
 class Gestionnaire(Employe):
     """
-    Classes Gestionnaire
+    Classes enfant Gestionnaire de la classe mère Employe
     """
 
     list_gestionnaire = []
@@ -31,7 +31,7 @@ class Gestionnaire(Employe):
 
     def ajouter_commis_a_liste(self, nom_commis_a_ajouter: str) -> None:
         """
-        Ajouter un commis dans liste_commis
+        Ajouter un commis dans liste_commis que le gérant gère.
         :param nom_commis_a_ajouter: Commis à ajouter
         :return: La liste des commis avec le commis ajouté
         """
@@ -42,7 +42,7 @@ class Gestionnaire(Employe):
 
     def supprimer_commis_a_liste(self, nom_commis_a_supprimer: str) -> None:
         """
-        Supprimer un commis dans liste_commis
+        Supprimer un commis dans liste_commis que le gérant gère.
         :param nom_commis_a_supprimer: Commis à supprimer
         :return: La liste des commis avec le commis supprimé
         """
@@ -52,7 +52,7 @@ class Gestionnaire(Employe):
 
     def ajouter_caissier_a_liste(self, nom_caissier_a_ajouter: str) -> None:
         """
-        Ajouter un caissier dans liste_caissier
+        Ajouter un caissier dans liste_caissier que le gérant gère.
         :param nom_caissier_a_ajouter: Caissier à ajouter
         :return: La liste des caissier avec le caissier ajouté
         """
@@ -63,7 +63,7 @@ class Gestionnaire(Employe):
 
     def supprimer_caissier_a_liste(self, nom_caissier_a_supprimer: str) -> None:
         """
-        Supprimer un caissier dans liste_caissier
+        Supprimer un caissier dans liste_caissier que le gérant gère.
         :param nom_caissier_a_supprimer: Caissier à supprimer
         :return: La liste des caissier avec le caissier supprimé
         """
@@ -71,5 +71,17 @@ class Gestionnaire(Employe):
             if caissier.nom == nom_caissier_a_supprimer:
                 self.liste_caissier.remove(nom_caissier_a_supprimer)
 
+    @staticmethod
+    def parcourir_liste(liste_a_parcourir: list[object]) -> str:
+        """
+        Une méthode statique qui permet de parcourir une liste et de retourner son contenus dans une chaîne de str.
+        :param liste_a_parcourir: La liste à parcourir. | TYPE: Caissier OU Commis
+        :return: La chaine de caractère contenant toute le contenu de la liste séparé pour être facilement affiché.
+        """
+        chaine_str = ""
+        for element in liste_a_parcourir:
+            chaine_str += element
+
+
     def __str__(self):
-        return f"{self.afficher_informations_employe()} -"
+        return f"{self.afficher_informations_employe()} - "
