@@ -8,14 +8,13 @@ class ContratEmploi:
 
     list_contrat = []
 
-    # Attribut de classe
     def __init__(self, p_identifiant_contrat: int = 0, p_employe: Employe = None, p_facteur_salaire: float = 0.0,
                  p_nb_heures_semaine: int = 0, p_salaire_de_base: float = 0.0, p_termes_embauche: str = ""):
         """
         :param p_identifiant_contrat: L'identifiant du contrat de l'employé
         :param p_employe: Le numéro de l'employé associé à ce contrat
         :param p_facteur_salaire: Facteur qui affecte le salaire de l'employé
-        :param p_nb_heures_semaine: Nombre d'heure fait par l'employé
+        :param p_nb_heures_semaine: Nombre d'heures fait par l'employé
         :param p_salaire_de_base: Le salaire de base de l'employé
         :param p_termes_embauche: Termes d'emboche de l'employé
         """
@@ -64,7 +63,7 @@ class ContratEmploi:
 
     @facteur_salaire.setter
     def facteur_salaire(self, v_facteur_salaire):
-        if isinstance(v_facteur_salaire, float) and 100 > v_facteur_salaire > 0:
+        if isinstance(v_facteur_salaire, float) and 100 >= v_facteur_salaire > 0:
             self._facteur_salaire = v_facteur_salaire
 
     @property
@@ -72,10 +71,14 @@ class ContratEmploi:
         return self._employe
 
     @employe.setter
-    def employe(self, v_employe):
-        self._employe = v_employe
+    def employe(self, v_identifiant_employe):
+        for employe in Employe.list_employe:
+            if employe.identifiant != v_identifiant_employe:
+                continue
+            else:
+                self._employe = employe
 
     def __str__(self):
         return (f"- IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - SALAIRE DE BASE : {self.salaire_de_base} $"
                 f"- TERMES D'EMBAUCHE : {self.termes_embauche} - NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine} h"
-                f"- FACTEUR DU SALAIRE : {self.facteur_salaire} % - NOM DE L'EMPLOYÉ : {self.employe.nom}")
+                f"- FACTEUR DU SALAIRE : {self.facteur_salaire * 100} % - NOM DE L'EMPLOYÉ : {self.employe.nom}")
