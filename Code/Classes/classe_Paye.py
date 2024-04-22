@@ -1,4 +1,4 @@
-from classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from statistics import median
 from datetime import date, datetime
 

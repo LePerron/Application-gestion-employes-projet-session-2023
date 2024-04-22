@@ -1,0 +1,2 @@
+import pytest
+from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
