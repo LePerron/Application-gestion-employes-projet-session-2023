@@ -15,10 +15,10 @@ class Paye:
                  p_date_de_paye: date = None):
         """
         Le constructeur de la classe Paye.
-        :param p_identifiant_paye: Identifiant unique de la paye
-        :param p_montant_paye: Montant de la paye
-        :param p_employe: L'employé qui reçoit la paye
-        :param p_date_de_paye: Date de la paye
+        :param p_identifiant_paye: Identifiant unique de la Paye
+        :param p_montant_paye: Montant de la Paye
+        :param p_employe: L'employé qui reçoit la Paye
+        :param p_date_de_paye: Date de la Paye
         """
         self.identifiant_paye = p_identifiant_paye
         self._montant_paye = p_montant_paye
@@ -65,8 +65,8 @@ class Paye:
 
     def calculer_paye(self) -> float:
         """
-        Une méthode qui permet de calculer la paye de l'employé
-        :return: La paye de l'employé
+        Une méthode qui permet de calculer la Paye de l'employé
+        :return: La Paye de l'employé
         """
         # à déterminé avec Le programme complet parce que pour l'instant indécis
         pass
@@ -96,16 +96,16 @@ class Paye:
     @classmethod
     def obtenir_paye_min(cls) -> float:
         """
-        Trouve Le montant de la paye la plus petite de toutes les payes
-        :return: Le montant de la paye la plus petite
+        Trouve Le montant de la Paye la plus petite de toutes les payes
+        :return: Le montant de la Paye la plus petite
         """
         return min(paye.montant_paye for paye in cls.list_payes)
 
     @classmethod
     def obtenir_paye_max(cls) -> float:
         """
-        Trouve Le montant de la paye la plus grosse de toutes les payes
-        :return: Le montant de la paye la plus haute
+        Trouve Le montant de la Paye la plus grosse de toutes les payes
+        :return: Le montant de la Paye la plus haute
         """
         return max(paye.montant_paye for paye in cls.list_payes)
 
@@ -137,8 +137,8 @@ class Paye:
 
     def __str__(self):
         """
-        Une fonction magique qui permet de retourner dans un beau format les informations de la paye.
-        :return: Les informations de la paye dans un beau format d'affichage.
+        Une fonction magique qui permet de retourner dans un beau format les informations de la Paye.
+        :return: Les informations de la Paye dans un beau format d'affichage.
         """
         return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} - MONTANT DE LA PAYE : {self._montant_paye}"
                 f" DATE DE LA PAYE : {self._date_de_paye} - EMPLOYÉ QUI REÇOIS LA PAYE : {self._employe}")
