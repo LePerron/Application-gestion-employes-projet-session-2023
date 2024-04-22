@@ -1,4 +1,6 @@
+from datetime import date, datetime
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Paye import DATE_FONDATION_ENTREPRISE
 
 
 class ContratEmploi:
@@ -9,7 +11,8 @@ class ContratEmploi:
     list_contrat = []
 
     def __init__(self, p_identifiant_contrat: int = 0, p_employe: Employe = None, p_facteur_salaire: float = 0.0,
-                 p_nb_heures_semaine: int = 0, p_salaire_de_base: float = 0.0, p_termes_embauche: str = ""):
+                 p_nb_heures_semaine: int = 0, p_salaire_de_base: float = 0.0, p_termes_embauche: str = "",
+                 p_date_du_contrat: date = None):
         """
         :param p_identifiant_contrat: L'identifiant du contrat de l'employé
         :param p_employe: Le numéro de l'employé associé à ce contrat
@@ -17,12 +20,14 @@ class ContratEmploi:
         :param p_nb_heures_semaine: Nombre d'heures fait par l'employé
         :param p_salaire_de_base: Le salaire de base de l'employé
         :param p_termes_embauche: Termes d'emboche de l'employé
+        :param p_date_du_contrat: Date du contrat
         """
         self.identifiant_contrat = p_identifiant_contrat
         self._facteur_salaire = p_facteur_salaire
         self._nb_heures_semaine = p_nb_heures_semaine
         self._salaire_de_base = p_salaire_de_base
         self._termes_embauche = p_termes_embauche
+        self._date_du_contrat = p_date_du_contrat
         self.employe = p_employe
 
         ContratEmploi.list_contrat.append(self)
@@ -65,17 +70,36 @@ class ContratEmploi:
         if isinstance(v_facteur_salaire, float) and 100 >= v_facteur_salaire > 0:
             self._facteur_salaire = v_facteur_salaire
 
-    # @property
-    # def employe(self):
-    #     return self._employe
-    #
-    # @employe.setter
-    # def employe(self, v_identifiant_employe):
-    #     for employe in Employe.list_employe:
-    #         if employe.identifiant != v_identifiant_employe:
-    #             continue
-    #         else:
-    #             self._employe = employe
+    @property
+    def date_du_contrat(self):
+        return self._date_du_contrat
+
+    @date_du_contrat.setter
+    def date_du_contrat(self, v_date_du_contrat):
+        date_formatee = datetime.strptime(v_date_du_contrat, "%d/%m/%Y")
+        if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
+            self._date_du_contrat = date_formatee
+
+    @classmethod
+    def rechercher_contrat_par_date(cls, date_du_contra: date) -> list:
+        list_contrat_a_date = []
+        for contrat in cls.list_contrat:
+            if contrat.date_du_contrat == date_du_contra:
+                list_contrat_a_date.append(contrat)
+        return list_contrat_a_date
+
+    @classmethod
+    def rechercher_contrat_par_employe(cls, identifiant_employe: str) -> list:
+        """
+        Rechercher contrat par employé.
+        :param identifiant_employe: Identifiant de l'employé.
+        :return: La liste des contrats selon l'employé demandé.
+        """
+        list_contrat_a_employe = []
+        for contrat in cls.list_contrat:
+            if contrat.employe.identifiant == identifiant_employe:
+                list_contrat_a_employe.append(contrat)
+        return list_contrat_a_employe
 
     def __str__(self):
         """
