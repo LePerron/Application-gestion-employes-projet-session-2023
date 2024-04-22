@@ -6,9 +6,6 @@ gestionnaire1 = Gestionnaire()
 gestionnaire1.identifiant = "2371875"
 
 gestionnaire2 = Gestionnaire()
-gestionnaire2.identifiant = "2371875"
-
-gestionnaire2 = Gestionnaire()
 gestionnaire2.identifiant = "3456789"
 
 
