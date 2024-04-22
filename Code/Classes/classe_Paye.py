@@ -123,7 +123,7 @@ class Paye:
         return list_payes_a_date
 
     @classmethod
-    def rechercher_paye_par_employe(cls, identifiant_employe: str) -> list:
+    def rechercher_payes_par_employe(cls, identifiant_employe: str) -> list:
         """
         Trouve toutes les payes d'un employé.
         :param identifiant_employe: L'identifiant de l'employé de recherche.
