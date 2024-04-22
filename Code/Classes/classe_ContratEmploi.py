@@ -1,4 +1,4 @@
-from classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 
 
 class ContratEmploi:
@@ -23,12 +23,11 @@ class ContratEmploi:
         self._nb_heures_semaine = p_nb_heures_semaine
         self._salaire_de_base = p_salaire_de_base
         self._termes_embauche = p_termes_embauche
-        self._employe = p_employe
+        self.employe = p_employe
 
-        if len(self.list_contrat) < 1:
-            self.identifiant_contrat = 1
-        else:
-            self.identifiant_contrat = len(ContratEmploi.list_contrat) + 1
+        ContratEmploi.list_contrat.append(self)
+
+        self.identifiant_contrat = len(ContratEmploi.list_contrat)
 
     @property
     def nb_heures_semaine(self):
@@ -66,17 +65,17 @@ class ContratEmploi:
         if isinstance(v_facteur_salaire, float) and 100 >= v_facteur_salaire > 0:
             self._facteur_salaire = v_facteur_salaire
 
-    @property
-    def employe(self):
-        return self._employe
-
-    @employe.setter
-    def employe(self, v_identifiant_employe):
-        for employe in Employe.list_employe:
-            if employe.identifiant != v_identifiant_employe:
-                continue
-            else:
-                self._employe = employe
+    # @property
+    # def employe(self):
+    #     return self._employe
+    #
+    # @employe.setter
+    # def employe(self, v_identifiant_employe):
+    #     for employe in Employe.list_employe:
+    #         if employe.identifiant != v_identifiant_employe:
+    #             continue
+    #         else:
+    #             self._employe = employe
 
     def __str__(self):
         """

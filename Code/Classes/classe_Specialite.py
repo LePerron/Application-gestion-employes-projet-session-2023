@@ -1,3 +1,6 @@
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+
+
 class Specialite:
     """
     Classe Specialite
@@ -59,9 +62,9 @@ class Specialite:
         """
         list_employes_selon_specialite = []
 
-        for specialite in Specialite.list_des_specialites:
-            if specialite_demandee == specialite.nom:
-                list_employes_selon_specialite.append(specialite)
+        for employe in Employe.list_employe:
+            if specialite_demandee == employe.obtenir_specialite():
+                list_employes_selon_specialite.append(employe)
 
         if len(list_employes_selon_specialite) > 0:
             return list_employes_selon_specialite

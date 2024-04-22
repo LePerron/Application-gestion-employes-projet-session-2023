@@ -1,5 +1,7 @@
-from Projet_intra_Entreprise.Code.main import DATE_FONDATION_ENTREPRISE
 from datetime import date, datetime
+
+
+DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
 
 # À FAIRE !!!!
 #   → dans le menu, faire "Gestion des contrats des employés"
@@ -15,15 +17,15 @@ class Employe:
     list_employe = []
 
     def __init__(self, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
+                 p_poste: any = None, p_date_engagement: date = None, p_contrat=None, p_specialite=None):
         """
         Le constructeur de la classe mère Employe
         :param p_identifiant: L'identifiant unique de l'employé. | (7 digits, str)
         :param p_nom: Le nom de l'employé.
         :param p_prenom: Le prénom de l'employé.
-        :param p_poste: Le poste qu'occupe l'employé. | TYPE : Gerant, Gestionnaire, Commis, Caissier,
         :param p_date_engagement: La date d'engagement de l'employé dans l'entreprise.
         :param p_contrat: Le contrat d'engagement de l'employé par l'entreprise.
+        :param p_specialite: La spécialisation du poste de l'employé.
         """
 
         self._identifiant = p_identifiant
@@ -32,6 +34,10 @@ class Employe:
         self._date_engagement = p_date_engagement
         self.poste = p_poste
         self.contrat = p_contrat
+        self.specialite = p_specialite
+
+        from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+        self.contrat = ContratEmploi(p_employe=self)
 
         Employe.list_employe.append(self)
 
@@ -42,6 +48,9 @@ class Employe:
     @identifiant.setter
     def identifiant(self, v_identifiant: str) -> None:
         if len(v_identifiant) == 7 and isinstance(v_identifiant, str) and v_identifiant.isdigit:
+            for employe in Employe.list_employe:
+                if employe.identifiant == v_identifiant:
+                    return
             self._identifiant = v_identifiant
 
     @property
@@ -86,12 +95,12 @@ class Employe:
         """
         return self.contrat.nb_heures_semaine >= 40
 
-    def obtenir_specialite(self) -> str:
+    def obtenir_poste_complet(self) -> str:
         """
-        Une fonction qui permet d'obtenir la spécialité de l'employé
-        :return: La spécialité de l'employé avec son poste.. ex: Commis Boucherie
+        Une fonction qui permet d'obtenir le poste et la spécialité du poste de l'employé
+        :return: Le poste de l'employé avec sa spécialité.. ex: Commis Boucherie
         """
-        return f"{self.poste.__name__.capitalize()} {self.specialite.nom}"
+        return f"{self.poste} {self.specialite}"
 
     def afficher_informations_employe(self) -> str:
         """
@@ -99,7 +108,7 @@ class Employe:
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} {self._prenom} - "
-                f"POSTE : {self.poste.__name__.capitalize()} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
+                f"POSTE : {self.poste.capitalize()} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
     def __str__(self) -> str:
         """
