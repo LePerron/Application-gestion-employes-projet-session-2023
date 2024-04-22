@@ -18,6 +18,12 @@ class Gestionnaire(Employe):
         :param p_liste_commis: La liste des commis que le gestionnaire gère.
         :param p_liste_caissier: La liste des caissiers que le gestionnaire gère.
         """
+        if p_liste_caissier is None:
+            p_liste_caissier = []
+
+        if p_liste_commis is None:
+            p_liste_commis = []
+
         p_poste = self.__class__.__name__
         Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat, p_specialite)
 
