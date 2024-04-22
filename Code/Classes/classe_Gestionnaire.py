@@ -11,18 +11,17 @@ class Gestionnaire(Employe):
 
     def __init__(self, p_gerant=None, p_specialite=None, p_liste_commis=None,
                  p_liste_caissier=None,  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
+                 p_date_engagement: date = None, p_contrat=None):
         """
         Constructeur de la classe Gestionnaire avec les attributs de sa classe mère Employe
         :param p_gerant: Le gérant du gestionnaire.
-        :param p_specialite: La spécialité du gestionnaire.
         :param p_liste_commis: La liste des commis que le gestionnaire gère.
         :param p_liste_caissier: La liste des caissiers que le gestionnaire gère.
         """
-        Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat)
+        p_poste = self.__class__.__name__
+        Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat, p_specialite)
 
         self.gerant = p_gerant
-        self.specialite = p_specialite
         self.liste_commis = p_liste_commis
         self.liste_caissier = p_liste_caissier
 
@@ -85,5 +84,4 @@ class Gestionnaire(Employe):
         Une fonction magique qui permet de retourner dans un beau format les informations du gestionnaire.
         :return: Les informations du gestionnaire dans un beau format d'affichage.
         """
-        return (f"{self.afficher_informations_employe()} - GÉRANT : {self.gerant} "
-                f"- SPÉCIALITÉ : {self.specialite}")
+        return f"{self.afficher_informations_employe()} - GÉRANT : {self.gerant}"

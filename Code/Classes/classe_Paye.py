@@ -1,7 +1,8 @@
-from Projet_intra_Entreprise.Code.main import DATE_FONDATION_ENTREPRISE
 from classe_Employe import Employe
 from statistics import median
 from datetime import date, datetime
+
+DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
 
 
 class Paye:
@@ -61,6 +62,14 @@ class Paye:
         date_formatee = datetime.strptime(v_date_de_paye, "%d/%m/%Y")
         if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
             self._date_de_paye = date_formatee
+
+    def calculer_paye(self) -> float:
+        """
+        Une méthode qui permet de calculer la paye de l'employé
+        :return: La paye de l'employé
+        """
+        # à déterminé avec Le programme complet parce que pour l'instant indécis
+        pass
 
     @classmethod
     def calculer_moyenne_payes(cls) -> float:

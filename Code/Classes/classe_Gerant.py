@@ -8,16 +8,15 @@ class Gerant(Employe):
     """
 
     def __init__(self, p_specialite=None, p_liste_gestionnaire=None,
-                 p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_poste: any = None, p_date_engagement: date = None, p_contrat=None):
+                 p_identifiant: str = "", p_nom: str = "", p_prenom: str = "", p_date_engagement: date = None,
+                 p_contrat=None):
         """
         Constructeur de la classe Gerant qui fait app   el à sa classe mère Employe.
-        :param p_specialite: Spécialité du gerant
         :param p_liste_gestionnaire: La liste des gestionnaires que le gérant gère.
         """
-        Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat)
+        p_poste = self.__class__.__name__
+        Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat, p_specialite)
 
-        self.specialite = p_specialite
         self.liste_gestionnaire = p_liste_gestionnaire
 
     def ajouter_gestionnaire_de_liste(self, identifiant_gestionnaire_a_ajouter: str) -> None:
@@ -46,4 +45,4 @@ class Gerant(Employe):
         Une fonction magique qui permet de retourner dans un beau format les informations du gérant.
         :return: Les informations du gérant dans un beau format d'affichage.
         """
-        return f"{self.afficher_informations_employe()} - SPÉCIALITÉ {self.specialite}"
+        return self.afficher_informations_employe()
