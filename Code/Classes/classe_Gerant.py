@@ -14,6 +14,9 @@ class Gerant(Employe):
         Constructeur de la classe Gerant qui fait app   el à sa classe mère Employe.
         :param p_liste_gestionnaire: La liste des gestionnaires que le gérant gère.
         """
+        if p_liste_gestionnaire is None:
+            p_liste_gestionnaire = []
+
         p_poste = self.__class__.__name__
         Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat, p_specialite)
 
