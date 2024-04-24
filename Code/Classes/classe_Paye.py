@@ -63,14 +63,6 @@ class Paye:
         if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
             self._date_de_paye = date_formatee
 
-    def calculer_paye(self) -> float:
-        """
-        Une méthode qui permet de calculer la Paye de l'employé
-        :return: La Paye de l'employé
-        """
-        # à déterminé avec Le programme complet parce que pour l'instant indécis
-        pass
-
     @classmethod
     def calculer_moyenne_payes(cls) -> float:
         """
