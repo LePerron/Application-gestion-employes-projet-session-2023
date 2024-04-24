@@ -1,16 +1,19 @@
+from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
-
+from Projet_intra_Entreprise.Code.Classes.classe_Commis import Commis
+from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
 import pytest
 
-from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
-
-employe1 = Caissier()
 
 
 @pytest.mark.parametrize("poste, specialite, resultat_attendu", [
-    (Caissier, "Viande", "Caissier Viande")
+    (Gestionnaire, "Viande", "Gestionnaire Viande"),
+    (Caissier, "Legume", "Caissier Legume"),
+    (Commis, "caisses", "Commis Caisses"),
+    (Gerant, "saucisses", "Gerant Saucisses")
 ])
 def test_obtenir_poste_complet(poste, specialite, resultat_attendu):
-    specialite = Specialite(p_nom=specialite)
-    employe1.specialite =
+    employe1 = poste()
+    employe1.specialite = Specialite(p_nom=specialite)
     assert employe1.obtenir_poste_complet() == resultat_attendu

@@ -100,7 +100,7 @@ class Employe:
         Une fonction qui permet d'obtenir le poste et la spécialité du poste de l'employé
         :return: Le poste de l'employé avec sa spécialité.. ex: Commis Boucherie
         """
-        return f"{self.poste.specialite.capitalize()} {self.specialite.capitalize()}"
+        return f"{self.poste.capitalize()} {self.specialite.nom.capitalize()}"
 
     def afficher_informations_employe(self) -> str:
         """
