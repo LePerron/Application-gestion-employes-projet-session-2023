@@ -3,14 +3,23 @@ from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 import datetime
 import pytest
 
-employe1 = Employe(p_identifiant="12345678", p_prenom="lemoyne", p_nom="benno", p_poste="Caissier", p_specialite=Specialite(p_nom="Viande"), p_date_engagement=datetime.datetime.now())
-employe2 = Employe(p_identifiant="1234523", p_prenom="landry", p_nom="maël", p_specialite=Specialite("Legume"))
-employe3 = Employe(p_identifiant="12d34a8", p_prenom="perron", p_nom="marc", p_date_engagement=datetime.datetime.now())
+employe1 = Employe()
+employe1.identifiant = "1234567"
+employe1.prenom = "lemoyne"
+employe1.nom = "benno"
+employe1.poste = "Caissier"
 
+employe2 = Employe()
+employe2.identifiant = "12345678"
+employe2.prenom = "lemoyne"
+employe2.nom = "benno"
+employe2.poste = "Caissier"
 
 @pytest.mark.parametrize("employe, resultat_attendu", [
-    (employe1, (f"IDENTIFIANT : 12345678 - NOM COMPLET : benno lemoyne - "
-                f"POSTE : Caissier - NUM CONTRAT : "))
+    (employe1, (f"IDENTIFIANT : 1234567 - NOM COMPLET : Benno Lemoyne - "
+                f"POSTE : Caissier - NUM CONTRAT : 1")),
+    (employe2, (f"IDENTIFIANT :  - NOM COMPLET : Benno Lemoyne - "
+                f"POSTE : Caissier - NUM CONTRAT : 2"))
 ])
 def test_afficher_informations_employe(employe, resultat_attendu):
-    employe.afficher_informations_employe()
+    assert employe.afficher_informations_employe() == resultat_attendu

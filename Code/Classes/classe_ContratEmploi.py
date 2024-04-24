@@ -40,7 +40,7 @@ class ContratEmploi:
 
     @nb_heures_semaine.setter
     def nb_heures_semaine(self, v_nb_heures_semaine):
-        if isinstance(v_nb_heures_semaine, int) and 40 > v_nb_heures_semaine > 0:
+        if isinstance(v_nb_heures_semaine, int) and 40 >= v_nb_heures_semaine >= 0:
             self._nb_heures_semaine = v_nb_heures_semaine
 
     @property
