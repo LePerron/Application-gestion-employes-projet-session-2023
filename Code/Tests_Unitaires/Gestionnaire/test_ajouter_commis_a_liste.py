@@ -1,30 +1,30 @@
 import pytest
 
-from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
+from Projet_intra_Entreprise.Code.Classes.classe_Commis import Commis
 from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
 
-caissier1 = Caissier()
-caissier1.identifiant = "2371875"
+commis1 = Commis()
+commis1.identifiant = "2371875"
 
-caissier2 = Caissier()
-caissier2.identifiant = "1234567"
+commis2 = Commis()
+commis2.identifiant = "1234567"
 
 gestionnaire1 = Gestionnaire()
-list_caissier_attendu1 = gestionnaire1.liste_caissier
-list_caissier_attendu1.append(caissier1)
+list_commis_attendu1 = gestionnaire1.liste_commis
+list_commis_attendu1.append(commis1)
 
-list_caissier_attendu2 = gestionnaire1.liste_caissier
+list_commis_attendu2 = gestionnaire1.liste_commis
 
-list_caissier_attendu3 = gestionnaire1.liste_caissier
+list_commis_attendu3 = gestionnaire1.liste_commis
 
-@pytest.mark.parametrize("gestionnaire, identifiant_du_caissier, resultat_attendu", [
-    (gestionnaire1, caissier1.identifiant, [caissier1]),
-    (gestionnaire1, caissier2.identifiant, [caissier1]),
-    (gestionnaire1, "2371875", [caissier1])
+@pytest.mark.parametrize("gestionnaire, identifiant_du_commis, resultat_attendu", [
+    (gestionnaire1, commis1.identifiant, [commis1]),
+    (gestionnaire1, commis2.identifiant, [commis1]),
+    (gestionnaire1, "2371875", [commis1])
 ])
-def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_caissier, resultat_attendu):
-    gestionnaire.ajouter_caissier_a_liste(identifiant_du_caissier)
-    assert gestionnaire.liste_caissier == resultat_attendu
+def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_commis, resultat_attendu):
+    gestionnaire.ajouter_commis_a_liste(identifiant_du_commis)
+    assert gestionnaire.liste_commis == resultat_attendu
 
 
 

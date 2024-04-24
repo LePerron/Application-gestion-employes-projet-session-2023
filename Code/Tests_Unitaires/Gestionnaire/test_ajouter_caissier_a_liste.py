@@ -7,7 +7,7 @@ caissier1 = Caissier()
 caissier1.identifiant = "2371875"
 
 caissier2 = Caissier()
-caissier2.identifiant = "1234567"
+caissier2.identifiant = "3456789"
 
 gestionnaire1 = Gestionnaire()
 list_caissier_attendu1 = gestionnaire1.liste_caissier
