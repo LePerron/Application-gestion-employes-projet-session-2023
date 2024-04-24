@@ -7,7 +7,7 @@ caissier1 = Caissier()
 caissier1.identifiant = "2371875"
 
 caissier2 = Caissier()
-caissier2.identifiant = "1234567"
+caissier2.identifiant = "3456789"
 
 gestionnaire1 = Gestionnaire()
 list_caissier_attendu1 = gestionnaire1.liste_caissier
@@ -25,5 +25,8 @@ list_caissier_attendu3 = gestionnaire1.liste_caissier
 def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_caissier, resultat_attendu):
     gestionnaire.ajouter_caissier_a_liste(identifiant_du_caissier)
     assert gestionnaire.liste_caissier == resultat_attendu
+
+
+
 
 

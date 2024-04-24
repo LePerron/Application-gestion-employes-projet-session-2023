@@ -78,12 +78,14 @@ class Gestionnaire(Employe):
         """
         Une méthode statique qui permet de parcourir une liste et de retourner son contenus dans une chaîne de str.
         :param liste_a_parcourir: La liste à parcourir. | TYPE: list[Caissier] OU list[Commis]
-        :return: La chaine de caractère contenant toute le contenu de la liste séparé pour être facilement affiché.
+        :return: La chaine de caractère contenant tout le contenu de la liste séparé pour être facilement affiché.
         """
         chaine_str = ""
         for element in liste_a_parcourir:
             chaine_str += f"{element.nom} | "
         return chaine_str
+
+
 
     def __str__(self):
         """
