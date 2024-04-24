@@ -9,7 +9,6 @@ paye_str = Paye(p_montant_paye="wdaf")
 
 
 @pytest.mark.parametrize("list_paye,resultat_attendu", [
-    #ajouter quand il y a riend
     ([paye3, paye_decimal], 2.5),
     ([paye_negatif, paye3], 2),
     ([paye_str], 'wdaf')
