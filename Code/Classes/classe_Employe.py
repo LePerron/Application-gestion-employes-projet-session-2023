@@ -110,6 +110,14 @@ class Employe:
         return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} {self._prenom} - "
                 f"POSTE : {self.poste.capitalize()} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
+    def calculer_paye(self) -> float:
+        """
+        Une méthode qui permet de calculer la Paye de l'employé selon le facteur_salaire, le salaire_horaire, et
+        le nombre_d_heure
+        :return: La Paye de l'employé
+        """
+        return ((self.contrat.salaire_horaire * self.contrat.nb_heures_semaine) * self.contrat.facteur_salaire) + (self.contrat.salaire_horaire * self.contrat.nb_heures_semaine)
+
     def __str__(self) -> str:
         """
         Une fonction magique qui permet de retourner dans un beau format les informations de l'employé.
