@@ -37,7 +37,7 @@ class Specialite:
         :param nom_specialite: Nom de la spécialité à enlever
         """
         for specialite in cls.list_des_specialites:
-            if specialite.nom == nom_specialite:
+            if specialite.nom == nom_specialite.capitalize():
                 cls.list_des_specialites.remove(specialite)
 
     @classmethod
@@ -49,8 +49,8 @@ class Specialite:
         :param nouvelle_description: La nouvelle description de la spécialité
         """
         for specialite in cls.list_des_specialites:
-            if specialite.nom == specialite_a_modifier:
-                specialite.nom = nouvelle_specialite
+            if specialite.nom == specialite_a_modifier.capitalize():
+                specialite.nom = nouvelle_specialite.capitalize()
                 specialite.description = nouvelle_description
 
     @staticmethod
@@ -63,7 +63,7 @@ class Specialite:
         list_employes_selon_specialite = []
 
         for employe in Employe.list_employe:
-            if specialite_demandee == employe.obtenir_specialite():
+            if specialite_demandee.capitalize() == employe.obtenir_specialite():
                 list_employes_selon_specialite.append(employe)
 
         if len(list_employes_selon_specialite) > 0:
