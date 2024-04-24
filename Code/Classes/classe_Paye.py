@@ -65,11 +65,15 @@ class Paye:
 
     def calculer_paye(self) -> float:
         """
-        Une méthode qui permet de calculer la Paye de l'employé
+        Une méthode qui permet de calculer la Paye de l'employé selon le facteur_salaire, le salaire_de_horraire, et
+        le nombre_d_heure
         :return: La Paye de l'employé
         """
-        # à déterminé avec Le programme complet parce que pour l'instant indécis
-        pass
+        salaire_sans_facteur = self._employe.contrat.salaire_de_horraire * self._employe.contrat.nb_heures_semaine
+        facteur_salaire = salaire_sans_facteur * self._employe.contrat.facteur_salaire
+        salaire_employe = salaire_sans_facteur + facteur_salaire
+        return salaire_employe
+
 
     @classmethod
     def calculer_moyenne_payes(cls) -> float:
