@@ -26,3 +26,4 @@ def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_caissier, resulta
     gestionnaire.ajouter_caissier_a_liste(identifiant_du_caissier)
     assert gestionnaire.liste_caissier == resultat_attendu
 
+
