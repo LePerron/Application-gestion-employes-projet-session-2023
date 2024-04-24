@@ -29,3 +29,4 @@ def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_caissier, resulta
 
 
 
+
