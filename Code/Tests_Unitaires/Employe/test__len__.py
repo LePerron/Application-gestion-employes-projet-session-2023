@@ -1,12 +1,16 @@
 import pytest
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 
+employe1 = Employe()
+employe2 = Employe()
+employe3 = Employe()
+Employe.list_employe = []
 
 @pytest.mark.parametrize("liste_employe, resultat_attendu", [
-    (3),
-    (2),
-    (0),
-    (None, 0)
+    ([employe1, employe2], 2),
+    ([employe1], 1),
+    ([employe1, employe2, employe3], 3),
 ])
 def test__len__(liste_employe, resultat_attendu):
-    assert len(Employe) == resultat_attendu
+    Employe.list_employe = liste_employe
+    assert Employe.__len__() == resultat_attendu
