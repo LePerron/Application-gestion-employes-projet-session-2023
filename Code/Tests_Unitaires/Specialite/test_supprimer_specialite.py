@@ -11,7 +11,7 @@ specialite1 = Specialite("Viande", "ancienne description")
 ])
 def test_modifier_specialite(nom_specialite, resultat_attendu):
     """
-    Un test unitaire que test si la méthode **modifier_specialite** modifie le nom et la description d'une spécialité.
+    Un test unitaire qui test si la méthode **modifier_specialite** modifie le nom et la description d'une spécialité.
     :param nom_specialite: Le nom de la spécialité à enlever
     :param resultat_attendu: Le résultat attendu
     """

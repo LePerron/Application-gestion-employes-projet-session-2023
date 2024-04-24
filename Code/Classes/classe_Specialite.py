@@ -52,6 +52,7 @@ class Specialite:
             if specialite.nom == specialite_a_modifier.capitalize():
                 specialite.nom = nouvelle_specialite.capitalize()
                 specialite.description = nouvelle_description
+                break
 
     @staticmethod
     def trouve_employe_selon_specialite(specialite_demandee: str) -> list:
