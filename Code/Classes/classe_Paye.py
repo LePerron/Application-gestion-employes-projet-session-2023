@@ -91,7 +91,8 @@ class Paye:
         montant_total = []
         for paye in cls.list_payes:
             montant_total.append(paye.montant_paye)
-        return median(montant_total)
+        reponse = median(montant_total)
+        return reponse
 
     @classmethod
     def obtenir_paye_min(cls) -> float:
