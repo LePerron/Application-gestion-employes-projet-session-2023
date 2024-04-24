@@ -11,21 +11,21 @@ class ContratEmploi:
     list_contrat = []
 
     def __init__(self, p_identifiant_contrat: int = 0, p_employe: Employe = None, p_facteur_salaire: float = 0.0,
-                 p_nb_heures_semaine: int = 0, p_salaire_de_base: float = 0.0, p_termes_embauche: str = "",
+                 p_nb_heures_semaine: int = 0, p_salaire_horaire: float = 0.0, p_termes_embauche: str = "",
                  p_date_du_contrat: date = None):
         """
         :param p_identifiant_contrat: L'identifiant du contrat de l'employé
         :param p_employe: Le numéro de l'employé associé à ce contrat
         :param p_facteur_salaire: Facteur qui affecte le salaire de l'employé
         :param p_nb_heures_semaine: Nombre d'heures fait par l'employé
-        :param p_salaire_de_base: Le salaire de base de l'employé
+        :param p_salaire_horaire: Le salaire de base de l'employé
         :param p_termes_embauche: Termes d'emboche de l'employé
         :param p_date_du_contrat: Date du contrat
         """
         self.identifiant_contrat = p_identifiant_contrat
         self._facteur_salaire = p_facteur_salaire
         self._nb_heures_semaine = p_nb_heures_semaine
-        self._salaire_de_base = p_salaire_de_base
+        self._salaire_horaire = p_salaire_horaire
         self._termes_embauche = p_termes_embauche
         self._date_du_contrat = p_date_du_contrat
         self.employe = p_employe
@@ -44,13 +44,13 @@ class ContratEmploi:
             self._nb_heures_semaine = v_nb_heures_semaine
 
     @property
-    def salaire_de_base(self):
-        return self._salaire_de_base
+    def salaire_horaire(self):
+        return self._salaire_horaire
 
-    @salaire_de_base.setter
-    def salaire_de_base(self, v_salaire_de_base):
-        if isinstance(v_salaire_de_base, float) and v_salaire_de_base > 0:
-            self._salaire_de_base = v_salaire_de_base
+    @salaire_horaire.setter
+    def salaire_horaire(self, v_salaire_horaire):
+        if isinstance(v_salaire_horaire, float) and v_salaire_horaire > 0:
+            self._salaire_horaire = v_salaire_horaire
 
     @property
     def termes_embauche(self):
@@ -106,7 +106,7 @@ class ContratEmploi:
         Une fonction magique qui permet de retourner dans un beau format les informations du contrat.
         :return: Les informations du contrat dans un beau format d'affichage.
         """
-        return (f"IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - SALAIRE DE BASE : {self.salaire_de_base} $ - "
+        return (f"IDENTIFIANT DU CONTRAT : {self.identifiant_contrat} - SALAIRE DE BASE : {self.salaire_horaire} $ - "
                 f"FACTEUR DU SALAIRE : {self.facteur_salaire * 100} % - NOM DE L'EMPLOYÉ : {self.employe.nom} - "
                 f"NOMBRE D'HEURE PAR SEMAINE : {self.nb_heures_semaine} h - "
                 f"TERMES D'EMBAUCHE : {self.termes_embauche}")
