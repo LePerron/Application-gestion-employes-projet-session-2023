@@ -75,16 +75,21 @@ class ContratEmploi:
         return self._date_du_contrat
 
     @date_du_contrat.setter
-    def date_du_contrat(self, v_date_du_contrat):
+    def date_du_contrat(self, v_date_du_contrat:str):
         date_formatee = datetime.strptime(v_date_du_contrat, "%d/%m/%Y")
         if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
             self._date_du_contrat = date_formatee
 
     @classmethod
-    def rechercher_contrat_par_date(cls, date_du_contra: date) -> list:
+    def rechercher_contrat_par_date(cls, date_du_contrat: date) -> list:
+        """
+        Rechercher tout les contrats d'une date demandée.
+        :param date_du_contrat: La date de recherche des contrats
+        :return: La liste des contrats selon la date spécifique.
+        """
         list_contrat_a_date = []
         for contrat in cls.list_contrat:
-            if contrat.date_du_contrat == date_du_contra:
+            if contrat.date_du_contrat == date_du_contrat:
                 list_contrat_a_date.append(contrat)
         return list_contrat_a_date
 
