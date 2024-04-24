@@ -1,4 +1,4 @@
-from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+from Code.Classes.classe_Employe import Employe
 
 
 class Specialite:

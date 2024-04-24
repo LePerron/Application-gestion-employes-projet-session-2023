@@ -1,4 +1,4 @@
-from classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from statistics import median
 from datetime import date, datetime
 
@@ -80,7 +80,8 @@ class Paye:
         montants = 0
         for paye in cls.list_payes:
             montants += paye.montant_paye
-        return montants / len(cls.list_payes)
+        moyenne = montants / len(cls.list_payes)
+        return moyenne
 
     @classmethod
     def calculer_mediane_payes(cls) -> float:
@@ -91,7 +92,8 @@ class Paye:
         montant_total = []
         for paye in cls.list_payes:
             montant_total.append(paye.montant_paye)
-        return median(montant_total)
+        mediane = median(montant_total)
+        return mediane
 
     @classmethod
     def obtenir_paye_min(cls) -> float:
