@@ -49,10 +49,16 @@ class Specialite:
         :param nouvelle_description: La nouvelle description de la spécialité
         """
         for specialite in cls.list_des_specialites:
-            if specialite.nom == specialite_a_modifier.capitalize():
-                specialite.nom = nouvelle_specialite.capitalize()
-                specialite.description = nouvelle_description
-                break
+            if specialite.nom.capitalize() != nouvelle_specialite.capitalize():
+                continue
+            else:
+                return
+        else:
+            for specialite in cls.list_des_specialites:
+                if specialite.nom.capitalize() == specialite_a_modifier.capitalize():
+                    specialite.nom = nouvelle_specialite.capitalize()
+                    specialite.description = nouvelle_description
+                    break
 
     @staticmethod
     def trouve_employe_selon_specialite(specialite_demandee: str) -> list:
@@ -64,11 +70,9 @@ class Specialite:
         list_employes_selon_specialite = []
 
         for employe in Employe.list_employe:
-            if specialite_demandee.capitalize() == employe.obtenir_specialite():
+            if specialite_demandee.capitalize() == employe.specialite.nom.capitalize():
                 list_employes_selon_specialite.append(employe)
-
-        if len(list_employes_selon_specialite) > 0:
-            return list_employes_selon_specialite
+        return list_employes_selon_specialite
 
     def __str__(self):
         """
