@@ -1,7 +1,7 @@
-import pytest
+from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
 from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
 from Projet_intra_Entreprise.Code.Classes.classe_Commis import Commis
-from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
+import pytest
 
 caissier1 = Caissier()
 caissier1.nom = "benjamin"
