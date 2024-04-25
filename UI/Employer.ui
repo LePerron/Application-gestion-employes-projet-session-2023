@@ -18,7 +18,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="labelEmploye">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -35,57 +35,79 @@
     </font>
    </property>
    <property name="text">
-    <string>Employer</string>
+    <string>Employé</string>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>80</y>
+     <x>300</x>
+     <y>280</y>
      <width>201</width>
-     <height>111</height>
+     <height>64</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QPushButton" name="pushButtonRechercherEmployer">
       <property name="text">
-       <string>Rechercher Employer</string>
+       <string>Rechercher un employé:</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLineEdit" name="lineEditRechercherEmployer"/>
     </item>
-    <item>
-     <widget class="QLabel" name="labelErreurRechercherEmployer">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>200</y>
+     <x>300</x>
+     <y>60</y>
      <width>201</width>
      <height>111</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QPushButton" name="pushButtonClasserEmployer">
+     <widget class="QLabel" name="labelClasseEmploye">
       <property name="text">
-       <string>Classer Employer</string>
+       <string>Trier employé selon:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBoxClasserEmployer"/>
+     <widget class="QComboBox" name="comboBoxClasserEmployer">
+      <item>
+       <property name="text">
+        <string>A-Z</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Z-A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Plus petit au plus grand</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Plus grand au plus petit</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>ajouter spécialité</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item>
      <widget class="QLabel" name="labelErreurClasserEmployer">
@@ -110,8 +132,8 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>320</y>
-     <width>344</width>
+     <y>380</y>
+     <width>461</width>
      <height>80</height>
     </rect>
    </property>
@@ -193,15 +215,69 @@
   <widget class="QLabel" name="labelErreurSelection">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>330</y>
-     <width>181</width>
+     <x>-80</x>
+     <y>340</y>
+     <width>461</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
+  </widget>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>180</y>
+     <width>243</width>
+     <height>89</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QCheckBox" name="checkBox_3">
+      <property name="text">
+       <string>Nom</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QCheckBox" name="checkBox_4">
+      <property name="text">
+       <string>Nombre d'heure</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QCheckBox" name="checkBox_2">
+      <property name="text">
+       <string>Salaire</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QCheckBox" name="checkBox">
+      <property name="text">
+       <string>Spécialité</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QCheckBox" name="checkBox_5">
+      <property name="text">
+       <string>Prénom</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QCheckBox" name="checkBox_6">
+      <property name="text">
+       <string>Ancienneté</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

@@ -292,7 +292,7 @@
     <rect>
      <x>10</x>
      <y>250</y>
-     <width>111</width>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -305,13 +305,13 @@
     </font>
    </property>
    <property name="text">
-    <string>Ajouter</string>
+    <string>Créer employer</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonMenu">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>200</x>
      <y>250</y>
      <width>111</width>
      <height>41</height>
@@ -326,7 +326,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Menu</string>
+    <string>Annuler</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelSpecialiter">
@@ -359,6 +359,26 @@
     </rect>
    </property>
   </widget>
+  <zorder>labelTitreAjouterEmployer</zorder>
+  <zorder>line</zorder>
+  <zorder>labelIdentifiant</zorder>
+  <zorder>labelNom</zorder>
+  <zorder>labelPrenom</zorder>
+  <zorder>labelPoste</zorder>
+  <zorder>labelDateEngagement</zorder>
+  <zorder>labelErreurIdentifiant</zorder>
+  <zorder>labelErreurNom</zorder>
+  <zorder>labelErreurPrenom</zorder>
+  <zorder>labelErreurDatesEngagement</zorder>
+  <zorder>pushButtonAjouterEmployer</zorder>
+  <zorder>pushButtonMenu</zorder>
+  <zorder>labelSpecialiter</zorder>
+  <zorder>lineEditIdentifiant</zorder>
+  <zorder>lineEditNom</zorder>
+  <zorder>lineEditPrenom</zorder>
+  <zorder>comboBoxPoste</zorder>
+  <zorder>comboBoxSpecialite</zorder>
+  <zorder>dateEditDateEngagement</zorder>
  </widget>
  <resources/>
  <connections/>

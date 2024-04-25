@@ -13,12 +13,12 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="labelNom">
+  <widget class="QLabel" name="labelNbHeure">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
-     <width>40</width>
+     <y>100</y>
+     <width>121</width>
      <height>31</height>
     </rect>
    </property>
@@ -30,14 +30,14 @@
     </font>
    </property>
    <property name="text">
-    <string>Nom:</string>
+    <string>Nombre d'heure:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelIdentifiant">
+  <widget class="QLabel" name="labelFacteur">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
+     <y>70</y>
      <width>80</width>
      <height>31</height>
     </rect>
@@ -50,14 +50,14 @@
     </font>
    </property>
    <property name="text">
-    <string>Identifiant:</string>
+    <string>Facteur:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelErreurIdentifiant">
+  <widget class="QLabel" name="labelErreurFacteur">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>70</y>
+     <x>190</x>
+     <y>80</y>
      <width>151</width>
      <height>16</height>
     </rect>
@@ -66,11 +66,11 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="labelErreurPrenom">
+  <widget class="QLabel" name="labelErreurSalaireHorraire">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>131</y>
+     <x>240</x>
+     <y>140</y>
      <width>131</width>
      <height>16</height>
     </rect>
@@ -79,41 +79,21 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditIdentifiant">
+  <widget class="QLineEdit" name="lineEditFacteur">
    <property name="geometry">
     <rect>
-     <x>93</x>
-     <y>67</y>
+     <x>70</x>
+     <y>80</y>
      <width>113</width>
      <height>20</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="labelPoste">
+  <widget class="QLineEdit" name="lineEditSalaireHorraire">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>153</y>
-     <width>41</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Poste:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditPrenom">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>130</y>
+     <x>120</x>
+     <y>140</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -124,7 +104,7 @@
     <rect>
      <x>10</x>
      <y>250</y>
-     <width>111</width>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -137,14 +117,14 @@
     </font>
    </property>
    <property name="text">
-    <string>Ajouter</string>
+    <string>Ajouter employé</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelErreurDatesEngagement">
+  <widget class="QLabel" name="labelErreurNbHeure">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>223</y>
+     <x>240</x>
+     <y>110</y>
      <width>121</width>
      <height>16</height>
     </rect>
@@ -153,115 +133,12 @@
     <string/>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBoxSpecialite">
+  <widget class="QLineEdit" name="lineEditNbHeure">
    <property name="geometry">
     <rect>
-     <x>83</x>
-     <y>190</y>
+     <x>120</x>
+     <y>110</y>
      <width>111</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelDateEngagement">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>214</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Date d'engagement:</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBoxPoste">
-   <property name="geometry">
-    <rect>
-     <x>62</x>
-     <y>158</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Gerant</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Gestionnaire</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Commis</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Caissier</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="labelErreurNom">
-   <property name="geometry">
-    <rect>
-     <x>172</x>
-     <y>102</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelSpecialiter">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>184</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Spécialité:</string>
-   </property>
-  </widget>
-  <widget class="QDateEdit" name="dateEditDateEngagement">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>220</y>
-     <width>111</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditNom">
-   <property name="geometry">
-    <rect>
-     <x>52</x>
-     <y>100</y>
-     <width>113</width>
      <height>20</height>
     </rect>
    </property>
@@ -269,7 +146,7 @@
   <widget class="QPushButton" name="pushButtonMenu">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>180</x>
      <y>250</y>
      <width>111</width>
      <height>41</height>
@@ -284,15 +161,15 @@
     </font>
    </property>
    <property name="text">
-    <string>Menu</string>
+    <string>Annuler</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelPrenom">
+  <widget class="QLabel" name="labelSalaireHorraire">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>120</y>
-     <width>61</width>
+     <y>130</y>
+     <width>111</width>
      <height>31</height>
     </rect>
    </property>
@@ -304,7 +181,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Prénom:</string>
+    <string>Salaire Horaire:</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelTitreAjouterEmployer_2">
@@ -331,7 +208,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="text">
-    <string>Ajouter un employer</string>
+    <string>Termes du contrat</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -359,6 +236,86 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="labelIdentifiantEmploye">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Identifiant de l'employé:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelIdentifiantEmployeDonner">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>60</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEditTermeContrat">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>251</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelTermeContrat">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>251</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Termes suplémentaire (optionnel): </string>
+   </property>
+  </widget>
+  <zorder>labelNbHeure</zorder>
+  <zorder>labelFacteur</zorder>
+  <zorder>labelErreurFacteur</zorder>
+  <zorder>labelErreurSalaireHorraire</zorder>
+  <zorder>pushButtonAjouterEmployer</zorder>
+  <zorder>labelErreurNbHeure</zorder>
+  <zorder>pushButtonMenu</zorder>
+  <zorder>labelSalaireHorraire</zorder>
+  <zorder>labelTitreAjouterEmployer_2</zorder>
+  <zorder>line_2</zorder>
+  <zorder>labelIdentifiantEmploye</zorder>
+  <zorder>labelIdentifiantEmployeDonner</zorder>
+  <zorder>textEditTermeContrat</zorder>
+  <zorder>labelTermeContrat</zorder>
+  <zorder>lineEditSalaireHorraire</zorder>
+  <zorder>lineEditNbHeure</zorder>
+  <zorder>lineEditFacteur</zorder>
  </widget>
  <resources/>
  <connections/>
