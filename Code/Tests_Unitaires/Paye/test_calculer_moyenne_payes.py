@@ -1,5 +1,5 @@
-import pytest
 from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
+import pytest
 
 
 paye3 = Paye(p_montant_paye=3)
@@ -7,6 +7,7 @@ paye_negatif = Paye(p_montant_paye=-1)
 paye_decimal = Paye(p_montant_paye=2.5)
 paye_str = Paye()
 paye_str.montant_paye = "wdaf"
+
 
 @pytest.mark.parametrize("list_paye,resultat_attendu", [
     ([paye3], 3),
