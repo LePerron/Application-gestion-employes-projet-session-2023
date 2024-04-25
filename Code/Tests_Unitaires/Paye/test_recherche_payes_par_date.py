@@ -31,4 +31,6 @@ def test_rechercher_payes_par_date(date_de_paye, resultat_attendu):
     :return: None
     """
 
-    assert Paye.rechercher_payes_par_date(date_de_paye) == resultat_attendu
+    resultat = Paye.rechercher_payes_par_date(date_de_paye)
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, list)

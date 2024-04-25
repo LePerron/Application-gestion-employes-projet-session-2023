@@ -22,4 +22,6 @@ def test_obtenir_paye_max(list_paye, resultat_attendu):
     :return: None
     """
     Paye.list_payes = list_paye
-    assert Paye.obtenir_paye_max() == resultat_attendu
+    resultat = Paye.obtenir_paye_max()
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, float)

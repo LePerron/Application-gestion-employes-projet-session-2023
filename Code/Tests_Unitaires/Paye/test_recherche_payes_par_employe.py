@@ -22,4 +22,6 @@ def test_rechercher_payes_par_employe(identifiant_employe_recherche, resultat_at
     :param resultat_attendu: La valeur attendue après son initialisation
     :return: None
     """
-    assert Paye.rechercher_payes_par_employe(identifiant_employe_recherche) == resultat_attendu
+    resultat = Paye.rechercher_payes_par_employe(identifiant_employe_recherche)
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, list)

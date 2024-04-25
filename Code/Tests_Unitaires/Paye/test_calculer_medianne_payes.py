@@ -25,4 +25,6 @@ def test_calculer_mediane_payes(list_paye, resultat_attendu):
     :return: None
     """
     Paye.list_payes = list_paye
-    assert Paye.calculer_mediane_payes() == resultat_attendu
+    resultat = Paye.calculer_mediane_payes()
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, float)
