@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>372</width>
-    <height>411</height>
+    <width>376</width>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
       <height>0</height>
      </size>
     </property>
-    <layout class="QVBoxLayout" name="LayoutMenu" stretch="4,4,2,2,2,2,2,2">
+    <layout class="QVBoxLayout" name="LayoutMenu" stretch="4,2,2,2,2,2,2,2">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -75,22 +75,6 @@
       </widget>
      </item>
      <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
       <widget class="Line" name="line">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -98,7 +82,37 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonContrat">
+      <widget class="QPushButton" name="pushButtonEmployer">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Gérer les Employés</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonContrat_2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -146,12 +160,18 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonEmployer">
+      <widget class="QPushButton" name="pushButtonContrat">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>15</height>
+        </size>
        </property>
        <property name="font">
         <font>
@@ -162,16 +182,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Gérer les Employés</string>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-       <property name="autoRepeat">
-        <bool>false</bool>
-       </property>
-       <property name="autoExclusive">
-        <bool>false</bool>
+        <string>Gérer les Spécialitées</string>
        </property>
       </widget>
      </item>
@@ -211,7 +222,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>372</width>
+     <width>376</width>
      <height>21</height>
     </rect>
    </property>

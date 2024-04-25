@@ -117,7 +117,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Ajouter employé</string>
+    <string>Ajouter l'employé</string>
    </property>
   </widget>
   <widget class="QLabel" name="labelErreurNbHeure">

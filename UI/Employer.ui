@@ -124,7 +124,7 @@
      <x>30</x>
      <y>81</y>
      <width>256</width>
-     <height>231</height>
+     <height>261</height>
     </rect>
    </property>
   </widget>
@@ -132,7 +132,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>380</y>
+     <y>420</y>
      <width>461</width>
      <height>80</height>
     </rect>
@@ -215,8 +215,8 @@
   <widget class="QLabel" name="labelErreurSelection">
    <property name="geometry">
     <rect>
-     <x>-80</x>
-     <y>340</y>
+     <x>20</x>
+     <y>360</y>
      <width>461</width>
      <height>51</height>
     </rect>
