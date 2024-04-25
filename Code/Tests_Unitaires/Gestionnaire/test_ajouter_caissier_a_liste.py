@@ -17,6 +17,7 @@ list_caissier_attendu2 = gestionnaire1.liste_caissier
 
 list_caissier_attendu3 = gestionnaire1.liste_caissier
 
+
 @pytest.mark.parametrize("gestionnaire, identifiant_du_caissier, resultat_attendu", [
     (gestionnaire1, caissier1.identifiant, [caissier1]),
     (gestionnaire1, caissier2.identifiant, [caissier1]),

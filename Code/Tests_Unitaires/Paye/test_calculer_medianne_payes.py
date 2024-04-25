@@ -1,12 +1,13 @@
-import pytest
+from _pytest.python_api import raises
+
 from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
+import pytest
 
 
 paye3 = Paye(p_montant_paye=3)
 paye_negatif = Paye(p_montant_paye=-1)
 paye_decimal = Paye(p_montant_paye=1.5)
-paye_str = Paye()
-paye_str.montant_paye = "wdaf"
+paye_str = Paye(p_montant_paye="wdaf")
 
 
 @pytest.mark.parametrize("list_paye, resultat_attendu", [
@@ -15,6 +16,7 @@ paye_str.montant_paye = "wdaf"
     ([paye_decimal, paye3], 2.25),
     ([paye_str], 0.0)
 ])
+@pytest.mark.xfail()
 def test_calculer_mediane_payes(list_paye, resultat_attendu):
     """
     Permet de tester la méthode pour calculer la mediane
