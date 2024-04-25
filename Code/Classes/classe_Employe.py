@@ -47,7 +47,7 @@ class Employe:
 
     @identifiant.setter
     def identifiant(self, v_identifiant: str) -> None:
-        if len(v_identifiant) == 7 and isinstance(v_identifiant, str) and v_identifiant.isdigit:
+        if len(v_identifiant) == 7 and isinstance(v_identifiant, str) and v_identifiant.isdigit():
             for employe in Employe.list_employe:
                 if employe.identifiant == v_identifiant:
                     return
@@ -59,8 +59,14 @@ class Employe:
 
     @nom.setter
     def nom(self, v_nom: str) -> None:
-        if isinstance(v_nom, str) and v_nom.isalpha():
-            self._nom = v_nom.capitalize()
+        if isinstance(v_nom, str):
+            for lettre in v_nom:
+                if not lettre.isdigit() and lettre.isalpha() or lettre in ["-"]:
+                    continue
+                else:
+                    return
+            else:
+                self._nom = v_nom.capitalize()
 
     @property
     def prenom(self):
@@ -68,8 +74,14 @@ class Employe:
 
     @prenom.setter
     def prenom(self, v_prenom: str) -> None:
-        if isinstance(v_prenom, str) and v_prenom.isalpha():
-            self._prenom = v_prenom.capitalize()
+        if isinstance(v_prenom, str):
+            for lettre in v_prenom:
+                if not lettre.isdigit() and lettre.isalpha() or lettre in ["-"]:
+                    continue
+                else:
+                    return
+            else:
+                self._nom = v_prenom.capitalize()
 
     @property
     def date_engagement(self):

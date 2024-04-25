@@ -3,6 +3,7 @@ from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 
 DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
 
+
 class ContratEmploi:
     """
     Classe ContratEmploi
@@ -11,7 +12,7 @@ class ContratEmploi:
     list_contrat = []
 
     def __init__(self, p_identifiant_contrat: int = 0, p_employe: Employe = None, p_facteur_salaire: float = 0.0,
-                 p_nb_heures_semaine: int = 0, p_salaire_horaire: float = 0.0, p_termes_embauche: str = "",
+                 p_nb_heures_semaine: int = 0, p_salaire_horaire: float = 15.75, p_termes_embauche: str = "",
                  p_date_du_contrat: date = None):
         """
         :param p_identifiant_contrat: L'identifiant du contrat de l'employé
@@ -39,7 +40,7 @@ class ContratEmploi:
         return self._nb_heures_semaine
 
     @nb_heures_semaine.setter
-    def nb_heures_semaine(self, v_nb_heures_semaine):
+    def nb_heures_semaine(self, v_nb_heures_semaine: int):
         if isinstance(v_nb_heures_semaine, int) and 40 >= v_nb_heures_semaine >= 0:
             self._nb_heures_semaine = v_nb_heures_semaine
 
@@ -48,18 +49,9 @@ class ContratEmploi:
         return self._salaire_horaire
 
     @salaire_horaire.setter
-    def salaire_horaire(self, v_salaire_horaire):
-        if isinstance(v_salaire_horaire, float) and v_salaire_horaire > 0:
+    def salaire_horaire(self, v_salaire_horaire: float):
+        if isinstance(v_salaire_horaire, float) and 56 >= v_salaire_horaire >= 15.75:
             self._salaire_horaire = v_salaire_horaire
-
-    @property
-    def termes_embauche(self):
-        return self._termes_embauche
-
-    @termes_embauche.setter
-    def termes_embauche(self, v_termes_embauche):
-        if isinstance(v_termes_embauche, str):
-            self._termes_embauche = v_termes_embauche
 
     @property
     def facteur_salaire(self):
