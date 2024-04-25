@@ -10,27 +10,30 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainsWindowI
     - QtWidgets.Ui_MainsWindowIntra : Type d'interface créé par QtDesigner
     - genere_menu_principal.Ui_MainWindow : Ma classe générée avec QtDesigner
     """
-    def __init__(self, parent=None):
-        '''
-        Constructeur de la classe
-        :param parent: QtWidgets.QMainWindow et code_interface_genere.Ui_MainWindow
-        '''
-        # Appeler le constructeur parent avec ma classe en paramètre...
-        super(demoQt, self).__init__(parent)
-        self.setupUi(self) #Préparer l'interface utilisateur.
 
-# Créer le main qui lance la fenêtre de Qt
+    def __init__(self, parent=None):
+        """
+        Constructeur de la classe
+        :param parent: QtWidgets.QMainWindow et genere_menu_principal.Ui_MainsWindowIntra
+        """
+        super(MenuPrincipal, self).__init__(parent)
+        self.setupUi(self)
+
+    def on_pushButtonQuitter_clicked(self):
+        # SAUVEGARDE A LIEU LAAAAAAAAAA #
+        sys.exit()
+
+
 def main():
-    '''
-    Méthode main : point d'entré du programme.
-    Exécution de l'applicatin avec l'interface graphique.
-    '''
+    """
+    Méthode main : Point d'entré du programme.
+    Exécution de l'application avec l'interface graphique.
+    """
     app = QtWidgets.QApplication(sys.argv)
-    form = demoQt() #Nom de ma classe
-    form.show()
+    fenetre_principale = MenuPrincipal()
+    fenetre_principale.show()
     app.exec()
+
 
 if __name__ == "__main__":
     main()
-
-
