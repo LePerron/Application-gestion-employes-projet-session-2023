@@ -20,3 +20,4 @@ employe3.contrat.date_du_contrat = "12/05/2022"
 ])
 def test_rechercher_contrat_par_date(date_du_contrat, resultat_attendu):
     assert ContratEmploi.rechercher_contrat_par_date(datetime.datetime.strptime(date_du_contrat, "%d/%m/%Y")) == resultat_attendu
+
