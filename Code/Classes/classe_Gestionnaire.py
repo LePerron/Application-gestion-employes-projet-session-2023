@@ -1,3 +1,5 @@
+from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
+from Projet_intra_Entreprise.Code.Classes.classe_Commis import Commis
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
 
@@ -38,11 +40,11 @@ class Gestionnaire(Employe):
         Ajouter un commis dans liste_commis que le gérant gère.
         :param identifiant_commis_a_ajouter: L'identifiant du commis à ajouter
         """
-        for commis in self.liste_commis:
-            if commis.identifiant != identifiant_commis_a_ajouter:
-                continue
-            else:
-                if commis not in self.liste_commis:
+        for commis in Commis.list_commis:
+            if commis.identifiant == identifiant_commis_a_ajouter:
+                if commis in self.liste_commis:
+                    return
+                else:
                     self.liste_commis.append(commis)
 
     def supprimer_commis_a_liste(self, identifiant_commis_a_supprimer: str) -> None:
@@ -50,7 +52,7 @@ class Gestionnaire(Employe):
         Supprimer un commis dans liste_commis que le gérant gère.
         :param identifiant_commis_a_supprimer: L'identifiant du commis à supprimer
         """
-        for commis in self.liste_commis:
+        for commis in Commis.list_commis:
             if commis.identifiant == identifiant_commis_a_supprimer:
                 self.liste_commis.remove(commis)
 
@@ -59,11 +61,11 @@ class Gestionnaire(Employe):
         Ajouter un caissier dans liste_caissier que le gérant gère.
         :param identifiant_caissier_a_ajouter: L'identifiantCaissier du caissier à ajouter
         """
-        for caissier in self.liste_caissier:
-            if caissier.identifiant != identifiant_caissier_a_ajouter:
-                continue
-            else:
-                if caissier not in self.liste_caissier:
+        for caissier in Caissier.liste_caissier:
+            if caissier.identifiant == identifiant_caissier_a_ajouter:
+                if caissier in self.liste_caissier:
+                    return
+                else:
                     self.liste_caissier.append(caissier)
 
     def supprimer_caissier_a_liste(self, identifiant_caissier_a_supprimer: str) -> None:
@@ -71,9 +73,9 @@ class Gestionnaire(Employe):
         Supprimer un caissier dans liste_caissier que le gérant gère.
         :param identifiant_caissier_a_supprimer: L'identifiant du caissier à supprimer
         """
-        for caissier in self.liste_caissier:
+        for caissier in Caissier.liste_caissier:
             if caissier.identifiant == identifiant_caissier_a_supprimer:
-                self.liste_caissier.remove(identifiant_caissier_a_supprimer)
+                self.liste_caissier.remove(caissier)
 
     @staticmethod
     def parcourir_liste(liste_a_parcourir: list) -> str:

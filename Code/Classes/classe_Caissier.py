@@ -21,6 +21,8 @@ class Caissier(Employe):
 
         self.gestionnaire = p_gestionnaire
 
+        Caissier.liste_caissier.append(self)
+
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un beau format les informations du caissier.

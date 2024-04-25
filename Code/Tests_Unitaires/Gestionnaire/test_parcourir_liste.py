@@ -32,3 +32,4 @@ liste2_caissier_attendu.append(caissier2)
 def test_parcourir_liste(liste_a_parcourir, resultat_attendu):
     chaine_str = Gestionnaire.parcourir_liste(liste_a_parcourir)
     assert chaine_str == resultat_attendu
+    assert isinstance(chaine_str, str)

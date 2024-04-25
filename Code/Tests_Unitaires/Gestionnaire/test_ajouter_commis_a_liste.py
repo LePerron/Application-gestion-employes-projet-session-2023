@@ -7,24 +7,31 @@ commis1 = Commis()
 commis1.identifiant = "2371875"
 
 commis2 = Commis()
-commis2.identifiant = "1234567"
+commis2.identifiant = "3456789"
 
 gestionnaire1 = Gestionnaire()
-list_commis_attendu1 = gestionnaire1.liste_commis
-list_commis_attendu1.append(commis1)
 
-list_commis_attendu2 = gestionnaire1.liste_commis
+gestionnaire2 = Gestionnaire()
+gestionnaire2.liste_commis.append(commis1)
 
-list_commis_attendu3 = gestionnaire1.liste_commis
+gestionnaire3 = Gestionnaire()
+
 
 @pytest.mark.parametrize("gestionnaire, identifiant_du_commis, resultat_attendu", [
-    (gestionnaire1, commis1.identifiant, [commis1]),
-    (gestionnaire1, commis2.identifiant, [commis1]),
-    (gestionnaire1, "2371875", [commis1])
+    (gestionnaire1, "2371875", [commis1]),
+    (gestionnaire2, "3456789", [commis1, commis2]),
+    (gestionnaire3, "1234567", [])
 ])
 def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_commis, resultat_attendu):
-    gestionnaire.ajouter_commis_a_liste(identifiant_du_commis)
-    assert gestionnaire.liste_commis == resultat_attendu
+    len_avant_ajout = len(gestionnaire.liste_commis)
 
+    gestionnaire.ajouter_commis_a_liste(identifiant_du_commis)
+
+    resultat = gestionnaire.liste_commis
+    assert resultat == resultat_attendu
+    if len(resultat) == 0:
+        assert len(resultat) == len_avant_ajout
+    else:
+        assert len(resultat) == len_avant_ajout + 1
 
 

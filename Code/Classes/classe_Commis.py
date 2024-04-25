@@ -21,6 +21,8 @@ class Commis(Employe):
 
         self.gestionnaire = p_gestionnaire
 
+        Commis.list_commis.append(self)
+
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un bon format les informations du commis.

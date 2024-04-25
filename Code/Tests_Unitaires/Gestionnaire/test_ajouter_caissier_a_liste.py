@@ -10,22 +10,29 @@ caissier2 = Caissier()
 caissier2.identifiant = "3456789"
 
 gestionnaire1 = Gestionnaire()
-list_caissier_attendu1 = gestionnaire1.liste_caissier
-list_caissier_attendu1.append(caissier1)
 
-list_caissier_attendu2 = gestionnaire1.liste_caissier
+gestionnaire2 = Gestionnaire()
+gestionnaire2.liste_caissier.append(caissier1)
 
-list_caissier_attendu3 = gestionnaire1.liste_caissier
-
+gestionnaire3 = Gestionnaire()
 
 @pytest.mark.parametrize("gestionnaire, identifiant_du_caissier, resultat_attendu", [
-    (gestionnaire1, caissier1.identifiant, [caissier1]),
-    (gestionnaire1, caissier2.identifiant, [caissier1]),
-    (gestionnaire1, "2371875", [caissier1])
+    (gestionnaire1, "2371875", [caissier1]),
+    (gestionnaire2, "3456789", [caissier1, caissier2]),
+    (gestionnaire3, "1234567", [])
 ])
 def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_caissier, resultat_attendu):
+    liste_avant_ajout = len(gestionnaire.liste_caissier)
+
     gestionnaire.ajouter_caissier_a_liste(identifiant_du_caissier)
-    assert gestionnaire.liste_caissier == resultat_attendu
+
+    resultat = gestionnaire.liste_caissier
+    assert resultat == resultat_attendu
+    if len(resultat) == 0:
+        assert len(resultat) == liste_avant_ajout
+    else:
+        assert len(resultat) == liste_avant_ajout + 1
+
 
 
 

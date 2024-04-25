@@ -9,21 +9,29 @@ caissier2 = Caissier()
 caissier2.identifiant = "3456789"
 
 gestionnaire1 = Gestionnaire()
-list_caissier_attendu1 = gestionnaire1.liste_caissier
-list_caissier_attendu1.append(caissier1)
+gestionnaire1.liste_caissier.append(caissier1)
 
 gestionnaire2 = Gestionnaire()
-list_caissier_attendu2 = gestionnaire2.liste_caissier
+gestionnaire2.liste_caissier.append(caissier1)
+gestionnaire2.liste_caissier.append(caissier2)
 
 gestionnaire3 = Gestionnaire()
-list_caissier_attendu3 = gestionnaire3.liste_caissier
+
 
 
 @pytest.mark.parametrize("gestionnaire, identifiant_caissier_a_supprimer, resultat_attendu", [
-    (gestionnaire2, caissier1.identifiant, []),
-    (gestionnaire1, caissier2.identifiant, [caissier1]),
-    (gestionnaire3, "2371875", [])
+    (gestionnaire1, "2371875", []),
+    (gestionnaire2, "3456789", [caissier1]),
+    (gestionnaire3, "1234567", [])
 ])
 def test_identifiant_caissier_a_supprimer(gestionnaire, identifiant_caissier_a_supprimer, resultat_attendu):
+    len_avant_supprimer = len(gestionnaire.liste_caissier)
+
     gestionnaire.supprimer_caissier_a_liste(identifiant_caissier_a_supprimer)
+
+    resultat = gestionnaire.liste_caissier
     assert gestionnaire.liste_caissier == resultat_attendu
+    if len_avant_supprimer == 0:
+        assert len(resultat) == len_avant_supprimer
+    else:
+        assert len(resultat) == len_avant_supprimer - 1
