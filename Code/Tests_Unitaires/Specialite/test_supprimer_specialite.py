@@ -19,9 +19,12 @@ def test_supprimer_specialite(specialite_a_supprimer, resultat_attendu):
     :param resultat_attendu: Le résultat attendu
     """
     liste_avant_supprime = Specialite.list_des_specialites[::]
+
     Specialite.supprimer_specialite(specialite_a_supprimer)
 
     resultat = Specialite.list_des_specialites
+
     assert resultat == resultat_attendu
+    assert len(resultat) == len(resultat_attendu)
     Specialite.list_des_specialites = liste_avant_supprime
 

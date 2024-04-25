@@ -23,15 +23,10 @@ gestionnaire3 = Gestionnaire()
     (gestionnaire3, "1234567", [])
 ])
 def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_commis, resultat_attendu):
-    len_avant_ajout = len(gestionnaire.liste_commis)
-
     gestionnaire.ajouter_commis_a_liste(identifiant_du_commis)
 
     resultat = gestionnaire.liste_commis
     assert resultat == resultat_attendu
-    if len(resultat) == 0:
-        assert len(resultat) == len_avant_ajout
-    else:
-        assert len(resultat) == len_avant_ajout + 1
+    assert len(resultat) == len(resultat_attendu)
 
 

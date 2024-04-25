@@ -24,13 +24,8 @@ gestionnaire3 = Gestionnaire()
     (gestionnaire3, "1234567", [])
 ])
 def test_identifiant_commis_a_supprimer(gestionnaire, identifiant_commis_a_supprimer, resultat_attendu):
-    len_avant_supprimer = len(gestionnaire.liste_commis)
-
     gestionnaire.supprimer_commis_a_liste(identifiant_commis_a_supprimer)
 
     resultat = gestionnaire.liste_commis
     assert resultat == resultat_attendu
-    if len_avant_supprimer == 0:
-        assert len(resultat) == len_avant_supprimer
-    else:
-        assert len(resultat) == len_avant_supprimer - 1
+    assert len(resultat) == len(resultat_attendu)

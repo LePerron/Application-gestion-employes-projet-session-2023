@@ -22,3 +22,4 @@ employe4 = Employe(p_specialite=specialite_legumes)
 def test_trouve_employe_selon_specialite(specialite_demandee, resultat_attendu):
     resultat = Specialite.trouve_employe_selon_specialite(specialite_demandee)
     assert resultat == resultat_attendu
+    assert len(resultat) == len(resultat_attendu)

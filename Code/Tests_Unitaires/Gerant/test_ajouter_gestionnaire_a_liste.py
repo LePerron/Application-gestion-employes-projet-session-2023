@@ -24,14 +24,9 @@ gerant3 = Gerant()
     (gerant3, "1234567", [])
 ])
 def test_ajouter_gestionnaire_a_liste(gerant, identifiant_gestionnaire_a_ajouter, resultat_attendu):
-    longeur_avant_ajout = len(gerant.liste_gestionnaire)
-
     gerant.ajouter_gestionnaire_a_liste(identifiant_gestionnaire_a_ajouter)
 
     resultat = gerant.liste_gestionnaire
     assert resultat == resultat_attendu
-    if len(resultat) == 0:
-        assert len(resultat) == longeur_avant_ajout
-    else:
-        assert len(resultat) == longeur_avant_ajout + 1
+    assert len(resultat) == len(resultat_attendu)
 

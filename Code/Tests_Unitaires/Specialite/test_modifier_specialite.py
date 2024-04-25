@@ -27,6 +27,8 @@ def test_modifier_specialite(specialite_a_modifier, nouvelle_specialite, nouvell
         else:
             assert specialite.nom == resultat_attendu[0]
             assert specialite.description == resultat_attendu[1]
+            assert isinstance(specialite.nom, str)
+            assert isinstance(specialite.description, str)
             return
 
 

@@ -23,13 +23,8 @@ gerant3 = Gerant()
     (gerant1, "2371875", [])
 ])
 def test_identifiant_gestionnaire_a_supprimer(gerant, identifiant_gestionnaire_a_supprimer, resultat_attendu):
-    longeur_avant_supprime = len(gerant.liste_gestionnaire)
-
     gerant.supprimer_gestionnaire_a_liste(identifiant_gestionnaire_a_supprimer)
 
     resultat = gerant.liste_gestionnaire
     assert resultat == resultat_attendu
-    if longeur_avant_supprime == 0:
-        assert len(resultat) == longeur_avant_supprime
-    else:
-        assert len(resultat) == longeur_avant_supprime - 1
+    assert len(resultat) == len(resultat_attendu)
