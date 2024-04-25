@@ -143,7 +143,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonMenu">
+  <widget class="QPushButton" name="pushButtonAnnuler">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -184,7 +184,7 @@
     <string>Salaire Horaire:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelTitreAjouterEmployer_2">
+  <widget class="QLabel" name="labelTitreAjouterContrat">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -305,9 +305,9 @@
   <zorder>labelErreurSalaireHorraire</zorder>
   <zorder>pushButtonAjouterEmployer</zorder>
   <zorder>labelErreurNbHeure</zorder>
-  <zorder>pushButtonMenu</zorder>
+  <zorder>pushButtonAnnuler</zorder>
   <zorder>labelSalaireHorraire</zorder>
-  <zorder>labelTitreAjouterEmployer_2</zorder>
+  <zorder>labelTitreAjouterContrat</zorder>
   <zorder>line_2</zorder>
   <zorder>labelIdentifiantEmploye</zorder>
   <zorder>labelIdentifiantEmployeDonner</zorder>

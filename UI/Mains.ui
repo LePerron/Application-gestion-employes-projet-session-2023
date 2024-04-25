@@ -160,7 +160,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonContrat">
+      <widget class="QPushButton" name="pushButtonSpecialite">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
