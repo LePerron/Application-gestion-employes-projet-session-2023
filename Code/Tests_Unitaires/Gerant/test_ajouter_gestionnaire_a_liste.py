@@ -27,5 +27,4 @@ liste3_gestionnaire_attendu = gerant3.liste_gestionnaire
 def test_ajouter_gestionnaire_a_liste(gerant, identifiant_gestionnaire_a_ajouter, resultat_attendu):
     gerant.ajouter_gestionnaire_a_liste(identifiant_gestionnaire_a_ajouter)
     assert gerant.liste_gestionnaire == resultat_attendu
-    assert
 

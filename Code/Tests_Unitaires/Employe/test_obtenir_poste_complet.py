@@ -15,4 +15,6 @@ import pytest
 def test_obtenir_poste_complet(poste, specialite, resultat_attendu):
     employe1 = poste()
     employe1.specialite = Specialite(p_nom=specialite)
-    assert employe1.obtenir_poste_complet() == resultat_attendu
+    resultat = employe1.obtenir_poste_complet()
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, str)
