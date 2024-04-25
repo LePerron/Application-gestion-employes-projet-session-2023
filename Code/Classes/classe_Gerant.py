@@ -1,6 +1,8 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date
 
+from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
+
 
 class Gerant(Employe):
     """
@@ -27,11 +29,11 @@ class Gerant(Employe):
         Ajouter un gestionnaire dans la liste_gestionnaire que le gérant gère
         :param identifiant_gestionnaire_a_ajouter: L'identifiant du Gestionnaire à ajouter
         """
-        for gestionnaire in self.liste_gestionnaire:
-            if gestionnaire.identifiant != identifiant_gestionnaire_a_ajouter:
-                continue
-            else:
-                if gestionnaire not in self.liste_gestionnaire:
+        for gestionnaire in Gestionnaire.list_gestionnaire:
+            if gestionnaire.identifiant == identifiant_gestionnaire_a_ajouter:
+                if gestionnaire in self.liste_gestionnaire:
+                    return
+                else:
                     self.liste_gestionnaire.append(gestionnaire)
 
     def supprimer_gestionnaire_a_liste(self, identifiant_gestionnaire_a_supprimer: str) -> None:
@@ -39,7 +41,7 @@ class Gerant(Employe):
         Supprimer un gestionnaire dans la liste_gestionnaire
         :param identifiant_gestionnaire_a_supprimer: L'identifiant du Gestionnaire à supprimer
         """
-        for gestionnaire in self.liste_gestionnaire:
+        for gestionnaire in Gestionnaire.list_gestionnaire:
             if gestionnaire.identifiant == identifiant_gestionnaire_a_supprimer:
                 self.liste_gestionnaire.remove(gestionnaire)
 
