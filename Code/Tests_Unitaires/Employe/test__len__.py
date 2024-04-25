@@ -14,4 +14,6 @@ Employe.list_employe = []
 ])
 def test__len__(liste_employe, resultat_attendu):
     Employe.list_employe = liste_employe
-    assert Employe.__len__() == resultat_attendu
+    resultat = Employe.__len__()
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, int)

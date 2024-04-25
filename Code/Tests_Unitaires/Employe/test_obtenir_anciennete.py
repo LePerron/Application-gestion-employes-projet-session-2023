@@ -14,4 +14,6 @@ def test_obtenir_anciennete(date_engagement, resultat_attendu):
     employe1 = Employe(p_identifiant="12345678", p_prenom="lemoyne", p_nom="benno", p_poste="Caissier",
                        p_specialite=None, p_date_engagement=date_formatee)
 
-    assert employe1.obtenir_anciennete() == resultat_attendu
+    resultat = employe1.obtenir_anciennete()
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, int)

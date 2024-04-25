@@ -19,4 +19,6 @@ employe1 = Employe(p_identifiant="12345678", p_prenom="lemoyne", p_nom="benno", 
 ])
 def test_est_temps_plein(nb_heures_semaine, resultat_attendu):
     employe1.contrat.nb_heures_semaine = nb_heures_semaine
-    assert employe1.est_temps_plein() == resultat_attendu
+    resultat = employe1.est_temps_plein()
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, bool)

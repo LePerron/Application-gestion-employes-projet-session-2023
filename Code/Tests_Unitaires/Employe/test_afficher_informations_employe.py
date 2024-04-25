@@ -21,4 +21,6 @@ employe2.poste = "Caissier"
                 f"POSTE : Caissier - NUM CONTRAT : 2"))
 ])
 def test_afficher_informations_employe(employe, resultat_attendu):
-    assert employe.afficher_informations_employe() == resultat_attendu
+    resultat = employe.afficher_informations_employe()
+    assert resultat == resultat_attendu
+    assert isinstance(resultat, str)
