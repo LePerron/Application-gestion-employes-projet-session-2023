@@ -1,13 +1,15 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 import pytest
 
-specialite2 = Specialite("Legumes", "ancienne description de legume")
-specialite3 = Specialite("Fruits", "ancienne description de fruits")
-specialite1 = Specialite("Viandes", "ancienne description de Viande")
+specialite2 = Specialite("Legumes", "ancienne description de Legumes")
+specialite3 = Specialite("Fruits", "ancienne description de Fruits")
+specialite1 = Specialite("Viandes", "ancienne description de Viandes")
 
 
 @pytest.mark.parametrize("specialite_a_modifier, nouvelle_specialite, nouvelle_description, resultat_attendu", [
     ("Viandes", "allo", "celui qui gère les Allo", ("Allo", "celui qui gère les Allo")),
+    ("Fruits", "Caisses", "celui qui gère les Caisses", ("Caisses", "celui qui gère les Caisses")),
+    ("Legumes", "allo", "celui qui gère les Allo", ("Legumes", "ancienne description de Legumes")),
 ])
 def test_modifier_specialite(specialite_a_modifier, nouvelle_specialite, nouvelle_description, resultat_attendu):
     """
@@ -26,8 +28,6 @@ def test_modifier_specialite(specialite_a_modifier, nouvelle_specialite, nouvell
             assert specialite.nom == resultat_attendu[0]
             assert specialite.description == resultat_attendu[1]
             return
-    else:
-        @pytest.raises()
 
 
 
