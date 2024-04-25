@@ -1,5 +1,4 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
-from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 import pytest
 
 

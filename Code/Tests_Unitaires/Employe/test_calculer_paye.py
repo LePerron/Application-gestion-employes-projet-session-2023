@@ -1,5 +1,5 @@
-import pytest
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+import pytest
 
 employe1 = Employe()
 employe1.contrat.salaire_horaire = 16.50
