@@ -1,6 +1,4 @@
-from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
-import datetime
 import pytest
 
 employe1 = Employe()
@@ -14,6 +12,7 @@ employe2.identifiant = "12345678"
 employe2.prenom = "lemoyne"
 employe2.nom = "benno"
 employe2.poste = "Caissier"
+
 
 @pytest.mark.parametrize("employe, resultat_attendu", [
     (employe1, (f"IDENTIFIANT : 1234567 - NOM COMPLET : Benno Lemoyne - "

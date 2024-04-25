@@ -1,10 +1,11 @@
-import pytest
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+import pytest
 
 employe1 = Employe()
 employe2 = Employe()
 employe3 = Employe()
 Employe.list_employe = []
+
 
 @pytest.mark.parametrize("liste_employe, resultat_attendu", [
     ([employe1, employe2], 2),

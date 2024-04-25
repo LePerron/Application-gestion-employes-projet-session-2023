@@ -6,7 +6,6 @@ from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
 import pytest
 
 
-
 @pytest.mark.parametrize("poste, specialite, resultat_attendu", [
     (Gestionnaire, "Viande", "Gestionnaire Viande"),
     (Caissier, "Legume", "Caissier Legume"),

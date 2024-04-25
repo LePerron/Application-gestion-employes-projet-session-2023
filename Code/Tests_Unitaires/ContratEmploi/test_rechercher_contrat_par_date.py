@@ -1,8 +1,7 @@
-import datetime
-
-import pytest
 from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+import datetime
+import pytest
 
 employe1 = Employe()
 employe1.contrat.date_du_contrat = "12/04/2022"
