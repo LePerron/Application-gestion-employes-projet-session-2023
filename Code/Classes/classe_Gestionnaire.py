@@ -31,6 +31,8 @@ class Gestionnaire(Employe):
         self.liste_commis = p_liste_commis
         self.liste_caissier = p_liste_caissier
 
+        Gestionnaire.list_gestionnaire.append(self)
+
     def ajouter_commis_a_liste(self, identifiant_commis_a_ajouter: str) -> None:
         """
         Ajouter un commis dans liste_commis que le gérant gère.
