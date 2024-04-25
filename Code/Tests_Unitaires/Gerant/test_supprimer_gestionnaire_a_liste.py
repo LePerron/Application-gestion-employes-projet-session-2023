@@ -6,26 +6,30 @@ gestionnaire1 = Gestionnaire()
 gestionnaire1.identifiant = "2371875"
 
 gestionnaire2 = Gestionnaire()
-gestionnaire2.identifiant = "2371875"
-
-gestionnaire2 = Gestionnaire()
 gestionnaire2.identifiant = "3456789"
 
 gerant1 = Gerant()
+gerant1.liste_gestionnaire.append(gestionnaire1)
 
-liste2_gestionnaire_attendu = gerant1.liste_gestionnaire
+gerant2 = Gerant()
+gerant2.liste_gestionnaire.append(gestionnaire1)
+gerant2.liste_gestionnaire.append(gestionnaire2)
 
 gerant3 = Gerant()
-liste3_gestionnaire_attendu = gerant3.liste_gestionnaire
-
-liste1_gestionnaire_attendu = gerant1.liste_gestionnaire
-liste1_gestionnaire_attendu.append(gestionnaire1)
 
 @pytest.mark.parametrize("gerant, identifiant_gestionnaire_a_supprimer, resultat_attendu", [
-    (gerant3, "2371875", []),
-    (gerant1, gestionnaire2.identifiant, [gestionnaire1]),
-    (gerant1, gestionnaire1.identifiant, [])
+    (gerant3, "1234567", []),
+    (gerant2, "3456789", [gestionnaire1]),
+    (gerant1, "2371875", [])
 ])
 def test_identifiant_gestionnaire_a_supprimer(gerant, identifiant_gestionnaire_a_supprimer, resultat_attendu):
+    longeur_avant_supprime = len(gerant.liste_gestionnaire)
+
     gerant.supprimer_gestionnaire_a_liste(identifiant_gestionnaire_a_supprimer)
-    assert gerant.liste_gestionnaire == resultat_attendu
+
+    resultat = gerant.liste_gestionnaire
+    assert resultat == resultat_attendu
+    if longeur_avant_supprime == 0:
+        assert len(resultat) == longeur_avant_supprime
+    else:
+        assert len(resultat) == longeur_avant_supprime - 1
