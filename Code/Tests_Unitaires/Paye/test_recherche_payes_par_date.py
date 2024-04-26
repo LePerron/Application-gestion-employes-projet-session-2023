@@ -1,5 +1,5 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
-from datetime import datetime
+from datetime import datetime, date
 import pytest
 
 paye1 = Paye(p_montant_paye=2.0)
@@ -24,7 +24,7 @@ paye5.date_de_paye = "15/01/2025"
     (datetime.strptime("15/01/2018", "%d/%m/%Y"), []),
     (datetime.strptime("15/01/2025", "%d/%m/%Y"), [])
 ])
-def test_rechercher_payes_par_date(date_de_paye, resultat_attendu):
+def test_rechercher_payes_par_date(date_de_paye: date, resultat_attendu: list):
     """
     Permet de tester la méthode pour trouver la ou les payes de la date
     :param resultat_attendu: La valeur attendue après son initialisation

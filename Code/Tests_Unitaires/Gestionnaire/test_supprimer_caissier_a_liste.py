@@ -24,7 +24,14 @@ gestionnaire3 = Gestionnaire()
     (gestionnaire2, "3456789", [caissier1]),
     (gestionnaire3, "1234567", [])
 ])
-def test_identifiant_caissier_a_supprimer(gestionnaire, identifiant_caissier_a_supprimer, resultat_attendu):
+def test_identifiant_caissier_a_supprimer(gestionnaire, identifiant_caissier_a_supprimer: str, resultat_attendu: list):
+    """
+    Un test unitaire qui test la methode caissier à supprimer.
+    :param identifiant_caissier_a_supprimer: La valeur qu'on souhaite setter
+    :param gestionnaire: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     gestionnaire.supprimer_caissier_a_liste(identifiant_caissier_a_supprimer)
 
     resultat = gestionnaire.liste_caissier

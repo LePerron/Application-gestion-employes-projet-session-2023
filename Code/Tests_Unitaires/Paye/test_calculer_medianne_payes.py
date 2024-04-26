@@ -17,7 +17,7 @@ paye_str = Paye(p_montant_paye="wdaf")
     ([paye_str], 0.0)
 ])
 @pytest.mark.xfail()
-def test_calculer_mediane_payes(list_paye, resultat_attendu):
+def test_calculer_mediane_payes(list_paye: list, resultat_attendu: float):
     """
     Permet de tester la méthode pour calculer la mediane
     :param list_paye: la liste utilisé pour initialiser la méthode

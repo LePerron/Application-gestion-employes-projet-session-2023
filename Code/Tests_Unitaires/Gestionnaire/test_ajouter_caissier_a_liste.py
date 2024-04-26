@@ -21,7 +21,14 @@ gestionnaire3 = Gestionnaire()
     (gestionnaire2, "3456789", [caissier1, caissier2]),
     (gestionnaire3, "1234567", [])
 ])
-def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_caissier, resultat_attendu):
+def test_ajouter_caissier_a_liste(gestionnaire, identifiant_du_caissier: str, resultat_attendu: list):
+    """
+    Un test unitaire qui test la methode identifiant caissier à supprimer.
+    :param identifiant_du_caissier: La valeur qu'on souhaite setter
+    :param gestionnaire: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     gestionnaire.ajouter_caissier_a_liste(identifiant_du_caissier)
 
     resultat = gestionnaire.liste_caissier

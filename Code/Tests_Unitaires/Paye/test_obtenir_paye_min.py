@@ -14,7 +14,7 @@ paye_str.montant_paye = "wdaf"
     ([paye_negatif, paye3], -1),
     ([paye_str], 0.0)
 ])
-def test_obtenir_paye_min(list_paye, resultat_attendu):
+def test_obtenir_paye_min(list_paye: list, resultat_attendu: float):
     """
     Permet de tester la méthode pour trouver la paye minimum
     :param list_paye: la liste utilisé pour initialiser la méthode

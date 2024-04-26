@@ -19,7 +19,13 @@ employe4 = Employe(p_specialite=specialite_legumes)
     ("Legumes", [employe4]),
     ("Reinsda", []),
 ])
-def test_trouve_employe_selon_specialite(specialite_demandee, resultat_attendu):
+def test_trouve_employe_selon_specialite(specialite_demandee: str, resultat_attendu: list):
+    """
+    Un test unitaire qui test la methode trouver employé selon une spécialité.
+    :param specialite_demandee: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     resultat = Specialite.trouve_employe_selon_specialite(specialite_demandee)
     assert resultat == resultat_attendu
     assert len(resultat) == len(resultat_attendu)

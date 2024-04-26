@@ -29,7 +29,13 @@ liste2_caissier_attendu.append(caissier2)
     (gestionnaire2.liste_caissier, f"{caissier1.nom} | {caissier2.nom} | "),
     (gestionnaire1.liste_commis, f"{commis1.nom} | ")
 ])
-def test_parcourir_liste(liste_a_parcourir, resultat_attendu):
+def test_parcourir_liste(liste_a_parcourir: list, resultat_attendu: str):
+    """
+    Un test unitaire qui test la methode parcourir liste.
+    :param liste_a_parcourir: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     chaine_str = Gestionnaire.parcourir_liste(liste_a_parcourir)
     assert chaine_str == resultat_attendu
     assert isinstance(chaine_str, str)
