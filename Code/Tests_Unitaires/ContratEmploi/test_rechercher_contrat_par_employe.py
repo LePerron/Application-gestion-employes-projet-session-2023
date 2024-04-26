@@ -15,4 +15,4 @@ def test_rechercher_contrat_par_employe(identifiant_employe, resultat_attendu):
     resultat = ContratEmploi.rechercher_contrat_par_employe(identifiant_employe)
     assert resultat == resultat_attendu
     assert isinstance(resultat, list)
-    # assert
+
