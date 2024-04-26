@@ -11,7 +11,7 @@ import pytest
     (".,`l^.", ""),
     ("Fruits2", ""),
 ])
-def test_set_nom(valeur, resultat_attendu):
+def test_set_nom(valeur: str, resultat_attendu: str):
     """
     Un test unitaire qui test le setter du nom de la specialite.
     :param valeur: La valeur qu'on souhaite setter

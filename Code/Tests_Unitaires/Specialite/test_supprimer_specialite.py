@@ -12,7 +12,7 @@ specialite3 = Specialite("Legumes", "celui qui gère les Legumes")
     ("leg2mes", [specialite1, specialite2, specialite3]),
     ("rie2n", [specialite1, specialite2, specialite3])
 ])
-def test_supprimer_specialite(specialite_a_supprimer, resultat_attendu):
+def test_supprimer_specialite(specialite_a_supprimer: str, resultat_attendu: list):
     """
     Un test unitaire qui test si la méthode **supprimer_specialite** qui supprime une spécialité.
     :param specialite_a_supprimer: Le nom de la spécialité à enlever

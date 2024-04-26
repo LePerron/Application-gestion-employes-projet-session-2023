@@ -11,7 +11,8 @@ specialite1 = Specialite("Viandes", "ancienne description de Viandes")
     ("Fruits", "Caisses", "celui qui gère les Caisses", ("Caisses", "celui qui gère les Caisses")),
     ("Legumes", "allo", "celui qui gère les Allo", ("Legumes", "ancienne description de Legumes")),
 ])
-def test_modifier_specialite(specialite_a_modifier, nouvelle_specialite, nouvelle_description, resultat_attendu):
+def test_modifier_specialite(specialite_a_modifier: str, nouvelle_specialite: str, nouvelle_description: str,
+                             resultat_attendu: tuple):
     """
     Un test unitaire qui test si la méthode **modifier_specialite** modifie le nom et la description d'une spécialité.
     :param specialite_a_modifier: Le nom actuel de la spécialité

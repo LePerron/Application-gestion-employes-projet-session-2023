@@ -15,7 +15,7 @@ paye_str.montant_paye = "wdaf"
     ([paye_decimal, paye3], 2.75),
     ([paye_str], 0.0)
 ])
-def test_calculer_moyenne_payes(list_paye, resultat_attendu):
+def test_calculer_moyenne_payes(list_paye: list, resultat_attendu: float):
     """
     Permet de tester la méthode pour calculer la moyenne
     :param list_paye: la liste utilisé pour initialiser la méthode
