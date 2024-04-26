@@ -1,4 +1,5 @@
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_contrats
+from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
@@ -19,10 +20,12 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrats.Ui_DialogContratEmplo
         super(MenuContrats, self).__init__(parent)
         self.setupUi(self)
 
+    @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         MenuContrats.close(self)
 
+    @pyqtSlot()
     def on_pushButtonModifierContrat_clicked(self):
         # SAUVEGARDE A LIEU LAAAAAAAAAA #
         pass

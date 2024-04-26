@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainsWindowIntra</class>
- <widget class="QMainWindow" name="MainsWindowIntra">
+ <class>MainWindowMenuPrincipal</class>
+ <widget class="QMainWindow" name="MainWindowMenuPrincipal">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -82,7 +82,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonMenuEmployer">
+      <widget class="QPushButton" name="pushButtonMenuEmploye">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
