@@ -1,4 +1,8 @@
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_principal
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSpecialite import MenuSpecialites
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuContrats import MenuContrats
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuEmploye import MenuEmployes
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuPayes import MenuPayes
 from PyQt5 import QtWidgets
 import sys
 
@@ -7,8 +11,8 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainsWindowI
     """
     Nome de la classe : MenuPrincipal
     Héritages :
-    - QtWidgets.Ui_MainsWindowIntra : Type d'interface créé par QtDesigner
-    - genere_menu_principal.Ui_MainWindow : Ma classe générée avec QtDesigner
+    - QtWidgets.QMainWindow : Type d'interface créé par QtDesigner
+    - genere_menu_principal.Ui_MainsWindowIntra : Ma classe générée avec QtDesigner
     """
 
     def __init__(self, parent=None):
@@ -23,9 +27,9 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainsWindowI
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         sys.exit()
 
-    def on_pushButtonQuitter_clicked(self):
-        # SAUVEGARDE A LIEU LAAAAAAAAAA #
-        sys.exit()
+    def on_pushButtonMenuEmployer_clicked(self):
+        Dialog_MenuEmploye.M
+
 
 
 

@@ -3,40 +3,40 @@ from PyQt5 import QtWidgets
 import sys
 
 
-class MenuContrats(QtWidgets.QWidget, genere_menu_contrats.Ui_MainsWindowIntra):
+class MenuContrats(QtWidgets.QDialog, genere_menu_contrats.Ui_DialogContratEmploye):
     """
     Nome de la classe : MenuContrats
-    Héritages :
-    - QtWidgets.Ui_MainsWindowIntra : Type d'interface créé par QtDesigner
-    - genere_menu_contrats.Ui_MainWindow : Ma classe générée avec QtDesigner
+    HÃ©ritages :
+    - QtWidgets.QDialog : Type d'interface crÃ©Ã© par QtDesigner
+    - genere_menu_contrats.Ui_DialogContratEmploye : Ma classe gÃ©nÃ©rÃ©e avec QtDesigner
     """
 
     def __init__(self, parent=None):
         """
         Constructeur de la classe
-        :param parent: QtWidgets.QMainWindow et genere_menu_contrats.Ui_MainsWindowIntra
+        :param parent: QtWidgets.QDialog et genere_menu_contrats.Ui_DialogContratEmploye
         """
         super(MenuContrats, self).__init__(parent)
         self.setupUi(self)
 
-    def on_pushButtonQuitter_clicked(self):
-        # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
-        sys.exit()
+    def on_pushButtonRetournerMenu_clicked(self):
+        # *** Ã€ FAIRE *** SAUVEGARDE A LIEU LÃ€ #
+        MenuContrats.close(self)
 
-    def on_pushButtonQuitter_clicked(self):
+    def on_pushButtonModifierContrat_clicked(self):
         # SAUVEGARDE A LIEU LAAAAAAAAAA #
-        sys.exit()
+        pass
 
 
 
 def main():
     """
-    Méthode main : Point d'entré du programme.
-    Exécution de l'application avec l'interface graphique.
+    MÃ©thode main : Point d'entrÃ© du programme.
+    ExÃ©cution de l'application avec l'interface graphique.
     """
     app = QtWidgets.QApplication(sys.argv)
-    fenetre_principale = MenuContrats()
-    fenetre_principale.show()
+    fenetre_contrat = MenuContrats()
+    fenetre_contrat.show()
     app.exec()
 
 
