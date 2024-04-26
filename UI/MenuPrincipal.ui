@@ -82,7 +82,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonEmployer">
+      <widget class="QPushButton" name="pushButtonMenuEmployer">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -112,7 +112,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonContrat_2">
+      <widget class="QPushButton" name="pushButtonMenuContrat">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -139,7 +139,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonPaye">
+      <widget class="QPushButton" name="pushButtonMenuPaye">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -160,7 +160,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonSpecialite">
+      <widget class="QPushButton" name="pushButtonMenuSpecialite">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
