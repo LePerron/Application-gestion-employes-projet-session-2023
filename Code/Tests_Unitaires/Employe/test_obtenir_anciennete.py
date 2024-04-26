@@ -8,7 +8,13 @@ import pytest
     ("02/09/2000", 23),
     ("03/01/1900", 124)
 ])
-def test_obtenir_anciennete(date_engagement, resultat_attendu):
+def test_obtenir_anciennete(date_engagement: str, resultat_attendu: int):
+    """
+    Un test unitaire qui test la methode pour obtenir l'ancienneté.
+    :param date_engagement: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     date_formatee = datetime.datetime.strptime(date_engagement, "%d/%m/%Y")
 
     employe1 = Employe(p_identifiant="12345678", p_prenom="lemoyne", p_nom="benno", p_poste="Caissier",

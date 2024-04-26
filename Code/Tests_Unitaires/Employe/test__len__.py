@@ -12,7 +12,13 @@ Employe.list_employe = []
     ([employe1], 1),
     ([employe1, employe2, employe3], 3),
 ])
-def test__len__(liste_employe, resultat_attendu):
+def test__len__(liste_employe: list, resultat_attendu: int):
+    """
+    Un test unitaire qui test le methode magic len.
+    :param liste_employe: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     Employe.list_employe = liste_employe
     resultat = Employe.__len__()
     assert resultat == resultat_attendu
