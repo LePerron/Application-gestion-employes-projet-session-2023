@@ -75,12 +75,12 @@ class Employe:
     def prenom(self, v_prenom: str) -> None:
         if isinstance(v_prenom, str):
             for lettre in v_prenom:
-                if not lettre.isdigit() and lettre.isalpha() or lettre in ["-"]:
+                if lettre.isalpha():
                     continue
                 else:
                     return
             else:
-                self._nom = v_prenom.capitalize()
+                self._prenom = v_prenom.capitalize()
 
     @property
     def date_engagement(self):
@@ -118,7 +118,7 @@ class Employe:
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
-        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._nom} {self._prenom} - "
+        return (f"IDENTIFIANT : {self._identifiant} - NOM COMPLET : {self._prenom} {self._nom} - "
                 f"POSTE : {self.poste.capitalize()} - NUM CONTRAT : {self.contrat.identifiant_contrat}")
 
     def calculer_paye(self) -> float:

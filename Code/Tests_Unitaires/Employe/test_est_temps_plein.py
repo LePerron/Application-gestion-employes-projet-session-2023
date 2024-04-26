@@ -17,7 +17,13 @@ employe1 = Employe(p_identifiant="12345678", p_prenom="lemoyne", p_nom="benno", 
     ("0", False),
     (0, False)
 ])
-def test_est_temps_plein(nb_heures_semaine, resultat_attendu):
+def test_est_temps_plein(nb_heures_semaine: int, resultat_attendu: bool):
+    """
+    Un test unitaire qui test la methode est temps plein.
+    :param nb_heures_semaine: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     employe1.contrat.nb_heures_semaine = nb_heures_semaine
     resultat = employe1.est_temps_plein()
     assert resultat == resultat_attendu

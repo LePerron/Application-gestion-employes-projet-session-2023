@@ -21,7 +21,13 @@ employe3.contrat.nb_heures_semaine = 1000
     (employe2, 0),
     (employe3, 0)
 ])
-def test_calculer_paye(employe, resultat_attendu):
+def test_calculer_paye(employe, resultat_attendu: int):
+    """
+    Un test unitaire qui test la methode calculer paye.
+    :param employe: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     resultat = employe.calculer_paye()
     assert resultat == resultat_attendu
     assert isinstance(resultat, float)

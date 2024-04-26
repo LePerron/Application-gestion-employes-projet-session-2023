@@ -17,11 +17,12 @@ employe3.contrat.date_du_contrat = "12/05/2022"
     ("12/05/2022", [employe2.contrat, employe3.contrat]),
     ("16/06/2022", [])
 ])
-def test_rechercher_contrat_par_date(date_du_contrat: str, resultat_attendu):
+def test_rechercher_contrat_par_date(date_du_contrat: str, resultat_attendu: list):
     """
-    Pytest pour tester la classmethod rechercher_contrat_par_date.
-    :param date_du_contrat: date du contrat donner.
-    :param resultat_attendu: liste des dates de contrat demmander.
+    Un test unitaire qui test le methode rechercher contrat par date.
+    :param date_du_contrat: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
     """
     resultat = ContratEmploi.rechercher_contrat_par_date(datetime.datetime.strptime(date_du_contrat, "%d/%m/%Y"))
     assert resultat == resultat_attendu

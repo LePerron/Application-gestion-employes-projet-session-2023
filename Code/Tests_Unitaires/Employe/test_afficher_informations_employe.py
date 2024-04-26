@@ -3,14 +3,14 @@ import pytest
 
 employe1 = Employe()
 employe1.identifiant = "1234567"
-employe1.prenom = "lemoyne"
-employe1.nom = "benno"
+employe1.nom = "lemoyne"
+employe1.prenom = "benno"
 employe1.poste = "Caissier"
 
 employe2 = Employe()
 employe2.identifiant = "12345678"
-employe2.prenom = "lemoyne"
-employe2.nom = "benno"
+employe2.nom = "lemoyne"
+employe2.prenom = "benno"
 employe2.poste = "Caissier"
 
 
@@ -20,7 +20,13 @@ employe2.poste = "Caissier"
     (employe2, (f"IDENTIFIANT :  - NOM COMPLET : Benno Lemoyne - "
                 f"POSTE : Caissier - NUM CONTRAT : 2"))
 ])
-def test_afficher_informations_employe(employe, resultat_attendu):
+def test_afficher_informations_employe(employe, resultat_attendu: str):
+    """
+    Un test unitaire qui test la methode affocher information employe.
+    :param employe: La valeur qu'on souhaite setter
+    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :return:
+    """
     resultat = employe.afficher_informations_employe()
     assert resultat == resultat_attendu
     assert isinstance(resultat, str)
