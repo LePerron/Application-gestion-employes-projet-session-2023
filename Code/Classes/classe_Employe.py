@@ -1,6 +1,5 @@
 from datetime import date, datetime
 
-
 DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
 
 # À FAIRE !!!!

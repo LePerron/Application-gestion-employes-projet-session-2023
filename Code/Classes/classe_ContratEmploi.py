@@ -27,7 +27,7 @@ class ContratEmploi:
         self._facteur_salaire = p_facteur_salaire
         self._nb_heures_semaine = p_nb_heures_semaine
         self._salaire_horaire = p_salaire_horaire
-        self._termes_embauche = p_termes_embauche
+        self.termes_embauche = p_termes_embauche
         self._date_du_contrat = p_date_du_contrat
         self.employe = p_employe
 
@@ -97,6 +97,22 @@ class ContratEmploi:
             if contrat.employe.identifiant == identifiant_employe:
                 list_contrat_a_employe.append(contrat)
         return list_contrat_a_employe
+
+    @staticmethod
+    def modifier_contrat(identifiant_contrat_renouvele: int, nouveau_facteur: float,
+                         nouveau_salaire: float, nouveau_nb_heure: int) -> None:
+        """
+        Metode qui permet de modifier un contrat.
+        :param identifiant_contrat_renouvele: L'identifiant du contrat qui doit être modifier.
+        :param nouveau_facteur: Le nouveau facteur salaire du contrat.
+        :param nouveau_salaire: Le nouveau salaire horaire du contrat.
+        :param nouveau_nb_heure: Le nouveau nombre d'heure de travail.
+        """
+        for contrat in ContratEmploi.list_contrat:
+            if contrat.identifiant_contrat == identifiant_contrat_renouvele:
+                contrat.salaire_horaire = nouveau_salaire
+                contrat.facteur_salaire = nouveau_facteur
+                contrat.nb_heures_semaine = nouveau_nb_heure
 
     def __str__(self):
         """
