@@ -20,8 +20,13 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainsWindowI
         self.setupUi(self)
 
     def on_pushButtonQuitter_clicked(self):
+        # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
+        sys.exit()
+
+    def on_pushButtonQuitter_clicked(self):
         # SAUVEGARDE A LIEU LAAAAAAAAAA #
         sys.exit()
+
 
 
 def main():
