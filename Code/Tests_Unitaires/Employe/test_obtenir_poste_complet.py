@@ -15,9 +15,9 @@ import pytest
 def test_obtenir_poste_complet(poste, specialite: str, resultat_attendu: str):
     """
     Un test unitaire qui test la methode pour obtenir l'ancienneté.
-    :param poste: La valeur qu'on souhaite setter
-    :param specialite: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param poste: L'une des valeurs qu'on souhaite setter.
+    :param specialite: L'une des valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     employe1 = poste()

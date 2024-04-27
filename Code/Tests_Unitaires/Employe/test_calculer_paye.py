@@ -26,7 +26,6 @@ def test_calculer_paye(employe, resultat_attendu: int):
     Un test unitaire qui test la methode calculer paye.
     :param employe: La valeur qu'on souhaite setter.
     :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
-    :return:
     """
     resultat = employe.calculer_paye()
     assert resultat == resultat_attendu

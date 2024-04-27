@@ -25,7 +25,6 @@ def test_afficher_informations_employe(employe, resultat_attendu: str):
     Un test unitaire qui test la methode affocher information employe.
     :param employe: La valeur qu'on souhaite setter.
     :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
-    :return:
     """
     resultat = employe.afficher_informations_employe()
     assert resultat == resultat_attendu

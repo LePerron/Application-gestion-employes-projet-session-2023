@@ -11,8 +11,8 @@ import pytest
 def test_obtenir_anciennete(date_engagement: str, resultat_attendu: int):
     """
     Un test unitaire qui test la methode pour obtenir l'ancienneté.
-    :param date_engagement: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param date_engagement: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     date_formatee = datetime.datetime.strptime(date_engagement, "%d/%m/%Y")
