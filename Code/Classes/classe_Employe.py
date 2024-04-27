@@ -58,17 +58,20 @@ class Employe:
 
     @nom.setter
     def nom(self, v_nom: str) -> None:
+        index_tirait = None
         if isinstance(v_nom, str):
-            v_nom.capitalize()
             for index, lettre in enumerate(v_nom):
                 if not lettre.isdigit() and lettre.isalpha():
                     continue
                 elif lettre == "-":
-                    v_nom[index + 1].capitalize()
+                    index_tirait = index + 1
                     continue
                 else:
                     return
             else:
+                v_nom.capitalize()
+                if index_tirait:
+                    v_nom[index_tirait + 1].capitalize()
                 self._nom = v_nom
 
     @property
@@ -77,18 +80,21 @@ class Employe:
 
     @prenom.setter
     def prenom(self, v_prenom: str) -> None:
+        index_tirait = None
         if isinstance(v_prenom, str):
-            v_prenom.capitalize()
             for index, lettre in enumerate(v_prenom):
                 if not lettre.isdigit() and lettre.isalpha():
                     continue
                 elif lettre == "-":
-                    v_prenom[index + 1].capitalize()
+                    index_tirait = index
                     continue
                 else:
                     return
             else:
-                self._nom = v_prenom
+                v_prenom.capitalize()
+                if index_tirait:
+                    v_prenom[index_tirait + 1].capitalize()
+                self._prenom = v_prenom
 
     @property
     def date_engagement(self):
