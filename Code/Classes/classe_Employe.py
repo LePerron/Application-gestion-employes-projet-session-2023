@@ -59,13 +59,17 @@ class Employe:
     @nom.setter
     def nom(self, v_nom: str) -> None:
         if isinstance(v_nom, str):
-            for lettre in v_nom:
-                if not lettre.isdigit() and lettre.isalpha() or lettre in ["-"]:
+            v_nom.capitalize()
+            for index, lettre in enumerate(v_nom):
+                if not lettre.isdigit() and lettre.isalpha():
+                    continue
+                elif lettre == "-":
+                    v_nom[index + 1].capitalize()
                     continue
                 else:
                     return
             else:
-                self._nom = v_nom.capitalize()
+                self._nom = v_nom
 
     @property
     def prenom(self):
@@ -74,13 +78,17 @@ class Employe:
     @prenom.setter
     def prenom(self, v_prenom: str) -> None:
         if isinstance(v_prenom, str):
-            for lettre in v_prenom:
-                if lettre.isalpha():
+            v_prenom.capitalize()
+            for index, lettre in enumerate(v_prenom):
+                if not lettre.isdigit() and lettre.isalpha():
+                    continue
+                elif lettre == "-":
+                    v_prenom[index + 1].capitalize()
                     continue
                 else:
                     return
             else:
-                self._prenom = v_prenom.capitalize()
+                self._nom = v_prenom
 
     @property
     def date_engagement(self):

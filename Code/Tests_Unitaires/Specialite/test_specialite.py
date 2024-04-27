@@ -15,8 +15,7 @@ def test_set_nom(valeur: str, resultat_attendu: str):
     """
     Un test unitaire qui test le setter du nom de la specialite.
     :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
-    :return:
+    :param resultat_attendu: La valeur belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     """
     specialite1 = Specialite()
     specialite1.nom = valeur
