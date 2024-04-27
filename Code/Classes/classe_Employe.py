@@ -64,14 +64,14 @@ class Employe:
                 if not lettre.isdigit() and lettre.isalpha():
                     continue
                 elif lettre == "-":
-                    index_tirait = index + 1
+                    index_tirait = index
                     continue
                 else:
                     return
             else:
-                v_nom.capitalize()
+                v_nom = v_nom.capitalize()
                 if index_tirait:
-                    v_nom[index_tirait + 1].capitalize()
+                    v_nom = v_nom[index_tirait + 1].upper()
                 self._nom = v_nom
 
     @property
@@ -91,9 +91,9 @@ class Employe:
                 else:
                     return
             else:
-                v_prenom.capitalize()
+                v_prenom = v_prenom.capitalize()
                 if index_tirait:
-                    v_prenom[index_tirait + 1].capitalize()
+                    v_prenom = v_prenom[index_tirait + 1].upper()
                 self._prenom = v_prenom
 
     @property
