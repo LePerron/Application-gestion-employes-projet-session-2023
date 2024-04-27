@@ -15,8 +15,8 @@ Employe.list_employe = []
 def test__len__(liste_employe: list, resultat_attendu: int):
     """
     Un test unitaire qui test le methode magic len.
-    :param liste_employe: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param liste_employe: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     Employe.list_employe = liste_employe

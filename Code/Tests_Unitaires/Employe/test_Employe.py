@@ -14,8 +14,8 @@ import pytest
 def test_set_identifiant(valeur, resultat_attendu):
     """
     Un test unitaire qui test le setter de l'identifiant de l'employe.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     employe1 = Employe()
@@ -24,7 +24,7 @@ def test_set_identifiant(valeur, resultat_attendu):
 
 
 @pytest.mark.parametrize("valeur, resultat_attendu", [
-    ("marc-antoine", "Marc-antoine"),
+    ("marc-antoine", "Marc-Antoine"),
     ("marc-23antoine", ""),
     ("24234", ""),
     ("benno", "Benno"),
@@ -35,8 +35,8 @@ def test_set_identifiant(valeur, resultat_attendu):
 def test_set_nom(valeur, resultat_attendu):
     """
     Un test unitaire qui test le setter du nom de l'employe
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     employe1 = Employe()
@@ -55,8 +55,8 @@ def test_set_nom(valeur, resultat_attendu):
 def test_set_prenom(valeur, resultat_attendu):
     """
     Un test unitaire qui test le setter du prenom de l'employe.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     employe1 = Employe()
@@ -72,8 +72,8 @@ def test_set_prenom(valeur, resultat_attendu):
 def test_set_date_engagement(valeur, resultat_attendu):
     """
     Un test unitaire qui test le setter de la date d'engagement de l'employe.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     employe1 = Employe()
