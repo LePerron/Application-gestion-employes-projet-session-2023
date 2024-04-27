@@ -66,9 +66,9 @@ class Employe:
                 elif lettre == "-":
                     if not index_tirait:
                         index_tirait = index + 1
+                        continue
                     else:
                         return
-                    continue
                 else:
                     return
             else:
@@ -91,6 +91,7 @@ class Employe:
                 elif lettre == "-":
                     if not index_tirait:
                         index_tirait = index
+                        continue
                     else:
                         return
                 else:
