@@ -14,8 +14,8 @@ employe1.identifiant = "2371875"
 def test_rechercher_contrat_par_employe(identifiant_employe: str, resultat_attendu: list):
     """
     Un test unitaire qui test le methode rechercher contrat par employe.
-    :param identifiant_employe: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param identifiant_employe: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonne modifications ou la valeur de remplacement.
     :return:
     """
     resultat = ContratEmploi.rechercher_contrat_par_employe(identifiant_employe)

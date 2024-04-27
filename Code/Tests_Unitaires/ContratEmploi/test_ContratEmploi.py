@@ -18,9 +18,8 @@ import pytest
 def test_set_nb_heures_semaine(valeur: int, resultat_attendu: int):
     """
     Un test unitaire qui test le setter du nombre d'heure par semaine.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
-    :return:
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     """
     contrat1 = ContratEmploi()
     contrat1.nb_heures_semaine = valeur
@@ -42,9 +41,9 @@ def test_set_nb_heures_semaine(valeur: int, resultat_attendu: int):
 ])
 def test_salaire_horaire(valeur: float, resultat_attendu: float):
     """
-    Un test unitaire qui test le setter du salaire parr horaire.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    Un test unitaire qui test le setter du salaire par horaire.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     contrat1 = ContratEmploi()
@@ -63,8 +62,8 @@ def test_salaire_horaire(valeur: float, resultat_attendu: float):
 def test_set_facteur_salaire(valeur: float, resultat_attendu: float):
     """
     Un test unitaire qui test le setter du facteur du salaire.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     contrat1 = ContratEmploi()
@@ -80,8 +79,8 @@ def test_set_facteur_salaire(valeur: float, resultat_attendu: float):
 def test_set_date_engagement(valeur: str, resultat_attendu: date):
     """
     Un test unitaire qui test le setter de la date d'engagement.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     contrat1 = ContratEmploi()
