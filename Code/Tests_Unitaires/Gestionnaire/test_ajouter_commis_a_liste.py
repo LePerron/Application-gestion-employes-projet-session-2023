@@ -25,10 +25,9 @@ gestionnaire3 = Gestionnaire()
 def test_ajouter_commis_a_liste(gestionnaire, identifiant_du_commis: str, resultat_attendu: list):
     """
     Un test unitaire qui test la methode commis à ajouter.
-    :param identifiant_du_commis: La valeur qu'on souhaite setter
-    :param gestionnaire: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
-    :return:
+    :param identifiant_du_commis: L'une des valeurs qu'on souhaite setter.
+    :param gestionnaire: L'une des valeurs qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     """
     gestionnaire.ajouter_commis_a_liste(identifiant_du_commis)
 

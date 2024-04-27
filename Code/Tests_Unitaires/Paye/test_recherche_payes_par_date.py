@@ -26,9 +26,8 @@ paye5.date_de_paye = "15/01/2025"
 ])
 def test_rechercher_payes_par_date(date_de_paye: date, resultat_attendu: list):
     """
-    Permet de tester la méthode pour trouver la ou les payes de la date
-    :param resultat_attendu: La valeur attendue après son initialisation
-    :return: None
+    Permet de tester la méthode pour trouver la ou les payes de la date.
+    :param resultat_attendu: La valeur attendue après son initialisation.
     """
 
     resultat = Paye.rechercher_payes_par_date(date_de_paye)

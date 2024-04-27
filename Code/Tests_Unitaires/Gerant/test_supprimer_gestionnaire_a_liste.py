@@ -25,10 +25,9 @@ gerant3 = Gerant()
 def test_supprimer_gestionnaire_a_liste(gerant, identifiant_gestionnaire_a_supprimer: str, resultat_attendu: list):
     """
     Un test unitaire qui test la methode identifiant gestionnaire à supprimer.
-    :param identifiant_gestionnaire_a_supprimer: La valeur qu'on souhaite setter
-    :param gerant: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
-    :return:
+    :param identifiant_gestionnaire_a_supprimer: L'une des valeurs qu'on souhaite setter.
+    :param gerant: L'une des valeurs qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonne modifications ou la valeur de remplacement.
     """
     gerant.supprimer_gestionnaire_a_liste(identifiant_gestionnaire_a_supprimer)
 

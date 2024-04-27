@@ -24,10 +24,9 @@ employe3 = Employe(p_identifiant="5647839")
 ])
 def test_set_montant_paye(valeur: str, resultat_attendu: str):
     """
-    Un test unitaire qui test le setter du montant de la paye
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
-    :return:
+    Un test unitaire qui test le setter du montant de la paye.
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     """
     paye1 = Paye()
     paye1.montant_paye = valeur
@@ -45,9 +44,8 @@ def test_set_montant_paye(valeur: str, resultat_attendu: str):
 def test_set_employe(valeur: str, resultat_attendu: str):
     """
     Un test unitaire qui test le setter de l'employe a qui appartient la paye.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
-    :return: None
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     """
     paye1 = Paye()
     paye1.employe = valeur
@@ -62,9 +60,8 @@ def test_set_employe(valeur: str, resultat_attendu: str):
 def test_set_date_de_paye(valeur: str, resultat_attendu: date):
     """
     Un test unitaire qui test le setter de la date de paye.
-    :param valeur: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
-    :return:
+    :param valeur: La valeur qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     """
     paye1 = Paye()
     paye1.date_de_paye = valeur

@@ -26,9 +26,9 @@ gestionnaire3 = Gestionnaire()
 def test_commis_a_supprimer(gestionnaire, identifiant_commis_a_supprimer: str, resultat_attendu: list):
     """
     Un test unitaire qui test la methode commis à supprimer.
-    :param identifiant_commis_a_supprimer: La valeur qu'on souhaite setter
-    :param gestionnaire: La valeur qu'on souhaite setter
-    :param resultat_attendu: La valeur belle et bien setter avec les bonne modifications ou la valeur de remplacement.
+    :param identifiant_commis_a_supprimer: L'une des valeurs qu'on souhaite setter.
+    :param gestionnaire: L'une des valeurs qu'on souhaite setter.
+    :param resultat_attendu: La valeur qui est belle et bien setter avec les bonnes modifications ou la valeur de remplacement.
     :return:
     """
     gestionnaire.supprimer_commis_a_liste(identifiant_commis_a_supprimer)
