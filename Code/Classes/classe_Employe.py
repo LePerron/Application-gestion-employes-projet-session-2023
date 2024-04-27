@@ -71,7 +71,7 @@ class Employe:
             else:
                 v_nom = v_nom.capitalize()
                 if index_tirait:
-                    v_nom = v_nom[index_tirait + 1].upper()
+                    v_nom[index_tirait + 1] = v_nom[index_tirait + 1].upper()
                 self._nom = v_nom
 
     @property
@@ -93,7 +93,7 @@ class Employe:
             else:
                 v_prenom = v_prenom.capitalize()
                 if index_tirait:
-                    v_prenom = v_prenom[index_tirait + 1].upper()
+                    v_prenom[index_tirait + 1] = v_prenom[index_tirait + 1].upper()
                 self._prenom = v_prenom
 
     @property
