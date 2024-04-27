@@ -64,14 +64,17 @@ class Employe:
                 if not lettre.isdigit() and lettre.isalpha():
                     continue
                 elif lettre == "-":
-                    index_tirait = index
+                    if not index_tirait:
+                        index_tirait = index + 1
+                    else:
+                        return
                     continue
                 else:
                     return
             else:
                 v_nom = v_nom.capitalize()
                 if index_tirait:
-                    v_nom[index_tirait + 1] = v_nom[index_tirait + 1].upper()
+                    v_nom = v_nom[0].upper() + v_nom[1:index_tirait] + v_nom[index_tirait].upper() + v_nom[(index_tirait + 1):]
                 self._nom = v_nom
 
     @property
@@ -86,14 +89,16 @@ class Employe:
                 if not lettre.isdigit() and lettre.isalpha():
                     continue
                 elif lettre == "-":
-                    index_tirait = index
-                    continue
+                    if not index_tirait:
+                        index_tirait = index
+                    else:
+                        return
                 else:
                     return
             else:
                 v_prenom = v_prenom.capitalize()
                 if index_tirait:
-                    v_prenom[index_tirait + 1] = v_prenom[index_tirait + 1].upper()
+                    v_prenom = v_prenom[0].upper() + v_prenom[1:index_tirait] + v_prenom[index_tirait].upper() + v_prenom[(index_tirait + 1):]
                 self._prenom = v_prenom
 
     @property
