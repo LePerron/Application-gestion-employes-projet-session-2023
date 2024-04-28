@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>389</width>
-    <height>300</height>
+    <width>391</width>
+    <height>307</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="labelTitreAjouterEmployer">
+  <widget class="QLabel" name="labelTitreAjouterEmploye">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -37,7 +37,7 @@
     <enum>Qt::LeftToRight</enum>
    </property>
    <property name="text">
-    <string>Ajouter un employer</string>
+    <string>Ajouter un employé</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -274,7 +274,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="labelErreurDatesEngagement">
+  <widget class="QLabel" name="labelErreurDateEngagement">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -305,7 +305,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Créer employer</string>
+    <string>Créer employé</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonMenu">
@@ -329,7 +329,7 @@
     <string>Annuler</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelSpecialiter">
+  <widget class="QLabel" name="labelSpecialite">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -359,7 +359,7 @@
     </rect>
    </property>
   </widget>
-  <zorder>labelTitreAjouterEmployer</zorder>
+  <zorder>labelTitreAjouterEmploye</zorder>
   <zorder>line</zorder>
   <zorder>labelIdentifiant</zorder>
   <zorder>labelNom</zorder>
@@ -369,10 +369,10 @@
   <zorder>labelErreurIdentifiant</zorder>
   <zorder>labelErreurNom</zorder>
   <zorder>labelErreurPrenom</zorder>
-  <zorder>labelErreurDatesEngagement</zorder>
+  <zorder>labelErreurDateEngagement</zorder>
   <zorder>pushButtonAjouterEmployer</zorder>
   <zorder>pushButtonMenu</zorder>
-  <zorder>labelSpecialiter</zorder>
+  <zorder>labelSpecialite</zorder>
   <zorder>lineEditIdentifiant</zorder>
   <zorder>lineEditNom</zorder>
   <zorder>lineEditPrenom</zorder>

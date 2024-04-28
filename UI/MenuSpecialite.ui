@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>765</width>
-    <height>584</height>
+    <width>501</width>
+    <height>361</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QLabel" name="labelErreurSelection">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>390</y>
+     <x>20</x>
+     <y>320</y>
      <width>461</width>
-     <height>51</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -29,30 +29,30 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>280</y>
-     <width>201</width>
+     <x>290</x>
+     <y>160</y>
+     <width>191</width>
      <height>64</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pushButtonRechercherEmployer">
+     <widget class="QPushButton" name="pushButtonRechercherSpecialite">
       <property name="text">
        <string>Rechercher une spécialité:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEditRechercherEmployer"/>
+     <widget class="QLineEdit" name="lineEditRechercherSpecialite"/>
     </item>
    </layout>
   </widget>
-  <widget class="QListView" name="listViewListEmployer">
+  <widget class="QListView" name="listViewSpecialite">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>111</y>
+     <x>20</x>
+     <y>51</y>
      <width>256</width>
      <height>261</height>
     </rect>
@@ -61,36 +61,42 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>210</y>
-     <width>272</width>
+     <x>290</x>
+     <y>100</y>
+     <width>191</width>
      <height>51</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QCheckBox" name="checkBox">
+    <item row="1" column="0">
+     <widget class="QCheckBox" name="checkBoxNbEmploye">
       <property name="text">
        <string>Nombre d'employé</string>
       </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QCheckBox" name="checkBox_4">
+    <item row="0" column="0">
+     <widget class="QCheckBox" name="checkBoxDescription">
       <property name="text">
-       <string>Afficher description ou non</string>
+       <string>Description</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="labelEmploye">
+  <widget class="QLabel" name="labelSpecialite">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>60</y>
-     <width>151</width>
-     <height>51</height>
+     <x>20</x>
+     <y>10</y>
+     <width>461</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -101,107 +107,23 @@
     </font>
    </property>
    <property name="text">
-    <string>Spécialité</string>
+    <string>Gestionnaire des spécialités</string>
    </property>
-  </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>450</y>
-     <width>461</width>
-     <height>80</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch="4,0,4,4,0,0,4">
-    <property name="spacing">
-     <number>2</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="pushButtonAjouterEmployer">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Ajouter</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="Line" name="line_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonSupprimerEmployer">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Supprimer</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="Line" name="line">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonModifier">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Modifier</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="Line" name="line_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonRetournerMenu">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Menu</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>90</y>
-     <width>201</width>
-     <height>111</height>
+     <x>290</x>
+     <y>50</y>
+     <width>191</width>
+     <height>41</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <widget class="QLabel" name="labelClasseEmploye">
+     <widget class="QLabel" name="labelTrierSpecialite">
       <property name="text">
-       <string>Trier Sépcialiité selon:</string>
+       <string>Trier spécialité:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -209,7 +131,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QComboBox" name="comboBoxClasserEmployer">
+     <widget class="QComboBox" name="comboBoxTrierSpecialite">
       <item>
        <property name="text">
         <string>A-Z</string>
@@ -222,29 +144,119 @@
       </item>
       <item>
        <property name="text">
-        <string>Plus petit au plus grand</string>
+        <string>Plus grand nombre d'employé</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>Plus grand au plus petit</string>
+        <string>Plus petit nombre d'employé</string>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>ajouter spécialité</string>
-       </property>
-      </item>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="labelErreurClasserEmployer">
-      <property name="text">
-       <string/>
-      </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButtonAjouterSpecialite">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>240</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>2</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Ajouter</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonSupprimerSpecialite">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>240</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>7</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonRetournerMenu">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>280</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>4</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Menu</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonModifierSpecialite">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>280</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>3</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>2</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Modifier</string>
+   </property>
   </widget>
  </widget>
  <resources/>

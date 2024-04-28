@@ -113,7 +113,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QListView" name="listViewListEmploye">
+  <widget class="QListView" name="listViewEmploye">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -142,7 +142,7 @@
      <x>300</x>
      <y>182</y>
      <width>321</width>
-     <height>81</height>
+     <height>83</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -156,6 +156,9 @@
       <property name="text">
        <string>Nom</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="3" column="0">
@@ -168,6 +171,9 @@
       <property name="text">
        <string>Prénom</string>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
      </widget>
     </item>
     <item row="1" column="0">
@@ -179,6 +185,9 @@
       </property>
       <property name="text">
        <string>Identifiant</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -279,7 +288,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButtonModifier">
+     <widget class="QPushButton" name="pushButtonModifierEmploye">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
         <horstretch>0</horstretch>

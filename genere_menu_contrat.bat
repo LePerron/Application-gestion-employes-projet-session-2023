@@ -1,1 +1,1 @@
-pyuic5 "E:\tout\Prog\Projet_intra_Entreprise\UI\MenuContratEmploye.ui" -o "E:\tout\Prog\Projet_intra_Entreprise\Code\Interfaces\Code_Genere\genere_menu_contrats.py"
+pyuic5 "E:\tout\Prog\Projet_intra_Entreprise\UI\MenuContratEmploye.ui" -o "E:\tout\Prog\Projet_intra_Entreprise\Code\Interfaces\Code_Genere\genere_menu_contrat.py"

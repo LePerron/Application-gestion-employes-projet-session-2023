@@ -79,7 +79,7 @@ class Employe:
 
     @property
     def prenom(self):
-        return self._nom
+        return self._prenom
 
     @prenom.setter
     def prenom(self, v_prenom: str) -> None:
@@ -95,11 +95,10 @@ class Employe:
                         return
                 else:
                     return
-            else:
-                v_prenom = v_prenom.capitalize()
-                if index_tirait:
-                    v_prenom = v_prenom[0].upper() + v_prenom[1:index_tirait] + v_prenom[index_tirait].upper() + v_prenom[(index_tirait + 1):]
-                self._prenom = v_prenom
+            if index_tirait:
+                self._prenom = v_prenom[0].upper() + v_prenom[1:index_tirait + 1] + v_prenom[index_tirait+1].upper() + v_prenom[(index_tirait + 2):]
+                return
+            self._prenom = v_prenom.capitalize()
 
     @property
     def date_engagement(self):

@@ -18,7 +18,7 @@
     <rect>
      <x>20</x>
      <y>20</y>
-     <width>121</width>
+     <width>471</width>
      <height>51</height>
     </rect>
    </property>
@@ -30,10 +30,10 @@
     </font>
    </property>
    <property name="text">
-    <string>Contrat</string>
+    <string>Gestionnaire des contrats</string>
    </property>
   </widget>
-  <widget class="QListView" name="listViewListContrat">
+  <widget class="QListView" name="listViewContrat">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -46,8 +46,8 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>70</y>
+     <x>290</x>
+     <y>140</y>
      <width>201</width>
      <height>111</height>
     </rect>
@@ -61,7 +61,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEditAfficherContratSelonDate"/>
+     <widget class="QDateEdit" name="dateEditContratSelonDate"/>
     </item>
     <item>
      <widget class="QLabel" name="labelErreurAfficherContratSelonDate">
@@ -70,15 +70,22 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QPushButton" name="pushButtonReinitialiserDate">
+      <property name="text">
+       <string>Réinitialiser</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>190</y>
+     <x>290</x>
+     <y>70</y>
      <width>201</width>
-     <height>111</height>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -92,20 +99,13 @@
     <item>
      <widget class="QLineEdit" name="lineEditAfficherContratSelonEmploye"/>
     </item>
-    <item>
-     <widget class="QLabel" name="labelErreurAfficherContratSelonEmploye">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>370</y>
+     <y>350</y>
      <width>461</width>
      <height>80</height>
     </rect>
@@ -157,7 +157,7 @@
      <x>20</x>
      <y>310</y>
      <width>461</width>
-     <height>51</height>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">

@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>888</width>
-    <height>695</height>
+    <width>473</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="labelErreurSelection">
+  <widget class="QLabel" name="labelErreurPaye">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>409</y>
-     <width>461</width>
-     <height>51</height>
+     <x>20</x>
+     <y>320</y>
+     <width>431</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -30,9 +30,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>79</y>
-     <width>121</width>
-     <height>51</height>
+     <y>9</y>
+     <width>431</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -43,42 +43,42 @@
     </font>
    </property>
    <property name="text">
-    <string>Paye</string>
+    <string>Gestionnaire des payes</string>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>229</y>
-     <width>243</width>
-     <height>89</height>
+     <y>168</y>
+     <width>161</width>
+     <height>71</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="1">
-     <widget class="QCheckBox" name="checkBox_2">
+     <widget class="QCheckBox" name="checkBoxMedianne">
       <property name="text">
        <string>Medianne</string>
       </property>
      </widget>
     </item>
     <item row="0" column="0">
-     <widget class="QCheckBox" name="checkBox">
+     <widget class="QCheckBox" name="checkBoxMax">
       <property name="text">
        <string>Maximum</string>
       </property>
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QCheckBox" name="checkBox_3">
+     <widget class="QCheckBox" name="checkBoxMin">
       <property name="text">
        <string>Minimum</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QCheckBox" name="checkBox_5">
+     <widget class="QCheckBox" name="checkBoxMoyenne">
       <property name="text">
        <string>Moyenne</string>
       </property>
@@ -86,11 +86,11 @@
     </item>
    </layout>
   </widget>
-  <widget class="QListView" name="listViewListPaye">
+  <widget class="QListView" name="listViewPaye">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>130</y>
+     <y>50</y>
      <width>256</width>
      <height>261</height>
     </rect>
@@ -100,9 +100,9 @@
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>110</y>
-     <width>201</width>
-     <height>111</height>
+     <y>50</y>
+     <width>161</width>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -117,17 +117,17 @@
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEditRechercherEmployer"/>
+     <widget class="QLineEdit" name="lineEditRechercherEmploye"/>
     </item>
    </layout>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>500</x>
+     <x>290</x>
      <y>110</y>
-     <width>201</width>
-     <height>111</height>
+     <width>161</width>
+     <height>51</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -150,8 +150,8 @@
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>330</y>
-     <width>181</width>
+     <y>250</y>
+     <width>161</width>
      <height>61</height>
     </rect>
    </property>

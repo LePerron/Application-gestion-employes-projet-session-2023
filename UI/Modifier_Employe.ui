@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="labelModifierEmployer">
+  <widget class="QLabel" name="labelModifierEmploye">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -30,7 +30,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Modifier employer:</string>
+    <string>Modifier employé:</string>
    </property>
   </widget>
   <widget class="Line" name="line">
@@ -213,7 +213,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="labelIdentifiantM">
+  <widget class="QLabel" name="labelIdentifiant">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -224,7 +224,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>12</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -233,7 +233,7 @@
     <string>Identifiant:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelIdentifiant_2">
+  <widget class="QLabel" name="labelDateEngagement">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -311,7 +311,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>14</pointsize>
+     <pointsize>12</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -330,7 +330,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="labelSpecialiter">
+  <widget class="QLabel" name="labelSpecialite">
    <property name="geometry">
     <rect>
      <x>20</x>
