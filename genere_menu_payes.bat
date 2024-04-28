@@ -1,1 +1,0 @@
-pyuic5 "E:\tout\Prog\Projet_intra_Entreprise\UI\MenuPaye.ui" -o "E:\tout\Prog\Projet_intra_Entreprise\Code\Interfaces\Code_Genere\genere_menu_payes.py"
