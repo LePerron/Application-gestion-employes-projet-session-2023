@@ -1,8 +1,8 @@
-from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSpecialite import MenuSpecialites
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSpecialite import MenuSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuContrats import MenuContrats
-from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuEmploye import MenuEmployes
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuEmploye import MenuEmploye
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_principal
-from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuPayes import MenuPayes
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuPaye import MenuPaye
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
@@ -26,7 +26,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
     @pyqtSlot()
     def on_pushButtonMenuEmploye_clicked(self):
-        dialog_menu_employe = MenuEmployes()
+        dialog_menu_employe = MenuEmploye()
         dialog_menu_employe.show()
         dialog_menu_employe.exec()
 
@@ -38,13 +38,13 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
     @pyqtSlot()
     def on_pushButtonMenuPaye_clicked(self):
-        dialog_menu_paye = MenuPayes()
+        dialog_menu_paye = MenuPaye()
         dialog_menu_paye.show()
         dialog_menu_paye.exec()
 
     @pyqtSlot()
     def on_pushButtonMenuSpecialite_clicked(self):
-        dialog_menu_specialite = MenuSpecialites()
+        dialog_menu_specialite = MenuSpecialite()
         dialog_menu_specialite.show()
         dialog_menu_specialite.exec()
 

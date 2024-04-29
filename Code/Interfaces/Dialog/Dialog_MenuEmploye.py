@@ -1,38 +1,44 @@
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Employe import AjouterEmploye
+from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_employe
 from PyQt5.QtCore import pyqtSlot
-
-from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_employes
 from PyQt5 import QtWidgets
 import sys
 
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Modifier_Employe import ModifierEmploye
 
-class MenuEmployes(QtWidgets.QDialog, genere_menu_employes.Ui_DialogMenuEmploye):
+
+class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
     """
-    Nome de la classe : MenuEmployes
+    Nome de la classe : MenuEmploye
     Héritages :
     - QtWidgets.QDialog : Type d'interface créé par QtDesigner
-    - genere_menu_employes.Ui_DialogMenuEmploye : Ma classe générée avec QtDesigner
+    - genere_menu_employe.Ui_DialogMenuEmploye : Ma classe générée avec QtDesigner
     """
 
     def __init__(self, parent=None):
         """
         Constructeur de la classe
-        :param parent: QtWidgets.QDialog et genere_menu_employes.Ui_DialogMenuEmploye
+        :param parent: QtWidgets.QDialog et genere_menu_employe.Ui_DialogMenuEmploye
         """
-        super(MenuEmployes, self).__init__(parent)
+        super(MenuEmploye, self).__init__(parent)
         self.setupUi(self)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
-        MenuEmployes.close(self)
+        MenuEmploye.close(self)
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
-        dialog_ajouter_employe =
+        dialog_ajouter_employe = AjouterEmploye()
+        dialog_ajouter_employe.show()
+        dialog_ajouter_employe.exec()
 
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):
-        pass
+        dialog_modifier_employe = ModifierEmploye()
+        dialog_modifier_employe.show()
+        dialog_modifier_employe.exec()
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
@@ -45,7 +51,7 @@ def main():
     Exécution de l'application avec l'interface graphique.
     """
     app = QtWidgets.QApplication(sys.argv)
-    fenetre_employe = MenuEmployes()
+    fenetre_employe = MenuEmploye()
     fenetre_employe.show()
     app.exec()
 

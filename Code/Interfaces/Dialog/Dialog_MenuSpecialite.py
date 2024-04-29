@@ -1,33 +1,47 @@
-from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_specialites
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Specialite import AjouterSpecialite
+from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_specialite
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
 
-class MenuSpecialites(QtWidgets.QDialog, genere_menu_specialites.Ui_DialogMenuSpecialite):
+class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpecialite):
     """
-    Nome de la classe : MenuSpecialites
+    Nome de la classe : MenuSpecialite
     Héritages :
     - QtWidgets.QDialog : Type d'interface créé par QtDesigner
-    - genere_menu_specialites.Ui_DialogMainPaye : Ma classe générée avec QtDesigner
+    - genere_menu_specialite.Dialog_Ajouter_Specialite : Ma classe générée avec QtDesigner
     """
 
     def __init__(self, parent=None):
         """
         Constructeur de la classe
-        :param parent: QtWidgets.QDialog et genere_menu_specialites.Ui_DialogMainPaye
+        :param parent: QtWidgets.QDialog et genere_menu_specialite.Dialog_Ajouter_Specialite
         """
-        super(MenuSpecialites, self).__init__(parent)
+        super(MenuSpecialite, self).__init__(parent)
         self.setupUi(self)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
-        MenuSpecialites.close(self)
+        MenuSpecialite.close(self)
 
     @pyqtSlot()
-    def on_pushButtonModifierContrat_clicked(self):
-        # SAUVEGARDE A LIEU LAAAAAAAAAA #
+    def on_pushButtonAjouterSpecialite_clicked(self):
+        fenetre_ajouter_specialite = AjouterSpecialite()
+        fenetre_ajouter_specialite.show()
+        fenetre_ajouter_specialite.exec()
+
+    @pyqtSlot()
+    def on_pushButtonModifierSpecialite_clicked(self):
+        fenetre_modifier_specialite = AjouterSpecialite()
+        fenetre_modifier_specialite.setWindowTitle("Modifier Spécialité")
+        fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
+        fenetre_modifier_specialite.show()
+        fenetre_modifier_specialite.exec()
+
+    @pyqtSlot()
+    def on_pushButtonSupprimerSpecialite_clicked(self):
         pass
 
 
@@ -37,7 +51,7 @@ def main():
     Exécution de l'application avec l'interface graphique.
     """
     app = QtWidgets.QApplication(sys.argv)
-    fenetre_paye = MenuSpecialites()
+    fenetre_paye = MenuSpecialite()
     fenetre_paye.show()
     app.exec()
 

@@ -1,21 +1,23 @@
-from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_contrats
+from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_contrat
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 
-class MenuContrats(QtWidgets.QDialog, genere_menu_contrats.Ui_DialogContratEmploye):
+
+class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploye):
     """
     Nome de la classe : MenuContrats
     Héritages :
     - QtWidgets.QDialog : Type d'interface créé par QtDesigner
-    - genere_menu_contrats.Ui_DialogContratEmploye : Ma classe générée avec QtDesigner
+    - genere_menu_contrat.Ui_DialogContratEmploye : Ma classe générée avec QtDesigner
     """
 
     def __init__(self, parent=None):
         """
         Constructeur de la classe
-        :param parent: QtWidgets.QDialog et genere_menu_contrats.Ui_DialogContratEmploye
+        :param parent: QtWidgets.QDialog et genere_menu_contrat.Ui_DialogContratEmploye
         """
         super(MenuContrats, self).__init__(parent)
         self.setupUi(self)
@@ -27,10 +29,10 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrats.Ui_DialogContratEmplo
 
     @pyqtSlot()
     def on_pushButtonModifierContrat_clicked(self):
-        # SAUVEGARDE A LIEU LAAAAAAAAAA #
-        pass
-
-
+        fenetre_ajouter_contrat = AjouterContrat()
+        fenetre_ajouter_contrat.pushButtonAjouterEmploye.setText("Modifier")
+        fenetre_ajouter_contrat.show()
+        fenetre_ajouter_contrat.exec()
 
 def main():
     """

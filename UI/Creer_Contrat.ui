@@ -99,7 +99,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonAjouterEmployer">
+  <widget class="QPushButton" name="pushButtonAjouterEmploye">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -303,7 +303,7 @@
   <zorder>labelFacteur</zorder>
   <zorder>labelErreurFacteur</zorder>
   <zorder>labelErreurSalaireHoraire</zorder>
-  <zorder>pushButtonAjouterEmployer</zorder>
+  <zorder>pushButtonAjouterEmploye</zorder>
   <zorder>labelErreurNbHeure</zorder>
   <zorder>pushButtonAnnuler</zorder>
   <zorder>labelSalaireHoraire</zorder>
