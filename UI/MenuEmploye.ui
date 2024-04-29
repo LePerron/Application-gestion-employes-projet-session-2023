@@ -227,8 +227,8 @@
     <rect>
      <x>420</x>
      <y>320</y>
-     <width>141</width>
-     <height>29</height>
+     <width>151</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -251,8 +251,8 @@
     <rect>
      <x>420</x>
      <y>380</y>
-     <width>141</width>
-     <height>29</height>
+     <width>151</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -273,10 +273,10 @@
   <widget class="QPushButton" name="pushButtonSupprimerEmploye">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>590</x>
      <y>320</y>
-     <width>141</width>
-     <height>29</height>
+     <width>151</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -297,10 +297,10 @@
   <widget class="QPushButton" name="pushButtonRetournerMenu">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>590</x>
      <y>380</y>
-     <width>141</width>
-     <height>29</height>
+     <width>151</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
