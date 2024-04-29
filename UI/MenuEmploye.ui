@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>804</width>
-    <height>655</height>
+    <height>525</height>
    </rect>
   </property>
   <property name="font">
@@ -23,7 +23,7 @@
     <rect>
      <x>30</x>
      <y>30</y>
-     <width>121</width>
+     <width>411</width>
      <height>51</height>
     </rect>
    </property>
@@ -35,14 +35,14 @@
     </font>
    </property>
    <property name="text">
-    <string>Employé</string>
+    <string>Gestionnaire des employés</string>
    </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>280</y>
+     <x>420</x>
+     <y>240</y>
      <width>321</width>
      <height>64</height>
     </rect>
@@ -63,10 +63,10 @@
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>60</y>
+     <x>420</x>
+     <y>80</y>
      <width>319</width>
-     <height>111</height>
+     <height>61</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -104,13 +104,6 @@
       </item>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="labelErreurTrierEmploye">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QListView" name="listViewEmploye">
@@ -118,8 +111,8 @@
     <rect>
      <x>30</x>
      <y>81</y>
-     <width>256</width>
-     <height>261</height>
+     <width>381</width>
+     <height>341</height>
     </rect>
    </property>
   </widget>
@@ -127,8 +120,8 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>350</y>
-     <width>591</width>
+     <y>450</y>
+     <width>711</width>
      <height>41</height>
     </rect>
    </property>
@@ -139,8 +132,8 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>182</y>
+     <x>420</x>
+     <y>150</y>
      <width>321</width>
      <height>83</height>
     </rect>
@@ -229,119 +222,101 @@
     </item>
    </layout>
   </widget>
-  <widget class="QFrame" name="horizontalFrame">
+  <widget class="QPushButton" name="pushButtonAjouterEmploye">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>400</y>
-     <width>591</width>
-     <height>31</height>
+     <x>420</x>
+     <y>320</y>
+     <width>151</width>
+     <height>41</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>10</verstretch>
+    </sizepolicy>
    </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
-   <property name="lineWidth">
-    <number>11</number>
+   <property name="text">
+    <string>Ajouter</string>
    </property>
-   <property name="midLineWidth">
-    <number>0</number>
+  </widget>
+  <widget class="QPushButton" name="pushButtonModifierEmploye">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>380</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>1</number>
-    </property>
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
-    </property>
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QPushButton" name="pushButtonAjouterEmploye">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>10</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Ajouter</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonModifierEmploye">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>11</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Modifier</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonSupprimerEmploye">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>7</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Supprimer</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButtonRetournerMenu">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>13</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Menu</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>11</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Modifier</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonSupprimerEmploye">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>320</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>7</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Supprimer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonRetournerMenu">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>380</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>13</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Menu</string>
+   </property>
   </widget>
  </widget>
  <resources/>
