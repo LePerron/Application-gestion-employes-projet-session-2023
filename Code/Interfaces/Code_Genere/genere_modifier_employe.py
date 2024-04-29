@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_DialogModifierEmploye(object):
     def setupUi(self, DialogModifierEmploye):
         DialogModifierEmploye.setObjectName("DialogModifierEmploye")
-        DialogModifierEmploye.resize(387, 431)
+        DialogModifierEmploye.resize(424, 329)
         self.labelModifierEmploye = QtWidgets.QLabel(DialogModifierEmploye)
         self.labelModifierEmploye.setGeometry(QtCore.QRect(10, 10, 221, 31))
         font = QtGui.QFont()
@@ -82,7 +82,7 @@ class Ui_DialogModifierEmploye(object):
         self.lineEditNom.setGeometry(QtCore.QRect(60, 100, 113, 20))
         self.lineEditNom.setObjectName("lineEditNom")
         self.labelErreuridentifiant = QtWidgets.QLabel(DialogModifierEmploye)
-        self.labelErreuridentifiant.setGeometry(QtCore.QRect(190, 110, 151, 16))
+        self.labelErreuridentifiant.setGeometry(QtCore.QRect(180, 100, 151, 16))
         self.labelErreuridentifiant.setText("")
         self.labelErreuridentifiant.setObjectName("labelErreuridentifiant")
         self.labelIdentifiant = QtWidgets.QLabel(DialogModifierEmploye)
