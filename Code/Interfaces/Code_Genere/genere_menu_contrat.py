@@ -83,6 +83,6 @@ class Ui_DialogContratEmploye(object):
         self.labelContrat.setText(_translate("DialogContratEmploye", "Gestionnaire des contrats"))
         self.pushButtonAfficherContratSelonDate.setText(_translate("DialogContratEmploye", "Afficher les contrats d\'une date"))
         self.pushButtonReinitialiserDate.setText(_translate("DialogContratEmploye", "Réinitialiser"))
-        self.pushButtonAfficherContratSelonEmploye.setText(_translate("DialogContratEmploye", "Afficher les contrat d\'un employé"))
+        self.pushButtonAfficherContratSelonEmploye.setText(_translate("DialogContratEmploye", "Afficher les contrat de l\'employé"))
         self.pushButtonModifierContrat.setText(_translate("DialogContratEmploye", "Modifier"))
         self.pushButtonRetournerMenu.setText(_translate("DialogContratEmploye", "Menu"))

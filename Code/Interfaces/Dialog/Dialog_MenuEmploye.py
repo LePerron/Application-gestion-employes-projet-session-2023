@@ -22,6 +22,8 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         super(MenuEmploye, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Gestionnaire des Employés")
+
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):

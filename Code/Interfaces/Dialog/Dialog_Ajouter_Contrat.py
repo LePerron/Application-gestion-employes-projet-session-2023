@@ -19,6 +19,7 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         """
         super(AjouterContrat, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Ajouter un Contrat")
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):

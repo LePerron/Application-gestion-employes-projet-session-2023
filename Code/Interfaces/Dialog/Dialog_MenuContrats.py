@@ -21,6 +21,7 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         """
         super(MenuContrats, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Gestionnaire des Contrats")
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):

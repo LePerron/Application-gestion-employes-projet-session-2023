@@ -20,6 +20,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         """
         super(MenuSpecialite, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Gestionnaire des Spécialités")
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):

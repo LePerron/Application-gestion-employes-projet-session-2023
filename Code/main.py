@@ -23,6 +23,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         """
         super(MenuPrincipal, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Menu Principal")
 
     @pyqtSlot()
     def on_pushButtonMenuEmploye_clicked(self):

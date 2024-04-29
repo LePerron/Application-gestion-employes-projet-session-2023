@@ -92,7 +92,7 @@
     <item>
      <widget class="QPushButton" name="pushButtonAfficherContratSelonEmploye">
       <property name="text">
-       <string>Afficher les contrat d'un employé</string>
+       <string>Afficher les contrat de l'employé</string>
       </property>
      </widget>
     </item>

@@ -19,6 +19,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         """
         super(AjouterEmploye, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Ajouter un Employé")
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):

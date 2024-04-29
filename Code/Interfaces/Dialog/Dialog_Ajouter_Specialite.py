@@ -19,6 +19,8 @@ class AjouterSpecialite(QtWidgets.QDialog, genere_creer_specialite.Ui_DialogCree
         """
         super(AjouterSpecialite, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Ajouter une spécialité")
+
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
