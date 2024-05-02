@@ -55,6 +55,13 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         sys.exit(self)
 
 
+def serialisation():
+    """
+    Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
+    :return:
+    """
+
+
 def main():
     """
     Méthode main : Point d'entré du programme.

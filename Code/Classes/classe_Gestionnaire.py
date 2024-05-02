@@ -54,7 +54,6 @@ class Gestionnaire(Employe):
                 else:
                     return
 
-
     def ajouter_commis_a_liste(self, identifiant_commis_a_ajouter: str) -> None:
         """
         Ajouter un commis dans liste_commis que le gérant gère.
