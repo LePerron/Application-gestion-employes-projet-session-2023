@@ -1,5 +1,5 @@
-from datetime import date, datetime
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+from datetime import date, datetime
 
 DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
 

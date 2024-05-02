@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>804</width>
-    <height>525</height>
+    <width>824</width>
+    <height>583</height>
    </rect>
   </property>
   <property name="font">
@@ -18,12 +18,12 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="labelEmploye">
+  <widget class="QLabel" name="labelTitreEmploye">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>30</y>
-     <width>411</width>
+     <x>23</x>
+     <y>12</y>
+     <width>780</width>
      <height>51</height>
     </rect>
    </property>
@@ -37,14 +37,17 @@
    <property name="text">
     <string>Gestionnaire des employés</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>240</y>
-     <width>321</width>
-     <height>64</height>
+     <x>450</x>
+     <y>80</y>
+     <width>361</width>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -56,6 +59,19 @@
      </widget>
     </item>
     <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
      <widget class="QLineEdit" name="lineEditRechercherEmploye"/>
     </item>
    </layout>
@@ -63,10 +79,10 @@
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>20</x>
      <y>80</y>
-     <width>319</width>
-     <height>61</height>
+     <width>361</width>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -81,6 +97,19 @@
      </widget>
     </item>
     <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
      <widget class="QComboBox" name="comboBoxTrierEmploye">
       <item>
        <property name="text">
@@ -92,16 +121,6 @@
         <string>Z-A</string>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>Plus grand salaire à plus petit salaire</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Plus petit salaire à plus grand salaire</string>
-       </property>
-      </item>
      </widget>
     </item>
    </layout>
@@ -109,125 +128,25 @@
   <widget class="QListView" name="listViewEmploye">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>81</y>
-     <width>381</width>
+     <x>20</x>
+     <y>180</y>
+     <width>621</width>
      <height>341</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QLabel" name="labelErreurSelection">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>450</y>
-     <width>711</width>
-     <height>41</height>
-    </rect>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
    </property>
-   <property name="text">
-    <string/>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
-  </widget>
-  <widget class="QWidget" name="gridLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>150</y>
-     <width>321</width>
-     <height>83</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0">
-     <widget class="QCheckBox" name="checkBoxNom">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Nom</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QCheckBox" name="checkBoxPrenom">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Prénom</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QCheckBox" name="checkBoxIdentifiant">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Identifiant</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QCheckBox" name="checkBoxSalaire">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Salaire</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QCheckBox" name="checkBoxNbHeure">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Nombre d'heure</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QCheckBox" name="checkBoxAnciennete">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Ancienneté</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
   <widget class="QPushButton" name="pushButtonAjouterEmploye">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>320</y>
-     <width>151</width>
+     <x>30</x>
+     <y>530</y>
+     <width>191</width>
      <height>41</height>
     </rect>
    </property>
@@ -249,9 +168,9 @@
   <widget class="QPushButton" name="pushButtonModifierEmploye">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>380</y>
-     <width>151</width>
+     <x>430</x>
+     <y>530</y>
+     <width>191</width>
      <height>41</height>
     </rect>
    </property>
@@ -273,9 +192,9 @@
   <widget class="QPushButton" name="pushButtonSupprimerEmploye">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>320</y>
-     <width>151</width>
+     <x>230</x>
+     <y>530</y>
+     <width>191</width>
      <height>41</height>
     </rect>
    </property>
@@ -297,9 +216,9 @@
   <widget class="QPushButton" name="pushButtonRetournerMenu">
    <property name="geometry">
     <rect>
-     <x>590</x>
-     <y>380</y>
-     <width>151</width>
+     <x>650</x>
+     <y>530</y>
+     <width>161</width>
      <height>41</height>
     </rect>
    </property>
@@ -316,6 +235,225 @@
    </property>
    <property name="text">
     <string>Menu</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>780</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>3</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>180</y>
+     <width>151</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QCheckBox" name="checkBoxIdentifiant">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Identifiant</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="tristate">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_8">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxPrenom">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Prénom</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_7">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxNom">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nom</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_6">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxSalaire">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Salaire</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_5">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxAnciennete">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ancienneté</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxNbHeure">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nombre d'heure</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="labelErreurSelection">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>460</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>5</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>5</height>
+    </size>
+   </property>
+   <property name="sizeIncrement">
+    <size>
+     <width>0</width>
+     <height>5</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>5</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>520</y>
+     <width>3</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>513</y>
+     <width>180</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>

@@ -5,6 +5,7 @@ from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_prin
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuPaye import MenuPaye
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
+import jsonpickle
 import sys
 
 

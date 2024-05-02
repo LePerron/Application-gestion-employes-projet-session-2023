@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>390</width>
-    <height>580</height>
+    <height>681</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
      <x>0</x>
      <y>70</y>
      <width>391</width>
-     <height>511</height>
+     <height>611</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -80,13 +80,13 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>20</y>
       <width>351</width>
-      <height>474</height>
+      <height>571</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -205,7 +205,12 @@
         <widget class="QComboBox" name="comboBoxPoste">
          <item>
           <property name="text">
-           <string>Gerant</string>
+           <string>Commis</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Caissier</string>
           </property>
          </item>
          <item>
@@ -215,12 +220,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Commis</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Caissier</string>
+           <string>Gerant</string>
           </property>
          </item>
         </widget>
@@ -303,10 +303,70 @@
            <pointsize>9</pointsize>
           </font>
          </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2020</year>
+           <month>5</month>
+           <day>23</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="labelErreurDateEngagement">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelDatePromotion">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Date de promotion</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_11">
+       <item>
+        <widget class="QDateEdit" name="dateEditDatePromotion">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>0</hour>
+           <minute>0</minute>
+           <second>0</second>
+           <year>2020</year>
+           <month>5</month>
+           <day>23</day>
+          </datetime>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelErreurDatePromotion">
          <property name="text">
           <string/>
          </property>

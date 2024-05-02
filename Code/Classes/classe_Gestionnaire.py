@@ -13,30 +13,30 @@ class Gestionnaire(Employe):
 
     list_gestionnaire = []
 
-    def __init__(self, p_gerant=None, p_specialite=None, p_liste_commis=None,
-                 p_liste_caissier=None,  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_date_engagement: date = None, p_contrat=None, p_date_gestionnaire: str = None):
+    def __init__(self, p_gerant=None, p_specialite=None, p_dict_commis=None,
+                 p_liste_caissier=None, p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
+                 p_date_engagement: date = None, p_contrat=None, p_date_gestionnaire: date = None):
         """
         Constructeur de la classe Gestionnaire avec les attributs de sa classe mère Employe
         :param p_gerant: Le gérant du gestionnaire.
-        :param p_liste_commis: La liste des commis que le gestionnaire gère.
+        :param p_dict_commis: Le dictionnaire des commis que le gestionnaire gère.
         :param p_liste_caissier: La liste des caissiers que le gestionnaire gère.
         :param p_date_gestionnaire: La date que ce gestionnaire à eu son titre de gestionnaire.
         """
+
         if p_liste_caissier is None:
             p_liste_caissier = []
 
-        if p_liste_commis is None:
-            p_liste_commis = []
-
-        self._date_gestionnaire = p_date_gestionnaire
+        if p_dict_commis is None:
+            p_dict_commis = {}
 
         p_poste = self.__class__.__name__
         Employe.__init__(self, p_identifiant, p_nom, p_prenom, p_poste, p_date_engagement, p_contrat, p_specialite)
 
         self.gerant = p_gerant
-        self.liste_commis = p_liste_commis
+        self.dict_commis = p_dict_commis
         self.liste_caissier = p_liste_caissier
+        self._date_gestionnaire = p_date_gestionnaire
 
         Gestionnaire.list_gestionnaire.append(self)
 
@@ -47,33 +47,33 @@ class Gestionnaire(Employe):
     @date_gestionnaire.setter
     def date_gestionnaire(self, v_date_gestionnaire: str):
         if isinstance(v_date_gestionnaire, str):
-            if v_date_gestionnaire[:2].isdigit() and v_date_gestionnaire[2] == "/" and v_date_gestionnaire[3:5].isdigit() and v_date_gestionnaire[5] == "/" and v_date_gestionnaire[6:].isdigit():
+            if v_date_gestionnaire[:2].isdigit() and v_date_gestionnaire[2] == "/" and v_date_gestionnaire[
+                                                                                       3:5].isdigit() and \
+                    v_date_gestionnaire[5] == "/" and v_date_gestionnaire[6:].isdigit():
                 date_formatee = datetime.strptime(v_date_gestionnaire, "%d/%m/%Y")
                 if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
                     self._date_engagement = date_formatee
                 else:
                     return
 
-    def ajouter_commis_a_liste(self, identifiant_commis_a_ajouter: str) -> None:
+    def ajouter_commis_a_dict(self, identifiant_commis_a_ajouter: str) -> None:
         """
-        Ajouter un commis dans liste_commis que le gérant gère.
+        Ajouter un commis dans dict_commis que le gérant gère.
         :param identifiant_commis_a_ajouter: L'identifiant du commis à ajouter
         """
+
         for commis in Commis.list_commis:
             if commis.identifiant == identifiant_commis_a_ajouter:
-                if commis in self.liste_commis:
-                    return
-                else:
-                    self.liste_commis.append(commis)
+                if identifiant_commis_a_ajouter not in self.dict_commis.keys():
+                    self.dict_commis[identifiant_commis_a_ajouter] = commis
 
-    def supprimer_commis_a_liste(self, identifiant_commis_a_supprimer: str) -> None:
+    def supprimer_commis_a_dict(self, identifiant_commis_a_supprimer: str) -> None:
         """
-        Supprimer un commis dans liste_commis que le gérant gère.
+        Supprimer un commis dans dict_commis que le gérant gère.
         :param identifiant_commis_a_supprimer: L'identifiant du commis à supprimer
         """
-        for commis in Commis.list_commis:
-            if commis.identifiant == identifiant_commis_a_supprimer:
-                self.liste_commis.remove(commis)
+        if identifiant_commis_a_supprimer in self.dict_commis.keys():
+            self.dict_commis.pop(identifiant_commis_a_supprimer)
 
     def ajouter_caissier_a_liste(self, identifiant_caissier_a_ajouter: str) -> None:
         """
@@ -107,8 +107,6 @@ class Gestionnaire(Employe):
         for element in liste_a_parcourir:
             chaine_str += f"{element.nom} | "
         return chaine_str
-
-
 
     def __str__(self):
         """

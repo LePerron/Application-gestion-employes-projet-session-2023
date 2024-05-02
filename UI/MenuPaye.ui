@@ -6,33 +6,63 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>473</width>
-    <height>366</height>
+    <width>1140</width>
+    <height>723</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="labelErreurPaye">
+  <widget class="QWidget" name="verticalLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>320</y>
-     <width>431</width>
-     <height>21</height>
+     <x>180</x>
+     <y>110</y>
+     <width>361</width>
+     <height>81</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QLabel" name="labelRechercherEmployeDate">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Rechercher une date</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QDateEdit" name="dateEditRechercherPaye"/>
+    </item>
+   </layout>
   </widget>
-  <widget class="QLabel" name="labelPaye">
+  <widget class="QLabel" name="labelTitreEmploye">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>9</y>
-     <width>431</width>
-     <height>41</height>
+     <x>183</x>
+     <y>42</y>
+     <width>780</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -45,69 +75,200 @@
    <property name="text">
     <string>Gestionnaire des payes</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
-  <widget class="QWidget" name="gridLayoutWidget">
+  <widget class="QListView" name="listViewPaye">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>168</y>
-     <width>161</width>
-     <height>71</height>
+     <x>180</x>
+     <y>210</y>
+     <width>621</width>
+     <height>401</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="1">
-     <widget class="QCheckBox" name="checkBoxMedianne">
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>820</x>
+     <y>210</y>
+     <width>163</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <widget class="QCheckBox" name="checkBoxIdentifiant">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>Medianne</string>
+       <string>Numéro de paye</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <property name="autoExclusive">
+       <bool>false</bool>
+      </property>
+      <property name="tristate">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
-     <widget class="QCheckBox" name="checkBoxMax">
+    <item>
+     <widget class="Line" name="line_8">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxPrenom">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Maximum</string>
       </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item>
+     <widget class="QLCDNumber" name="lcdNumberMaximum">
+      <property name="digitCount">
+       <number>4</number>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QCheckBox" name="checkBoxMin">
       <property name="text">
        <string>Minimum</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item>
+     <widget class="QLCDNumber" name="lcdNumberMinimum">
+      <property name="digitCount">
+       <number>4</number>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QCheckBox" name="checkBoxMoyenne">
       <property name="text">
        <string>Moyenne</string>
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="QLCDNumber" name="lcdNumberMoyenne">
+      <property name="digitCount">
+       <number>4</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxMedianne">
+      <property name="text">
+       <string>Medianne</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLCDNumber" name="lcdNumberMedianne">
+      <property name="digitCount">
+       <number>4</number>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <widget class="QListView" name="listViewPaye">
+  <widget class="QLabel" name="labelErreurPaye">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>50</y>
-     <width>256</width>
-     <height>261</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>50</y>
-     <width>161</width>
+     <x>830</x>
+     <y>490</y>
+     <width>151</width>
      <height>51</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>5</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>5</height>
+    </size>
+   </property>
+   <property name="sizeIncrement">
+    <size>
+     <width>0</width>
+     <height>5</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>0</width>
+     <height>5</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>543</y>
+     <width>180</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>110</y>
+     <width>361</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="labelRechercherEmployePaye">
+     <widget class="QLabel" name="labelRechercherEmploye">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Rechercher un employé</string>
       </property>
@@ -117,43 +278,69 @@
      </widget>
     </item>
     <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
      <widget class="QLineEdit" name="lineEditRechercherEmploye"/>
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget_3">
+  <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>110</y>
-     <width>161</width>
-     <height>51</height>
+     <x>800</x>
+     <y>550</y>
+     <width>3</width>
+     <height>61</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <item>
-     <widget class="QLabel" name="labelRechercherEmployeDate">
-      <property name="text">
-       <string>Rechercher une date</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QDateEdit" name="dateEditRechercherPaye"/>
-    </item>
-   </layout>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>80</y>
+     <width>780</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>3</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButtonRetournerMenu">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>250</y>
+     <x>810</x>
+     <y>560</y>
      <width>161</width>
-     <height>61</height>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>13</verstretch>
+    </sizepolicy>
    </property>
    <property name="font">
     <font>

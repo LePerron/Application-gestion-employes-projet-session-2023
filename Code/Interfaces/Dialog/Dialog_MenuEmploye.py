@@ -23,7 +23,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         super(MenuEmploye, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Employés")
-
+        self.checkBoxSalaire.stateChanged.connect(self.salaire_checkbox_change)
+        self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
+        self.checkBoxNbHeure.stateChanged.connect(self.nbheure_checkbox_change)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -45,6 +47,31 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
         pass
+
+    def salaire_checkbox_change(self, status):
+        if status == 2:
+            self.comboBoxTrierEmploye.addItem("Croissant ($)")
+            self.comboBoxTrierEmploye.addItem("Décroissant ($)")
+        else:
+            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant ($)")))
+            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant ($)")))
+
+    def anciennete_checkbox_change(self, status):
+        if status == 2:
+            self.comboBoxTrierEmploye.addItem("Croissant (anciennté)")
+            self.comboBoxTrierEmploye.addItem("Décroissant (anciennté)")
+        else:
+            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (anciennté)")))
+            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
+
+    def nbheure_checkbox_change(self, status):
+        if status == 2:
+            self.comboBoxTrierEmploye.addItem("Croissant (h)")
+            self.comboBoxTrierEmploye.addItem("Décroissant (h)")
+        else:
+            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (h)")))
+            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (h)")))
+
 
 
 def main():

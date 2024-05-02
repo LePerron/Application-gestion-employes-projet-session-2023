@@ -57,7 +57,8 @@ class Specialite:
             for specialite in cls.list_des_specialites:
                 if specialite.nom.capitalize() == specialite_a_modifier.capitalize():
                     specialite.nom = nouvelle_specialite.capitalize()
-                    specialite.description = nouvelle_description
+                    if len(nouvelle_description) > 1:
+                        specialite.description = nouvelle_description
                     break
 
     @staticmethod

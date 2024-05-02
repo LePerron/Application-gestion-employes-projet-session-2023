@@ -1,9 +1,9 @@
+from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from datetime import date, datetime
 
-from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
-
 DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
+
 
 class Gerant(Employe):
     """

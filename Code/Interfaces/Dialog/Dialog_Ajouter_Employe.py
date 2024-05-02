@@ -1,8 +1,12 @@
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from PyQt5.QtCore import pyqtSlot
+from datetime import datetime
 from PyQt5 import QtWidgets
 import sys
+
+
+
 
 
 class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterEmploye):
@@ -21,6 +25,13 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         super(AjouterEmploye, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Ajouter un Employé")
+        self.labelDatePromotion.hide()
+        self.dateEditDatePromotion.hide()
+        self.labelErreurDatePromotion.hide()
+        self.dateEditDatePromotion.setMaximumDate(datetime.now())
+        self.dateEditDateEngagement.setMaximumDate(datetime.now())
+
+        self.comboBoxPoste.activated.connect(self.index_combobox_change)
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
@@ -32,6 +43,16 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         fenetre_ajouter_contrat = AjouterContrat()
         fenetre_ajouter_contrat.show()
         fenetre_ajouter_contrat.exec()
+
+    def index_combobox_change(self, index):
+        if index >= 2:
+            self.labelDatePromotion.show()
+            self.dateEditDatePromotion.show()
+            self.labelErreurDatePromotion.show()
+        else:
+            self.labelDatePromotion.hide()
+            self.dateEditDatePromotion.hide()
+            self.labelErreurDatePromotion.hide()
 
 
 def main():
