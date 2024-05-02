@@ -9,7 +9,11 @@ employe1.identifiant = "2371875"
 @pytest.mark.parametrize("identifiant_employe, resultat_attendu", [
     ("2371875", [employe1.contrat]),
     ("2222222", []),
-    ("", [])
+    ("", []),
+    (23, []),
+    (True, []),
+    (-23, []),
+    (23.0, []),
 ])
 def test_rechercher_contrat_par_employe(identifiant_employe: str, resultat_attendu: list):
     """

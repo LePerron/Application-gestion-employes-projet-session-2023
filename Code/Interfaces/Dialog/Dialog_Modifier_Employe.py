@@ -21,6 +21,8 @@ class ModifierEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouter
         self.setupUi(self)
         self.labelTitreAjouterEmploye.setText("Modifier l'employé")
         self.pushButtonAjouterEmploye.setText("Modifier")
+        self.setWindowTitle("Modification d'un employé")
+
 
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):

@@ -19,6 +19,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         """
         super(MenuPaye, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Gestionnaire des Payes")
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):

@@ -2,12 +2,6 @@ from datetime import date, datetime
 
 DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
 
-# À FAIRE !!!!
-#   → dans le menu, faire "Gestion des contrats des employés"
-#        ⇉ créer un contrat
-#        ⇉ modifier un contrat
-#        ⇉ supprimer un contrat
-
 
 class Employe:
     """
@@ -107,9 +101,13 @@ class Employe:
 
     @date_engagement.setter
     def date_engagement(self, v_date_engagement: str) -> None:
-        date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
-        if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
-            self._date_engagement = date_formatee
+        if isinstance(v_date_engagement, str):
+            if v_date_engagement[:2].isdigit() and v_date_engagement[2] == "/" and v_date_engagement[3:5].isdigit() and v_date_engagement[5] == "/" and v_date_engagement[6:].isdigit():
+                date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
+                if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
+                    self._date_engagement = date_formatee
+            else:
+                return
 
     def obtenir_anciennete(self) -> int:
         """

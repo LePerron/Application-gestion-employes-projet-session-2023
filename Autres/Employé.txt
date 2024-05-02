@@ -1,0 +1,13 @@
+	Employé
+Checkbox -> afficher le superviseur de l'employé
+
+
+Gérant:
+date_gerant
+
+
+gestionnaire:
+date de gestionnaire
+
+
+caissier/commis:

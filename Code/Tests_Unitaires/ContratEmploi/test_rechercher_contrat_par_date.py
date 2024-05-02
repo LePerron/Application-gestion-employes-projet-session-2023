@@ -16,7 +16,10 @@ employe3.contrat.date_du_contrat = "12/05/2022"
 @pytest.mark.parametrize("date_du_contrat, resultat_attendu", [
     ("12/04/2022", [employe1.contrat]),
     ("12/05/2022", [employe2.contrat, employe3.contrat]),
-    ("16/06/2022", [])
+    ("16/06/2022", []),
+    (0, []),
+    (-9, []),
+    (2.0, [])
 ])
 def test_rechercher_contrat_par_date(date_du_contrat: str, resultat_attendu: list):
     """

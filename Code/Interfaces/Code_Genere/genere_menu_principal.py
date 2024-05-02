@@ -159,5 +159,5 @@ class Ui_MainWindowMenuPrincipal(object):
         self.pushButtonMenuEmploye.setText(_translate("MainWindowMenuPrincipal", "Gérer les Employés"))
         self.pushButtonMenuContrat.setText(_translate("MainWindowMenuPrincipal", "Gérer les Contrats"))
         self.pushButtonMenuPaye.setText(_translate("MainWindowMenuPrincipal", "Gérer les Payes"))
-        self.pushButtonMenuSpecialite.setText(_translate("MainWindowMenuPrincipal", "Gérer les Spécialitées"))
+        self.pushButtonMenuSpecialite.setText(_translate("MainWindowMenuPrincipal", "Gérer les Spécialités"))
         self.pushButtonQuitter.setText(_translate("MainWindowMenuPrincipal", "Quitter"))

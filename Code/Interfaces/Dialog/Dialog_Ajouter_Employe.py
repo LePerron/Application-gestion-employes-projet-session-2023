@@ -1,4 +1,5 @@
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
@@ -19,6 +20,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         """
         super(AjouterEmploye, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Ajouter un Employé")
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
@@ -27,7 +29,9 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
-        pass
+        fenetre_ajouter_contrat = AjouterContrat()
+        fenetre_ajouter_contrat.show()
+        fenetre_ajouter_contrat.exec()
 
 
 def main():

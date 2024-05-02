@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>391</width>
-    <height>307</height>
+    <width>390</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QLabel" name="labelTitreAjouterEmploye">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>381</width>
+     <x>0</x>
+     <y>24</y>
+     <width>390</width>
      <height>31</height>
     </rect>
    </property>
@@ -46,9 +46,9 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>40</y>
-     <width>391</width>
+     <x>10</x>
+     <y>50</y>
+     <width>370</width>
      <height>21</height>
     </rect>
    </property>
@@ -65,320 +65,288 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="labelIdentifiant">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>80</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Identifiant:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelNom">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>90</y>
-     <width>40</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Nom:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelPrenom">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>120</y>
-     <width>61</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Prénom:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelPoste">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>153</y>
-     <width>41</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Poste:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelDateEngagement">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>214</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Date d'engagement:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditIdentifiant">
-   <property name="geometry">
-    <rect>
-     <x>93</x>
-     <y>67</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditNom">
-   <property name="geometry">
-    <rect>
-     <x>52</x>
-     <y>100</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEditPrenom">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>130</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBoxPoste">
-   <property name="geometry">
-    <rect>
-     <x>62</x>
-     <y>158</y>
-     <width>111</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Gerant</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Gestionnaire</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Commis</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Caissier</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QDateEdit" name="dateEditDateEngagement">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>220</y>
-     <width>111</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelErreurIdentifiant">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
+     <x>0</x>
      <y>70</y>
-     <width>151</width>
-     <height>16</height>
+     <width>391</width>
+     <height>511</height>
     </rect>
    </property>
-   <property name="text">
-    <string/>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
    </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>351</width>
+      <height>474</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_8">
+     <item>
+      <widget class="QLabel" name="labelIdentifiant">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="text">
+        <string>Identifiant de l'employé</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="lineEditIdentifiant">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelErreurIdentifiant">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelNom">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Nom de l'employé</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLineEdit" name="lineEditNom"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelErreurNom">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelPrenom">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Prénom de l'employé</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLineEdit" name="lineEditPrenom"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelErreurPrenom">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelPoste">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Poste de l'employé</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QComboBox" name="comboBoxPoste">
+         <item>
+          <property name="text">
+           <string>Gerant</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Gestionnaire</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Commis</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Caissier</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacerFacteur_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Ignored</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>48</width>
+           <height>13</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelSpecialite">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Spécialité de l'employé</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QComboBox" name="comboBoxSpecialite"/>
+       </item>
+       <item>
+        <spacer name="verticalSpacerFacteur">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Ignored</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>68</width>
+           <height>13</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelDateEngagement">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Date d'engagement de l'employé</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <item>
+        <widget class="QDateEdit" name="dateEditDateEngagement">
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelErreurDateEngagement">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonAjouterEmploye">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Créer l'employé</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonAnnuler">
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Annuler</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
-  <widget class="QLabel" name="labelErreurNom">
-   <property name="geometry">
-    <rect>
-     <x>172</x>
-     <y>102</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelErreurPrenom">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>131</y>
-     <width>131</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelErreurDateEngagement">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>223</y>
-     <width>121</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonAjouterEmploye">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>250</y>
-     <width>171</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Créer employé</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonAnnuler">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>250</y>
-     <width>111</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Annuler</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="labelSpecialite">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>184</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Spécialité:</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBoxSpecialite">
-   <property name="geometry">
-    <rect>
-     <x>83</x>
-     <y>190</y>
-     <width>111</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <zorder>labelTitreAjouterEmploye</zorder>
-  <zorder>line</zorder>
-  <zorder>labelIdentifiant</zorder>
-  <zorder>labelNom</zorder>
-  <zorder>labelPrenom</zorder>
-  <zorder>labelPoste</zorder>
-  <zorder>labelDateEngagement</zorder>
-  <zorder>labelErreurIdentifiant</zorder>
-  <zorder>labelErreurNom</zorder>
-  <zorder>labelErreurPrenom</zorder>
-  <zorder>labelErreurDateEngagement</zorder>
-  <zorder>pushButtonAjouterEmploye</zorder>
-  <zorder>pushButtonAnnuler</zorder>
-  <zorder>labelSpecialite</zorder>
-  <zorder>lineEditIdentifiant</zorder>
-  <zorder>lineEditNom</zorder>
-  <zorder>lineEditPrenom</zorder>
-  <zorder>comboBoxPoste</zorder>
-  <zorder>comboBoxSpecialite</zorder>
-  <zorder>dateEditDateEngagement</zorder>
  </widget>
  <resources/>
  <connections/>
