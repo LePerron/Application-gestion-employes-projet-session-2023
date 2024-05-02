@@ -65,6 +65,11 @@ def test_set_prenom(valeur, resultat_attendu):
     ("02/05/2022", datetime.strptime("02/05/2022", "%d/%m/%Y")),
     ("22/05/2020", None),
     ("02/05/2025", None),
+    ("", None),
+    ("98235", None),
+    (23, None),
+    (-54, None),
+    (6.5, None),
 ])
 def test_set_date_engagement(valeur, resultat_attendu):
     """
