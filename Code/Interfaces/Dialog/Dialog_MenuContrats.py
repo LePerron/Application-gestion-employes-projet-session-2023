@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_contrat
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
@@ -22,6 +24,7 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         super(MenuContrats, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Contrats")
+        self.dateEditContratSelonDate.setMaximumDate(datetime.now())
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):

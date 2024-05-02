@@ -13,7 +13,7 @@ class Gestionnaire(Employe):
 
     def __init__(self, p_gerant=None, p_specialite=None, p_liste_commis=None,
                  p_liste_caissier=None,  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "",
-                 p_date_engagement: date = None, p_contrat=None):
+                 p_date_engagement: date = None, p_contrat=None, date_gestionnaire: date = None):
         """
         Constructeur de la classe Gestionnaire avec les attributs de sa classe mère Employe
         :param p_gerant: Le gérant du gestionnaire.

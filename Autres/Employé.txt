@@ -3,16 +3,11 @@ Checkbox -> afficher le superviseur de l'employé
 
 
 Gérant:
-effectuer des retours
-date_gerant 
+date_gerant
 
 
 gestionnaire:
-effectuer des retours
 date de gestionnaire
-
-
-
 
 
 caissier/commis:
