@@ -20,6 +20,14 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         super(MenuPaye, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Payes")
+        self.checkBoxMax.stateChanged.connect(self.max_checkbox_change)
+        self.lcdNumberMaximum.hide()
+        self.checkBoxMin.stateChanged.connect(self.min_checkbox_change)
+        self.lcdNumberMinimum.hide()
+        self.checkBoxMoyenne.stateChanged.connect(self.moyenne_checkbox_change)
+        self.lcdNumberMoyenne.hide()
+        self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
+        self.lcdNumberMedianne.hide()
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -30,6 +38,31 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
     def on_pushButtonModifierContrat_clicked(self):
         # SAUVEGARDE A LIEU LAAAAAAAAAA #
         pass
+
+    def max_checkbox_change(self, status):
+        if status == 2:
+            self.lcdNumberMaximum.show()
+        else:
+            self.lcdNumberMaximum.hide()
+
+    def min_checkbox_change(self, status):
+        if status == 2:
+            self.lcdNumberMinimum.show()
+        else:
+            self.lcdNumberMinimum.hide()
+
+    def moyenne_checkbox_change(self, status):
+        if status == 2:
+            self.lcdNumberMoyenne.show()
+        else:
+            self.lcdNumberMoyenne.hide()
+
+    def medianne_checkbox_change(self, status):
+        if status == 2:
+            self.lcdNumberMedianne.show()
+        else:
+            self.lcdNumberMedianne.hide()
+
 
 
 def main():
