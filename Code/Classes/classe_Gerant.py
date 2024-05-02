@@ -12,7 +12,7 @@ class Gerant(Employe):
 
     def __init__(self, p_specialite=None, p_liste_gestionnaire=None,
                  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "", p_date_engagement: date = None,
-                 p_contrat=None, p_date_gerant: date = None):
+                 p_contrat=None, p_date_gerant: str = None):
         """
         Constructeur de la classe Gerant qui fait app   el à sa classe mère Employe.
         :param p_liste_gestionnaire: La liste des gestionnaires que le gérant gère.
