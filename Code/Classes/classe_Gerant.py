@@ -1,8 +1,9 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
-from datetime import date
+from datetime import date, datetime
 
 from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
 
+DATE_FONDATION_ENTREPRISE = datetime(2020, 5, 23)
 
 class Gerant(Employe):
     """
@@ -24,6 +25,22 @@ class Gerant(Employe):
 
         self.liste_gestionnaire = p_liste_gestionnaire
         self._date_gerant = p_date_gerant
+
+    @property
+    def date_gerant(self):
+        return self._date_gerant
+
+    @date_gerant.setter
+    def date_gerant(self, v_date_gerant: str):
+        if isinstance(v_date_gerant, str):
+            if v_date_gerant[:2].isdigit() and v_date_gerant[2] == "/" and v_date_gerant[
+                                                                                       3:5].isdigit() and \
+                    v_date_gerant[5] == "/" and v_date_gerant[6:].isdigit():
+                date_formatee = datetime.strptime(v_date_gerant, "%d/%m/%Y")
+                if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
+                    self._date_engagement = date_formatee
+                else:
+                    return
 
     def ajouter_gestionnaire_a_liste(self, identifiant_gestionnaire_a_ajouter: str) -> None:
         """
