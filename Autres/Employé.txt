@@ -6,7 +6,7 @@ Gérant:
 date_gerant
 
 
-gestionnaire:
+Gestionnaire:
 date de gestionnaire
 
 
