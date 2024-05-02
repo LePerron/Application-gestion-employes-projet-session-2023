@@ -33,12 +33,10 @@ class Gerant(Employe):
     @date_gerant.setter
     def date_gerant(self, v_date_gerant: str):
         if isinstance(v_date_gerant, str):
-            if v_date_gerant[:2].isdigit() and v_date_gerant[2] == "/" and v_date_gerant[
-                                                                                       3:5].isdigit() and \
-                    v_date_gerant[5] == "/" and v_date_gerant[6:].isdigit():
+            if v_date_gerant[:2].isdigit() and v_date_gerant[2] == "/" and v_date_gerant[3:5].isdigit() and v_date_gerant[5] == "/" and v_date_gerant[6:].isdigit():
                 date_formatee = datetime.strptime(v_date_gerant, "%d/%m/%Y")
                 if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
-                    self._date_engagement = date_formatee
+                    self._date_gerant = date_formatee
                 else:
                     return
 
