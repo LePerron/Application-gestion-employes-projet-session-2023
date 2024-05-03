@@ -8,7 +8,8 @@ from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
     ("20/06/2006", None),
     ("20/05/2021", datetime.strptime("20/05/2021", "%d/%m/%Y")),
     (14, None),
-    ("", None)
+    ("", None),
+    ("13/08/3000", None)
 ])
 
 def test_set_date_gerant(valeur, resultat_attendu):
