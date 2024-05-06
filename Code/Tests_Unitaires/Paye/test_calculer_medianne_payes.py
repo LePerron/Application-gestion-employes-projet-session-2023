@@ -1,5 +1,3 @@
-from _pytest.python_api import raises
-
 from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
 import pytest
 
