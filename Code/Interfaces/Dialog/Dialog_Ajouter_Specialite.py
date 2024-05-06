@@ -28,7 +28,9 @@ class AjouterSpecialite(QtWidgets.QDialog, genere_creer_specialite.Ui_DialogCree
 
     @pyqtSlot()
     def on_pushButtonAjouterSpecialite_clicked(self):
-        pass
+        fenetre_ajouter_specialite = AjouterSpecialite()
+        fenetre_ajouter_specialite.show()
+        fenetre_ajouter_specialite.exec()
 
 
 def main():
