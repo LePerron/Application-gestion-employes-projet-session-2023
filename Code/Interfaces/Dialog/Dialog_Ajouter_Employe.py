@@ -1,3 +1,4 @@
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from PyQt5.QtCore import pyqtSlot
@@ -40,9 +41,46 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
-        fenetre_ajouter_contrat = AjouterContrat()
-        fenetre_ajouter_contrat.show()
-        fenetre_ajouter_contrat.exec()
+        poste = self.comboBoxPoste.itemText()
+
+        employe_temporaire = poste()
+
+        identifiant = self.lineEditIdentifiant.text()
+        employe_temporaire.identifiant = identifiant
+        if employe_temporaire.identifiant != identifiant:
+            self.labelErreurIdentifiant.setText("Erreur")
+            self.lineEditIdentifiant.clear()
+
+        nom = self.lineEditNom.text()
+        employe_temporaire.nom = nom
+        if employe_temporaire.nom != nom:
+            self.labelErreurNom.setText("Erreur")
+            self.lineEditNom.clear()
+
+        prenom = self.lineEditPrenom.text()
+        employe_temporaire.prenom = prenom
+        if employe_temporaire.prenom != prenom:
+            self.labelErreurPrenom.setText("Erreur")
+            self.lineEditPrenom.clear()
+
+        specialite = self.comboBoxSpecialite.itemText()
+        employe_temporaire.specialite = specialite
+
+        date_engagement = self.dateEditDateEngagement.text()
+        employe_temporaire.date_engagement = date_engagement
+
+        if poste == "Gerant" or "Gestionnnaire":
+            date_promotion = self.dateEditDatePromotion.text()
+            employe_temporaire.date_promotion = date_promotion
+
+        if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
+            fenetre_ajouter_contrat = AjouterContrat(employe_temporaire.identifiant)
+            fenetre_ajouter_contrat.show()
+            fenetre_ajouter_contrat.exec()
+        else:
+            del employe_temporaire
+
+
 
     def index_combobox_change(self, index):
         if index >= 2:
