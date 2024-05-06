@@ -24,15 +24,22 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         self.setupUi(self)
         self.setWindowTitle("Ajouter un Contrat")
         self.lineEditIdentifiant.setReadOnly(True)
-        self.labelIdentifiantEmploye.setText(identifiant_employe)
+        self.lineEditIdentifiant.setText(identifiant_employe)
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
-        contrat = ContratEmploi()
-        facteur_salaire = self.doubleSpinBoxFacteur.text()
-        nb_heures = self.heur.text()
-        facteur_salaire = self.doubleSpinBoxFacteur.text()
+        contrat_temporaire = ContratEmploi()
 
+        facteur_salaire = self.doubleSpinBoxFacteur.text()
+        nb_heures = self.lcdNumberNbHeure.value()
+        salaire_horaire = self.doubleSpinBoxSalaireHoraire.text()
+        autres_termes = self.textEditTermeContrat.toPlainText()
+
+        contrat_temporaire.facteur_salaire = facteur_salaire
+        contrat_temporaire.nb_heures_semaine = nb_heures
+        contrat_temporaire.salaire_horaire = salaire_horaire
+        contrat_temporaire.termes_embauche = autres_termes
+        self.close()
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):

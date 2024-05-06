@@ -1,3 +1,6 @@
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
+
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_paye
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
@@ -28,6 +31,11 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.lcdNumberMoyenne.hide()
         self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
         self.lcdNumberMedianne.hide()
+        model = QStandardItemModel()
+        self.listViewPaye.setModel(model)
+        for employe in Employe.list_employe:
+            item = QStandardItem(str(employe))
+            model.appendRow(item)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
