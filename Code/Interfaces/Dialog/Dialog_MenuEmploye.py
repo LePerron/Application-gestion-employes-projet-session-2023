@@ -1,3 +1,7 @@
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
+
+from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Employe import AjouterEmploye
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_employe
 from PyQt5.QtCore import pyqtSlot
@@ -5,6 +9,7 @@ from PyQt5 import QtWidgets
 import sys
 
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Modifier_Employe import ModifierEmploye
+
 
 
 class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
@@ -20,12 +25,23 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_menu_employe.Ui_DialogMenuEmploye
         """
+        employe1 = Caissier(p_identifiant="2371875", p_nom="Lemoyne", p_prenom="Benjamin",
+                            p_date_engagement=None)
+
         super(MenuEmploye, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Employés")
         self.checkBoxSalaire.stateChanged.connect(self.salaire_checkbox_change)
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
         self.checkBoxNbHeure.stateChanged.connect(self.nbheure_checkbox_change)
+        model = QStandardItemModel()
+        self.listViewEmploye.setModel(model)
+        for employe in Employe.list_employe:
+            item = QStandardItem(str(employe))
+            model.appendRow(item)
+
+
+
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -40,9 +56,17 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):
-        dialog_modifier_employe = ModifierEmploye()
-        dialog_modifier_employe.show()
-        dialog_modifier_employe.exec()
+        index_employe = self.listViewEmploye.currentIndex()
+        for employe in Employe.list_employe:
+            if index_employe == employe:
+                employe_modifier = employe
+
+        if employe_modifier:
+            dialog_modifier_employe = ModifierEmploye(employe_modifier.identifiant)
+            dialog_modifier_employe.show()
+            dialog_modifier_employe.exec()
+        else:
+            self.labelErreurSelection.setText("Erreur")
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
