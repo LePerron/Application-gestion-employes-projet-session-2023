@@ -11,7 +11,6 @@ import sys
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Modifier_Employe import ModifierEmploye
 
 
-
 class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
     """
     Nome de la classe : MenuEmploye
@@ -34,14 +33,15 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxSalaire.stateChanged.connect(self.salaire_checkbox_change)
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
         self.checkBoxNbHeure.stateChanged.connect(self.nbheure_checkbox_change)
+        self.mettre_a_jour_listview()
+
+    def mettre_a_jour_listview(self):
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
+
         for employe in Employe.list_employe:
             item = QStandardItem(str(employe))
             model.appendRow(item)
-
-
-
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -53,6 +53,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         dialog_ajouter_employe = AjouterEmploye()
         dialog_ajouter_employe.show()
         dialog_ajouter_employe.exec()
+        self.mettre_a_jour_listview()
 
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):

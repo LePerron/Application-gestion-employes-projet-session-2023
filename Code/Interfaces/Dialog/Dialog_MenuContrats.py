@@ -28,6 +28,9 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Contrats")
         self.dateEditContratSelonDate.setMaximumDate(datetime.now())
+        self.mettre_a_jour_listview()
+
+    def mettre_a_jour_listview(self):
         model = QStandardItemModel()
         self.listViewContrat.setModel(model)
         for employe in Employe.list_employe:
@@ -45,6 +48,8 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         fenetre_ajouter_contrat.pushButtonAjouterEmploye.setText("Modifier")
         fenetre_ajouter_contrat.show()
         fenetre_ajouter_contrat.exec()
+        self.mettre_a_jour_listview()
+
 
 def main():
     """
