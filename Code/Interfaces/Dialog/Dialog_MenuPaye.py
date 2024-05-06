@@ -64,7 +64,6 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
             self.lcdNumberMedianne.hide()
 
 
-
 def main():
     """
     Méthode main : Point d'entré du programme.
