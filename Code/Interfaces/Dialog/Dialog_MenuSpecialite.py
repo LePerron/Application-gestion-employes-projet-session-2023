@@ -1,3 +1,6 @@
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
+
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Specialite import AjouterSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_specialite
 from PyQt5.QtCore import pyqtSlot
@@ -21,6 +24,15 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         super(MenuSpecialite, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Spécialités")
+        self.mettre_a_jour_listview()
+
+    def mettre_a_jour_listview(self):
+        model = QStandardItemModel()
+        self.listViewSpecialite.setModel(model)
+        for specialite in Specialite.list_des_specialites:
+            item = QStandardItem(str(specialite))
+            model.appendRow(item)
+
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -32,6 +44,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         fenetre_ajouter_specialite = AjouterSpecialite()
         fenetre_ajouter_specialite.show()
         fenetre_ajouter_specialite.exec()
+        self.mettre_a_jour_listview()
 
     @pyqtSlot()
     def on_pushButtonModifierSpecialite_clicked(self):
@@ -40,10 +53,13 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
         fenetre_modifier_specialite.show()
         fenetre_modifier_specialite.exec()
-
+        self.mettre_a_jour_listview()
     @pyqtSlot()
     def on_pushButtonSupprimerSpecialite_clicked(self):
         pass
+
+
+
 
 
 def main():
@@ -52,8 +68,8 @@ def main():
     Exécution de l'application avec l'interface graphique.
     """
     app = QtWidgets.QApplication(sys.argv)
-    fenetre_paye = MenuSpecialite()
-    fenetre_paye.show()
+    fenetre_MenuSpecialite = MenuSpecialite()
+    fenetre_MenuSpecialite.show()
     app.exec()
 
 

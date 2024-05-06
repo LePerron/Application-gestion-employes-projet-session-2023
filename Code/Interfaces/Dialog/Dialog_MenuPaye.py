@@ -1,10 +1,12 @@
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_paye
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
+
 
 
 class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
@@ -45,6 +47,9 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
     @pyqtSlot()
     def on_pushButtonModifierContrat_clicked(self):
         # SAUVEGARDE A LIEU LAAAAAAAAAA #
+        fenetre_modifier_contrat = AjouterContrat()
+        fenetre_modifier_contrat.show()
+        fenetre_modifier_contrat.exec()
         pass
 
     def max_checkbox_change(self, status):

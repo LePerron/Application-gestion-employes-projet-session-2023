@@ -13,7 +13,7 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
     - genere_creer_contrat.Ui_DialogCreerContrat : Ma classe générée avec QtDesigner
     """
 
-    def __init__(self, identifiant_employe, parent=None):
+    def __init__(self, identifiant_employe ="", parent=None):
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_creer_contrat.Ui_DialogCreerContrat
