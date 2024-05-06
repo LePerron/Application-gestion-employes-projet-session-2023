@@ -1,13 +1,13 @@
-from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
+from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
+from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
+from Projet_intra_Entreprise.Code.Classes.classe_Commis import Commis
+from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
 from PyQt5.QtCore import pyqtSlot
 from datetime import datetime
 from PyQt5 import QtWidgets
 import sys
-
-
-
 
 
 class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterEmploye):
@@ -31,8 +31,16 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         self.labelErreurDatePromotion.hide()
         self.dateEditDatePromotion.setMaximumDate(datetime.now())
         self.dateEditDateEngagement.setMaximumDate(datetime.now())
-
+        self.comboBoxSpecialite.addItem("Commis")
         self.comboBoxPoste.activated.connect(self.index_combobox_change)
+        self.reset_label_erreur()
+
+    def reset_label_erreur(self):
+        self.labelErreurNom.clear()
+        self.labelErreurPrenom.clear()
+        self.labelErreurDateEngagement.clear()
+        self.labelErreurDatePromotion.clear()
+        self.labelErreurIdentifiant.clear()
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
@@ -41,29 +49,31 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
-        poste = self.comboBoxPoste.itemText()
+        self.reset_label_erreur()
+        poste = self.comboBoxPoste.currentText()
 
-        employe_temporaire = poste()
+        employe_temporaire = eval(poste)()
 
         identifiant = self.lineEditIdentifiant.text()
         employe_temporaire.identifiant = identifiant
-        if employe_temporaire.identifiant != identifiant:
+        if employe_temporaire.identifiant != identifiant or not identifiant:
             self.labelErreurIdentifiant.setText("Erreur")
             self.lineEditIdentifiant.clear()
 
-        nom = self.lineEditNom.text()
+        nom = self.lineEditNom.text().capitalize()
         employe_temporaire.nom = nom
-        if employe_temporaire.nom != nom:
+        if employe_temporaire.nom != nom or not nom:
             self.labelErreurNom.setText("Erreur")
             self.lineEditNom.clear()
 
-        prenom = self.lineEditPrenom.text()
-        employe_temporaire.prenom = prenom
-        if employe_temporaire.prenom != prenom:
-            self.labelErreurPrenom.setText("Erreur")
-            self.lineEditPrenom.clear()
+        prenom = self.lineEditPrenom.text().capitalize()
+        if prenom:
+            employe_temporaire.prenom = prenom
+            if employe_temporaire.prenom != prenom or not prenom:
+                self.labelErreurPrenom.setText("Erreur")
+                self.lineEditPrenom.clear()
 
-        specialite = self.comboBoxSpecialite.itemText()
+        specialite = self.comboBoxSpecialite.currentText()
         employe_temporaire.specialite = specialite
 
         date_engagement = self.dateEditDateEngagement.text()
@@ -73,14 +83,11 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             date_promotion = self.dateEditDatePromotion.text()
             employe_temporaire.date_promotion = date_promotion
 
-        if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
-            fenetre_ajouter_contrat = AjouterContrat(employe_temporaire.identifiant)
-            fenetre_ajouter_contrat.show()
-            fenetre_ajouter_contrat.exec()
-        else:
-            del employe_temporaire
-
-
+        if employe_temporaire.nom and employe_temporaire.prenom and employe_temporaire.identifiant:
+            if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
+                fenetre_ajouter_contrat = AjouterContrat(employe_temporaire.identifiant)
+                fenetre_ajouter_contrat.show()
+                fenetre_ajouter_contrat.exec()
 
     def index_combobox_change(self, index):
         if index >= 2:
