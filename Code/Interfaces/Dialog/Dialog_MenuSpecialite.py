@@ -1,5 +1,4 @@
-from PyQt5.QtGui import QStandardItemModel
-from PySide2.QtGui import QStandardItem
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
 
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Specialite import AjouterSpecialite
@@ -26,6 +25,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Spécialités")
         self.mettre_a_jour_listview()
+
     def mettre_a_jour_listview(self):
         model = QStandardItemModel()
         self.listViewSpecialite.setModel(model)
