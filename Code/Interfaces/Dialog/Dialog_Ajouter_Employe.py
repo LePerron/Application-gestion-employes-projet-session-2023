@@ -42,6 +42,9 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         ###
 
     def reset_label_erreur(self):
+        """
+        Retire les message d'erreur
+        """
         self.labelErreurNom.clear()
         self.labelErreurPrenom.clear()
         self.labelErreurDateEngagement.clear()
@@ -51,10 +54,16 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
+        """
+        Ferme la fenêtre AjouterEmploye lorsque l'utilisateur click sur le bouton Annuler
+        """
         AjouterEmploye.close(self)
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
+        """
+        Ajoute un nouveau employé lorsque l'utilisateur click sur le bouton Ajouter un employe
+        """
         self.reset_label_erreur()
         poste = self.comboBoxPoste.currentText()
         identifiant = self.lineEditIdentifiant.text()
@@ -101,6 +110,11 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
                 self.close()
 
     def index_combobox_change(self, index):
+        """
+
+        :param index:
+        :return:
+        """
         if index >= 2:
             self.labelDatePromotion.show()
             self.dateEditDatePromotion.show()

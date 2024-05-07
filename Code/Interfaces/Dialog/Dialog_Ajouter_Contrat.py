@@ -1,4 +1,5 @@
 from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_creer_contrat
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
@@ -27,7 +28,10 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         self.lineEditIdentifiant.setText(identifiant_employe)
 
     @pyqtSlot()
-    def on_pushButtonAjouterEmploye_clicked(self):
+    def on_pushButtonAjouterContrat_clicked(self):
+        """
+        Ajoute un nouveau contrat lorsque l'utilisateur click sur le bouton Ajouter un employe
+        """
         contrat_temporaire = ContratEmploi()
 
         facteur_salaire = self.doubleSpinBoxFacteur.text()
@@ -43,6 +47,9 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
+        """
+        Ferme la fenêtre AjouterContrat lorsque l'utilisateur click sur le bouton Annuler
+        """
         AjouterContrat.close(self)
 
 

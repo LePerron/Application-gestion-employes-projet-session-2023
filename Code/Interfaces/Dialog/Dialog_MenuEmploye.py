@@ -36,6 +36,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
+        """
+        Modifie la listview lorsque l'utilisateur ajoute ou modifie un employe
+        """
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
 
@@ -46,10 +49,16 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
+        """
+        Ferme la fenêtre MenuEmploye lorsque l'utilisateur click sur le bouton Retourner au menu
+        """
         MenuEmploye.close(self)
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
+        """
+        Ouvre la fenêtre AjouterEmploye lorsque l'utilisateur click sur le bouton Ajouter un employe
+        """
         dialog_ajouter_employe = AjouterEmploye()
         dialog_ajouter_employe.show()
         dialog_ajouter_employe.exec()
@@ -57,6 +66,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):
+        """
+        Modifie l'employé lorsque l'utilisateur click sur le bouton Modifier l'employe
+        """
         index_actuel = self.listViewEmploye.currentIndex()
 
         if index_actuel.isValid():
@@ -78,6 +90,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
+        """
+        Supprime l'employé lorsque l'utilisateur click sur le bouton Supprimer l'employer
+        """
         index_actuel = self.listViewEmploye.currentIndex()
         if index_actuel.isValid():
             self.listViewEmploye.model().removeRow(index_actuel.row())
@@ -86,6 +101,11 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.labelErreurSelection.setText("Erreur.")
 
     def salaire_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant ($)")
             self.comboBoxTrierEmploye.addItem("Décroissant ($)")
@@ -94,6 +114,11 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant ($)")))
 
     def anciennete_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant (anciennté)")
             self.comboBoxTrierEmploye.addItem("Décroissant (anciennté)")
@@ -102,6 +127,11 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
 
     def nbheure_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant (h)")
             self.comboBoxTrierEmploye.addItem("Décroissant (h)")
