@@ -36,7 +36,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         model = QStandardItemModel()
         self.listViewPaye.setModel(model)
         for employe in Employe.list_employe:
-            item = QStandardItem(str(employe))
+            paye = Employe.calculer_paye(employe)
+            item = QStandardItem(str(paye))
             model.appendRow(item)
 
     @pyqtSlot()
