@@ -63,8 +63,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def max_checkbox_change(self, status):
         """
-
-        :param status:
+        affiche la valeur maximum quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         :return:
         """
         if status == 2:
@@ -74,9 +74,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def min_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche la valeur minimum quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.lcdNumberMinimum.show()
@@ -85,9 +84,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def moyenne_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche la moyenne quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.lcdNumberMoyenne.show()
@@ -96,9 +94,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def medianne_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche la medianne quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.lcdNumberMedianne.show()
