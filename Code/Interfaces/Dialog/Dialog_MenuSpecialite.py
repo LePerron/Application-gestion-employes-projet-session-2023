@@ -1,6 +1,7 @@
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Specialite import AjouterSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
@@ -49,21 +50,29 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
 
     @pyqtSlot()
     def on_pushButtonModifierSpecialite_clicked(self):
-        longueur_avant = Specialite.list_des_specialites
+        index_actuel = self.listViewSpecialite.currentIndex()
+        if index_actuel.isValid():
+            fenetre_modifier_specialite = AjouterSpecialite()
+            fenetre_modifier_specialite.setWindowTitle("Modifier Spécialité")
+            fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
+            fenetre_modifier_specialite.show()
+            fenetre_modifier_specialite.exec()
+            specialite_temporaire = Specialite.list_des_specialites[-1]
 
-        fenetre_modifier_specialite = AjouterSpecialite()
-        fenetre_modifier_specialite.setWindowTitle("Modifier Spécialité")
-        fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
-        fenetre_modifier_specialite.show()
-        fenetre_modifier_specialite.exec()
-        if len(Specialite.list_des_specialites) != longueur_avant:
+            Specialite.list_des_specialites.remove(specialite_temporaire)
+            Specialite.list_des_specialites[index_actuel.row()] = specialite_temporaire
             self.mettre_a_jour_listview()
+        else:
+            self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
+
 
     @pyqtSlot()
     def on_pushButtonSupprimerSpecialite_clicked(self):
         index_actuel = self.listViewSpecialite.currentIndex()
         if index_actuel.isValid():
+            Specialite.list_des_specialites.pop(index_actuel.row())
             self.listViewSpecialite.model().removeRow(index_actuel.row())
+
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
 

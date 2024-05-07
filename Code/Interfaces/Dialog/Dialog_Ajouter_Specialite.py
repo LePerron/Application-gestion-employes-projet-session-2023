@@ -1,3 +1,5 @@
+from operator import imod
+
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_creer_specialite
 from PyQt5.QtCore import pyqtSlot
@@ -17,6 +19,7 @@ class AjouterSpecialite(QtWidgets.QDialog, genere_creer_specialite.Ui_DialogCree
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_creer_specialite.Ui_DialogCreerSpecialite
+        modifie une spécialité
         """
         super(AjouterSpecialite, self).__init__(parent)
         self.setupUi(self)
@@ -36,7 +39,7 @@ class AjouterSpecialite(QtWidgets.QDialog, genere_creer_specialite.Ui_DialogCree
         specialite_temporaire.nom = nom
 
         if specialite_temporaire.nom != nom or not nom:
-            del specialite_temporaire
+            Specialite.list_des_specialites.remove(specialite_temporaire)
             self.labelErreurNom.setText("Nom incorrect")
             self.lineEditNom.clear()
         else:
