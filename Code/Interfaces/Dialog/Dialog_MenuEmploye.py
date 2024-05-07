@@ -70,14 +70,23 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         Modifie l'employé lorsque l'utilisateur click sur le bouton Modifier l'employe
         """
         index_actuel = self.listViewEmploye.currentIndex()
+
         if index_actuel.isValid():
-            employe_modifier = Employe.list_employe[index_actuel.row()]
-            dialog_modifier_employe = ModifierEmploye(employe_modifier)
-            dialog_modifier_employe.show()
-            dialog_modifier_employe.exec()
+            employe_a_modifier = Employe.list_employe[index_actuel.row()]
+
+            fenetre_modifier_employe = AjouterEmploye(modification_employe=employe_a_modifier)
+            fenetre_modifier_employe.show()
+            fenetre_modifier_employe.setWindowTitle("Modification d'un employé")
+            fenetre_modifier_employe.labelTitreAjouterEmploye.setText("Modifier l'employé")
+            fenetre_modifier_employe.pushButtonAjouterEmploye.setText("Modifier")
+            fenetre_modifier_employe.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
+            fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
+            fenetre_modifier_employe.exec()
+
             self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Erreur")
+
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
@@ -129,7 +138,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         else:
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (h)")))
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (h)")))
-
 
 
 def main():

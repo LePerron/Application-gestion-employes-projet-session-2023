@@ -1,3 +1,4 @@
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
@@ -18,10 +19,11 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
     - genere_ajouter_employe.Ui_DialogAjouterEmployer : Ma classe générée avec QtDesigner
     """
 
-    def __init__(self, parent=None):
+    def __init__(self, modification_employe=None, parent=None):
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_ajouter_employe.Ui_DialogAjouterEmploye
+        :param modification_employe: L'employé a modifier sinon rien
         """
         super(AjouterEmploye, self).__init__(parent)
         self.setupUi(self)
@@ -31,9 +33,13 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         self.labelErreurDatePromotion.hide()
         self.dateEditDatePromotion.setMaximumDate(datetime.now())
         self.dateEditDateEngagement.setMaximumDate(datetime.now())
-        self.comboBoxSpecialite.addItem("Commis")
         self.comboBoxPoste.activated.connect(self.index_combobox_change)
         self.reset_label_erreur()
+        self.modification_employe = modification_employe
+
+        ###
+        self.comboBoxSpecialite.addItem("Commis")
+        ###
 
     def reset_label_erreur(self):
         """
@@ -60,14 +66,17 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         """
         self.reset_label_erreur()
         poste = self.comboBoxPoste.currentText()
-
+        identifiant = self.lineEditIdentifiant.text()
         employe_temporaire = eval(poste)()
 
-        identifiant = self.lineEditIdentifiant.text()
-        employe_temporaire.identifiant = identifiant
-        if employe_temporaire.identifiant != identifiant or not identifiant:
-            self.labelErreurIdentifiant.setText("Erreur")
-            self.lineEditIdentifiant.clear()
+        if self.modification_employe:
+            Employe.list_employe.remove(self.modification_employe)
+            employe_temporaire.identifiant = identifiant
+        else:
+            employe_temporaire.identifiant = identifiant
+            if employe_temporaire.identifiant != identifiant or not identifiant:
+                self.labelErreurIdentifiant.setText("Erreur")
+                self.lineEditIdentifiant.clear()
 
         nom = self.lineEditNom.text().capitalize()
         employe_temporaire.nom = nom
@@ -94,9 +103,10 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
 
         if employe_temporaire.nom and employe_temporaire.prenom and employe_temporaire.identifiant:
             if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
-                fenetre_ajouter_contrat = AjouterContrat(employe_temporaire.identifiant)
-                fenetre_ajouter_contrat.show()
-                fenetre_ajouter_contrat.exec()
+                if not self.modification_employe:
+                    fenetre_ajouter_contrat = AjouterContrat(employe_temporaire.identifiant)
+                    fenetre_ajouter_contrat.show()
+                    fenetre_ajouter_contrat.exec()
                 self.close()
 
     def index_combobox_change(self, index):
