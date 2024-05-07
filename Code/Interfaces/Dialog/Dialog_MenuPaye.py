@@ -1,15 +1,12 @@
-from datetime import datetime
-
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
-
-from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
-from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_paye
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import pyqtSlot
+from datetime import datetime
 from PyQt5 import QtWidgets
 import sys
-
 
 
 class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
@@ -28,14 +25,17 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         super(MenuPaye, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Payes")
-        self.checkBoxMax.stateChanged.connect(self.max_checkbox_change)
+
         self.lcdNumberMaximum.hide()
-        self.checkBoxMin.stateChanged.connect(self.min_checkbox_change)
         self.lcdNumberMinimum.hide()
-        self.checkBoxMoyenne.stateChanged.connect(self.moyenne_checkbox_change)
         self.lcdNumberMoyenne.hide()
-        self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
         self.lcdNumberMedianne.hide()
+
+        self.checkBoxMax.stateChanged.connect(self.max_checkbox_change)
+        self.checkBoxMin.stateChanged.connect(self.min_checkbox_change)
+        self.checkBoxMoyenne.stateChanged.connect(self.moyenne_checkbox_change)
+        self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
+
         self.calculer_toute_les_payes()
         self.mettre_a_jour_listview()
 
@@ -83,6 +83,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         """
         if status == 2:
             self.lcdNumberMaximum.show()
+            if Paye.obtenir_paye_max():
+                self.lcdNumberMaximum.value(Paye.obtenir_paye_max())
         else:
             self.lcdNumberMaximum.hide()
 
