@@ -67,7 +67,7 @@ class ContratEmploi:
         return self._date_du_contrat
 
     @date_du_contrat.setter
-    def date_du_contrat(self, v_date_du_contrat:str):
+    def date_du_contrat(self, v_date_du_contrat: str):
         date_formatee = datetime.strptime(v_date_du_contrat, "%d/%m/%Y")
         if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
             self._date_du_contrat = date_formatee

@@ -15,20 +15,23 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
     - genere_creer_contrat.Ui_DialogCreerContrat : Ma classe générée avec QtDesigner
     """
 
-    def __init__(self, identifiant_employe=None, parent=None):
+    def __init__(self, employe_modification=None, parent=None):
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_creer_contrat.Ui_DialogCreerContrat
-        :param identifiant_employe: L'identifiant de l'employé a qui appartient le contrat
-
+        :param employe_modification: L'employé a qui appartient le contrat
         """
+
         super(AjouterContrat, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Ajouter un Contrat")
-        self.lineEditIdentifiant.setReadOnly(True)
-        self.lineEditIdentifiant.setText(identifiant_employe)
-        self.identifiant_employe = identifiant_employe
-
+        self.employe_modification = employe_modification
+        contrat = employe_modification.contrat
+        self.doubleSpinBoxFacteur.setValue(contrat.facteur_salaire)
+        self.horizontalSliderNbHeure.setValue(contrat.nb_heures_semaine)
+        self.doubleSpinBoxSalaireHoraire.setValue(contrat.salaire_horaire)
+        self.textEditTermeContrat.setText(contrat.termes_embauche)
+        self.identifiant_employe = employe_modification
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
         """
@@ -41,7 +44,7 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         autres_termes = self.textEditTermeContrat.toPlainText()
 
         for employe in Employe.list_employe:
-            if employe.identifiant == self.identifiant_employe:
+            if employe.identifiant == self.employe_modification.identifiant:
                 contrat_temporaire = employe.contrat
                 contrat_temporaire.facteur_salaire = facteur_salaire
                 contrat_temporaire.nb_heures_semaine = nb_heures

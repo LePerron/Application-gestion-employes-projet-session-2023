@@ -104,7 +104,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         if employe_temporaire.nom and employe_temporaire.prenom and employe_temporaire.identifiant:
             if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
                 if not self.modification_employe:
-                    fenetre_ajouter_contrat = AjouterContrat(employe_temporaire.identifiant)
+                    fenetre_ajouter_contrat = AjouterContrat(employe_temporaire)
                     fenetre_ajouter_contrat.show()
                     fenetre_ajouter_contrat.exec()
                 self.close()
