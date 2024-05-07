@@ -35,7 +35,12 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.lcdNumberMedianne.hide()
         self.mettre_a_jour_listview()
 
-
+    def mettre_a_jour_listview(self):
+        model = QStandardItemModel()
+        self.listViewPaye.setModel(model)
+        for employe in Employe.list_employe:
+            item = QStandardItem(str(employe.calculer_paye()))
+            model.appendRow(item)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
