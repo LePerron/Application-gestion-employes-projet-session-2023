@@ -33,6 +33,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.lcdNumberMoyenne.hide()
         self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
         self.lcdNumberMedianne.hide()
+<<<<<<< HEAD
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
@@ -43,6 +44,16 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
             item = QStandardItem(str(paye))
             item = QStandardItem(str(employe.calculer_paye()))
             model.appendRow(item)
+=======
+    #     self.mettre_a_jour_listview()
+    #
+    # def mettre_a_jour_listview(self):
+    #     model = QStandardItemModel()
+    #     self.listViewPaye.setModel(model)
+    #     for employe in Employe.list_employe:
+    #         item = QStandardItem(str(employe.calculer_paye()))
+    #         model.appendRow(item)
+>>>>>>> 004d02dfe41c5868fbded7237c5c668d55a2ea0e
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -65,8 +76,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def max_checkbox_change(self, status):
         """
-
-        :param status:
+        affiche la valeur maximum quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         :return:
         """
         if status == 2:
@@ -76,9 +87,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def min_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche la valeur minimum quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.lcdNumberMinimum.show()
@@ -87,9 +97,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def moyenne_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche la moyenne quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.lcdNumberMoyenne.show()
@@ -98,9 +107,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
 
     def medianne_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche la medianne quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.lcdNumberMedianne.show()
