@@ -31,6 +31,9 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
+        """
+        Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
+        """
         model = QStandardItemModel()
         self.listViewContrat.setModel(model)
         for employe in Employe.list_employe:
@@ -40,10 +43,16 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
+        """
+        Ferme la fenêtre MenuContrats lorsque l'utilisateur click sur le bouton Retourner au menu
+        """
         MenuContrats.close(self)
 
     @pyqtSlot()
     def on_pushButtonModifierContrat_clicked(self):
+        """
+        Ouvre la fenêtre ModifierContrat lorsque l'utilisateur click sur le bouton Modifier le contrat
+        """
         fenetre_ajouter_contrat = AjouterContrat()
         fenetre_ajouter_contrat.pushButtonAjouterEmploye.setText("Modifier")
         fenetre_ajouter_contrat.show()
