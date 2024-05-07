@@ -1,4 +1,5 @@
 from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_creer_contrat
 from PyQt5.QtCore import pyqtSlot
@@ -14,7 +15,7 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
     - genere_creer_contrat.Ui_DialogCreerContrat : Ma classe générée avec QtDesigner
     """
 
-    def __init__(self, identifiant_employe ="", parent=None):
+    def __init__(self, identifiant_employe=None, parent=None):
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_creer_contrat.Ui_DialogCreerContrat
@@ -26,24 +27,29 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         self.setWindowTitle("Ajouter un Contrat")
         self.lineEditIdentifiant.setReadOnly(True)
         self.lineEditIdentifiant.setText(identifiant_employe)
+        self.identifiant_employe = identifiant_employe
 
     @pyqtSlot()
-    def on_pushButtonAjouterContrat_clicked(self):
+    def on_pushButtonAjouterEmploye_clicked(self):
         """
         Ajoute un nouveau contrat lorsque l'utilisateur click sur le bouton Ajouter un employe
         """
-        contrat_temporaire = ContratEmploi()
 
         facteur_salaire = self.doubleSpinBoxFacteur.text()
         nb_heures = self.lcdNumberNbHeure.value()
         salaire_horaire = self.doubleSpinBoxSalaireHoraire.text()
         autres_termes = self.textEditTermeContrat.toPlainText()
 
-        contrat_temporaire.facteur_salaire = facteur_salaire
-        contrat_temporaire.nb_heures_semaine = nb_heures
-        contrat_temporaire.salaire_horaire = salaire_horaire
-        contrat_temporaire.termes_embauche = autres_termes
-        self.close()
+        for employe in Employe.list_employe:
+            if employe.identifiant == self.identifiant_employe:
+                contrat_temporaire = employe.contrat
+                contrat_temporaire.facteur_salaire = facteur_salaire
+                contrat_temporaire.nb_heures_semaine = nb_heures
+                contrat_temporaire.salaire_horaire = salaire_horaire
+                contrat_temporaire.termes_embauche = autres_termes
+                self.close()
+            else:
+                continue
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
@@ -66,5 +72,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

@@ -53,8 +53,16 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         """
         Ouvre la fenêtre ModifierContrat lorsque l'utilisateur click sur le bouton Modifier le contrat
         """
+        index_actuel = self.listViewEmploye.currentIndex()
+        if index_actuel.isValid():
+            self.listViewContrat.model().removeRow(index_actuel.row())
+            Contrat.listViewContrat.pop(index_actuel.row())
+        else:
+            self.labelErreurSelection.setText("Erreur.")
         fenetre_ajouter_contrat = AjouterContrat()
         fenetre_ajouter_contrat.pushButtonAjouterEmploye.setText("Modifier")
+        fenetre_ajouter_contrat.labelTitreAjouterContrat.setText("Modifier Contrat")
+        fenetre_ajouter_contrat.setWindowTitle("Modifier Contrat")
         fenetre_ajouter_contrat.show()
         fenetre_ajouter_contrat.exec()
         self.mettre_a_jour_listview()
