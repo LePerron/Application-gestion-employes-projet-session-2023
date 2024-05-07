@@ -100,7 +100,7 @@ class Paye:
         Trouve Le montant de la Paye la plus grosse de toutes les payes
         :return: Le montant de la Paye la plus haute
         """
-        return max(paye.montant_paye for paye in cls.list_payes) else 0
+        return max(paye.montant_paye for paye in cls.list_payes) or 0
 
     @classmethod
     def rechercher_payes_par_date(cls, date_de_paye: date) -> list:
