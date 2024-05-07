@@ -39,8 +39,8 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         Ajoute un nouveau contrat lorsque l'utilisateur click sur le bouton Ajouter un employe
         """
 
-        salaire_horaire = float(self.doubleSpinBoxSalaireHoraire.text().strip(""))
-        facteur_salaire = float(self.doubleSpinBoxFacteur.text())
+        salaire_horaire = float(self.doubleSpinBoxSalaireHoraire.value())
+        facteur_salaire = float(self.doubleSpinBoxFacteur.value())
         autres_termes = self.textEditTermeContrat.toPlainText()
         nb_heures = int(self.lcdNumberNbHeure.value())
 
