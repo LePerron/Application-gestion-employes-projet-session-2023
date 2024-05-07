@@ -58,7 +58,7 @@ class ContratEmploi:
         return self._facteur_salaire
 
     @facteur_salaire.setter
-    def facteur_salaire(self, v_facteur_salaire):
+    def facteur_salaire(self, v_facteur_salaire: float):
         if isinstance(v_facteur_salaire, float) and 100 >= v_facteur_salaire > 0:
             self._facteur_salaire = v_facteur_salaire
 
