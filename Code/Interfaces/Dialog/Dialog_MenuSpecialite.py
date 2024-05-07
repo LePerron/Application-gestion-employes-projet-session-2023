@@ -1,8 +1,7 @@
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
-
-from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Specialite import AjouterSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_specialite
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
@@ -44,7 +43,8 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         fenetre_ajouter_specialite = AjouterSpecialite()
         fenetre_ajouter_specialite.show()
         fenetre_ajouter_specialite.exec()
-        self.mettre_a_jour_listview()
+        if fenetre_ajouter_specialite.close:
+            self.mettre_a_jour_listview()
 
     @pyqtSlot()
     def on_pushButtonModifierSpecialite_clicked(self):
@@ -54,12 +54,14 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         fenetre_modifier_specialite.show()
         fenetre_modifier_specialite.exec()
         self.mettre_a_jour_listview()
+
     @pyqtSlot()
     def on_pushButtonSupprimerSpecialite_clicked(self):
-        pass
-
-
-
+        index_actuel = self.listViewSpecialite.currentIndex()
+        if index_actuel.isValid():
+            self.listViewSpecialite.model().removeRow(index_actuel.row())
+        else:
+            self.labelErreurSelection.setText("Veuillez sélectionner une spécialité en premier.")
 
 
 def main():
@@ -68,8 +70,8 @@ def main():
     Exécution de l'application avec l'interface graphique.
     """
     app = QtWidgets.QApplication(sys.argv)
-    fenetre_MenuSpecialite = MenuSpecialite()
-    fenetre_MenuSpecialite.show()
+    fenetre_menu_specialite = MenuSpecialite()
+    fenetre_menu_specialite.show()
     app.exec()
 
 

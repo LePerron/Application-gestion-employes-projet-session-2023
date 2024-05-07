@@ -35,9 +35,10 @@ class AjouterSpecialite(QtWidgets.QDialog, genere_creer_specialite.Ui_DialogCree
         specialite_temporaire = Specialite()
         specialite_temporaire.nom = nom
 
-        if specialite_temporaire.nom != nom:
-            self.labelErreurNom.setText("Nom incorrect")
+        if specialite_temporaire.nom != nom or not nom:
             del specialite_temporaire
+            self.labelErreurNom.setText("Nom incorrect")
+            self.lineEditNom.clear()
         else:
             specialite_temporaire.description = description
             self.close()
