@@ -1,5 +1,8 @@
+from datetime import datetime
+
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 
+from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_paye
@@ -33,13 +36,24 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.lcdNumberMoyenne.hide()
         self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
         self.lcdNumberMedianne.hide()
+        self.calculer_toute_les_payes()
         self.mettre_a_jour_listview()
 
+    @staticmethod
+    def calculer_toute_les_payes():
+        for employe in Employe.list_employe:
+            paye = Paye()
+            paye.date_de_paye = datetime.now()
+            paye.employe = employe.identifiant
+            paye.montant_paye = float(employe.calculer_paye())
+
+
     def mettre_a_jour_listview(self):
+        self.listViewPaye.reset()
         model = QStandardItemModel()
         self.listViewPaye.setModel(model)
-        for employe in Employe.list_employe:
-            item = QStandardItem(str(employe.calculer_paye()))
+        for paye in Paye.list_payes:
+            item = QStandardItem(str(paye))
             model.appendRow(item)
 
     @pyqtSlot()

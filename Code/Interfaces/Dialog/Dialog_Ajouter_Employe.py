@@ -1,4 +1,5 @@
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
@@ -37,9 +38,8 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         self.reset_label_erreur()
         self.modification_employe = modification_employe
 
-        ###
-        self.comboBoxSpecialite.addItem("Commis")
-        ###
+        for specialite in Specialite.list_des_specialites:
+            self.comboBoxSpecialite.addItem(specialite.nom)
 
     def reset_label_erreur(self):
         """

@@ -51,6 +51,7 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
                 contrat_temporaire.salaire_horaire = salaire_horaire
                 contrat_temporaire.termes_embauche = autres_termes
                 self.close()
+                break
             else:
                 continue
 

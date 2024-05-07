@@ -24,9 +24,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_menu_employe.Ui_DialogMenuEmploye
         """
-        employe1 = Caissier(p_identifiant="2371875", p_nom="Lemoyne", p_prenom="Benjamin",
-                            p_date_engagement=None)
-
         super(MenuEmploye, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Employés")

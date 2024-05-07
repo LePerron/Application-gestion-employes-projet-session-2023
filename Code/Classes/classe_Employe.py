@@ -146,7 +146,9 @@ class Employe:
         le nombre_d_heure
         :return: La Paye de l'employé
         """
-        return ((self.contrat.salaire_horaire * self.contrat.nb_heures_semaine) * self.contrat.facteur_salaire) + (self.contrat.salaire_horaire * self.contrat.nb_heures_semaine)
+        contrat = self.contrat
+        montant_paye = float(((contrat.salaire_horaire * contrat.nb_heures_semaine) * contrat.facteur_salaire) + (contrat.salaire_horaire * contrat.nb_heures_semaine))
+        return montant_paye
 
     def __str__(self) -> str:
         """
