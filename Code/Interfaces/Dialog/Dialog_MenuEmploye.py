@@ -80,6 +80,8 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             fenetre_modifier_employe.dateEditDateEngagement.setMinimumDate(employe_a_modifier.date_engagement)
             fenetre_modifier_employe.dateEditDatePromotion.setMinimumDate(employe_a_modifier.date_engagement)
             fenetre_modifier_employe.lineEditNom.setText(employe_a_modifier.nom)
+            fenetre_modifier_employe.comboBoxPoste.currentText(employe_a_modifier.poste)
+            fenetre_modifier_employe.comboBoxSpecialite.currentText(employe_a_modifier.specialite)
             fenetre_modifier_employe.lineEditPrenom.setText(employe_a_modifier.prenom)
             fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
             fenetre_modifier_employe.dateEditDateEngagement.setReadOnly(True)
