@@ -83,8 +83,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         """
         if status == 2:
             self.lcdNumberMaximum.show()
-            if Paye.obtenir_paye_max():
-                self.lcdNumberMaximum.value(Paye.obtenir_paye_max())
+            self.lcdNumberMaximum.value(Paye.obtenir_paye_max())
         else:
             self.lcdNumberMaximum.hide()
 
