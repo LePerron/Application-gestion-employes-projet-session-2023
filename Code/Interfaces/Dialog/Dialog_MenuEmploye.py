@@ -93,9 +93,8 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     def salaire_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche le salaire quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant ($)")
@@ -106,9 +105,8 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     def anciennete_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche l'ancienneté quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant (anciennté)")
@@ -119,9 +117,8 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     def nbheure_checkbox_change(self, status):
         """
-
-        :param status:
-        :return:
+        affiche le nombre d'heure quand le checkbox est coché
+        :param status: le status de la checkbox (coché ou non)
         """
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant (h)")
