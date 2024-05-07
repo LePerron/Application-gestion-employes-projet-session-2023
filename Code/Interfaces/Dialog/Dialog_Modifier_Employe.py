@@ -4,6 +4,8 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Employe import AjouterEmploye
+
 
 class ModifierEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterEmploye):
     """
@@ -30,11 +32,14 @@ class ModifierEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouter
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):
         if not self.comboBoxPoste.currentText():
-            post = Employe()
+            poste = Employe()
         else:
             poste = self.comboBoxPoste.currentText()
 
         employe_temporaire = eval(poste())
+
+        identifiant = self.labelIdentifiantEmploye.text()
+        employe_temporaire.identifiant = identifiant
 
         nom = self.lineEditNom.text().capitalize()
         employe_temporaire.nom = nom

@@ -57,21 +57,23 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):
-        index_employe = self.listViewEmploye.currentIndex()
-        for employe in Employe.list_employe:
-            if index_employe == employe:
-                employe_modifier = employe
-
-        if employe_modifier:
-            dialog_modifier_employe = ModifierEmploye(employe_modifier.identifiant)
+        index_actuel = self.listViewEmploye.currentIndex()
+        if index_actuel.isValid():
+            employe_modifier = Employe.list_employe[index_actuel.row()]
+            dialog_modifier_employe = ModifierEmploye(employe_modifier)
             dialog_modifier_employe.show()
             dialog_modifier_employe.exec()
+            self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Erreur")
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
-        pass
+        index_actuel = self.listViewEmploye.currentIndex()
+        if index_actuel.isValid():
+            self.listViewEmploye.model().removeRow(index_actuel.row())
+        else:
+            self.labelErreurSelection.setText("Erreur.")
 
     def salaire_checkbox_change(self, status):
         if status == 2:
