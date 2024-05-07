@@ -77,7 +77,12 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             fenetre_modifier_employe.labelTitreAjouterEmploye.setText("Modifier l'employé")
             fenetre_modifier_employe.pushButtonAjouterEmploye.setText("Modifier")
             fenetre_modifier_employe.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
+            fenetre_modifier_employe.dateEditDateEngagement.setMinimumDate(employe_a_modifier.date_engagement)
+            fenetre_modifier_employe.dateEditDatePromotion.setMinimumDate(employe_a_modifier.date_engagement)
+            fenetre_modifier_employe.lineEditNom.setText(employe_a_modifier.nom)
+            fenetre_modifier_employe.lineEditPrenom.setText(employe_a_modifier.prenom)
             fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
+            fenetre_modifier_employe.dateEditDateEngagement.setReadOnly(True)
             fenetre_modifier_employe.exec()
 
             self.mettre_a_jour_listview()

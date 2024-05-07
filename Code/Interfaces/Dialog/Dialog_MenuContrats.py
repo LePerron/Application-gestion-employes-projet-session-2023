@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from pip._internal.self_outdated_check import _self_version_check_logic
 
 from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
