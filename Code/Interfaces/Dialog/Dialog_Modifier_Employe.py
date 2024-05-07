@@ -1,3 +1,5 @@
+from PyQt5.QtCore import pyqtSlot
+from datetime import datetime
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
 from PyQt5.QtCore import pyqtSlot
@@ -28,6 +30,14 @@ class ModifierEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouter
         self.setWindowTitle("Modification d'un employé")
         self.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
         self.lineEditIdentifiant.setReadOnly(True)
+        self.labelDatePromotion.hide()
+        self.dateEditDatePromotion.hide()
+        self.labelErreurDatePromotion.hide()
+        self.dateEditDatePromotion.setMaximumDate(datetime.now())
+        self.dateEditDateEngagement.setMaximumDate(datetime.now())
+        self.comboBoxSpecialite.addItem("Commis")
+        self.comboBoxPoste.activated.connect(self.index_combobox_change)
+        self.reset_label_erreur()
 
 
     @pyqtSlot()
