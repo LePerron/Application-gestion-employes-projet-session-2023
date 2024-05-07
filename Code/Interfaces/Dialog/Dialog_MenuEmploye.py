@@ -87,6 +87,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         index_actuel = self.listViewEmploye.currentIndex()
         if index_actuel.isValid():
             self.listViewEmploye.model().removeRow(index_actuel.row())
+            Employe.list_employe.pop(index_actuel.row())
         else:
             self.labelErreurSelection.setText("Erreur.")
 

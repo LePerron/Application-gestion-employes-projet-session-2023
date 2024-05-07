@@ -1,6 +1,7 @@
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Specialite import AjouterSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_specialite
 from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
@@ -27,9 +28,6 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
 
 
     def mettre_a_jour_listview(self):
-        """
-        Modifie la listview lorsque l'utilisateur ajoute ou modifie une specialite
-        """
         model = QStandardItemModel()
         self.listViewSpecialite.setModel(model)
 
@@ -41,16 +39,10 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
-        """
-        Ferme la fenêtre MenuSpecialite lorsque l'utilisateur click sur le bouton Retourner au menu
-        """
         MenuSpecialite.close(self)
 
     @pyqtSlot()
     def on_pushButtonAjouterSpecialite_clicked(self):
-        """
-        Ouvre la fenêtre AjouterSpecialite lorsque l'utilisateur click sur le bouton Ajoute une specialite
-        """
         fenetre_ajouter_specialite = AjouterSpecialite()
         fenetre_ajouter_specialite.show()
         fenetre_ajouter_specialite.exec()
@@ -58,27 +50,29 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
 
     @pyqtSlot()
     def on_pushButtonModifierSpecialite_clicked(self):
-        """
-        Modifie la specialite lorsque l'utilisateur click sur le bouton Modifier la specialite
-        """
-        longueur_avant = Specialite.list_des_specialites
+        index_actuel = self.listViewSpecialite.currentIndex()
+        if index_actuel.isValid():
+            fenetre_modifier_specialite = AjouterSpecialite()
+            fenetre_modifier_specialite.setWindowTitle("Modifier Spécialité")
+            fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
+            fenetre_modifier_specialite.show()
+            fenetre_modifier_specialite.exec()
+            specialite_temporaire = Specialite.list_des_specialites[-1]
 
-        fenetre_modifier_specialite = AjouterSpecialite()
-        fenetre_modifier_specialite.setWindowTitle("Modifier Spécialité")
-        fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
-        fenetre_modifier_specialite.show()
-        fenetre_modifier_specialite.exec()
-        if len(Specialite.list_des_specialites) != longueur_avant:
+            Specialite.list_des_specialites.remove(specialite_temporaire)
+            Specialite.list_des_specialites[index_actuel.row()] = specialite_temporaire
             self.mettre_a_jour_listview()
+        else:
+            self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
+
 
     @pyqtSlot()
     def on_pushButtonSupprimerSpecialite_clicked(self):
-        """
-        Supprime la specialite lorsque l'utilisateur click sur le bouton Modifier la specialite
-        """
         index_actuel = self.listViewSpecialite.currentIndex()
         if index_actuel.isValid():
+            Specialite.list_des_specialites.pop(index_actuel.row())
             self.listViewSpecialite.model().removeRow(index_actuel.row())
+
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
 
