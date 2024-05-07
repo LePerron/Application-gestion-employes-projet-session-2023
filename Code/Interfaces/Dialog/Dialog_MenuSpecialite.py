@@ -25,9 +25,11 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         self.setWindowTitle("Gestionnaire des Spécialités")
         self.mettre_a_jour_listview()
 
+
     def mettre_a_jour_listview(self):
         model = QStandardItemModel()
         self.listViewSpecialite.setModel(model)
+
         for specialite in Specialite.list_des_specialites:
             item = QStandardItem(str(specialite))
             model.appendRow(item)
@@ -43,17 +45,19 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         fenetre_ajouter_specialite = AjouterSpecialite()
         fenetre_ajouter_specialite.show()
         fenetre_ajouter_specialite.exec()
-        if fenetre_ajouter_specialite.close:
-            self.mettre_a_jour_listview()
+        self.mettre_a_jour_listview()
 
     @pyqtSlot()
     def on_pushButtonModifierSpecialite_clicked(self):
+        longueur_avant = Specialite.list_des_specialites
+
         fenetre_modifier_specialite = AjouterSpecialite()
         fenetre_modifier_specialite.setWindowTitle("Modifier Spécialité")
         fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
         fenetre_modifier_specialite.show()
         fenetre_modifier_specialite.exec()
-        self.mettre_a_jour_listview()
+        if len(Specialite.list_des_specialites) != longueur_avant:
+            self.mettre_a_jour_listview()
 
     @pyqtSlot()
     def on_pushButtonSupprimerSpecialite_clicked(self):
@@ -61,7 +65,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         if index_actuel.isValid():
             self.listViewSpecialite.model().removeRow(index_actuel.row())
         else:
-            self.labelErreurSelection.setText("Veuillez sélectionner une spécialité en premier.")
+            self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
 
 
 def main():
