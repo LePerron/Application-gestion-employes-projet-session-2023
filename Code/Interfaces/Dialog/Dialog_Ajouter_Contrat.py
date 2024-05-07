@@ -26,22 +26,23 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         self.setupUi(self)
         self.setWindowTitle("Ajouter un Contrat")
         self.employe_modification = employe_modification
-        contrat = employe_modification.contrat
-        self.doubleSpinBoxFacteur.setValue(contrat.facteur_salaire)
-        self.horizontalSliderNbHeure.setValue(contrat.nb_heures_semaine)
-        self.doubleSpinBoxSalaireHoraire.setValue(contrat.salaire_horaire)
-        self.textEditTermeContrat.setText(contrat.termes_embauche)
-        self.identifiant_employe = employe_modification
+
+        if employe_modification:
+            contrat = employe_modification.contrat
+            self.doubleSpinBoxFacteur.setValue(contrat.facteur_salaire)
+            self.horizontalSliderNbHeure.setValue(contrat.nb_heures_semaine)
+            self.doubleSpinBoxSalaireHoraire.setValue(contrat.salaire_horaire)
+            self.textEditTermeContrat.setText(contrat.termes_embauche)
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
         """
         Ajoute un nouveau contrat lorsque l'utilisateur click sur le bouton Ajouter un employe
         """
 
-        facteur_salaire = self.doubleSpinBoxFacteur.text()
-        nb_heures = self.lcdNumberNbHeure.value()
-        salaire_horaire = self.doubleSpinBoxSalaireHoraire.text()
+        salaire_horaire = float(self.doubleSpinBoxSalaireHoraire.text().strip(""))
+        facteur_salaire = float(self.doubleSpinBoxFacteur.text())
         autres_termes = self.textEditTermeContrat.toPlainText()
+        nb_heures = int(self.lcdNumberNbHeure.value())
 
         for employe in Employe.list_employe:
             if employe.identifiant == self.employe_modification.identifiant:

@@ -43,14 +43,14 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         """
-        Ferme la fenêtre MenuSpecialite lorsque l'utilisateur click sur le bouton Retourner au menu
+        Ferme la fenêtre MenuSpecialite lorsque l'utilisateur clique sur le bouton Retourner au menu
         """
         MenuSpecialite.close(self)
 
     @pyqtSlot()
     def on_pushButtonAjouterSpecialite_clicked(self):
         """
-        Ouvre la fenêtre AjouterSpecialité lorsque l'utilisateur click sur le bouton Ajouter un employe
+        Ouvre la fenêtre AjouterSpecialité lorsque l'utilisateur clique sur le bouton Ajouter un employe
         """
         fenetre_ajouter_specialite = AjouterSpecialite()
         fenetre_ajouter_specialite.show()
@@ -60,7 +60,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
     @pyqtSlot()
     def on_pushButtonModifierSpecialite_clicked(self):
         """
-        Modifie la spécialité lorsque l'utilisateur click sur le bouton Modifier la spécialité
+        Modifie la spécialité lorsque l'utilisateur clique sur le bouton Modifier la spécialité
         """
         index_actuel = self.listViewSpecialite.currentIndex()
         if index_actuel.isValid():
@@ -81,7 +81,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
     @pyqtSlot()
     def on_pushButtonSupprimerSpecialite_clicked(self):
         """
-        Supprime la specialite lorsque l'utilisateur click sur le bouton Supprimer la specialité
+        Supprime la specialite lorsque l'utilisateur clique sur le bouton Supprimer la specialité
         """
         index_actuel = self.listViewSpecialite.currentIndex()
         if index_actuel.isValid():

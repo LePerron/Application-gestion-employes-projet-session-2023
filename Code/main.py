@@ -42,7 +42,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
     def on_pushButtonMenuPaye_clicked(self):
         dialog_menu_paye = MenuPaye()
         dialog_menu_paye.show()
-         dialog_menu_paye.exec()
+        dialog_menu_paye.exec()
 
     @pyqtSlot()
     def on_pushButtonMenuSpecialite_clicked(self):
