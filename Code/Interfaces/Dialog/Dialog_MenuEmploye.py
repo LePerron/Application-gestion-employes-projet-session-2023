@@ -60,7 +60,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         index_actuel = self.listViewEmploye.currentIndex()
         if index_actuel.isValid():
             employe_modifier = Employe.list_employe[index_actuel.row()]
-            dialog_modifier_employe = AjouterEmploye(employe_modifier)
+            dialog_modifier_employe = ModifierEmploye(employe_modifier)
             dialog_modifier_employe.show()
             dialog_modifier_employe.exec()
             self.mettre_a_jour_listview()
@@ -72,6 +72,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         index_actuel = self.listViewEmploye.currentIndex()
         if index_actuel.isValid():
             self.listViewEmploye.model().removeRow(index_actuel.row())
+            Employe.list_employe.pop(index_actuel.row())
         else:
             self.labelErreurSelection.setText("Erreur.")
 
