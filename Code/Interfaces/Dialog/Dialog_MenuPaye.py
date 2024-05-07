@@ -33,11 +33,12 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.lcdNumberMoyenne.hide()
         self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
         self.lcdNumberMedianne.hide()
+
+    def mettre_a_jour_listview(self):
         model = QStandardItemModel()
         self.listViewPaye.setModel(model)
         for employe in Employe.list_employe:
-            paye = Employe.calculer_paye(employe)
-            item = QStandardItem(str(paye))
+            item = QStandardItem(str(employe.calculer_paye()))
             model.appendRow(item)
 
     @pyqtSlot()
