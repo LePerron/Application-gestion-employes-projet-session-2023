@@ -33,6 +33,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.lcdNumberMoyenne.hide()
         self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
         self.lcdNumberMedianne.hide()
+        self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
         model = QStandardItemModel()
@@ -50,7 +51,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         """
-        Ferme la fenêtre MenuPaye lorsque l'utilisateur click sur le bouton Retourner au menu
+        Ferme la fenêtre MenuPaye lorsque l'utilisateur clique sur le bouton Retourner au menu
         """
         MenuPaye.close(self)
 
