@@ -74,7 +74,7 @@ def main():
     Exécution de l'application avec l'interface graphique.
     """
     app = QtWidgets.QApplication(sys.argv)
-    fenetre_ajouter_employe = ModifierEmploye()
+    fenetre_ajouter_employe = AjouterEmploye()
     fenetre_ajouter_employe.show()
     app.exec()
 

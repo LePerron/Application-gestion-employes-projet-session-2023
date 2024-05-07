@@ -60,7 +60,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         index_actuel = self.listViewEmploye.currentIndex()
         if index_actuel.isValid():
             employe_modifier = Employe.list_employe[index_actuel.row()]
-            dialog_modifier_employe = ModifierEmploye(employe_modifier)
+            dialog_modifier_employe = AjouterEmploye(employe_modifier)
             dialog_modifier_employe.show()
             dialog_modifier_employe.exec()
             self.mettre_a_jour_listview()
