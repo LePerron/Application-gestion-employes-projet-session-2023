@@ -33,27 +33,15 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.lcdNumberMoyenne.hide()
         self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
         self.lcdNumberMedianne.hide()
-<<<<<<< HEAD
         self.mettre_a_jour_listview()
+        # self.mettre_a_jour_listview()
 
-    def mettre_a_jour_listview(self):
-        model = QStandardItemModel()
-        self.listViewPaye.setModel(model)
-        for employe in Employe.list_employe:
-            paye = employe.calculer_paye()
-            item = QStandardItem(str(paye))
-            item = QStandardItem(str(employe.calculer_paye()))
-            model.appendRow(item)
-=======
-    #     self.mettre_a_jour_listview()
-    #
     # def mettre_a_jour_listview(self):
     #     model = QStandardItemModel()
     #     self.listViewPaye.setModel(model)
     #     for employe in Employe.list_employe:
     #         item = QStandardItem(str(employe.calculer_paye()))
     #         model.appendRow(item)
->>>>>>> 004d02dfe41c5868fbded7237c5c668d55a2ea0e
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -67,7 +55,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
     def on_pushButtonModifierContrat_clicked(self):
         # SAUVEGARDE A LIEU LAAAAAAAAAA #
         """
-        Ouvre la fenêtre AjouterContrat lorsque l'utilisateur click sur le bouton Modifier le contrat
+        Ouvre la fenêtre AjouterContrat lorsque l'utilisateur clique sur le bouton Modifier le contrat
         """
         fenetre_modifier_contrat = AjouterContrat()
         fenetre_modifier_contrat.show()
