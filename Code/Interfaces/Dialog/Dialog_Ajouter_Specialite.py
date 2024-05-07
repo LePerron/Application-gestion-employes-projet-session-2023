@@ -25,10 +25,17 @@ class AjouterSpecialite(QtWidgets.QDialog, genere_creer_specialite.Ui_DialogCree
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
+        """
+        Ferme la fenêtre AjouterSpecialite lorsque l'utilisateur click sur le bouton Annuler
+        """
         AjouterSpecialite.close(self)
+
 
     @pyqtSlot()
     def on_pushButtonAjouterSpecialite_clicked(self):
+        """
+        Ajoute une nouvelle specialite lorsque l'utilisateur click sur le bouton Ajouter une specialite
+        """
         nom = self.lineEditNom.text().capitalize()
         description = self.textEditDescription.toPlainText()
 

@@ -42,35 +42,61 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
+        """
+        Ferme la fenêtre MenuPaye lorsque l'utilisateur click sur le bouton Retourner au menu
+        """
         MenuPaye.close(self)
 
     @pyqtSlot()
     def on_pushButtonModifierContrat_clicked(self):
         # SAUVEGARDE A LIEU LAAAAAAAAAA #
+        """
+        Ouvre la fenêtre AjouterContrat lorsque l'utilisateur click sur le bouton Modifier le contrat
+        """
         fenetre_modifier_contrat = AjouterContrat()
         fenetre_modifier_contrat.show()
         fenetre_modifier_contrat.exec()
         pass
 
     def max_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
         if status == 2:
             self.lcdNumberMaximum.show()
         else:
             self.lcdNumberMaximum.hide()
 
     def min_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
         if status == 2:
             self.lcdNumberMinimum.show()
         else:
             self.lcdNumberMinimum.hide()
 
     def moyenne_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
         if status == 2:
             self.lcdNumberMoyenne.show()
         else:
             self.lcdNumberMoyenne.hide()
 
     def medianne_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
         if status == 2:
             self.lcdNumberMedianne.show()
         else:

@@ -32,6 +32,9 @@ class ModifierEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouter
 
     @pyqtSlot()
     def on_pushButtonModifierEmploye_clicked(self):
+        """
+        Modifie l'employe lorsque l'utilisateur click sur le bouton Modifier l'employe
+        """
         if not self.comboBoxPoste.currentText():
             poste = Employe()
         else:
@@ -66,6 +69,9 @@ class ModifierEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouter
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
+        """
+        Ferme la fenêtre ModifierEmploye lorsque l'utilisateur click sur le bouton Annuler
+        """
         ModifierEmploye.close(self)
 
 
