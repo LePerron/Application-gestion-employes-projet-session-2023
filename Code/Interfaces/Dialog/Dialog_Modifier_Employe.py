@@ -15,18 +15,19 @@ class ModifierEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouter
     - genere_ajouter_employe.Ui_DialogAjouterEmployer : Ma classe générée avec QtDesigner
     """
 
-    def __init__(self, identifiant_employe, parent=None):
+    def __init__(self, employe_a_modifier, parent=None):
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_ajouter_employe.Ui_DialogAjouterEmploye
+        :param employe_a_modifier: L'objet employé à modifier
         """
         super(ModifierEmploye, self).__init__(parent)
         self.setupUi(self)
         self.labelTitreAjouterEmploye.setText("Modifier l'employé")
         self.pushButtonAjouterEmploye.setText("Modifier")
         self.setWindowTitle("Modification d'un employé")
+        self.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
         self.lineEditIdentifiant.setReadOnly(True)
-        self.labelIdentifiantEmploye.setText(identifiant_employe)
 
 
     @pyqtSlot()
