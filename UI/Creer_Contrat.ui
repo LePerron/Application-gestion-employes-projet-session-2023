@@ -268,7 +268,7 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>1234567</string>
+          <string/>
          </property>
          <property name="frame">
           <bool>false</bool>

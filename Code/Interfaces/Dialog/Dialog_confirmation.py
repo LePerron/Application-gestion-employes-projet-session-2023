@@ -13,78 +13,32 @@ class Confirmation(QtWidgets.QDialog, genere_confirmation.Ui_DialogConfirmation)
     - genere_confirmation.Ui_DialogConfirmation : Ma classe générée avec QtDesigner
     """
 
-    def __init__(self, modification_employe=None, parent=None):
+    def __init__(self, confirme=False, parent=None):
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_confirmation.Ui_DialogConfirmation
+        :param confirme: La confirmation que l'annulation ou non doit avoir lieu (True ou False)
         """
         super(Confirmation, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Confirmer la suppression")
+        self.confirme = confirme
+
 
     @pyqtSlot()
-    def on_pushButtonAnnuler_clicked(self):
-        # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
+    def on_pushButtonNon_clicked(self):
         """
         Ferme la fenêtre Confirmation lorsque l'utilisateur clique sur le bouton Annuler
         """
         Confirmation.close(self)
 
     @pyqtSlot()
-    def on_pushButtonConfirmation_clicked(self):
+    def on_pushButtonOui_clicked(self):
         """
         Ajoute un nouveau employé lorsque l'utilisateur clique sur le bouton Ajouter un employe
         """
-        self.reset_label_erreur()
-
-        specialite = self.comboBoxSpecialite.currentText()
-        prenom = self.lineEditPrenom.text().capitalize()
-        identifiant = self.lineEditIdentifiant.text()
-        nom = self.lineEditNom.text().capitalize()
-
-        date_engagement = self.dateEditDateEngagement.text()
-        poste = self.comboBoxPoste.currentText()
-
-        employe_temporaire = eval(poste)()
-
-        if self.modification_employe:
-            Employe.list_employe.remove(self.modification_employe)
-            employe_temporaire.identifiant = identifiant
-        else:
-            employe_temporaire.identifiant = identifiant
-            if employe_temporaire.identifiant != identifiant or not identifiant:
-                self.labelErreurIdentifiant.setText("Veuillez entrer un identifiant valide de 7 chiffre")
-                self.lineEditIdentifiant.clear()
-
-        employe_temporaire.nom = nom
-        if employe_temporaire.nom != nom or not nom:
-            self.labelErreurNom.setText("Veuillez entrer un nom valide (peut contenir '-').")
-            self.lineEditNom.clear()
-
-        employe_temporaire.prenom = prenom
-        if employe_temporaire.prenom != prenom or not prenom:
-            self.labelErreurPrenom.setText("Veuillez entrer un prénom valide (peut contenir '-').")
-            self.lineEditPrenom.clear()
-
-        employe_temporaire.specialite = specialite
-        if employe_temporaire.specialite != specialite or not specialite:
-            self.labelErreurSpecialite.setText("Veuillez d'abord créer une spécialité dans le menu spécialité")
-
-        employe_temporaire.date_engagement = date_engagement
-
-        if poste == "Gerant" or "Gestionnnaire":
-            date_promotion = self.dateEditDatePromotion.text()
-            employe_temporaire.date_promotion = date_promotion
-
-        if nom and prenom and identifiant and specialite:
-            if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
-                if not self.modification_employe:
-                    fenetre_ajouter_contrat = AjouterContrat(employe_temporaire)
-                    fenetre_ajouter_contrat.show()
-                    fenetre_ajouter_contrat.exec()
-                self.close()
-        else:
-            Employe.list_employe.remove(employe_temporaire)
+        Confirmation.confirme = True
+        Confirmation.close(self)
 
 
 def main():
