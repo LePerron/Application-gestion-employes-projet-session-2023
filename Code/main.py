@@ -30,25 +30,33 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
     def on_pushButtonMenuEmploye_clicked(self):
         dialog_menu_employe = MenuEmploye()
         dialog_menu_employe.show()
+        self.hide()
         dialog_menu_employe.exec()
+        self.show()
 
     @pyqtSlot()
     def on_pushButtonMenuContrat_clicked(self):
         dialog_menu_contrat = MenuContrats()
         dialog_menu_contrat.show()
+        self.hide()
         dialog_menu_contrat.exec()
+        self.show()
 
     @pyqtSlot()
     def on_pushButtonMenuPaye_clicked(self):
         dialog_menu_paye = MenuPaye()
         dialog_menu_paye.show()
+        self.hide()
         dialog_menu_paye.exec()
+        self.show()
 
     @pyqtSlot()
     def on_pushButtonMenuSpecialite_clicked(self):
         dialog_menu_specialite = MenuSpecialite()
         dialog_menu_specialite.show()
+        self.hide()
         dialog_menu_specialite.exec()
+        self.show()
 
     @pyqtSlot()
     def on_pushButtonQuitter_clicked(self):

@@ -59,7 +59,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         MenuEmploye.close(self)
 
-
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
         """
@@ -67,7 +66,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         dialog_ajouter_employe = AjouterEmploye()
         dialog_ajouter_employe.show()
+        self.hide()
         dialog_ajouter_employe.exec()
+        self.show()
         self.mettre_a_jour_listview()
 
     @pyqtSlot()
@@ -96,7 +97,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             fenetre_modifier_employe.dateEditDateEngagement.setReadOnly(True)
             fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
 
+            self.hide()
             fenetre_modifier_employe.exec()
+            self.show()
             self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner l'employé que vous souhaitez modifier")

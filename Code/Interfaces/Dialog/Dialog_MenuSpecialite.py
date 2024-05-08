@@ -56,7 +56,9 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         """
         fenetre_ajouter_specialite = AjouterSpecialite()
         fenetre_ajouter_specialite.show()
+        self.hide()
         fenetre_ajouter_specialite.exec()
+        self.show()
         self.mettre_a_jour_listview()
 
     @pyqtSlot()
@@ -64,21 +66,21 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         """
         Modifie la spécialité lorsque l'utilisateur clique sur le bouton Modifier la spécialité
         """
+
         index_actuel = self.listViewSpecialite.currentIndex()
         if index_actuel.isValid():
-            fenetre_modifier_specialite = AjouterSpecialite()
+            fenetre_modifier_specialite = AjouterSpecialite(specialite_modification=index_actuel)
             fenetre_modifier_specialite.setWindowTitle("Modifier Spécialité")
             fenetre_modifier_specialite.labelTitreAjouterSpecialite.setText("Modifier Spécialité")
+            fenetre_modifier_specialite.lineEditNom.setText(Specialite.list_des_specialites[index_actuel.row()].nom)
+            fenetre_modifier_specialite.textEditDescription.setText(Specialite.list_des_specialites[index_actuel.row()].description)
             fenetre_modifier_specialite.show()
+            self.hide()
             fenetre_modifier_specialite.exec()
-            specialite_temporaire = Specialite.list_des_specialites[-1]
-
-            Specialite.list_des_specialites.remove(specialite_temporaire)
-            Specialite.list_des_specialites[index_actuel.row()] = specialite_temporaire
+            self.show()
             self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
-
 
     @pyqtSlot()
     def on_pushButtonSupprimerSpecialite_clicked(self):

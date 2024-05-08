@@ -23,14 +23,8 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des superviseurs")
 
-        model = QStandardItemModel()
-        item = QStandardItem("test1")
-        item2 = QStandardItem("test2")
-        model.appendRow(item)
-        item.appendRow(item2)
-        model.removeRow(item)
+        self.columnViewSuperviseur.set
 
-        self.columnViewSuperviseur.setModel(model)
 
 
     @pyqtSlot()
@@ -40,7 +34,6 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Ferme la fenêtre MenuSuperviseur lorsque l'utilisateur click sur le bouton Retourner au menu
         """
         MenuSuperviseur.close(self)
-
 
 
 def main():
