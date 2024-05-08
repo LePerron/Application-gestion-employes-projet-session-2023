@@ -13,7 +13,7 @@ class Confirmation(QtWidgets.QDialog, genere_confirmation.Ui_DialogConfirmation)
     - genere_confirmation.Ui_DialogConfirmation : Ma classe générée avec QtDesigner
     """
 
-    def __init__(self, confirme=False, parent=None):
+    def __init__(self, parent=None):
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_confirmation.Ui_DialogConfirmation
@@ -22,7 +22,8 @@ class Confirmation(QtWidgets.QDialog, genere_confirmation.Ui_DialogConfirmation)
         super(Confirmation, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Confirmer la suppression")
-        self.confirme = confirme
+        Confirmation.confirme = False
+
 
 
     @pyqtSlot()
@@ -30,7 +31,7 @@ class Confirmation(QtWidgets.QDialog, genere_confirmation.Ui_DialogConfirmation)
         """
         Ferme la fenêtre Confirmation lorsque l'utilisateur clique sur le bouton Annuler
         """
-        Confirmation.close(self)
+        self.close()
 
     @pyqtSlot()
     def on_pushButtonOui_clicked(self):
@@ -38,7 +39,7 @@ class Confirmation(QtWidgets.QDialog, genere_confirmation.Ui_DialogConfirmation)
         Ajoute un nouveau employé lorsque l'utilisateur clique sur le bouton Ajouter un employe
         """
         Confirmation.confirme = True
-        Confirmation.close(self)
+        self.close()
 
 
 def main():
