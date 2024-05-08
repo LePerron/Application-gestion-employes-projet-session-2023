@@ -47,7 +47,6 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
             paye.employe = employe.identifiant
             paye.montant_paye = float(employe.calculer_paye())
 
-
     def mettre_a_jour_listview(self):
         self.listViewPaye.reset()
         model = QStandardItemModel()
@@ -83,7 +82,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         """
         if status == 2:
             self.lcdNumberMaximum.show()
-            self.lcdNumberMaximum.value(Paye.obtenir_paye_max())
+            self.lcdNumberMaximum.display(float(Paye.obtenir_paye_max()))
         else:
             self.lcdNumberMaximum.hide()
 
@@ -94,6 +93,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         """
         if status == 2:
             self.lcdNumberMinimum.show()
+            self.lcdNumberMinimum.display(float(Paye.obtenir_paye_min()))
+
         else:
             self.lcdNumberMinimum.hide()
 
@@ -104,6 +105,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         """
         if status == 2:
             self.lcdNumberMoyenne.show()
+            self.lcdNumberMoyenne.display(float(Paye.calculer_moyenne_payes()))
         else:
             self.lcdNumberMoyenne.hide()
 
