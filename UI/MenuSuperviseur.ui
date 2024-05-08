@@ -490,6 +490,12 @@
      <height>341</height>
     </rect>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::SelectedClicked</set>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::SingleSelection</enum>
+   </property>
   </widget>
  </widget>
  <resources/>
