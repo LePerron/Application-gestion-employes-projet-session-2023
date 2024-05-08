@@ -59,7 +59,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         MenuEmploye.close(self)
 
-    @py
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):

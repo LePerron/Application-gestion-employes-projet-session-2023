@@ -114,9 +114,6 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
                     fenetre_ajouter_contrat.lineEditIdentifiant.setText(employe_temporaire.identifiant)
                     fenetre_ajouter_contrat.show()
                     fenetre_ajouter_contrat.exec()
-                else:
-                    index = ContratEmploi.list_contrat.index(employe_temporaire.contrat)
-                    ContratEmploi.cont
                 self.close()
         else:
             Employe.list_employe.remove(employe_temporaire)
