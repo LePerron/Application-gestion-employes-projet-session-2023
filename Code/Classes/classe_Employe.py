@@ -128,7 +128,7 @@ class Employe:
         Une fonction qui permet d'obtenir le poste et la spécialité du poste de l'employé
         :return: Le poste de l'employé avec sa spécialité.. ex: Commis Boucherie
         """
-        return f"{self.poste.capitalize()} {self.specialite.nom.capitalize()}"
+        return f"{self.poste.capitalize()} {self.specialite}"
 
     def afficher_informations_employe(self) -> str:
         """
@@ -136,9 +136,9 @@ class Employe:
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
         return (f"""IDENTIFIANT : {self._identifiant}
- ↳ Nom Complet : {self._prenom} {self._nom} 
- ↳ Poste            : {self.obtenir_poste_complet()} 
- ↳ Contrat           : {self.contrat.identifiant_contrat}""")
+ ↳ Nom :  {self._prenom} {self._nom} 
+ ↳ Poste : {self.obtenir_poste_complet()} 
+ ↳ Contrat : {self.contrat.identifiant_contrat}""")
 
     def calculer_paye(self) -> float:
         """

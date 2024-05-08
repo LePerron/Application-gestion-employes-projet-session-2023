@@ -35,7 +35,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         self.listViewSpecialite.setModel(model)
 
         for specialite in Specialite.list_des_specialites:
-            item = QStandardItem(str(specialite))
+            item = QStandardItem(specialite.afficher_specialite_dans_list_view())
             model.appendRow(item)
 
 

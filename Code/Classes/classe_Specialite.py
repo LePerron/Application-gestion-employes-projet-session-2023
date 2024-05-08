@@ -80,4 +80,13 @@ class Specialite:
         Une fonction magique qui permet de retourner dans un beau format les informations de la spécialité.
         :return: Les informations de la spécialité dans un beau format d'affichage.
         """
-        return f"NOM DE LA SPÉCIALITÉ : {self._nom} - DESCRIPTION : {self.description}"
+        return f"en {self._nom}"
+
+    def afficher_specialite_dans_list_view(self):
+        """
+        Une qui permet de retourner dans un beau format les informations de la spécialité pour être afficher dans la
+        listView des spécialité.
+        :return: Les informations de la spécialité dans un beau format d'affichage.
+        """
+        return (f"Nom : {self._nom}"
+                f"\nDescription : {self.description}")
