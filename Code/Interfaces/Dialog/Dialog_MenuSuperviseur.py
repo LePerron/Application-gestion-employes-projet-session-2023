@@ -22,17 +22,33 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         super(MenuSuperviseur, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des superviseurs")
-
-
+        self.checkBoxCaissier.stateChanged.connect(self.caissier_change)
+        # self.checkBoxCommis.stateChanged.connect(self.commis_change)
+        # self.checkBoxGestionnaire.stateChanged.connect(self.Gestionnaire_change)
+        # self.checkBoxGerant.stateChanged.connect(self.gerant_change)
 
     @pyqtSlot()
-    def on_pushButtonRetournerMenu_clicked(self):
+    def on_pushButtonRetournerEmploye_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         """
         Ferme la fenêtre MenuSuperviseur lorsque l'utilisateur click sur le bouton Retourner au menu
         """
         MenuSuperviseur.close(self)
 
+    def caissier_change(self, status):
+        """
+        Affiche les caissier si coché
+        :param status: le status de la checkbox (coché ou non)
+        """
+        nom_superviseur_actuel = self.listViewGerantGestionnaire.currentIndex()
+        if nom_superviseur_actuel.isValid():
+            for employe in Employe.list_employe:
+                if nom_superviseur_actuel == employe.nom:
+                    if employe.poste == "Gerant":
+                        return
+                    else:
+                       if status == 2:
+                            print(caissier for caissier in employe.liste_caissier)
 
 def main():
     """

@@ -10,6 +10,7 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSuperviseur import MenuSuperviseur
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_confirmation import Confirmation
 
 
@@ -103,6 +104,18 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner l'employé que vous souhaitez modifier")
+
+    @pyqtSlot()
+    def on_pushButtonMenuSuperviseur_clicked(self):
+        """
+        Ouvre menu superviseur
+        """
+        dialogue_menu_superviseur = MenuSuperviseur()
+        dialogue_menu_superviseur.show()
+        self.hide()
+        dialogue_menu_superviseur.exec()
+        self.show()
+
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):

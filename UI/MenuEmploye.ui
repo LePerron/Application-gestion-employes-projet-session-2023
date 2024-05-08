@@ -216,7 +216,7 @@
     <string>Supprimer</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonRetournerSuperviseur">
+  <widget class="QPushButton" name="pushButtonMenuSuperviseur">
    <property name="geometry">
     <rect>
      <x>650</x>
