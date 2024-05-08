@@ -28,7 +28,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         item2 = QStandardItem("test2")
         model.appendRow(item)
         item.appendRow(item2)
-        model.removeRow(item)
+
 
         self.columnViewSuperviseur.setModel(model)
 
