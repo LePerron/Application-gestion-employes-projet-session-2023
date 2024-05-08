@@ -8,7 +8,6 @@ from PyQt5 import QtWidgets
 import jsonpickle
 import sys
 
-
 class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMenuPrincipal):
     """
     Nome de la classe : MenuPrincipal
