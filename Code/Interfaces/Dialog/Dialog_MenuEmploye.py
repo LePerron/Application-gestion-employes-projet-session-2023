@@ -10,7 +10,6 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
-from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Modifier_Employe import ModifierEmploye
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_confirmation import Confirmation
 
 

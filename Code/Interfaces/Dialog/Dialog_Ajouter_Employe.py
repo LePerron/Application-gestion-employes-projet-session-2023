@@ -1,3 +1,4 @@
+from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Contrat import AjouterContrat
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_ajouter_employe
 from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
@@ -25,7 +26,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         """
         Constructeur de la classe
         :param parent: QtWidgets.QDialog et genere_ajouter_employe.Ui_DialogAjouterEmploye
-        :param modification_employe: L'employé a modifier sinon rien
+        :param modification_employe: L'employé à modifier sinon rien
         """
         super(AjouterEmploye, self).__init__(parent)
         self.setupUi(self)
@@ -71,7 +72,6 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         prenom = self.lineEditPrenom.text().capitalize()
         identifiant = self.lineEditIdentifiant.text()
         nom = self.lineEditNom.text().capitalize()
-
         date_engagement = self.dateEditDateEngagement.text()
         poste = self.comboBoxPoste.currentText()
 
@@ -113,6 +113,9 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
                     fenetre_ajouter_contrat.lineEditIdentifiant.setText(employe_temporaire.identifiant)
                     fenetre_ajouter_contrat.show()
                     fenetre_ajouter_contrat.exec()
+                else:
+                    ContratEmploi.
+                    employe_temporaire.contrat = contrat
                 self.close()
         else:
             Employe.list_employe.remove(employe_temporaire)
