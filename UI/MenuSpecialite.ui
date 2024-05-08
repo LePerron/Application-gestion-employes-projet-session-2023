@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>501</width>
-    <height>361</height>
+    <width>826</width>
+    <height>538</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QLabel" name="labelErreurSelection">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>320</y>
-     <width>461</width>
+     <x>10</x>
+     <y>150</y>
+     <width>621</width>
      <height>21</height>
     </rect>
    </property>
@@ -26,46 +26,19 @@
     <string/>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>160</y>
-     <width>191</width>
-     <height>64</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="pushButtonRechercherSpecialite">
-      <property name="text">
-       <string>Rechercher une spécialité:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLineEdit" name="lineEditRechercherSpecialite"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QListView" name="listViewSpecialite">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>51</y>
-     <width>256</width>
-     <height>261</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>100</y>
-     <width>191</width>
-     <height>51</height>
+     <x>650</x>
+     <y>176</y>
+     <width>161</width>
+     <height>101</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="1" column="0">
@@ -80,6 +53,11 @@
     </item>
     <item row="0" column="0">
      <widget class="QCheckBox" name="checkBoxDescription">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Description</string>
       </property>
@@ -93,8 +71,8 @@
   <widget class="QLabel" name="labelSpecialite">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
+     <x>210</x>
+     <y>0</y>
      <width>461</width>
      <height>41</height>
     </rect>
@@ -110,20 +88,44 @@
     <string>Gestionnaire des spécialités</string>
    </property>
   </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>791</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>3</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>50</y>
-     <width>191</width>
-     <height>41</height>
+     <x>10</x>
+     <y>70</y>
+     <width>361</width>
+     <height>81</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QLabel" name="labelTrierSpecialite">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>Trier spécialité:</string>
+       <string>Trier spécialité selon:</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -131,7 +133,25 @@
      </widget>
     </item>
     <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
      <widget class="QComboBox" name="comboBoxTrierSpecialite">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
       <item>
        <property name="text">
         <string>A-Z</string>
@@ -142,38 +162,98 @@
         <string>Z-A</string>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>Plus grand nombre d'employé</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Plus petit nombre d'employé</string>
-       </property>
-      </item>
      </widget>
     </item>
    </layout>
   </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>70</y>
+     <width>361</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="pushButtonRechercherSpecialite">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Rechercher une spécialité:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEditRechercherSpecialite">
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QListView" name="listViewSpecialite">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>176</y>
+     <width>621</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOn</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+  </widget>
   <widget class="QPushButton" name="pushButtonAjouterSpecialite">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>240</y>
-     <width>91</width>
-     <height>31</height>
+     <x>650</x>
+     <y>296</y>
+     <width>161</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-     <horstretch>2</horstretch>
-     <verstretch>0</verstretch>
+     <horstretch>0</horstretch>
+     <verstretch>10</verstretch>
     </sizepolicy>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="text">
@@ -183,79 +263,73 @@
   <widget class="QPushButton" name="pushButtonSupprimerSpecialite">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>240</y>
-     <width>91</width>
-     <height>31</height>
+     <x>650</x>
+     <y>356</y>
+     <width>161</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>7</horstretch>
-     <verstretch>0</verstretch>
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>7</verstretch>
     </sizepolicy>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="text">
     <string>Supprimer</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonRetournerMenu">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>280</y>
-     <width>91</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>4</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Menu</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButtonModifierSpecialite">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>280</y>
-     <width>91</width>
-     <height>31</height>
+     <x>650</x>
+     <y>416</y>
+     <width>161</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>3</horstretch>
-     <verstretch>0</verstretch>
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>11</verstretch>
     </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>2</width>
-     <height>0</height>
-    </size>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="text">
     <string>Modifier</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonRetournerMenu">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>476</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>13</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Menu</string>
    </property>
   </widget>
  </widget>

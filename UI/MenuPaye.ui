@@ -119,6 +119,9 @@
    <property name="horizontalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
   </widget>
   <widget class="QWidget" name="verticalLayoutWidget_5">
    <property name="geometry">
@@ -569,22 +572,6 @@
    </property>
    <property name="text">
     <string>Menu</string>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>340</y>
-     <width>271</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
    </property>
   </widget>
  </widget>
