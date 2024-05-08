@@ -68,23 +68,18 @@ class Paye:
         Calcul la moyenne de toutes les payes
         :return: La moyenne de toutes les payes
         """
-        montants = 0
-        for paye in cls.list_payes:
-            montants += paye.montant_paye
-        moyenne = montants / len(cls.list_payes)
-        return moyenne
+        return sum(paye.montant_paye for paye in cls.list_payes) / len(cls.list_payes) if len(cls.list_payes) > 0 else 0
 
     @classmethod
     def calculer_mediane_payes(cls) -> float:
         """
-        Calcul la médiane de toutes les payes
-        :return: La médiane de toute les payes
+        Calcule la médiane de toutes les payes
+        :return: La médiane de toutes les payes
         """
         montant_total = []
         for paye in cls.list_payes:
-            montant_total.append(paye.montant_paye)
-        mediane = median(montant_total)
-        return mediane
+            montant_total.append(paye.montant)
+        return median(montant_total) if len(cls.list_payes) > 0 else 0
 
     @classmethod
     def obtenir_paye_min(cls) -> float:
@@ -92,7 +87,7 @@ class Paye:
         Trouve Le montant de la Paye la plus petite de toutes les payes
         :return: Le montant de la Paye la plus petite
         """
-        return min(paye.montant_paye for paye in cls.list_payes)
+        return min((paye.montant_paye for paye in cls.list_payes)) if len(cls.list_payes) > 0 else 0
 
     @classmethod
     def obtenir_paye_max(cls) -> float:
@@ -100,7 +95,8 @@ class Paye:
         Trouve Le montant de la Paye la plus grosse de toutes les payes
         :return: Le montant de la Paye la plus haute
         """
-        return max(paye.montant_paye for paye in cls.list_payes) or 0
+        return max((paye.montant_paye for paye in cls.list_payes)) if len(cls.list_payes) > 0 else 0
+
 
     @classmethod
     def rechercher_payes_par_date(cls, date_de_paye: date) -> list:
@@ -133,5 +129,5 @@ class Paye:
         Une fonction magique qui permet de retourner dans un beau format les informations de la Paye.
         :return: Les informations de la Paye dans un beau format d'affichage.
         """
-        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} - MONTANT DE LA PAYE : {self._montant_paye}"
-                f" DATE DE LA PAYE : {self._date_de_paye} - EMPLOYÉ QUI REÇOIS LA PAYE : {self._employe}")
+        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} - MONTANT DE LA PAYE : {self._montant_paye}$"
+                f" DATE DE LA PAYE : {self._date_de_paye} - EMPLOYÉ QUI REÇOIS LA PAYE : {self._employe.nom if self._employe.nom else self._employe}")

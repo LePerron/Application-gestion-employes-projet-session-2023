@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_DialogAjouterEmploye(object):
     def setupUi(self, DialogAjouterEmploye):
         DialogAjouterEmploye.setObjectName("DialogAjouterEmploye")
-        DialogAjouterEmploye.resize(390, 681)
+        DialogAjouterEmploye.resize(393, 681)
         self.labelTitreAjouterEmploye = QtWidgets.QLabel(DialogAjouterEmploye)
         self.labelTitreAjouterEmploye.setGeometry(QtCore.QRect(0, 24, 390, 31))
         font = QtGui.QFont()
@@ -138,6 +138,10 @@ class Ui_DialogAjouterEmploye(object):
         self.comboBoxSpecialite = QtWidgets.QComboBox(self.layoutWidget)
         self.comboBoxSpecialite.setObjectName("comboBoxSpecialite")
         self.verticalLayout_5.addWidget(self.comboBoxSpecialite)
+        self.labelErreurSpecialite = QtWidgets.QLabel(self.layoutWidget)
+        self.labelErreurSpecialite.setText("")
+        self.labelErreurSpecialite.setObjectName("labelErreurSpecialite")
+        self.verticalLayout_5.addWidget(self.labelErreurSpecialite)
         spacerItem1 = QtWidgets.QSpacerItem(68, 13, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Ignored)
         self.verticalLayout_5.addItem(spacerItem1)
         self.verticalLayout_8.addLayout(self.verticalLayout_5)
