@@ -11,6 +11,7 @@ from PyQt5 import QtWidgets
 import sys
 
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Modifier_Employe import ModifierEmploye
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_confirmation import Confirmation
 
 
 class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
@@ -110,10 +111,10 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         confirmation = None
         index_actuel = self.listViewEmploye.currentIndex()
         if index_actuel.isValid():
-            fenetre_confirmation = (confirmation)
+            fenetre_confirmation = Confirmation()
             fenetre_confirmation.show()
             fenetre_confirmation.exec()
-            if confirmation.:
+            if Confirmation.confirme:
                 self.listViewEmploye.model().removeRow(index_actuel.row())
                 Employe.list_employe.pop(index_actuel.row())
         else:
