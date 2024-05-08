@@ -23,14 +23,6 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des superviseurs")
 
-        model = QStandardItemModel()
-        item = QStandardItem("test1")
-        item2 = QStandardItem("test2")
-        model.appendRow(item)
-        item.appendRow(item2)
-
-
-        self.columnViewSuperviseur.setModel(model)
 
 
     @pyqtSlot()
