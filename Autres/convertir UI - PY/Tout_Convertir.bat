@@ -8,4 +8,5 @@ start genere_menu_paye.bat
 start genere_menu_principal.bat
 start genere_menu_specialite.bat
 start genere_modifier_employe.bat
+start genere_menu_superviseur.bat
 exit

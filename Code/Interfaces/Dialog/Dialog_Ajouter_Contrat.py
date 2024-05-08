@@ -1,7 +1,7 @@
+from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_creer_contrat
 from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
-from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_creer_contrat
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys

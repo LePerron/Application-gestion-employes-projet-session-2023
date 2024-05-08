@@ -1,42 +1,27 @@
-import datetime
-
-from PyQt5.QtGui import QStandardItemModel, QStandardItem
-
-from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
+from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_superviseur
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
-from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Employe import AjouterEmploye
-from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_employe
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
-from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Modifier_Employe import ModifierEmploye
 
-
-class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
+class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSuperviseur):
     """
-    Nome de la classe : MenuEmploye
+    Nome de la classe : MenuSuperviseur
     Héritages :
     - QtWidgets.QDialog : Type d'interface créé par QtDesigner
-    - genere_menu_employe.Ui_DialogMenuEmploye : Ma classe générée avec QtDesigner
+    - genere_menu_superviseur.Ui_MenuSuperviseur : Ma classe générée avec QtDesigner
     """
 
     def __init__(self, parent=None):
         """
         Constructeur de la classe
-        :param parent: QtWidgets.QDialog et genere_menu_employe.Ui_DialogMenuEmploye
+        :param parent: QtWidgets.QDialog et genere_menu_superviseur.Ui_MenuSuperviseur
         """
-        super(MenuEmploye, self).__init__(parent)
+        super(MenuSuperviseur, self).__init__(parent)
         self.setupUi(self)
-        self.setWindowTitle("Gestionnaire des Employés")
-        self.checkBoxSalaire.stateChanged.connect(self.salaire_checkbox_change)
-        self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
-        self.checkBoxNbHeure.stateChanged.connect(self.nbheure_checkbox_change)
-
-        ###
-        from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
-        employe_1 = Caissier(p_nom="Peron", p_prenom="Marc-Antoine", p_identifiant="2360530", p_specialite=Specialite(p_nom="Viande"), p_date_engagement=datetime.datetime.now(), p_gestionnaire="Justin Trudeau")
-        ###
+        self.setWindowTitle("Gestionnaire des superviseurs")
 
         self.mettre_a_jour_listview()
 
@@ -55,9 +40,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
     def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         """
-        Ferme la fenêtre MenuEmploye lorsque l'utilisateur click sur le bouton Retourner au menu
+        Ferme la fenêtre MenuSuperviseur lorsque l'utilisateur click sur le bouton Retourner au menu
         """
-        MenuEmploye.close(self)
+        MenuSuperviseur.close(self)
 
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
@@ -157,8 +142,8 @@ def main():
     Exécution de l'application avec l'interface graphique.
     """
     app = QtWidgets.QApplication(sys.argv)
-    fenetre_employe = MenuEmploye()
-    fenetre_employe.show()
+    fenetre_superviseur = MenuSuperviseur()
+    fenetre_superviseur.show()
     app.exec()
 
 

@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_DialogContratEmploye(object):
     def setupUi(self, DialogContratEmploye):
         DialogContratEmploye.setObjectName("DialogContratEmploye")
-        DialogContratEmploye.resize(560, 563)
+        DialogContratEmploye.resize(560, 558)
         self.labelContrat = QtWidgets.QLabel(DialogContratEmploye)
         self.labelContrat.setGeometry(QtCore.QRect(3, 12, 548, 20))
         font = QtGui.QFont()
@@ -61,6 +61,7 @@ class Ui_DialogContratEmploye(object):
         self.listViewContrat.setMidLineWidth(0)
         self.listViewContrat.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.listViewContrat.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.listViewContrat.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.listViewContrat.setObjectName("listViewContrat")
         self.pushButtonModifierContrat = QtWidgets.QPushButton(self.frame)
         self.pushButtonModifierContrat.setGeometry(QtCore.QRect(60, 447, 211, 41))
