@@ -75,12 +75,13 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         date_engagement = self.dateEditDateEngagement.text()
         poste = self.comboBoxPoste.currentText()
 
-        employe_temporaire = eval(poste)()
-
         if self.modification_employe:
+            employe_temporaire = eval(poste)(p_contrat=self.modification_employe.contrat)
             Employe.list_employe.remove(self.modification_employe)
 
         else:
+            employe_temporaire = eval(poste)()
+
             employe_temporaire.identifiant = identifiant
             if employe_temporaire.identifiant != identifiant or not identifiant:
                 self.labelErreurIdentifiant.setText("Veuillez entrer un identifiant valide de 7 chiffre")

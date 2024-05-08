@@ -29,8 +29,9 @@ class Employe:
         self.contrat = p_contrat
         self.specialite = p_specialite
 
-        from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
-        self.contrat = ContratEmploi(p_employe=self)
+        if not self.contrat:
+            from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+            self.contrat = ContratEmploi(p_employe=self)
 
         Employe.list_employe.append(self)
 
