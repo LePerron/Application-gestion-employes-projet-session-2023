@@ -107,10 +107,15 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         Supprime l'employé lorsque l'utilisateur click sur le bouton Supprimer l'employer
         """
+        confirmation = None
         index_actuel = self.listViewEmploye.currentIndex()
         if index_actuel.isValid():
-            self.listViewEmploye.model().removeRow(index_actuel.row())
-            Employe.list_employe.pop(index_actuel.row())
+            fenetre_confirmation = (confirmation)
+            fenetre_confirmation.show()
+            fenetre_confirmation.exec()
+            if confirmation.:
+                self.listViewEmploye.model().removeRow(index_actuel.row())
+                Employe.list_employe.pop(index_actuel.row())
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner l'employé que vous souhaitez supprimer")
 
