@@ -22,6 +22,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         super(MenuSuperviseur, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des superviseurs")
+        self.columnViewSuper
 
         self.mettre_a_jour_listview()
 
