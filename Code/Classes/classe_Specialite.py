@@ -27,7 +27,7 @@ class Specialite:
         if isinstance(nom_specialite, str) and nom_specialite.isalpha():
             for specialite in Specialite.list_des_specialites:
                 if specialite.nom == nom_specialite:
-                    return
+                    return specialite.nom if specialite.nom != "" else ""
             self._nom = nom_specialite.capitalize()
 
     @classmethod

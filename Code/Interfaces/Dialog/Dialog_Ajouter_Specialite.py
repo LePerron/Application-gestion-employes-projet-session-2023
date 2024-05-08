@@ -36,24 +36,29 @@ class AjouterSpecialite(QtWidgets.QDialog, genere_creer_specialite.Ui_DialogCree
         """
         Ajoute une nouvelle specialite lorsque l'utilisateur clique sur le bouton Ajouter une specialite
         """
-        nom = self.lineEditNom.text().capitalize()
-        description = self.textEditDescription.toPlainText()
-
-        if self.specialite_modification:
-            specialite_temporaire = Specialite.list_des_specialites[self.specialite_modification.row()]
-
+        try:
+            nom = self.lineEditNom.text().capitalize()
+        except TypeError:
+            self.labelErreurNom.setText("Veuillez entrez uniquement des lettres")
         else:
-            specialite_temporaire = Specialite()
+            description = self.textEditDescription.toPlainText()
 
-        specialite_temporaire.nom = nom
+            if self.specialite_modification:
+                specialite_temporaire = Specialite.list_des_specialites[self.specialite_modification.row()]
 
-        if specialite_temporaire.nom != nom or not nom:
-            Specialite.list_des_specialites.remove(specialite_temporaire)
-            self.labelErreurNom.setText("Nom incorrect")
-            self.lineEditNom.clear()
-        else:
-            specialite_temporaire.description = description
-            self.close()
+            else:
+                specialite_temporaire = Specialite()
+
+            specialite_temporaire.nom = nom
+
+            if specialite_temporaire.nom != nom or not nom:
+                if not self.specialite_modification:
+                    Specialite.list_des_specialites.remove(specialite_temporaire)
+                self.labelErreurNom.setText("Nom incorrect")
+                self.lineEditNom.clear()
+            else:
+                specialite_temporaire.description = description
+                self.close()
 
 
 def main():
