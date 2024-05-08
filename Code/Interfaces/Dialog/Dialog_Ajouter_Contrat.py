@@ -33,10 +33,11 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
             self.horizontalSliderNbHeure.setValue(contrat.nb_heures_semaine)
             self.doubleSpinBoxSalaireHoraire.setValue(contrat.salaire_horaire)
             self.textEditTermeContrat.setText(contrat.termes_embauche)
+            
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
         """
-        Ajoute un nouveau contrat lorsque l'utilisateur click sur le bouton Ajouter un employe
+        Ajoute un nouveau contrat lorsque l'utilisateur clique sur le bouton Ajouter un employe
         """
 
         salaire_horaire = float(self.doubleSpinBoxSalaireHoraire.value())
@@ -51,15 +52,17 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
                 contrat_temporaire.nb_heures_semaine = nb_heures
                 contrat_temporaire.salaire_horaire = salaire_horaire
                 contrat_temporaire.termes_embauche = autres_termes
-                self.close()
+                AjouterContrat.close(self)
                 break
             else:
                 continue
+        else:
+            AjouterContrat.close(self)
 
     @pyqtSlot()
     def on_pushButtonAnnuler_clicked(self):
         """
-        Ferme la fenêtre AjouterContrat lorsque l'utilisateur click sur le bouton Annuler
+        Ferme la fenêtre AjouterContrat lorsque l'utilisateur clique sur le bouton Annuler
         """
         AjouterContrat.close(self)
 

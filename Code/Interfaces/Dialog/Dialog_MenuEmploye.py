@@ -93,7 +93,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             fenetre_modifier_employe.comboBoxPoste.setCurrentText(employe_a_modifier.poste)
             fenetre_modifier_employe.lineEditPrenom.setText(employe_a_modifier.prenom)
             fenetre_modifier_employe.lineEditNom.setText(employe_a_modifier.nom)
-
             fenetre_modifier_employe.dateEditDateEngagement.setReadOnly(True)
             fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
 
@@ -101,7 +100,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner l'employé que vous souhaitez modifier")
-
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
