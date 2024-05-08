@@ -1,3 +1,5 @@
+import datetime
+
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 
 from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
@@ -30,6 +32,12 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxSalaire.stateChanged.connect(self.salaire_checkbox_change)
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
         self.checkBoxNbHeure.stateChanged.connect(self.nbheure_checkbox_change)
+
+        ###
+        from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+        employe_1 = Caissier(p_nom="Peron", p_prenom="Marc-Antoine", p_identifiant="2360530", p_specialite=Specialite(p_nom="Viande"), p_date_engagement=datetime.datetime.now(), p_gestionnaire="Justin Trudeau")
+        ###
+
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
@@ -73,23 +81,25 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
             fenetre_modifier_employe = AjouterEmploye(modification_employe=employe_a_modifier)
             fenetre_modifier_employe.show()
-            fenetre_modifier_employe.setWindowTitle("Modification d'un employé")
             fenetre_modifier_employe.labelTitreAjouterEmploye.setText("Modifier l'employé")
             fenetre_modifier_employe.pushButtonAjouterEmploye.setText("Modifier")
-            fenetre_modifier_employe.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
+            fenetre_modifier_employe.setWindowTitle("Modification d'un employé")
+
             fenetre_modifier_employe.dateEditDateEngagement.setMinimumDate(employe_a_modifier.date_engagement)
             fenetre_modifier_employe.dateEditDatePromotion.setMinimumDate(employe_a_modifier.date_engagement)
-            fenetre_modifier_employe.lineEditNom.setText(employe_a_modifier.nom)
-            fenetre_modifier_employe.comboBoxPoste.setCurrentText(employe_a_modifier.poste)
             fenetre_modifier_employe.comboBoxSpecialite.setCurrentText(employe_a_modifier.specialite)
+            fenetre_modifier_employe.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
+            fenetre_modifier_employe.comboBoxPoste.setCurrentText(employe_a_modifier.poste)
             fenetre_modifier_employe.lineEditPrenom.setText(employe_a_modifier.prenom)
-            fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
-            fenetre_modifier_employe.dateEditDateEngagement.setReadOnly(True)
-            fenetre_modifier_employe.exec()
+            fenetre_modifier_employe.lineEditNom.setText(employe_a_modifier.nom)
 
+            fenetre_modifier_employe.dateEditDateEngagement.setReadOnly(True)
+            fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
+
+            fenetre_modifier_employe.exec()
             self.mettre_a_jour_listview()
         else:
-            self.labelErreurSelection.setText("Erreur")
+            self.labelErreurSelection.setText("Veuillez sélectionner l'employé que vous souhaitez modifier")
 
 
     @pyqtSlot()
@@ -102,7 +112,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.listViewEmploye.model().removeRow(index_actuel.row())
             Employe.list_employe.pop(index_actuel.row())
         else:
-            self.labelErreurSelection.setText("Erreur.")
+            self.labelErreurSelection.setText("Veuillez sélectionner l'employé que vous souhaitez supprimer")
 
     def salaire_checkbox_change(self, status):
         """

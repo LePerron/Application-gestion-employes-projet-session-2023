@@ -263,6 +263,13 @@
         <widget class="QComboBox" name="comboBoxSpecialite"/>
        </item>
        <item>
+        <widget class="QLabel" name="labelErreurSpecialite">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacerFacteur">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

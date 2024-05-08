@@ -135,10 +135,10 @@ class Employe:
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage.
         """
-        return (f"""IDENTIFIANT   : {self._identifiant}
-- NOM COMPLET   : {self._prenom} {self._nom} 
-- POSTE         : {self.poste.capitalize()} 
-- NUM CONTRAT   : {self.contrat.identifiant_contrat}""")
+        return (f"""IDENTIFIANT : {self._identifiant}
+ ↳ Nom Complet : {self._prenom} {self._nom} 
+ ↳ Poste            : {self.obtenir_poste_complet()} 
+ ↳ Contrat           : {self.contrat.identifiant_contrat}""")
 
     def calculer_paye(self) -> float:
         """

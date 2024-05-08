@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>824</width>
-    <height>583</height>
+    <width>820</width>
+    <height>610</height>
    </rect>
   </property>
   <property name="font">
@@ -21,7 +21,7 @@
   <widget class="QLabel" name="labelTitreEmploye">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>12</y>
      <width>788</width>
      <height>51</height>
@@ -44,7 +44,7 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>440</x>
      <y>80</y>
      <width>361</width>
      <height>81</height>
@@ -79,7 +79,7 @@
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>80</y>
      <width>361</width>
      <height>81</height>
@@ -128,7 +128,7 @@
   <widget class="QListView" name="listViewEmploye">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>180</y>
      <width>621</width>
      <height>341</height>
@@ -140,12 +140,15 @@
    <property name="horizontalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButtonAjouterEmploye">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>530</y>
+     <x>20</x>
+     <y>549</y>
      <width>191</width>
      <height>41</height>
     </rect>
@@ -168,8 +171,8 @@
   <widget class="QPushButton" name="pushButtonModifierEmploye">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>530</y>
+     <x>420</x>
+     <y>549</y>
      <width>191</width>
      <height>41</height>
     </rect>
@@ -192,8 +195,8 @@
   <widget class="QPushButton" name="pushButtonSupprimerEmploye">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>530</y>
+     <x>220</x>
+     <y>549</y>
      <width>191</width>
      <height>41</height>
     </rect>
@@ -217,8 +220,8 @@
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>530</y>
-     <width>161</width>
+     <y>549</y>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
@@ -240,7 +243,7 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>50</y>
      <width>791</width>
      <height>20</height>
@@ -259,10 +262,10 @@
   <widget class="QWidget" name="verticalLayoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>660</x>
+     <x>650</x>
      <y>180</y>
      <width>151</width>
-     <height>291</height>
+     <height>331</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -391,15 +394,34 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="Line" name="line_9">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxSuperviseur">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Superviseur</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QLabel" name="labelErreurSelection">
    <property name="geometry">
     <rect>
-     <x>660</x>
-     <y>470</y>
-     <width>151</width>
-     <height>41</height>
+     <x>20</x>
+     <y>519</y>
+     <width>591</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -429,14 +451,17 @@
    <property name="text">
     <string/>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>630</x>
      <y>520</y>
      <width>3</width>
-     <height>61</height>
+     <height>80</height>
     </rect>
    </property>
    <property name="orientation">
@@ -446,7 +471,7 @@
   <widget class="Line" name="line_3">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>630</x>
      <y>513</y>
      <width>180</width>
      <height>16</height>
