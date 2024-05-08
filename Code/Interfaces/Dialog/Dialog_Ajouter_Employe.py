@@ -79,7 +79,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
 
         if self.modification_employe:
             Employe.list_employe.remove(self.modification_employe)
-            employe_temporaire.identifiant = identifiant
+
         else:
             employe_temporaire.identifiant = identifiant
             if employe_temporaire.identifiant != identifiant or not identifiant:
@@ -114,8 +114,8 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
                     fenetre_ajouter_contrat.show()
                     fenetre_ajouter_contrat.exec()
                 else:
-                    ContratEmploi.
-                    employe_temporaire.contrat = contrat
+                    index = ContratEmploi.list_contrat.index(employe_temporaire.contrat)
+                    ContratEmploi.cont
                 self.close()
         else:
             Employe.list_employe.remove(employe_temporaire)
