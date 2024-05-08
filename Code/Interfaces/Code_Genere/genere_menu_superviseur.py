@@ -225,7 +225,8 @@ class Ui_MenuSuperviseur(object):
         self.pushButtonRetournerEmploye.setObjectName("pushButtonRetournerEmploye")
         self.columnViewSuperviseur = QtWidgets.QColumnView(MenuSuperviseur)
         self.columnViewSuperviseur.setGeometry(QtCore.QRect(10, 178, 621, 341))
-        self.columnViewSuperviseur.setEditTriggers(QtWidgets.QAbstractItemView.SelectedClicked)
+        self.columnViewSuperviseur.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.columnViewSuperviseur.setTabKeyNavigation(True)
         self.columnViewSuperviseur.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.columnViewSuperviseur.setObjectName("columnViewSuperviseur")
 
