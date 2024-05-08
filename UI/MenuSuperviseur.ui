@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>508</y>
+     <y>520</y>
      <width>591</width>
      <height>31</height>
     </rect>
@@ -342,25 +342,6 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QListView" name="listViewEmploye">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>178</y>
-     <width>621</width>
-     <height>341</height>
-    </rect>
-   </property>
-   <property name="verticalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOn</enum>
-   </property>
-   <property name="horizontalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOff</enum>
-   </property>
-   <property name="editTriggers">
-    <set>QAbstractItemView::NoEditTriggers</set>
-   </property>
-  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
@@ -474,6 +455,40 @@
    </property>
    <property name="text">
     <string>Modifier</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonRetournerEmploye">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>530</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>13</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Gestion employe</string>
+   </property>
+  </widget>
+  <widget class="QColumnView" name="columnViewSuperviseur">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>178</y>
+     <width>621</width>
+     <height>341</height>
+    </rect>
    </property>
   </widget>
  </widget>
