@@ -7,6 +7,8 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import sys
 
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_confirmation import Confirmation
+
 
 class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpecialite):
     """
@@ -85,9 +87,12 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         """
         index_actuel = self.listViewSpecialite.currentIndex()
         if index_actuel.isValid():
-            Specialite.list_des_specialites.pop(index_actuel.row())
-            self.listViewSpecialite.model().removeRow(index_actuel.row())
-
+            fenetre_confirmation = Confirmation()
+            fenetre_confirmation.show()
+            fenetre_confirmation.exec()
+            if Confirmation.confirme:
+                Specialite.list_des_specialites.pop(index_actuel.row())
+                self.listViewSpecialite.model().removeRow(index_actuel.row())
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
 
