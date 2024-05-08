@@ -15,6 +15,7 @@ class Ui_MenuSuperviseur(object):
     def setupUi(self, MenuSuperviseur):
         MenuSuperviseur.setObjectName("MenuSuperviseur")
         MenuSuperviseur.resize(601, 530)
+        MenuSuperviseur.setAutoFillBackground(True)
         self.labelErreurSelection = QtWidgets.QLabel(MenuSuperviseur)
         self.labelErreurSelection.setGeometry(QtCore.QRect(10, 480, 571, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
@@ -28,17 +29,6 @@ class Ui_MenuSuperviseur(object):
         self.labelErreurSelection.setText("")
         self.labelErreurSelection.setAlignment(QtCore.Qt.AlignCenter)
         self.labelErreurSelection.setObjectName("labelErreurSelection")
-        self.pushButtonRetournerMenu_2 = QtWidgets.QPushButton(MenuSuperviseur)
-        self.pushButtonRetournerMenu_2.setGeometry(QtCore.QRect(430, 440, 151, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(13)
-        sizePolicy.setHeightForWidth(self.pushButtonRetournerMenu_2.sizePolicy().hasHeightForWidth())
-        self.pushButtonRetournerMenu_2.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.pushButtonRetournerMenu_2.setFont(font)
-        self.pushButtonRetournerMenu_2.setObjectName("pushButtonRetournerMenu_2")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(MenuSuperviseur)
         self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(10, 78, 271, 81))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
@@ -189,7 +179,6 @@ class Ui_MenuSuperviseur(object):
     def retranslateUi(self, MenuSuperviseur):
         _translate = QtCore.QCoreApplication.translate
         MenuSuperviseur.setWindowTitle(_translate("MenuSuperviseur", "Dialog"))
-        self.pushButtonRetournerMenu_2.setText(_translate("MenuSuperviseur", "Menu"))
         self.labelTrierEmploye.setText(_translate("MenuSuperviseur", "Trier employé selon:"))
         self.comboBoxTrierEmploye.setItemText(0, _translate("MenuSuperviseur", "A-Z"))
         self.comboBoxTrierEmploye.setItemText(1, _translate("MenuSuperviseur", "Z-A"))
