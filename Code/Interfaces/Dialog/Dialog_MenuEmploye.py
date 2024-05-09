@@ -37,27 +37,31 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
         self.checkBoxContrat.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
-        self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview, self.comboBoxTrierEmploye.currentIndex())
+        self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
         self.mettre_a_jour_listview()
 
-    def mettre_a_jour_listview(self, current_index=None):
+    def mettre_a_jour_listview(self):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un employe
         """
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
+        current_index = self.comboBoxTrierEmploye.currentIndex()
+
+        dictionnaire_triage_nom = []
 
         dictionnaire_triage = {}
         for employe in Employe.list_employe:
             dictionnaire_triage[employe.nom] = employe
 
         if current_index == 0:
-            dictionnaire_triage = sorted(dictionnaire_triage.keys())
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
         elif current_index == 1:
-            dictionnaire_triage = sorted(dictionnaire_triage.keys()).reverse()
-        for nom_employe in dictionnaire_triage:
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys()).reverse()
+
+        for nom_employe in dictionnaire_triage_nom:
             employe = dictionnaire_triage[nom_employe]
-            item = QStandardItem(str(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPosteComplet.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked())))
+            item = QStandardItem(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPosteComplet.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked()))
             model.appendRow(item)
 
 

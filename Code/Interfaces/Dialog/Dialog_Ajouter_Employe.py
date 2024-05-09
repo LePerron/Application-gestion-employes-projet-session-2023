@@ -105,9 +105,10 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             self.labelErreurPrenom.setText("Veuillez entrer un prénom valide (peut contenir '-').")
             self.lineEditPrenom.clear()
 
-        employe_temporaire.specialite = specialite
-        if employe_temporaire.specialite != specialite or not specialite:
-            self.labelErreurSpecialite.setText("Veuillez d'abord créer une spécialité dans le menu spécialité")
+        if not specialite or specialite != "":
+            employe_temporaire.specialite = specialite
+            if employe_temporaire.specialite != specialite or not specialite:
+                self.labelErreurSpecialite.setText("Veuillez d'abord créer une spécialité dans le menu spécialité")
 
         employe_temporaire.date_engagement = date_engagement
 
@@ -119,7 +120,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             employe_temporaire.gestionnaire = gestionnaire
 
         if nom and prenom and identifiant and specialite:
-            if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
+            if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom and employe_temporaire.specialite == specialite:
                 if not self.modification_employe:
                     fenetre_ajouter_contrat = AjouterContrat(employe_temporaire)
                     fenetre_ajouter_contrat.lineEditIdentifiant.setText(employe_temporaire.identifiant)
