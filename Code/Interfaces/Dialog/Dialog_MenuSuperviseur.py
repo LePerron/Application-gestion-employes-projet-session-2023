@@ -31,7 +31,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         # self.checkBoxGestionnaire.stateChanged.connect(self.Gestionnaire_change)
         # self.checkBoxGerant.stateChanged.connect(self.gerant_change)
 
-        self.mettre_a_jour_listview("", superviseur_selectionne=Commis.list_commis)
+        self.mettre_a_jour_listview("superviseur", superviseur_selectionne=Commis.list_commis)
 
     def mettre_a_jour_listview(self, listview, superviseur_selectionne):
         """
