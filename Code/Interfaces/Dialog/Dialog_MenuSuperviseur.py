@@ -31,31 +31,40 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         # self.checkBoxGestionnaire.stateChanged.connect(self.Gestionnaire_change)
         # self.checkBoxGerant.stateChanged.connect(self.gerant_change)
 
-    def mettre_a_jour_listview(self, listview, donnees_a_ajoute):
+        self.mettre_a_jour_listview()
+
+    def mettre_a_jour_listview(self, listview, superviseur_selectionne):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
         """
-        model = QStandardItemModel()
-        model2 = QStandardItemModel()
+        model_superviseur = QStandardItemModel()
         if listview == "superviseur":
             if self.checkBoxGerant.isChecked():
+                model_superviseur = QStandardItemModel()
                 for gerant in Gerant.list_gerant:
                     item = QStandardItem(gerant.nom)
-                    model.appendRow(item)
+                    model_superviseur.appendRow(item)
             if self.checkBoxGestionnaire.isChecked():
                 for gestionnaire in Gestionnaire.list_gestionnaire:
                     item = QStandardItem(gestionnaire.nom)
-                    model.appendRow(item)
-            self.listViewGerantGestionnaire.setModel(model)
-            if self.checkBoxCaissier.isChecked():
-                for caissier in Caissier.liste_caissier:
-                    item = QStandardItem(caissier.nom)
-                    model2.appendRow(item)
-            if self.checkBoxCommis.isChecked():
-                for commis in Commis.list_commis:
-                    item = QStandardItem(commis.nom)
-                    model2.appendRow(item)
-            self.listViewCommisCaissier.setModel(model2)
+                    model_superviseur.appendRow(item)
+            self.listViewGerantGestionnaire.setModel(model_superviseur)
+        else:
+            if superviseur_selectionne:
+                model_commis_caissier = QStandardItemModel()
+                if self.checkBoxCaissier.isChecked():
+                    for employe in Employe.list_employe:
+                        if employe.nom == superviseur_selectionne:
+                            for caissier in employe.liste_caissier:
+                                item = QStandardItem(caissier.nom)
+                                model_commis_caissier.appendRow(item)
+                if self.checkBoxCommis.isChecked():
+                    for employe in Employe.list_employe:
+                        if employe.nom == superviseur_selectionne:
+                            for commis in employe.dict_commis.values():
+                                item = QStandardItem(commis.nom)
+                                model_commis_caissier.appendRow(item)
+                self.listViewCommisCaissier.setModel(model_commis_caissier)
 
 
     @pyqtSlot()
