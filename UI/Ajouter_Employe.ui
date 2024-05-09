@@ -304,7 +304,13 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_9">
        <item>
-        <widget class="QComboBox" name="comboBoxSuperviseur"/>
+        <widget class="QComboBox" name="comboBoxSuperviseur">
+         <item>
+          <property name="text">
+           <string>Aucun pour l'instant</string>
+          </property>
+         </item>
+        </widget>
        </item>
        <item>
         <widget class="QLabel" name="labelErreurSuperviseur">

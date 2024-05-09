@@ -126,8 +126,8 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
                     fenetre_ajouter_contrat.show()
                     fenetre_ajouter_contrat.exec()
                 AjouterEmploye.close(self)
-            else:
-                Employe.list_employe.remove(employe_temporaire)
+        else:
+            Employe.list_employe.remove(employe_temporaire)
 
     def index_combobox_change(self, index):
         """
