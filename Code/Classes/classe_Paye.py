@@ -58,7 +58,7 @@ class Paye:
         return self._date_de_paye
 
     @date_de_paye.setter
-    def date_de_paye(self, v_date_de_paye):
+    def date_de_paye(self, v_date_de_paye) -> None:
         if DATE_FONDATION_ENTREPRISE <= v_date_de_paye <= datetime.now():
             self._date_de_paye = v_date_de_paye
 
@@ -124,10 +124,38 @@ class Paye:
                 paye_a_employe.append(paye)
         return paye_a_employe
 
+    def afficher_informations_paye(self, identifiant_paye_=True, montant_paye_=True, date_de_paye_=True, employe_=True) -> str:
+        """
+        Une fonction qui permet de retourner dans un bon format les informations de l'employé.
+        :return: Les informations de l'employé dans un beau format d'affichage selon les paramètres d'entrés.
+        """
+        chaine_caracteres = ""
+        try:
+            if identifiant_paye_:
+                chaine_caracteres += f" ↳ Identifiant de paye : #{self.identifiant_paye}\n"
+        except NameError:
+            pass
+        try:
+            if employe_:
+                chaine_caracteres += f" ↳ Nom et prenom : {self.employe.prenom} {self.employe.nom}\n"
+        except NameError:
+            pass
+        try:
+            if montant_paye_:
+                chaine_caracteres += f" ↳ Montant de la paye :  {self._montant_paye} $\n"
+        except NameError:
+            pass
+        try:
+            if date_de_paye_:
+                date_paye = str(self._date_de_paye).strip("00:00:00")
+                chaine_caracteres += f" ↳ Date de la paye : {date_paye}\n"
+        except NameError:
+            pass
+        return chaine_caracteres
+
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un beau format les informations de la Paye.
         :return: Les informations de la Paye dans un beau format d'affichage.
         """
-        return (f"IDENTIFIANT DE LA PAYE : {self.identifiant_paye} - MONTANT DE LA PAYE : {self._montant_paye}$"
-                f" DATE DE LA PAYE : {self._date_de_paye} - EMPLOYÉ QUI REÇOIS LA PAYE : {self._employe.nom if self._employe.nom else self._employe}")
+        return self.afficher_informations_paye()

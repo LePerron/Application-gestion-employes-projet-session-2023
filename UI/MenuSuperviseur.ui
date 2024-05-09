@@ -313,6 +313,9 @@
      <height>241</height>
     </rect>
    </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
   </widget>
   <widget class="QListView" name="listViewGerantGestionnaire">
    <property name="geometry">
@@ -322,6 +325,9 @@
      <width>201</width>
      <height>241</height>
     </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
    </property>
   </widget>
   <widget class="QWidget" name="gridLayoutWidget">
