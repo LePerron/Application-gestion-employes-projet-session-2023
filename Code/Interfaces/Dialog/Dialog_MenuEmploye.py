@@ -3,7 +3,10 @@ import datetime
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 
 from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
+from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
+from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_Ajouter_Employe import AjouterEmploye
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_employe
 from PyQt5.QtCore import pyqtSlot
@@ -41,6 +44,12 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_employe)
         self.mettre_a_jour_listview()
 
+<<<<<<< HEAD
+        specialite_1 = Specialite(p_nom="marc")
+        employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1)
+        employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1, p_gestionnaire=employe_1)
+=======
+>>>>>>> 4cb70a2d943647345723d3862020b4832ff411e6
 
     def mettre_a_jour_listview(self):
         """

@@ -63,9 +63,13 @@ class Gestionnaire(Employe):
         """
 
         for commis in Commis.list_commis:
-            if commis.identifiant == identifiant_commis_a_ajouter:
-                if identifiant_commis_a_ajouter not in self.dict_commis.keys():
-                    self.dict_commis[identifiant_commis_a_ajouter] = commis
+            if commis.gestionnaire.nom == self.nom:
+                self.dict_commis[commis.identifiant] = commis
+
+        # for commis in Commis.list_commis:
+        #     if commis.identifiant == identifiant_commis_a_ajouter:
+        #         if identifiant_commis_a_ajouter not in self.dict_commis.keys():
+        #             self.dict_commis[identifiant_commis_a_ajouter] = commis
 
     def supprimer_commis_a_dict(self, identifiant_commis_a_supprimer: str) -> None:
         """
@@ -81,11 +85,16 @@ class Gestionnaire(Employe):
         :param identifiant_caissier_a_ajouter: L'identifiantCaissier du caissier à ajouter
         """
         for caissier in Caissier.liste_caissier:
-            if caissier.identifiant == identifiant_caissier_a_ajouter:
-                if caissier in self.liste_caissier:
-                    return
-                else:
-                    self.liste_caissier.append(caissier)
+            if caissier.gestionnaire.nom == self.nom:
+                self.liste_caissier.append(caissier)
+
+        #
+        # for caissier in Caissier.liste_caissier:
+        #     if caissier.identifiant == identifiant_caissier_a_ajouter:
+        #         if caissier in self.liste_caissier:
+        #             return
+        #         else:
+        #             self.liste_caissier.append(caissier)
 
     def supprimer_caissier_a_liste(self, identifiant_caissier_a_supprimer: str) -> None:
         """
