@@ -35,11 +35,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe.show()
         self.hide()
         dialog_menu_employe.exec()
-<<<<<<< HEAD
-        #   ici  #
-=======
         self.serialisation()
->>>>>>> 4cb70a2d943647345723d3862020b4832ff411e6
         self.show()
 
     @pyqtSlot()
@@ -57,11 +53,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_contrat.show()
         self.hide()
         dialog_menu_contrat.exec()
-<<<<<<< HEAD
-        #   ici  #
-=======
         self.serialisation()
->>>>>>> 4cb70a2d943647345723d3862020b4832ff411e6
         self.show()
 
     @pyqtSlot()
@@ -70,11 +62,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_paye.show()
         self.hide()
         dialog_menu_paye.exec()
-<<<<<<< HEAD
-        #   ici  #
-=======
         self.serialisation()
->>>>>>> 4cb70a2d943647345723d3862020b4832ff411e6
         self.show()
 
     @pyqtSlot()
@@ -83,11 +71,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_specialite.show()
         self.hide()
         dialog_menu_specialite.exec()
-<<<<<<< HEAD
-        #   ici  #
-=======
         self.serialisation()
->>>>>>> 4cb70a2d943647345723d3862020b4832ff411e6
         self.show()
 
     @pyqtSlot()

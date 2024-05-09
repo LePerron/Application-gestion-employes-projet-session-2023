@@ -42,34 +42,56 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
         self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
         self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_employe)
-        self.mettre_a_jour_listview()
 
-<<<<<<< HEAD
-        specialite_1 = Specialite(p_nom="marc")
+
+        #####
+        specialite_1 = Specialite(p_nom="viande")
         employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1)
         employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1, p_gestionnaire=employe_1)
-=======
->>>>>>> 4cb70a2d943647345723d3862020b4832ff411e6
 
-    def mettre_a_jour_listview(self):
+        employe_1.contrat.nb_heures_semaine = 16
+        employe_2.contrat.nb_heures_semaine = 2
+
+        employe_1.contrat.facteur_salaire = 16
+        employe_2.contrat.facteur_salaire = 2
+
+        ######
+
+        self.mettre_a_jour_listview()
+
+    def mettre_a_jour_listview(self, donnee_a_afficher=None):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un employe
         """
+        if donnee_a_afficher is None:
+            donnee_a_afficher = Employe.list_employe
+
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
         current_index = self.comboBoxTrierEmploye.currentIndex()
 
-        dictionnaire_triage_nom = []
 
         dictionnaire_triage = {}
+
         for employe in Employe.list_employe:
             dictionnaire_triage[employe.nom] = employe
 
         if current_index == 0:
             dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), )
-            dictionnaire_triage_nom.reverse()
 
         elif current_index == 1:
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
+
+        elif current_index == 2:
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+
+        elif current_index == 3:
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+
+        elif current_index == 4:
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+
+        elif current_index == 5:
             dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
 
         for nom_employe in dictionnaire_triage_nom:
