@@ -78,7 +78,7 @@ class Paye:
         """
         montant_total = []
         for paye in cls.list_payes:
-            montant_total.append(paye.montant)
+            montant_total.append(paye.montant_paye)
         return median(montant_total) if len(cls.list_payes) > 0 else 0
 
     @classmethod
