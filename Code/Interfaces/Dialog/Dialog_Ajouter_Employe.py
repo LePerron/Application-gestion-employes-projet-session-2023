@@ -152,7 +152,6 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             self.labelErreurSuperviseur.show()
 
 
-
 def main():
     """
     Méthode main : Point d'entré du programme.
