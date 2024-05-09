@@ -47,10 +47,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
 
-<<<<<<< HEAD
-        if current_index == 0
-=======
->>>>>>> 03be817f80c941544f9e8e4d7c90b1882bc1bd0b
         dictionnaire_triage = {}
         for employe in Employe.list_employe:
             dictionnaire_triage[employe.nom] = employe
@@ -156,14 +152,14 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (anciennté)")))
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
 
-    def trier_a_z_list_view(self):
-        ifn
-    def trier_z_a_list_view(self):
-    def trier_croissant_salaire_list_view(self):
-    def trier_decroissant_salaire_list_view(self):
-    def trier_croissant_anciennete_list_view(self):
-
-    def trier_decroissant_anciennete_list_view(self):
+    # def trier_a_z_list_view(self):
+    #     ifn
+    # def trier_z_a_list_view(self):
+    # def trier_croissant_salaire_list_view(self):
+    # def trier_decroissant_salaire_list_view(self):
+    # def trier_croissant_anciennete_list_view(self):
+    #
+    # def trier_decroissant_anciennete_list_view(self):
 
 def main():
     """
