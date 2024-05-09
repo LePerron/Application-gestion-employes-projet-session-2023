@@ -47,16 +47,19 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
 
-        if current_index == 
         dictionnaire_triage = {}
         for employe in Employe.list_employe:
             dictionnaire_triage[employe.nom] = employe
 
-        dictionnaire_triage = sorted(dictionnaire_triage.keys())
+        if current_index == 0:
+            dictionnaire_triage = sorted(dictionnaire_triage.keys())
+        elif current_index == 1:
+            dictionnaire_triage = sorted(dictionnaire_triage.keys()).reverse()
         for nom_employe in dictionnaire_triage:
             employe = dictionnaire_triage[nom_employe]
             item = QStandardItem(str(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPosteComplet.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked())))
             model.appendRow(item)
+
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
