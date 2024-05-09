@@ -37,7 +37,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
         self.checkBoxContrat.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
-        self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview(self.comboBoxTrierEmploye.currentIndex()))
+        self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview, self.comboBoxTrierEmploye.currentIndex())
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self, current_index=None):
@@ -158,9 +158,15 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
     # def trier_croissant_salaire_list_view(self):
     # def trier_decroissant_salaire_list_view(self):
     # def trier_croissant_anciennete_list_view(self):
+<<<<<<< HEAD
     #
     # def trier_decroissant_anciennete_list_view(self):
 
+=======
+#
+    # def trier_decroissant_anciennete_list_view(self):
+#
+>>>>>>> 02009730c8f6f504afa8d7eaa43755a46a70c1a0
 def main():
     """
     Méthode main : Point d'entré du programme.
