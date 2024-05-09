@@ -86,10 +86,11 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
         :return:
         """
+        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
         from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
         from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
         from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
-        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+
         dict_serialise = {
             "contrat.json": ContratEmploi.list_contrat,
             "paye.json": Paye.list_payes,
@@ -98,8 +99,11 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         }
 
         for cle in dict_serialise.keys():
-            donnes_serialise = jsonpickle.encode(dict_serialise[cle])
-            # Sauvegarde dans un fichier
+            for objet in dict_serialise[cle]:
+
+
+
+            donnes_serialise = jsonpickle.encode()
             chemin = f"../Fichiers_sérialisations/{cle}"
             with open(chemin, 'w') as file:
                 file.write(donnes_serialise)
@@ -110,27 +114,22 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
         :return:
         """
+        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+
         from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
         from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
         from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
-        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
-        dict_serialise = {
-            "contrat.json": ContratEmploi.list_contrat,
-            "paye.json": Paye.list_payes,
-            "specialite.json": Specialite.list_des_specialites,
-            "employe.json": Employe.list_employe
-        }
-        for cle in dict_serialise.keys():
-            chemin = f"../Fichiers_sérialisations/{cle}"
+        # dict_serialise = {
+        #     "contrat.json",
+        # }
 
-            with open(chemin, 'r') as fichier:
-                if not fichier.readlines():
-                    continue
+        with open("../Fichiers_sérialisations/contrat.json", 'rb') as fichier:
+            donnees_a_decodees = fichier.read()
+            if donnees_a_decodees == "":
+                fichier.close()
 
-            with open(chemin, 'r') as fichier:
-                data = fichier.read()
-                dict_serialise[cle] = jsonpickle.decode(data)
-
+            else:
+                donnees_decodees = jsonpickle.decode(donnees_a_decodees)
 
 
 def main():
@@ -141,9 +140,9 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     fenetre_principale = MenuPrincipal()
     fenetre_principale.show()
+    MenuPrincipal.deserialisation()
     app.exec()
 
 
 if __name__ == "__main__":
-    MenuPrincipal.deserialisation()
     main()

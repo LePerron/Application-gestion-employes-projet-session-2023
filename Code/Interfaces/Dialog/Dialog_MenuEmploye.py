@@ -45,15 +45,15 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
 
         #####
-        specialite_1 = Specialite(p_nom="viande")
-        employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1)
-        employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1, p_gestionnaire=employe_1)
-
-        employe_1.contrat.nb_heures_semaine = 16
-        employe_2.contrat.nb_heures_semaine = 2
-
-        employe_1.contrat.facteur_salaire = 16
-        employe_2.contrat.facteur_salaire = 2
+        # specialite_1 = Specialite(p_nom="viande")
+        # employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1)
+        # employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1, p_gestionnaire=employe_1)
+        #
+        # employe_1.contrat.nb_heures_semaine = 16
+        # employe_2.contrat.nb_heures_semaine = 2
+        #
+        # employe_1.contrat.facteur_salaire = 16
+        # employe_2.contrat.facteur_salaire = 2
 
         ######
 
@@ -66,6 +66,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         if donnee_a_afficher is None:
             donnee_a_afficher = Employe.list_employe
 
+
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
         current_index = self.comboBoxTrierEmploye.currentIndex()
@@ -73,11 +74,11 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
         dictionnaire_triage = {}
 
-        for employe in Employe.list_employe:
+        for employe in donnee_a_afficher:
             dictionnaire_triage[employe.nom] = employe
 
         if current_index == 0:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), )
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
 
         elif current_index == 1:
             dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
