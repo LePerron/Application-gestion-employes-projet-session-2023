@@ -41,11 +41,15 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxContrat.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
         self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
+        self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_employe)
         self.mettre_a_jour_listview()
 
+<<<<<<< HEAD
         specialite_1 = Specialite(p_nom="marc")
         employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1)
         employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1, p_gestionnaire=employe_1)
+=======
+>>>>>>> 4cb70a2d943647345723d3862020b4832ff411e6
 
     def mettre_a_jour_listview(self):
         """
@@ -62,9 +66,11 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             dictionnaire_triage[employe.nom] = employe
 
         if current_index == 0:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), )
+            dictionnaire_triage_nom.reverse()
+
         elif current_index == 1:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys()).reverse()
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
 
         for nom_employe in dictionnaire_triage_nom:
             employe = dictionnaire_triage[nom_employe]
@@ -150,6 +156,33 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant ($)")))
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant ($)")))
 
+    def rechercher_employe(self, lettre_rechercher: str):
+        """
+        Rechercher un employe statiquemnt
+        :param lettre_rechercher: le nom de l'employer à rechercher
+        """
+        index = 0
+        liste_employe_valide = Employe.list_employe
+
+        for employe in liste_employe_valide:
+            for lettre in lettre_rechercher:
+
+                lettre_employe = employe.prenom[index].lower()
+                lettre_recherche_employe = lettre_rechercher[index].lower()
+
+                if lettre_employe != lettre_recherche_employe:
+                    liste_employe_valide.remove(employe)
+
+                index += 1
+        self.liste_employe_valide
+
+
+        # for employe in Employe.list_employe:
+        #     for lettre in employe.prenom:
+        #         if lettre.lower() != lettre_rechercher and lettre_rechercher.index != lettre.index:
+        #             break
+
+
     def anciennete_checkbox_change(self, status):
         """
         affiche l'ancienneté quand le checkbox est coché
@@ -164,7 +197,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
 
     # def trier_a_z_list_view(self):
-    #     ifn
+    #     for employe in Employe.list_employe:
     # def trier_z_a_list_view(self):
     # def trier_croissant_salaire_list_view(self):
     # def trier_decroissant_salaire_list_view(self):

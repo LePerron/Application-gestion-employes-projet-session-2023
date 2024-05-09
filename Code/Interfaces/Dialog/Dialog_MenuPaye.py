@@ -117,6 +117,7 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         """
         if status == 2:
             self.lcdNumberMedianne.show()
+            self.lcdNumberMedianne.display(float(Paye.calculer_mediane_payes()))
         else:
             self.lcdNumberMedianne.hide()
 

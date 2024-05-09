@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>601</width>
-    <height>530</height>
+    <height>490</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>480</y>
-     <width>571</width>
+     <y>430</y>
+     <width>401</width>
      <height>31</height>
     </rect>
    </property>
@@ -105,30 +105,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButtonSupprimerEmploye">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>430</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>7</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Supprimer</string>
-   </property>
-  </widget>
   <widget class="Line" name="line_3">
    <property name="geometry">
     <rect>
@@ -200,30 +176,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButtonAjouterEmploye">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>430</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>10</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Ajouter</string>
-   </property>
-  </widget>
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
@@ -254,30 +206,6 @@
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonModifierEmploye">
-   <property name="geometry">
-    <rect>
-     <x>290</x>
-     <y>430</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>11</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Modifier</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonRetournerMenu">
