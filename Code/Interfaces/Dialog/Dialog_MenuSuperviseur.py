@@ -1,3 +1,7 @@
+from Projet_intra_Entreprise.Code.Classes.classe_Caissier import Caissier
+from Projet_intra_Entreprise.Code.Classes.classe_Commis import Commis
+from Projet_intra_Entreprise.Code.Classes.classe_Gerant import Gerant
+from Projet_intra_Entreprise.Code.Classes.classe_Gestionnaire import Gestionnaire
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_superviseur
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
@@ -27,8 +31,35 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         # self.checkBoxGestionnaire.stateChanged.connect(self.Gestionnaire_change)
         # self.checkBoxGerant.stateChanged.connect(self.gerant_change)
 
+    def mettre_a_jour_listview(self, listview, donnees_a_ajoute):
+        """
+        Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
+        """
+        model = QStandardItemModel()
+        model2 = QStandardItemModel()
+        if listview == "superviseur":
+            if self.checkBoxGerant.isChecked():
+                for gerant in Gerant.list_gerant:
+                    item = QStandardItem(gerant.nom)
+                    model.appendRow(item)
+            if self.checkBoxGestionnaire.isChecked():
+                for gestionnaire in Gestionnaire.list_gestionnaire:
+                    item = QStandardItem(gestionnaire.nom)
+                    model.appendRow(item)
+            self.listViewGerantGestionnaire.setModel(model)
+            if self.checkBoxCaissier.isChecked():
+                for caissier in Caissier.liste_caissier:
+                    item = QStandardItem(caissier.nom)
+                    model2.appendRow(item)
+            if self.checkBoxCommis.isChecked():
+                for commis in Commis.list_commis:
+                    item = QStandardItem(commis.nom)
+                    model2.appendRow(item)
+            self.listViewCommisCaissier.setModel(model2)
+
+
     @pyqtSlot()
-    def on_pushButtonRetournerEmploye_clicked(self):
+    def on_pushButtonRetournerMenu_clicked(self):
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         """
         Ferme la fenêtre MenuSuperviseur lorsque l'utilisateur click sur le bouton Retourner au menu

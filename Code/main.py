@@ -8,6 +8,9 @@ from PyQt5 import QtWidgets
 import jsonpickle
 import sys
 
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSuperviseur import MenuSuperviseur
+
+
 class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMenuPrincipal):
     """
     Nome de la classe : MenuPrincipal
@@ -31,6 +34,14 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe.show()
         self.hide()
         dialog_menu_employe.exec()
+        self.show()
+
+    @pyqtSlot()
+    def on_pushButtonSuperviseur_clicked(self):
+        dialogue_menu_superviseur = MenuSuperviseur()
+        dialogue_menu_superviseur.show()
+        self.hide()
+        dialogue_menu_superviseur.exec()
         self.show()
 
     @pyqtSlot()
