@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>824</width>
-    <height>628</height>
+    <width>822</width>
+    <height>606</height>
    </rect>
   </property>
   <property name="font">
@@ -240,7 +240,7 @@
     <rect>
      <x>650</x>
      <y>180</y>
-     <width>154</width>
+     <width>159</width>
      <height>331</height>
     </rect>
    </property>
@@ -277,29 +277,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="checkBoxPrenom">
-      <property name="font">
-       <font>
-        <pointsize>11</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Prénom</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="Line" name="line_7">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCheckBox" name="checkBoxNom">
+     <widget class="QCheckBox" name="checkBoxNomComplet">
       <property name="font">
        <font>
         <pointsize>11</pointsize>
@@ -315,6 +293,28 @@
     </item>
     <item>
      <widget class="Line" name="line_6">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QCheckBox" name="checkBoxPosteComplet">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Poste</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_4">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -352,26 +352,26 @@
      </widget>
     </item>
     <item>
-     <widget class="Line" name="line_4">
+     <widget class="Line" name="line_9">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="checkBoxPost">
+     <widget class="QCheckBox" name="checkBoxContrat">
       <property name="font">
        <font>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Post</string>
+       <string>Contrat de l'employé</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="Line" name="line_9">
+     <widget class="Line" name="line_10">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>

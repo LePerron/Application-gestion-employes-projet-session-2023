@@ -131,27 +131,48 @@ class Employe:
         """
         return f"{self.poste.capitalize()} {self.specialite}"
 
-    def afficher_informations_employe(self, identifiant_=True, nom_=True, poste_=True, contrat_=True, salaire=True, anciennete_=True, date_engagement=True) -> str:
+    def afficher_informations_employe(self, identifiant_=True, nom_=True, poste_=True, contrat_=True, salaire_=True, anciennete_=True, date_engagement_=True) -> str:
         """
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage selon les paramètres d'entrés.
         """
         chaine_caracteres = ""
-        if identifiant_:
-            chaine_caracteres += f" ↳ Identifiant : #{self.identifiant}\n"
-        if nom_:
-            chaine_caracteres += f" ↳ Nom :  {self._prenom} {self._nom}\n"
-        if poste_:
-            chaine_caracteres += f" ↳ Poste : {self.obtenir_poste_complet()}\n"
-        if contrat_:
-            chaine_caracteres += f" ↳ Contrat : #{self.contrat.identifiant_contrat}\n"
-        if salaire:
-            chaine_caracteres += f" ↳ Salaire : {self.contrat.salaire_horaire} $/h\n"
-        if anciennete_:
-            chaine_caracteres += f" ↳ Ancienneté : {self.obtenir_anciennete()} an(s)\n"
-        if date_engagement:
-            date_engagement = str(self.date_engagement).strip("00:00:00")
-            chaine_caracteres += f" ↳ La date d'engagement : {date_engagement}\n"
+        try:
+            if identifiant_:
+                chaine_caracteres += f" ↳ Identifiant : #{self.identifiant}\n"
+        except NameError:
+            pass
+        try:
+            if nom_:
+                chaine_caracteres += f" ↳ Nom :  {self._prenom} {self._nom}\n"
+        except NameError:
+            pass
+        try:
+            if poste_:
+                chaine_caracteres += f" ↳ Poste : {self.obtenir_poste_complet()}\n"
+        except NameError:
+            pass
+        try:
+            if salaire_:
+                chaine_caracteres += f" ↳ Salaire : {self.contrat.salaire_horaire} $/h\n"
+        except NameError:
+            pass
+        try:
+            if contrat_:
+                chaine_caracteres += f" ↳ Contrat : #{self.contrat.identifiant_contrat}\n"
+        except NameError:
+            pass
+        try:
+            if anciennete_:
+                chaine_caracteres += f" ↳ Ancienneté : {self.obtenir_anciennete()} an(s)\n"
+        except NameError:
+            pass
+        try:
+            if date_engagement_:
+                date_engagement = str(self.date_engagement).strip("00:00:00")
+                chaine_caracteres += f" ↳ La date d'engagement : {date_engagement}\n"
+        except NameError:
+            pass
         return chaine_caracteres
 
     def calculer_paye(self) -> float:

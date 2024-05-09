@@ -43,15 +43,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.listViewEmploye.setModel(model)
 
         for employe in Employe.list_employe:
-            # identifiant
-            # nom
-            # poste
-            # contrat
-            # salaire
-            # anciennete
-            # nb_heure
-            # date_engagement
-            item = QStandardItem(str(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.poste.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), self.checkBoxIdentifiant.isChecked(), )))
+            item = QStandardItem(str(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPoste.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked())))
             model.appendRow(item)
 
     @pyqtSlot()
