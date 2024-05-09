@@ -27,11 +27,11 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des superviseurs")
         self.checkBoxCaissier.stateChanged.connect(self.caissier_change)
-        # self.checkBoxCommis.stateChanged.connect(self.commis_change)
-        # self.checkBoxGestionnaire.stateChanged.connect(self.Gestionnaire_change)
-        # self.checkBoxGerant.stateChanged.connect(self.gerant_change)
+        self.checkBoxCommis.stateChanged.connect(self.commis_change)
+        self.checkBoxGestionnaire.stateChanged.connect(self.gestionnaire_change)
+        self.checkBoxGerant.stateChanged.connect(self.gerant_change)
 
-        self.mettre_a_jour_listview("superviseur", superviseur_selectionne=Commis.list_commis)
+        self.mettre_a_jour_listview("superviseur", None)
 
     def mettre_a_jour_listview(self, listview, superviseur_selectionne):
         """
@@ -49,7 +49,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                     item = QStandardItem(gestionnaire.nom)
                     model_superviseur.appendRow(item)
             self.listViewGerantGestionnaire.setModel(model_superviseur)
-        else:
+        if listview == "employe":
             if superviseur_selectionne:
                 model_commis_caissier = QStandardItemModel()
                 if self.checkBoxCaissier.isChecked():
@@ -77,19 +77,59 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
 
     def caissier_change(self, status):
         """
-        Affiche les caissier si coché
+        Affiche les caissiers si coché
         :param status: le status de la checkbox (coché ou non)
         """
         nom_superviseur_actuel = self.listViewGerantGestionnaire.currentIndex()
         if nom_superviseur_actuel.isValid():
+            self.mettre_a_jour_listview("employe", nom_superviseur_actuel)
             for employe in Employe.list_employe:
-                if nom_superviseur_actuel == employe.nom:
-                    if employe.poste == "Gerant":
+                if nom_superviseur_actuel == employe.gestionnaire:
+                    if status == 2:
                         return
-                    # else:
-                    #    if status == 2:
-                    #         print(caissier for caissier in employe.liste_caissier)
-#
+                    else:
+                        employe.hide()
+
+    def commis_change(self, status):
+        """
+        Affiche les commis si coché
+        :param status: le status de checkbox (coché ou non)
+        """
+        nom_superviseur_actuel = self.listViewGerantGestionnaire.currentIndex()
+        if nom_superviseur_actuel.isValid():
+            self.mettre_a_jour_listview("employe", nom_superviseur_actuel)
+            for employe in Employe.list_employe:
+                if nom_superviseur_actuel == employe.gestionnaire:
+                    if status == 2:
+                        return
+                    else:
+                        employe.hide()
+
+    def gerant_change(self, status):
+        """
+        Affiche les gerants si coché
+        :param status: le status de checkbox (coché ou non)
+        """
+        self.mettre_a_jour_listview("superviseur", None)
+        for employe in Employe.list_employe:
+            if employe.poste == "Gerant":
+                if status == 2:
+                    return
+                else:
+                    employe.hide()
+
+    def gestionnaire_change(self, status):
+        """
+        Affiche les gestionnaires si coché
+        :param status: le status de checkbox (coché ou non)
+        """
+        self.mettre_a_jour_listview("supeviseur", None)
+        for employe in Employe.list_employe:
+            if employe.poste == "Gestionnaire":
+                if status == 2:
+                    return
+                else:
+                    employe.hide()
 def main():
     """
     Méthode main : Point d'entré du programme.
