@@ -112,9 +112,9 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         dialogue_menu_superviseur = MenuSuperviseur()
         dialogue_menu_superviseur.show()
-        self.hide()
+        self.destroy()
         dialogue_menu_superviseur.exec()
-        self.show()
+        main()
 
 
     @pyqtSlot()

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>376</width>
-    <height>448</height>
+    <height>449</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
       <height>0</height>
      </size>
     </property>
-    <layout class="QVBoxLayout" name="LayoutMenu" stretch="4,2,2,2,2,2,2,2">
+    <layout class="QVBoxLayout" name="LayoutMenu" stretch="4,2,2,2,2,2,2,2,2">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -83,6 +83,36 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonMenuEmploye">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Gérer les Employés</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>false</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonMenuEmploye_2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
