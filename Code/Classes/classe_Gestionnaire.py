@@ -113,4 +113,4 @@ class Gestionnaire(Employe):
         Une fonction magique qui permet de retourner dans un beau format les informations du gestionnaire.
         :return: Les informations du gestionnaire dans un beau format d'affichage.
         """
-        return f"{self.afficher_informations_employe()} - GÉRANT : {self.gerant}"
+        return f"{self.afficher_informations_employe()}"

@@ -28,4 +28,4 @@ class Caissier(Employe):
         Une fonction magique qui permet de retourner dans un beau format les informations du caissier.
         :return: Les informations du caissier dans un beau format d'affichage.
         """
-        return f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire}"
+        return f"{self.afficher_informations_employe()}"

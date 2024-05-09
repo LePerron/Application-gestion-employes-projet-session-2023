@@ -28,4 +28,4 @@ class Commis(Employe):
         Une fonction magique qui permet de retourner dans un bon format les informations du commis.
         :return: Les informations du commis dans un beau format d'affichage.
         """
-        return f"{self.afficher_informations_employe()} - GESTIONNAIRE : {self.gestionnaire}"
+        return f"{self.afficher_informations_employe()}"

@@ -131,23 +131,27 @@ class Employe:
         """
         return f"{self.poste.capitalize()} {self.specialite}"
 
-    def afficher_informations_employe(self, identifiant=True, nom=True, poste=True, contrat=True, salaire=True, anciennete=True, nb_heure=True, superviseur=True) -> str:
+    def afficher_informations_employe(self, identifiant_=True, nom_=True, poste_=True, contrat_=True, salaire=True, anciennete_=True, nb_heure_=True, date_engagement=True) -> str:
         """
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage selon les paramètres d'entrés.
         """
         chaine_caracteres = ""
-        if identifiant:
-            chaine_caracteres += f"IDENTIFIANT : {self.identifiant}"
-        if nom:
-            chaine_caracteres += f"Nom :  {self._prenom} {self._nom}"
-        if poste:
-            chaine_caracteres += f"Poste : {self.obtenir_poste_complet()}"
-#         return (f"""IDENTIFIANT : {self._identifiant}
-# ↳ Nom :  {self._prenom} {self._nom}
-# ↳ Poste : {self.obtenir_poste_complet()}
-# ↳ Contrat : {self.contrat.identifiant_contrat}
-# """)
+        if identifiant_:
+            chaine_caracteres += f" ↳ Identifiant : #{self.identifiant}\n"
+        if nom_:
+            chaine_caracteres += f" ↳ Nom :  {self._prenom} {self._nom}\n"
+        if poste_:
+            chaine_caracteres += f" ↳ Poste : {self.obtenir_poste_complet()}\n"
+        if contrat_:
+            chaine_caracteres += f" ↳ Contrat : #{self.contrat.identifiant_contrat}\n"
+        if salaire:
+            chaine_caracteres += f" ↳ Salaire : {self.contrat.salaire_horaire} $/h\n"
+        if anciennete_:
+            chaine_caracteres += f" ↳ Ancienneté : {self.obtenir_anciennete()} an(s)\n"
+        if nb_heure_:
+            chaine_caracteres += f" ↳ Nombre d'heure par semaine : {self.contrat.nb_heures_semaine} h/semaine\n"
+        return chaine_caracteres
 
     def calculer_paye(self) -> float:
         """

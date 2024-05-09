@@ -67,9 +67,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         dialog_ajouter_employe = AjouterEmploye()
         dialog_ajouter_employe.show()
-        self.hide()
         dialog_ajouter_employe.exec()
-        self.show()
         self.mettre_a_jour_listview()
 
     @pyqtSlot()
@@ -98,24 +96,10 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             fenetre_modifier_employe.dateEditDateEngagement.setReadOnly(True)
             fenetre_modifier_employe.lineEditIdentifiant.setReadOnly(True)
 
-            self.hide()
             fenetre_modifier_employe.exec()
-            self.show()
             self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner l'employé que vous souhaitez modifier")
-
-    @pyqtSlot()
-    def on_pushButtonMenuSuperviseur_clicked(self):
-        """
-        Ouvre menu superviseur
-        """
-        dialogue_menu_superviseur = MenuSuperviseur()
-        dialogue_menu_superviseur.show()
-        self.destroy()
-        dialogue_menu_superviseur.exec()
-        main()
-
 
     @pyqtSlot()
     def on_pushButtonSupprimerEmploye_clicked(self):
