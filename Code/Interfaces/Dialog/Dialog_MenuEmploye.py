@@ -34,11 +34,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
         self.checkBoxNbHeure.stateChanged.connect(self.nbheure_checkbox_change)
 
-        ###
-        from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
-        employe_1 = Caissier(p_nom="Peron", p_prenom="Marc-Antoine", p_identifiant="2360530", p_specialite=Specialite(p_nom="Viande"), p_date_engagement=datetime.datetime.now(), p_gestionnaire="Justin Trudeau")
-        ###
-
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
@@ -49,7 +44,15 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.listViewEmploye.setModel(model)
 
         for employe in Employe.list_employe:
-            item = QStandardItem(str(employe))
+            # identifiant
+            # nom
+            # poste
+            # contrat
+            # salaire
+            # anciennete
+            # nb_heure
+            # date_engagement
+            item = QStandardItem(str(employe.afficher_informations_employe()))
             model.appendRow(item)
 
     @pyqtSlot()

@@ -151,6 +151,9 @@ class Employe:
             chaine_caracteres += f" ↳ Ancienneté : {self.obtenir_anciennete()} an(s)\n"
         if nb_heure_:
             chaine_caracteres += f" ↳ Nombre d'heure par semaine : {self.contrat.nb_heures_semaine} h/semaine\n"
+        if date_engagement:
+            date_engagement = str(self.date_engagement).strip("00:00:00")
+            chaine_caracteres += f" ↳ La date d'engagement : {date_engagement}\n"
         return chaine_caracteres
 
     def calculer_paye(self) -> float:
