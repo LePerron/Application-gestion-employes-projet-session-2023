@@ -6,6 +6,7 @@ from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuPaye import MenuP
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtWidgets
 import jsonpickle
+import json
 import sys
 
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSuperviseur import MenuSuperviseur
@@ -34,6 +35,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe.show()
         self.hide()
         dialog_menu_employe.exec()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -50,6 +52,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_contrat.show()
         self.hide()
         dialog_menu_contrat.exec()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -58,6 +61,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_paye.show()
         self.hide()
         dialog_menu_paye.exec()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -66,6 +70,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_specialite.show()
         self.hide()
         dialog_menu_specialite.exec()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -73,12 +78,56 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         # *** À FAIRE *** SAUVEGARDE A LIEU LÀ #
         sys.exit(self)
 
+    @staticmethod
+    def serialisation():
+        """
+        Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
+        :return:
+        """
+        from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+        from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
+        from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+        dict_serialise = {
+            "contrat.json": ContratEmploi.list_contrat,
+            "paye.json": Paye.list_payes,
+            "specialite.json": Specialite.list_des_specialites,
+            "employe.json": Employe.list_employe
+        }
 
-def serialisation():
-    """
-    Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
-    :return:
-    """
+        for cle in dict_serialise.keys():
+            donnes_serialise = jsonpickle.encode(dict_serialise[cle])
+            # Sauvegarde dans un fichier
+            chemin = f"../Fichiers_sérialisations/{cle}"
+            with open(chemin, 'w') as file:
+                file.write(donnes_serialise)
+
+    @staticmethod
+    def deserialisation():
+        """
+        Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
+        :return:
+        """
+        from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+        from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
+        from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+        dict_serialise = {
+            "contrat.json": ContratEmploi.list_contrat,
+            "paye.json": Paye.list_payes,
+            "specialite.json": Specialite.list_des_specialites,
+            "employe.json": Employe.list_employe
+        }
+        for cle in dict_serialise.keys():
+            chemin = f"../Fichiers_sérialisations/{cle}"
+
+            with open(chemin, 'r') as fichier:
+                if not fichier.readlines():
+                    continue
+
+            with open(chemin, 'r') as fichier:
+                data = fichier.read()
+                dict_serialise[cle] = jsonpickle.decode(data)
 
 
 def main():
@@ -93,4 +142,5 @@ def main():
 
 
 if __name__ == "__main__":
+    MenuPrincipal.deserialisation()
     main()
