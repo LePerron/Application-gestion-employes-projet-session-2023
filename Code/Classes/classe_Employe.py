@@ -131,7 +131,7 @@ class Employe:
         """
         return f"{self.poste.capitalize()} {self.specialite}"
 
-    def afficher_informations_employe(self, identifiant_=True, nom_=True, poste_=True, contrat_=True, salaire=True, anciennete_=True, nb_heure_=True, date_engagement=True) -> str:
+    def afficher_informations_employe(self, identifiant_=True, nom_=True, poste_=True, contrat_=True, salaire=True, anciennete_=True, date_engagement=True) -> str:
         """
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage selon les paramètres d'entrés.
@@ -149,8 +149,6 @@ class Employe:
             chaine_caracteres += f" ↳ Salaire : {self.contrat.salaire_horaire} $/h\n"
         if anciennete_:
             chaine_caracteres += f" ↳ Ancienneté : {self.obtenir_anciennete()} an(s)\n"
-        if nb_heure_:
-            chaine_caracteres += f" ↳ Nombre d'heure par semaine : {self.contrat.nb_heures_semaine} h/semaine\n"
         if date_engagement:
             date_engagement = str(self.date_engagement).strip("00:00:00")
             chaine_caracteres += f" ↳ La date d'engagement : {date_engagement}\n"
