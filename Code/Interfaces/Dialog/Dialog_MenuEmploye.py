@@ -30,9 +30,13 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         super(MenuEmploye, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Employés")
+        self.checkBoxIdentifiant.stateChanged.connect(self.mettre_a_jour_listview)
+        self.checkBoxNomComplet.stateChanged.connect(self.mettre_a_jour_listview)
+        self.checkBoxPosteComplet.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxSalaire.stateChanged.connect(self.salaire_checkbox_change)
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
-
+        self.checkBoxContrat.stateChanged.connect(self.mettre_a_jour_listview)
+        self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
@@ -43,7 +47,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.listViewEmploye.setModel(model)
 
         for employe in Employe.list_employe:
-            item = QStandardItem(str(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPoste.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked())))
+            item = QStandardItem(str(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPosteComplet.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked())))
             model.appendRow(item)
 
     @pyqtSlot()
@@ -116,6 +120,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         affiche le salaire quand le checkbox est coché
         :param status: le status de la checkbox (coché ou non)
         """
+        self.mettre_a_jour_listview()
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant ($)")
             self.comboBoxTrierEmploye.addItem("Décroissant ($)")
@@ -128,12 +133,14 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         affiche l'ancienneté quand le checkbox est coché
         :param status: le status de la checkbox (coché ou non)
         """
+        self.mettre_a_jour_listview()
         if status == 2:
             self.comboBoxTrierEmploye.addItem("Croissant (anciennté)")
             self.comboBoxTrierEmploye.addItem("Décroissant (anciennté)")
         else:
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (anciennté)")))
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
+
 
 
 def main():
