@@ -112,7 +112,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButtonMenuEmploye_2">
+      <widget class="QPushButton" name="pushButtonSuperviseur">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -128,7 +128,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Gérer les Employés</string>
+        <string>Gérer les Superviseurs</string>
        </property>
        <property name="checkable">
         <bool>false</bool>
