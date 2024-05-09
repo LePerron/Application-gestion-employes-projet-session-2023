@@ -116,6 +116,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             employe_temporaire.date_promotion = date_promotion
         if poste == "Commis" or "Caissier":
             gestionnaire = self.comboBoxSuperviseur.currentText()
+            employe_temporaire.gestionnaire = gestionnaire
 
         if nom and prenom and identifiant and specialite:
             if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
@@ -146,6 +147,10 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             self.labelDatePromotion.hide()
             self.dateEditDatePromotion.hide()
             self.labelErreurDatePromotion.hide()
+            self.labelSuperviseur.show()
+            self.comboBoxSuperviseur.show()
+            self.labelErreurSuperviseur.show()
+
 
 
 def main():
