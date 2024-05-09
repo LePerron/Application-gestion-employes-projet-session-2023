@@ -131,15 +131,18 @@ class Employe:
         """
         return f"{self.poste.capitalize()} {self.specialite}"
 
-    def afficher_informations_employe(self, identifiant, nom, poste, contrat, salaire, anciennete, nb_heure, superviseur) -> str:
+    def afficher_informations_employe(self, identifiant=True, nom=True, poste=True, contrat=True, salaire=True, anciennete=True, nb_heure=True, superviseur=True) -> str:
         """
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
-        :return: Les informations de l'employé dans un beau format d'affichage.
+        :return: Les informations de l'employé dans un beau format d'affichage selon les paramètres d'entrés.
         """
-        return (f"""IDENTIFIANT : {self._identifiant}
- ↳ Nom :  {self._prenom} {self._nom} 
- ↳ Poste : {self.obtenir_poste_complet()} 
- ↳ Contrat : {self.contrat.identifiant_contrat}""")
+        if identifiant and :
+            IDENTIFIANT : self.identifiant
+#         return (f"""IDENTIFIANT : {self._identifiant}
+# ↳ Nom :  {self._prenom} {self._nom}
+# ↳ Poste : {self.obtenir_poste_complet()}
+# ↳ Contrat : {self.contrat.identifiant_contrat}
+# """)
 
     def calculer_paye(self) -> float:
         """
