@@ -55,9 +55,11 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             dictionnaire_triage[employe.nom] = employe
 
         if current_index == 0:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), )
+            dictionnaire_triage_nom.reverse()
+
         elif current_index == 1:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys()).reverse()
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
 
         for nom_employe in dictionnaire_triage_nom:
             employe = dictionnaire_triage[nom_employe]
@@ -142,6 +144,23 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         else:
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant ($)")))
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant ($)")))
+
+    def rechercher_employe(self, employe_rechercher: str):
+        """
+        Rechercher un employe statiquemnt
+        :param employer_rechercher: le nom de l'employer à rechercher
+        """
+        liste_employe = Employe.list_employe
+        liste_employe_possible = []
+        lettre_employe_rechercher = []
+
+        for lettre in employe_rechercher:
+            lettre_employe_rechercher.append(lettre)
+        for employe in liste_employe:
+            for employe_lettre in employe:
+                if employe_lettre in lettre_employe_rechercher:
+                    liste_employe_possible.append(employe)
+                    liste_employe.remove(employe)
 
     def anciennete_checkbox_change(self, status):
         """
