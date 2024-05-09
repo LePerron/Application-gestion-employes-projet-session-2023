@@ -99,9 +99,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         }
 
         for cle in dict_serialise.keys():
-            for objet in dict_serialise[cle]:
-
-
+            for objets in dict_serialise[cle]:
 
             donnes_serialise = jsonpickle.encode()
             chemin = f"../Fichiers_sérialisations/{cle}"
