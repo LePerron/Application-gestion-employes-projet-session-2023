@@ -240,7 +240,7 @@
     <rect>
      <x>650</x>
      <y>180</y>
-     <width>151</width>
+     <width>154</width>
      <height>331</height>
     </rect>
    </property>
@@ -378,14 +378,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="checkBoxSuperviseur">
+     <widget class="QCheckBox" name="checkBoxDateEngagement">
       <property name="font">
        <font>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Superviseur</string>
+       <string>Date d'engagement</string>
       </property>
      </widget>
     </item>

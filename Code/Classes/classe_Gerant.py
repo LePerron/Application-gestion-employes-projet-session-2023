@@ -10,6 +10,8 @@ class Gerant(Employe):
     Classe enfant Gerant de la classe mère Employe.
     """
 
+    list_gerant = []
+
     def __init__(self, p_specialite=None, p_liste_gestionnaire=None,
                  p_identifiant: str = "", p_nom: str = "", p_prenom: str = "", p_date_engagement: date = None,
                  p_contrat=None, p_date_gerant: date = None):
@@ -25,7 +27,7 @@ class Gerant(Employe):
 
         self.liste_gestionnaire = p_liste_gestionnaire
         self._date_gerant = p_date_gerant
-
+        Gerant.list_gerant.append(self)
     @property
     def date_gerant(self):
         return self._date_gerant
