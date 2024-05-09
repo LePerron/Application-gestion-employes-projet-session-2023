@@ -58,7 +58,7 @@ class Paye:
         return self._date_de_paye
 
     @date_de_paye.setter
-    def date_de_paye(self, v_date_de_paye):
+    def date_de_paye(self, v_date_de_paye) -> None:
         if DATE_FONDATION_ENTREPRISE <= v_date_de_paye <= datetime.now():
             self._date_de_paye = v_date_de_paye
 
@@ -136,8 +136,8 @@ class Paye:
         except NameError:
             pass
         try:
-            if identifiant_paye_:
-                chaine_caracteres += f" ↳ Identifiant de paye : #{self.identifiant_paye}\n"
+            if employe_:
+                chaine_caracteres += f" ↳ Nom et prenom : {self.employe.prenom} {self.employe.nom}\n"
         except NameError:
             pass
         try:

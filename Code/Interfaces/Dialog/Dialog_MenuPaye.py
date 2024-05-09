@@ -43,7 +43,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
     def calculer_toute_les_payes():
         for employe in Employe.list_employe:
             paye = Paye()
-            paye.date_de_paye = datetime.now()
+            date_paye = datetime.now().strftime("%d/%m/%Y")
+            paye.date_de_paye = datetime.strptime(str(date_paye), "%d/%m/%Y")
             paye.employe = employe.identifiant
             paye.montant_paye = float(employe.calculer_paye())
 
