@@ -131,7 +131,7 @@ class Employe:
         """
         return f"{self.poste.capitalize()} {self.specialite}"
 
-    def afficher_informations_employe(self) -> str:
+    def afficher_informations_employe(self, identifiant, nom, poste, contrat, salaire, anciennete, nb_heure, superviseur) -> str:
         """
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage.
