@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>393</width>
-    <height>681</height>
+    <height>779</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
      <x>0</x>
      <y>70</y>
      <width>391</width>
-     <height>611</height>
+     <height>701</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -86,7 +86,7 @@
       <x>20</x>
       <y>20</y>
       <width>351</width>
-      <height>571</height>
+      <height>661</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -271,6 +271,50 @@
        </item>
        <item>
         <spacer name="verticalSpacerFacteur">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Ignored</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>68</width>
+           <height>13</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelSuperviseur">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Superviseur</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <widget class="QComboBox" name="comboBoxSuperviseur"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelErreurSuperviseur">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacerFacteur_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
