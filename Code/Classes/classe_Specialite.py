@@ -1,3 +1,5 @@
+import jsonpickle
+
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 
 
@@ -5,7 +7,6 @@ class Specialite:
     """
     Classe Specialite
     """
-
     list_des_specialites = []
 
     def __init__(self, p_nom: str = "", p_description: str = ""):
@@ -16,7 +17,9 @@ class Specialite:
         """
         self._nom = p_nom
         self.description = p_description
-        Specialite.list_des_specialites.append(self)
+
+        if not Specialite.list_des_specialites:
+            Specialite.list_des_specialites.append(self)
 
     @property
     def nom(self):
@@ -75,6 +78,7 @@ class Specialite:
                 list_employes_selon_specialite.append(employe)
         return list_employes_selon_specialite
 
+
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un beau format les informations de la spécialité.
@@ -90,3 +94,6 @@ class Specialite:
         """
         return (f"Nom : {self._nom}"
                 f"\nDescription : {self.description}")
+
+
+
