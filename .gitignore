@@ -1,4 +1,4 @@
-/**/*.pyc
-Code/Classes/__pycache__/**.pyc
-Code/Classes/*/__pycache__/**.pyc
-Code/Dialog/*/__pycache__/**.pyc
+/**/*.*.pyc
+Code/Classes/__pycache__/*.*.pyc
+Code/Classes/*/__pycache__/*.*.pyc
+Code/Dialog/*/__pycache__/*.*.pyc
