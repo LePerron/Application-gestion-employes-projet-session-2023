@@ -42,7 +42,13 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         for specialite in Specialite.list_des_specialites:
             self.comboBoxSpecialite.addItem(specialite.nom)
 
+        for employe in Employe.list_employe:
+            if employe.poste == "Gestionnaire" or "Gerant":
+                self.comboBoxSuperviseur.addItem(employe.nom)
+
         self.comboBoxPoste.activated.connect(self.index_combobox_change)
+        self.comboBoxPoste.activated.connect(self.index_combobox_change)
+
 
     def reset_label_erreur(self):
         """
@@ -108,6 +114,8 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         if poste == "Gerant" or "Gestionnnaire":
             date_promotion = self.dateEditDatePromotion.text()
             employe_temporaire.date_promotion = date_promotion
+        if poste == "Commis" or "Caissier":
+            gestionnaire = self.comboBoxSuperviseur.currentText()
 
         if nom and prenom and identifiant and specialite:
             if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom:
@@ -126,6 +134,10 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         :param index:
         :return:
         """
+        if index == 3:
+            self.labelSuperviseur.hide()
+            self.comboBoxSuperviseur.hide()
+            self.labelErreurSuperviseur.hide()
         if index >= 2:
             self.labelDatePromotion.show()
             self.dateEditDatePromotion.show()
