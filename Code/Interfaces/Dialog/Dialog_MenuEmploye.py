@@ -152,18 +152,20 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         Rechercher un employe statiquemnt
         :param lettre_rechercher: le nom de l'employer à rechercher
         """
-        index_recherche = 0
         index = 0
-        liste_employe_valide = []
+        liste_employe_valide = Employe.list_employe
 
-        for lettre in lettre_rechercher:
-            for employe in Employe.list_employe:
-                if employe.nom[index].lower() == lettre_rechercher[index]:
-                    liste_employe_valide.append(employe)
+        for employe in liste_employe_valide:
+            for lettre in lettre_rechercher:
 
-                index = lettre_rechercher[index_recherche]
-                index_recherche += 1
+                lettre_employe = employe.prenom[index].lower()
+                lettre_recherche_employe = lettre_rechercher[index].lower()
 
+                if lettre_employe != lettre_recherche_employe:
+                    liste_employe_valide.remove(employe)
+
+                index += 1
+        self.liste_employe_valide
 
 
         # for employe in Employe.list_employe:
