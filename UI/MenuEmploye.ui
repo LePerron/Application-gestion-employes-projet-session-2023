@@ -216,30 +216,6 @@
     <string>Supprimer</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonMenuSuperviseur">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>530</y>
-     <width>151</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>13</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>10</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Gestion superviseur</string>
-   </property>
-  </widget>
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
@@ -484,10 +460,10 @@
   <widget class="QPushButton" name="pushButtonRetournerMenu">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>580</y>
-     <width>151</width>
-     <height>31</height>
+     <x>640</x>
+     <y>550</y>
+     <width>161</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -498,7 +474,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="text">

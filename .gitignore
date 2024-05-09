@@ -1,2 +1,3 @@
 /**/*.pyc
 Code/Classes/__pycache__/**.pyc
+Code/Classes/*/__pycache__/**.pyc

@@ -46,10 +46,10 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                 if nom_superviseur_actuel == employe.nom:
                     if employe.poste == "Gerant":
                         return
-                    else:
-                       if status == 2:
-                            print(caissier for caissier in employe.liste_caissier)
-
+                    # else:
+                    #    if status == 2:
+                    #         print(caissier for caissier in employe.liste_caissier)
+#
 def main():
     """
     Méthode main : Point d'entré du programme.
