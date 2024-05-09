@@ -188,7 +188,7 @@ class Ui_DialogMenuEmploye(object):
         self.checkBoxDateEngagement.setObjectName("checkBoxDateEngagement")
         self.verticalLayout_3.addWidget(self.checkBoxDateEngagement)
         self.labelErreurSelection = QtWidgets.QLabel(DialogMenuEmploye)
-        self.labelErreurSelection.setGeometry(QtCore.QRect(20, 510, 591, 31))
+        self.labelErreurSelection.setGeometry(QtCore.QRect(20, 521, 591, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(5)
