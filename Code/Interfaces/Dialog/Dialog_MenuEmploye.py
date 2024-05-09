@@ -47,7 +47,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
 
-        if current_index == 
+        if current_index == 0
         dictionnaire_triage = {}
         for employe in Employe.list_employe:
             dictionnaire_triage[employe.nom] = employe
