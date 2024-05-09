@@ -359,14 +359,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QCheckBox" name="checkBoxNbHeure">
+     <widget class="QCheckBox" name="checkBoxPost">
       <property name="font">
        <font>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Nombre d'heure</string>
+       <string>Post</string>
       </property>
      </widget>
     </item>
