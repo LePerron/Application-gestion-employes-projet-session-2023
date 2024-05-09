@@ -136,8 +136,8 @@ class Employe:
         Une fonction qui permet de retourner dans un bon format les informations de l'employé.
         :return: Les informations de l'employé dans un beau format d'affichage selon les paramètres d'entrés.
         """
-        if identifiant and :
-            IDENTIFIANT : self.identifiant
+        if identifiant:
+            "IDENTIFIANT : self.identifiant"
 #         return (f"""IDENTIFIANT : {self._identifiant}
 # ↳ Nom :  {self._prenom} {self._nom}
 # ↳ Poste : {self.obtenir_poste_complet()}
