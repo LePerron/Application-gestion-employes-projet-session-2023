@@ -33,7 +33,8 @@ class Employe:
             from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
             self.contrat = ContratEmploi(p_employe=self)
 
-        Employe.list_employe.append(self)
+        if self.identifiant == p_identifiant:
+            Employe.list_employe.append(self)
 
     @property
     def identifiant(self):
