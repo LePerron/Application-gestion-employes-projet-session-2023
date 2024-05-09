@@ -37,16 +37,24 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxAnciennete.stateChanged.connect(self.anciennete_checkbox_change)
         self.checkBoxContrat.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
+        self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview(self.comboBoxTrierEmploye.currentIndex()))
         self.mettre_a_jour_listview()
 
-    def mettre_a_jour_listview(self):
+    def mettre_a_jour_listview(self, current_index=None):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un employe
         """
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
 
+        if current_index == 
+        dictionnaire_triage = {}
         for employe in Employe.list_employe:
+            dictionnaire_triage[employe.nom] = employe
+
+        dictionnaire_triage = sorted(dictionnaire_triage.keys())
+        for nom_employe in dictionnaire_triage:
+            employe = dictionnaire_triage[nom_employe]
             item = QStandardItem(str(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPosteComplet.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked())))
             model.appendRow(item)
 
@@ -141,7 +149,14 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (anciennté)")))
             self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
 
+    def trier_a_z_list_view(self):
+        ifn
+    def trier_z_a_list_view(self):
+    def trier_croissant_salaire_list_view(self):
+    def trier_decroissant_salaire_list_view(self):
+    def trier_croissant_anciennete_list_view(self):
 
+    def trier_decroissant_anciennete_list_view(self):
 
 def main():
     """
