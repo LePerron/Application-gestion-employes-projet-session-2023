@@ -162,9 +162,12 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
     # def trier_croissant_salaire_list_view(self):
     # def trier_decroissant_salaire_list_view(self):
     # def trier_croissant_anciennete_list_view(self):
-#
+    #
     # def trier_decroissant_anciennete_list_view(self):
-#
+
+    # def trier_decroissant_anciennete_list_view(self):
+
+
 def main():
     """
     Méthode main : Point d'entré du programme.

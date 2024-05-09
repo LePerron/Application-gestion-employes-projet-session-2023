@@ -30,6 +30,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.checkBoxCommis.stateChanged.connect(self.commis_change)
         self.checkBoxGestionnaire.stateChanged.connect(self.gestionnaire_change)
         self.checkBoxGerant.stateChanged.connect(self.gerant_change)
+        self.listViewGerantGestionnaire.selectionModel().selectionChanged.connect(self.mettre_a_jour_listview)
 
         self.mettre_a_jour_listview("superviseur", None)
 
@@ -37,19 +38,22 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
         """
-        model_superviseur = QStandardItemModel()
         if listview == "superviseur":
+            model_superviseur = QStandardItemModel()
+
             if self.checkBoxGerant.isChecked():
-                model_superviseur = QStandardItemModel()
                 for gerant in Gerant.list_gerant:
                     item = QStandardItem(gerant.nom)
                     model_superviseur.appendRow(item)
+
             if self.checkBoxGestionnaire.isChecked():
                 for gestionnaire in Gestionnaire.list_gestionnaire:
                     item = QStandardItem(gestionnaire.nom)
                     model_superviseur.appendRow(item)
             self.listViewGerantGestionnaire.setModel(model_superviseur)
-        if listview == "employe":
+
+        else:
+
             if superviseur_selectionne:
                 model_commis_caissier = QStandardItemModel()
                 if self.checkBoxCaissier.isChecked():
@@ -58,14 +62,15 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                             for caissier in employe.liste_caissier:
                                 item = QStandardItem(caissier.nom)
                                 model_commis_caissier.appendRow(item)
+
                 if self.checkBoxCommis.isChecked():
                     for employe in Employe.list_employe:
                         if employe.nom == superviseur_selectionne:
                             for commis in employe.dict_commis.values():
                                 item = QStandardItem(commis.nom)
                                 model_commis_caissier.appendRow(item)
-                self.listViewCommisCaissier.setModel(model_commis_caissier)
 
+                self.listViewCommisCaissier.setModel(model_commis_caissier)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
