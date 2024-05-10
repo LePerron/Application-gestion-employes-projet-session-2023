@@ -82,7 +82,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         poste = self.comboBoxPoste.currentText()
 
         if self.modification_employe:
-            employe_temporaire = eval(poste)(p_contrat=self.modification_employe.contrat, p_identifiant=self.modification_employe.identifiant)
+            employe_temporaire = eval(poste)(p_identifiant=self.modification_employe.identifiant)
             Employe.list_employe.remove(self.modification_employe)
             identifiant = employe_temporaire.identifiant
         else:
