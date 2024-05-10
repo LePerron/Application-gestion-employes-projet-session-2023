@@ -11,7 +11,7 @@ class ContratEmploi:
 
     list_contrat = []
 
-    def __init__(self, p_identifiant_contrat: int = 0, p_employe: Employe = None, p_facteur_salaire: float = 0.0,
+    def __init__(self, p_identifiant_contrat: int = 0, p_employe=None, p_facteur_salaire: float = 0.0,
                  p_nb_heures_semaine: int = 0, p_salaire_horaire: float = 15.75, p_termes_embauche: str = "",
                  p_date_du_contrat: date = None):
         """

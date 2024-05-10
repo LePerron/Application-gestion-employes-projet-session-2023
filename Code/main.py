@@ -151,6 +151,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
         chemain = "../Fichiers_sérialisations/paye"
 
+<<<<<<< HEAD
         for fichier in os.listdir(chemain):
             with open(fichier, "r") as fichier:
                 donnes_a_deserialiser = fichier.readlines()
@@ -164,6 +165,37 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
                 donnes_a_deserialiser = fichier.readlines()
                 donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
                 Specialite.list_des_specialites.append(donnes_a_deserialisee)
+=======
+        #
+        #
+        # employe1 = Employe()
+        # paye1 = Paye()
+        # specialite1 = Specialite()
+        # del employe1
+        # del paye1
+        # del specialite1
+        # Employe.list_employe = []
+        # Paye.list_payes = []
+        # Specialite.list_des_specialites = []
+        #
+        # for cle in dict_a_deserialise.keys():
+        #     chemin = f"../Fichiers_sérialisations/{cle}"
+        #     list_serialiser = []
+        #     with open(chemin, 'r') as fichier:
+        #         donnes_a_deserialiser = fichier.readlines()
+        #         list_serialiser.append(donnes_a_deserialiser)
+        #
+        #     for object_a_deserialiser in list_serialiser:
+        #         for donnes in object_a_deserialiser:
+        #             if donnes == '\n':
+        #                 fichier.close()
+        #             else:
+        #                 donnes = jsonpickle.decode(donnes)
+        #                 for don in donnes:
+        #                     dict_a_deserialise[cle].append(don)
+        #
+        #
+>>>>>>> f05bc2acddb384577518aea56d68ed9919c3a3b6
 
 def main():
     """

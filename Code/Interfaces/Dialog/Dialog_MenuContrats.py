@@ -31,6 +31,11 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         self.dateEditContratSelonDate.setMaximumDate(datetime.now())
         self.mettre_a_jour_listview()
 
+    def peupler_la_liste_de_list(self):
+        # donnees = [gestionnaire1, gestionnaire2]
+        modele = ListModeleSelectionnable(donnees)
+        self.list_view.setModel(modele)
+
     def mettre_a_jour_listview(self):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
