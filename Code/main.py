@@ -134,13 +134,12 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
         }
         for cle in dict_a_deserialise.keys():
-            list_serialiser = []
+
             chemin = f"../Fichiers_sérialisations/{cle}"
             with open(chemin, 'r') as fichier:
                 donnes_a_deserialiser = fichier.readlines()
-                list_serialiser.append(donnes_a_deserialiser)
 
-                for object_a_deserialiser in list_serialiser:
+                for object_a_deserialiser in donnes_a_deserialiser:
                     for donnes in object_a_deserialiser:
                         if donnes == "":
                             fichier.close()
@@ -162,5 +161,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # MenuPrincipal.deserialisation()
     main()
