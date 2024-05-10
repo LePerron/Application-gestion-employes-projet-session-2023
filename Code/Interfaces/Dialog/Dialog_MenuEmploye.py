@@ -43,7 +43,14 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
         self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_employe)
 
+<<<<<<< HEAD
         # #####
+=======
+<<<<<<< HEAD
+=======
+
+        #####
+>>>>>>> 2d3cccd3efd3adbe2d1d3dd3eae8b8c68de8fac7
         # specialite_1 = Specialite(p_nom="viande")
         # employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron",
         #                          p_specialite=specialite_1)
@@ -58,6 +65,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 #
         # ######
 
+>>>>>>> 15d0899d7cd594008af5dea171270173e127771b
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self):
