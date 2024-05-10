@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_creer_contrat
 from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
 from PyQt5.QtCore import pyqtSlot
@@ -50,6 +52,7 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
                 contrat_temporaire.nb_heures_semaine = nb_heures
                 contrat_temporaire.salaire_horaire = salaire_horaire
                 contrat_temporaire.termes_embauche = autres_termes
+                contrat_temporaire.date_du_contrat = datetime.now().strftime("%d/%m/%Y")
                 AjouterContrat.close(self)
                 break
             else:
