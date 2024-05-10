@@ -145,9 +145,9 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
                     contrat1 = ContratEmploi()
                     del contrat1
                     ContratEmploi.list_contrat = []
-                    donnee_desirialisee = jsonpickle.decode(object_a_deserialiser)
+                    donnee_desirialisee = jsonpickle.decode(donnes)
                     ContratEmploi.list_contrat.append(donnee_desirialisee)
-        ContratEmploi.list_contrat.pop(0)
+        ContratEmploi.list_contrat.pop()
 
 
         #
