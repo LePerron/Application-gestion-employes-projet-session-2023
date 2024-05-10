@@ -104,7 +104,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
                 chemin = f"../Fichiers_sérialisations/{cle}"
                 donnes_serialise = jsonpickle.encode(objet_a_serialiser)
 
-                with open(chemin, 'a') as file:
+                with open(chemin, 'w') as file:
                     file.write(donnes_serialise)
 
     @staticmethod
@@ -126,17 +126,30 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
         }
 
+        # contrat1 = ContratEmploi()
+        # employe1 = Employe()
+        # paye1 = Paye()
+        # specialite1 = Specialite()
+        # del contrat1
+        # del employe1
+        # del paye1
+        # del specialite1
+        # ContratEmploi.list_contrat = []
+        # Employe.list_employe = []
+        # Paye.list_payes = []
+        # Specialite.list_des_specialites = []
+
         for cle in dict_a_deserialise.keys():
             chemin = f"../Fichiers_sérialisations/{cle}"
             with open(chemin, 'r') as fichier:
                 donnes_a_deserialiser = fichier.readlines()
 
-                for object_a_deserialiser in donnes_a_deserialiser:
-                    if object_a_deserialiser == "":
+                for donnes in donnes_a_deserialiser:
+                    if donnes == "[":
                         fichier.close()
                     else:
-                        object_deserialise = jsonpickle.decode(object_a_deserialiser)
-                        dict_a_deserialise[cle].append(object_deserialise)
+                        dict_a_deserialise[cle] = jsonpickle.decode(donnes)
+
 
 
 def main():
@@ -152,5 +165,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # MenuPrincipal.deserialisation()
     main()
