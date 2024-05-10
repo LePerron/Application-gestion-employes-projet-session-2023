@@ -23,7 +23,7 @@ class ListModeleSelectionnable(QAbstractListModel):
 
     def data(self, index, role):
         if role == Qt.DisplayRole:
-            return self._donnees[index.row()].nom
+            return not self._donnees[index.row()].nom
 
 
 class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSuperviseur):
@@ -46,16 +46,26 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.checkBoxCommis.stateChanged.connect(self.commis_change)
         self.checkBoxGestionnaire.stateChanged.connect(self.gestionnaire_change)
         self.checkBoxGerant.stateChanged.connect(self.gerant_change)
-        self.mettre_a_jour_listview_superviseur()
-        self.peupler_liste_caissier_commis()
+        self.peupler_liste_superviseur(self.superviseur_selectionne)
 
         self.listViewGerantGestionnaire.selectionModel().selectionChanged.connect(self.changement_selection_superviseur)
 
-    def peupler_liste_caissier_commis(self):
+    def peupler_liste_superviseur(self):
+        liste_superviseur = []
+        if len(Employe.list_employe) > 0:
+            for employe in Employe.list_employe:
+                if employe.poste == "Gerant" or "Gestion":
+                    liste_superviseur.append(employe.nom)
 
-        rangee_selectionnee = index_selectionnes[0].row()
-        modele = ListModeleSelectionnable()
+
+        modele = ListModeleSelectionnable(liste_superviseur)
         self.list_view.setModel(modele)
+
+    def peupler_liste_caissier_commis(self, superviseur_selectionne):
+
+        modele = ListModeleSelectionnable(donnees)
+        self.list_view.setModel(modele)
+
     #
     # def mettre_a_jour_listview_superviseur(self):
     #     model_superviseur = QStandardItem()
@@ -147,9 +157,8 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         index_selectionnes = selected.indexes()
         if index_selectionnes:
             rangee_selectionnee = index_selectionnes[0].row()
-            selected_gestionnaire = self.list_view.model().data(index_selectionnes[0], Qt.DisplayRole)
-            self.label.setText(f"Gestionnaire sélectionné: {selected_gestionnaire}")
-
+            superviseur_selectionne = self.list_view.model().data(index_selectionnes[0], Qt.DisplayRole)
+            return superviseur_selectionne
 
     def caissier_change(self, status):
         """
@@ -206,6 +215,8 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                     return
                 else:
                     employe.hide()
+
+
 def main():
     """
     Méthode main : Point d'entré du programme.
