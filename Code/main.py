@@ -36,7 +36,6 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe.exec()
         self.serialisation()
         dialog_menu_employe.mettre_a_jour_listview()
-        #        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -54,7 +53,8 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_contrat.show()
         self.hide()
         dialog_menu_contrat.exec()
-        #        self.serialisation()
+        self.serialisation()
+        dialog_menu_contrat.mettre_a_jour_listview()
         self.show()
 
     @pyqtSlot()
@@ -63,7 +63,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_paye.show()
         self.hide()
         dialog_menu_paye.exec()
-        #        self.serialisation()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -102,13 +102,12 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         for cle in dict_serialise.keys():
             chemin = f"../Fichiers_sérialisations/{cle}"
             if len(dict_serialise[cle]) > 0:
-                list_seraliser = ["["]
+                list_seraliser = []
                 for objet_a_serialiser in dict_serialise[cle]:
                     donnes_serialise = jsonpickle.encode(objet_a_serialiser)
                     list_seraliser.append(donnes_serialise)
                     list_seraliser.append(" , ")
                 list_seraliser.pop(-1)
-                list_seraliser.append("]")
                 with open(chemin, 'w') as file:
                     file.writelines(list_seraliser)
 
@@ -123,41 +122,67 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
         from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 
-        dict_a_deserialise = {
-            "contrat.json": ContratEmploi.list_contrat,
-            "paye.json": Paye.list_payes,
-            "specialite.json": Specialite.list_des_specialites,
-            "employe.json": Employe.list_employe
+        # dict_a_deserialise = {
+        #     "contrat.json": ContratEmploi.list_contrat,
+        #
+        #     "paye.json": Paye.list_payes,
+        #     "specialite.json": Specialite.list_des_specialites,
+        #     "employe.json": Employe.list_employe
+        #
+        # }
 
-        }
+        list_serialiser = []
 
-        contrat1 = ContratEmploi()
-        employe1 = Employe()
-        paye1 = Paye()
-        specialite1 = Specialite()
-        del contrat1
-        del employe1
-        del paye1
-        del specialite1
-        ContratEmploi.list_contrat = []
-        Employe.list_employe = []
-        Paye.list_payes = []
-        Specialite.list_des_specialites = []
+        with open("../Fichiers_sérialisations/contrat.json", 'r') as fichier:
+            donnes_a_deserialiser = fichier.readlines()
+            list_serialiser.append(donnes_a_deserialiser)
 
-        for cle in dict_a_deserialise.keys():
-            chemin = f"../Fichiers_sérialisations/{cle}"
-            list_serialiser = []
-            with open(chemin, 'r') as fichier:
-                donnes_a_deserialiser = fichier.readlines()
-
-            for object_a_deserialiser in list_serialiser:
-                for donnes in object_a_deserialiser:
-                    if donnes == '\n':
-                        fichier.close()
-                    else:
-                        dict_a_deserialise[cle] = jsonpickle.decode(donnes)
+        for object_a_deserialiser in list_serialiser:
+            for donnes in object_a_deserialiser:
+                if donnes == '\n':
+                    fichier.close()
+                else:
+                    contrat1 = ContratEmploi()
+                    del contrat1
+                    ContratEmploi.list_contrat = []
+                    donnee_desirialisee = jsonpickle.decode(donnes)
+                    ContratEmploi.list_contrat.append(donnee_desirialisee)
+        ContratEmploi.list_contrat.pop()
 
 
+<<<<<<< HEAD
+=======
+        #
+        #
+        # employe1 = Employe()
+        # paye1 = Paye()
+        # specialite1 = Specialite()
+        # del employe1
+        # del paye1
+        # del specialite1
+        # Employe.list_employe = []
+        # Paye.list_payes = []
+        # Specialite.list_des_specialites = []
+        #
+        # for cle in dict_a_deserialise.keys():
+        #     chemin = f"../Fichiers_sérialisations/{cle}"
+        #     list_serialiser = []
+        #     with open(chemin, 'r') as fichier:
+        #         donnes_a_deserialiser = fichier.readlines()
+        #         list_serialiser.append(donnes_a_deserialiser)
+        #
+        #     for object_a_deserialiser in list_serialiser:
+        #         for donnes in object_a_deserialiser:
+        #             if donnes == '\n':
+        #                 fichier.close()
+        #             else:
+        #                 donnes = jsonpickle.decode(donnes)
+        #                 for don in donnes:
+        #                     dict_a_deserialise[cle].append(don)
+        #
+        #
+
+>>>>>>> b06bfc1d1dd8df1288706d98dae2ad42a5315416
 def main():
     """
     Méthode main : Point d'entré du programme.
