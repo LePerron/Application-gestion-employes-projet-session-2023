@@ -34,6 +34,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe.show()
         self.hide()
         dialog_menu_employe.exec()
+        dialog_menu_employe.mettre_a_jour_listview()
 #        self.serialisation()
         self.show()
 
