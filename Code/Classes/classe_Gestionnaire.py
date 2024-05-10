@@ -117,9 +117,22 @@ class Gestionnaire(Employe):
             chaine_str += f"{element.nom} | "
         return chaine_str
 
+    def afficher_employe(self, nom_=True) -> str:
+        """
+        Affichage de superviseur
+        :return:
+        """
+        chaine_caracteres = ""
+        try:
+            if nom_:
+                chaine_caracteres += f"{self._nom}\n"
+        except NameError:
+            pass
+        return chaine_caracteres
+
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un beau format les informations du gestionnaire.
         :return: Les informations du gestionnaire dans un beau format d'affichage.
         """
-        return f"{self.afficher_informations_employe()}"
+        return f"{self.afficher_employe()}"
