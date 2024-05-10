@@ -29,21 +29,21 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Contrats")
         self.dateEditContratSelonDate.setMaximumDate(datetime.now())
+        self.lineEditAfficherContratSelonEmploye.textChanged.connect(self.mettre_a_jour_listview)
         self.mettre_a_jour_listview()
 
-    def peupler_la_liste_de_list(self):
-        # donnees = [gestionnaire1, gestionnaire2]
-        modele = ListModeleSelectionnable(donnees)
-        self.list_view.setModel(modele)
 
     def mettre_a_jour_listview(self):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
         """
+        liste_contrat = self.rechercher_par_lettre()
         model = QStandardItemModel()
         self.listViewContrat.setModel(model)
-        for employe in Employe.list_employe:
-            item = QStandardItem(str(employe))
+        if liste_contrat is None:
+            liste_contrat = ContratEmploi.list_contrat
+        for contrat in liste_contrat:
+            item = QStandardItem(contrat.afficher_informations_contrat())
             model.appendRow(item)
 
     @pyqtSlot()
@@ -75,6 +75,22 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
             self.mettre_a_jour_listview()
         else:
             self.labelErreurSelection.setText("Erreur.")
+
+    def rechercher_par_lettre(self):
+        """
+        Rechercher un employe selon un groupe de lettre
+        """
+        lettres_a_rechercher = self.lineEditAfficherContratSelonEmploye.text()
+        if lettres_a_rechercher is not None:
+            if len(lettres_a_rechercher) > 0:
+                liste_contrat_valide = []
+                index = len(lettres_a_rechercher)
+                for contrat in ContratEmploi.list_contrat:
+
+                    prenom_employe = contrat.employe[:index]
+                    if prenom_employe.lower() == lettres_a_rechercher.lower():
+                        liste_contrat_valide.append(contrat)
+                return liste_contrat_valide
 
 
 

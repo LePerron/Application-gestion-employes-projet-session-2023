@@ -37,6 +37,8 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
         self.checkBoxMedianne.stateChanged.connect(self.medianne_checkbox_change)
 
         self.calculer_toute_les_payes()
+        self.lineEditRechercherEmploye.textChanged.connect(self.mettre_a_jour_listview)
+
         self.mettre_a_jour_listview()
 
     @staticmethod
@@ -49,11 +51,15 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
             paye.montant_paye = float(employe.calculer_paye())
 
     def mettre_a_jour_listview(self):
-        self.listViewPaye.reset()
+        liste_paye = self.rechercher_par_lettre()
+
         model = QStandardItemModel()
         self.listViewPaye.setModel(model)
-        for paye in Paye.list_payes:
-            item = QStandardItem(str(paye))
+        if liste_paye is None:
+            liste_paye = Paye.list_payes
+
+        for paye in liste_paye:
+            item = QStandardItem(paye.afficher_informations_paye())
             model.appendRow(item)
 
     @pyqtSlot()
@@ -120,6 +126,22 @@ class MenuPaye(QtWidgets.QDialog, genere_menu_paye.Ui_DialogMenuPaye):
             self.lcdNumberMedianne.display(float(Paye.calculer_mediane_payes()))
         else:
             self.lcdNumberMedianne.hide()
+
+    def rechercher_par_lettre(self):
+        """
+        Rechercher un employe selon un groupe de lettre
+        """
+        lettres_a_rechercher = self.lineEditRechercherEmploye.text()
+        if lettres_a_rechercher is not None:
+            if len(lettres_a_rechercher) > 0:
+                liste_paye_valide = []
+                index = len(lettres_a_rechercher)
+                for paye in Paye.list_payes:
+
+                    prenom_paye = paye.employe.prenom[:index]
+                    if prenom_paye.lower() == lettres_a_rechercher.lower():
+                        liste_paye_valide.append(paye)
+                return liste_paye_valide
 
 
 def main():

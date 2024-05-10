@@ -44,33 +44,21 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         self.listViewSpecialite.setModel(model)
         current_index = self.comboBoxTrierSpecialite.currentIndex()
 
-        dictionnaire_triage = {}
-
-        for specialite in Specialite.list_des_specialites:
-            dictionnaire_triage[specialite.nom] = specialite
-
+        if liste_specialite is None:
+            liste_specialite = Specialite.list_des_specialites
         if current_index == 0:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
-
+            specialite_tries = sorted(liste_specialite, key=lambda x: x.nom)
         elif current_index == 1:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
+            specialite_tries = sorted(liste_specialite, key=lambda x: x.nom, reverse=True)
+        elif current_index == 2:
+            specialite_tries = sorted(liste_specialite, key=lambda x: x.calculer_nb_employe)
+        elif current_index == 3:
+            specialite_tries = sorted(liste_specialite, key=lambda x: x.calculer_nb_employe, reverse=True)
 
-        else:
-            dictionnaire_triage = {}
-
-            for specialite in Specialite.list_des_specialites:
-                dictionnaire_triage[specialite.calculer_nb_employe(specialite)] = specialite
-
-            if current_index == 2:
-                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
-
-            elif current_index == 3:
-                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
-
-        for nom_specialite in dictionnaire_triage_nom:
-            specialite = dictionnaire_triage[nom_specialite]
-            item = QStandardItem(specialite.afficher_specialite_dans_list_view(self.checkBoxDescription.isChecked(), self.checkBoxNbEmploye.isChecked()))
-            model.appendRow(item)
+        if current_index in range(5):
+            for specialite in specialite_tries:
+                item = QStandardItem(specialite.afficher_specialite_dans_list_view(self.checkBoxDescription.isChecked(), self.checkBoxNbEmploye.isChecked()))
+                model.appendRow(item)
 
 
     @pyqtSlot()
