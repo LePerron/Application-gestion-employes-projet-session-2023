@@ -25,9 +25,9 @@ class Employe:
         self._nom = p_nom
         self._prenom = p_prenom
         self.poste = p_poste
-        # self._date_engagement = p_date_engagement
         self.contrat = p_contrat
         self.specialite = p_specialite
+        self.anciennete = self.obtenir_anciennete()
 
         if p_date_engagement is None:
             self._date_engagement = datetime.now().replace(second=0)
@@ -119,7 +119,11 @@ class Employe:
         Une méthode qui permet d'obtenir l'ancienneté d'un employé.
         :return: Le nombre d'années d'ancienneté
         """
-        return (datetime.now() - self._date_engagement).days // 365
+        try:
+            if self._date_engagement is not None:
+                return (datetime.now() - self._date_engagement).days // 365
+        except AttributeError:
+            pass
 
     def est_temps_plein(self) -> bool:
         """
