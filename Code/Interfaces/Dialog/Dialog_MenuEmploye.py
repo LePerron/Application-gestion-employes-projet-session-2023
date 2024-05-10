@@ -43,63 +43,74 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
         self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_employe)
 
-
-        #####
+        # #####
         # specialite_1 = Specialite(p_nom="viande")
-        # employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1)
-        # employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1, p_gestionnaire=employe_1)
-        #
+        # employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron",
+        #                          p_specialite=specialite_1)
+        # employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron",
+        #                      p_specialite=specialite_1, p_gestionnaire=employe_1)
+#
         # employe_1.contrat.nb_heures_semaine = 16
         # employe_2.contrat.nb_heures_semaine = 2
-        #
-        # employe_1.contrat.facteur_salaire = 16
-        # employe_2.contrat.facteur_salaire = 2
-
-        ######
+#
+        # employe_1.contrat.facteur_salaire = 23
+        # employe_2.contrat.facteur_salaire = 3
+#
+        # ######
 
         self.mettre_a_jour_listview()
 
-    def mettre_a_jour_listview(self, donnee_a_afficher=None):
+    def mettre_a_jour_listview(self):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un employe
         """
-        if donnee_a_afficher is None:
-            donnee_a_afficher = Employe.list_employe
-
 
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
         current_index = self.comboBoxTrierEmploye.currentIndex()
 
-
         dictionnaire_triage = {}
-
-        for employe in donnee_a_afficher:
+        for employe in Employe.list_employe:
             dictionnaire_triage[employe.nom] = employe
-
+            
         if current_index == 0:
             dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
 
         elif current_index == 1:
             dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
 
-        elif current_index == 2:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+        else:
+            dictionnaire_triage = {}
+            for employe in Employe.list_employe:
+                dictionnaire_triage[employe.contrat.salaire_horaire] = employe
 
-        elif current_index == 3:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
 
-        elif current_index == 4:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+            if current_index == 2:
+                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
 
-        elif current_index == 5:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+            elif current_index == 3:
+                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
+            else:
+                dictionnaire_triage = {}
+                for employe in Employe.list_employe:
+                    dictionnaire_triage[employe.obtenir_anciennete()] = employe
+
+                if current_index == 4:
+                    dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+
+                elif current_index == 5:
+                    dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
 
         for nom_employe in dictionnaire_triage_nom:
             employe = dictionnaire_triage[nom_employe]
-            item = QStandardItem(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(), self.checkBoxNomComplet.isChecked(), self.checkBoxPosteComplet.isChecked(), self.checkBoxContrat.isChecked(), self.checkBoxSalaire.isChecked(), self.checkBoxAnciennete.isChecked(), self.checkBoxDateEngagement.isChecked()))
+            item = QStandardItem(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(),
+                                                                       self.checkBoxNomComplet.isChecked(),
+                                                                       self.checkBoxPosteComplet.isChecked(),
+                                                                       self.checkBoxContrat.isChecked(),
+                                                                       self.checkBoxSalaire.isChecked(),
+                                                                       self.checkBoxAnciennete.isChecked(),
+                                                                       self.checkBoxDateEngagement.isChecked()))
             model.appendRow(item)
-
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -176,12 +187,14 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.addItem("Croissant ($)")
             self.comboBoxTrierEmploye.addItem("Décroissant ($)")
         else:
-            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant ($)")))
-            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant ($)")))
+            self.comboBoxTrierEmploye.findText(
+                self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant ($)")))
+            self.comboBoxTrierEmploye.findText(
+                self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant ($)")))
 
     def rechercher_employe(self, lettre_rechercher: str):
         """
-        Rechercher un employe statiquemnt
+        Rechercher un employe
         :param lettre_rechercher: le nom de l'employer à rechercher
         """
         index = 0
@@ -197,14 +210,13 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
                     liste_employe_valide.remove(employe)
 
                 index += 1
-        self.liste_employe_valide
 
+        self.liste_employe_valide
 
         # for employe in Employe.list_employe:
         #     for lettre in employe.prenom:
         #         if lettre.lower() != lettre_rechercher and lettre_rechercher.index != lettre.index:
         #             break
-
 
     def anciennete_checkbox_change(self, status):
         """
@@ -216,8 +228,10 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.addItem("Croissant (anciennté)")
             self.comboBoxTrierEmploye.addItem("Décroissant (anciennté)")
         else:
-            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (anciennté)")))
-            self.comboBoxTrierEmploye.findText(self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
+            self.comboBoxTrierEmploye.findText(
+                self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (anciennté)")))
+            self.comboBoxTrierEmploye.findText(
+                self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
 
     # def trier_a_z_list_view(self):
     #     for employe in Employe.list_employe:
