@@ -32,46 +32,48 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.checkBoxGerant.stateChanged.connect(self.gerant_change)
         self.mettre_a_jour_listview_superviseur()
 
-        self.listViewGerantGestionnaire.clicked.connect(self.mettre_a_jour_listview_superviseur)
+        self.tableWidget.itemSelectionChanged.connect(self.allo)
+
+    def allo(self):
+        print("ok")
 
     def mettre_a_jour_listview_superviseur(self):
-        model_superviseur = QStandardItemModel()
-        self.listViewGerantGestionnaire.setModel(model_superviseur)
+        model_superviseur = QStandardItem()
+        self.tableWidget.selectionModel()
 
         dict_superviseur = {}
 
-
         if self.checkBoxGestionnaire.isChecked():
             for gestionnaire in Gestionnaire.list_gestionnaire:
-                dict_superviseur[gestionnaire.nom] = gestionnaire
+                dict_superviseur[gestionnaire] = gestionnaire.nom
 
         if self.checkBoxGerant.isChecked():
             for gerant in Gerant.list_gerant:
-                dict_superviseur[gerant.nom] = gerant
+                dict_superviseur[gerant] = gerant.nom
 
         for superviseur in dict_superviseur.keys():
             item = QStandardItem(superviseur)
             model_superviseur.appendRow(item)
 
     def mettre_a_jour_listview_employe_gere(self):
-        superviseur_actuel = self.listViewGerantGestionnaire.currentIndex().data()
+        superviseur_actuel = self.tableWidget.currentIndex().data()
         model_employe_gere = QStandardItemModel()
         dict_employe_gere = {}
 
         if superviseur_actuel.poste != "Gerant":
             if self.checkBoxCommis.isChecked():
                 for commis in superviseur_actuel.list_commis:
-                    dict_employe_gere[commis.nom] = commis
+                    dict_employe_gere[commis] = commis.nom
 
             if self.checkBoxCaissier.isChecked():
                 for caissier in superviseur_actuel.list_caissier:
-                    dict_employe_gere[caissier.nom] = caissier
+                    dict_employe_gere[caissier] = caissier.nom
         else:
             if self.checkBoxGestionnaire.isChecked():
                 for gestionnaire in superviseur_actuel.liste_gestionnaire:
-                    dict_employe_gere[gestionnaire.nom] = gestionnaire
+                    dict_employe_gere[gestionnaire] = gestionnaire.nom
 
-        for employe_gere in dict_employe_gere.keys():
+        for employe_gere in dict_employe_gere.items():
             item = QStandardItem(employe_gere)
             model_employe_gere.appendRow(item)
 
@@ -91,10 +93,10 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                 for gestionnaire in Gestionnaire.list_gestionnaire:
                     item = QStandardItem(gestionnaire.nom)
                     model_superviseur.appendRow(item)
-            self.listViewGerantGestionnaire.setModel(model_superviseur)
+            self.tableWidget.setModel(model_superviseur)
 
         else:
-            superviseur_selectionne = self.listViewGerantGestionnaire.selectionModel().currentIndex()
+            superviseur_selectionne = self.tableWidget.selectionModel().currentIndex()
             if superviseur_selectionne:
                 model_commis_caissier = QStandardItemModel()
                 if self.checkBoxCaissier.isChecked():
@@ -126,7 +128,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les caissiers si coché
         :param status: le status de la checkbox (coché ou non)
         """
-        nom_superviseur_actuel = self.listViewGerantGestionnaire.currentIndex()
+        nom_superviseur_actuel = self.tableWidget.currentIndex()
         if nom_superviseur_actuel.isValid():
             self.mettre_a_jour_listview("employe", nom_superviseur_actuel)
             for employe in Employe.list_employe:
@@ -141,7 +143,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les commis si coché
         :param status: le status de checkbox (coché ou non)
         """
-        nom_superviseur_actuel = self.listViewGerantGestionnaire.currentIndex()
+        nom_superviseur_actuel = self.tableWidget.currentIndex()
         if nom_superviseur_actuel.isValid():
             self.mettre_a_jour_listview("employe", nom_superviseur_actuel)
             for employe in Employe.list_employe:

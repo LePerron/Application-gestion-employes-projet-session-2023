@@ -158,7 +158,6 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
                         dict_a_deserialise[cle] = jsonpickle.decode(donnes)
 
 
-
 def main():
     """
     Méthode main : Point d'entré du programme.
