@@ -96,7 +96,7 @@ class Specialite:
             pass
         try:
             if nb_employe_:
-                chaine_caracteres += f" ↳ Le nombre d'employe : {self.calculer_nb_employe(self._nom)}\n"
+                chaine_caracteres += f" ↳ Le nombre d'employe : {self.calculer_nb_employe(self)}\n"
         except NameError:
             pass
         return chaine_caracteres
@@ -106,7 +106,7 @@ class Specialite:
         Permet de calculer le nombre d'employe selon une spécialité lier
         :return: le nombre d'employé pour la spécialitée
         """
-        return len(Specialite.trouve_employe_selon_specialite(specialite))
+        return len(Specialite.trouve_employe_selon_specialite(specialite.nom))
 
     def __str__(self):
         """

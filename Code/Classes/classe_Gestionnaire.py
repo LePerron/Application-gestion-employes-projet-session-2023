@@ -79,7 +79,7 @@ class Gestionnaire(Employe):
         if identifiant_commis_a_supprimer in self.dict_commis.keys():
             self.dict_commis.pop(identifiant_commis_a_supprimer)
 
-    def ajouter_caissier_a_liste(self, identifiant_caissier_a_ajouter: str) -> None:
+    def ajouter_caissier_a_dict(self, identifiant_caissier_a_ajouter: str) -> None:
         """
         Ajouter un caissier dans liste_caissier que le gérant gère.
         :param identifiant_caissier_a_ajouter: L'identifiantCaissier du caissier à ajouter
@@ -96,7 +96,7 @@ class Gestionnaire(Employe):
         #         else:
         #             self.liste_caissier.append(caissier)
 
-    def supprimer_caissier_a_liste(self, identifiant_caissier_a_supprimer: str) -> None:
+    def supprimer_caissier_a_dict(self, identifiant_caissier_a_supprimer: str) -> None:
         """
         Supprimer un caissier dans liste_caissier que le gérant gère.
         :param identifiant_caissier_a_supprimer: L'identifiant du caissier à supprimer
@@ -117,9 +117,22 @@ class Gestionnaire(Employe):
             chaine_str += f"{element.nom} | "
         return chaine_str
 
+    def afficher_employe(self, nom_=True) -> str:
+        """
+        Affichage de superviseur
+        :return:
+        """
+        chaine_caracteres = ""
+        try:
+            if nom_:
+                chaine_caracteres += f"{self._nom}\n"
+        except NameError:
+            pass
+        return chaine_caracteres
+
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un beau format les informations du gestionnaire.
         :return: Les informations du gestionnaire dans un beau format d'affichage.
         """
-        return f"{self.afficher_informations_employe()}"
+        return f"{self.afficher_employe()}"

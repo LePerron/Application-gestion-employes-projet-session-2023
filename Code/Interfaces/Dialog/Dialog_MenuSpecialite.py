@@ -28,6 +28,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         self.setWindowTitle("Gestionnaire des Spécialités")
         self.checkBoxDescription.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxNbEmploye.stateChanged.connect(self.nb_employe_checkbox_change)
+        self.comboBoxTrierSpecialite.currentIndexChanged.connect(self.mettre_a_jour_listview)
         self.mettre_a_jour_listview()
 
 
@@ -41,7 +42,6 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         current_index = self.comboBoxTrierSpecialite.currentIndex()
 
         dictionnaire_triage = {}
-        dictionnaire_triage_nom = []
 
         for specialite in Specialite.list_des_specialites:
             dictionnaire_triage[specialite.nom] = specialite
@@ -51,6 +51,18 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
 
         elif current_index == 1:
             dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
+
+        else:
+            dictionnaire_triage = {}
+
+            for specialite in Specialite.list_des_specialites:
+                dictionnaire_triage[specialite.calculer_nb_employe(specialite)] = specialite
+
+            if current_index == 2:
+                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+
+            elif current_index == 3:
+                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
 
         for nom_specialite in dictionnaire_triage_nom:
             specialite = dictionnaire_triage[nom_specialite]

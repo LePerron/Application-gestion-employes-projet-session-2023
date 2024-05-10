@@ -32,11 +32,14 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.checkBoxGerant.stateChanged.connect(self.gerant_change)
         self.mettre_a_jour_listview_superviseur()
 
-        self.listViewGerantGestionnaire.clicked.connect(self.mettre_a_jour_listview)
+        self.listViewGerantGestionnaire.clicked.connect(self.mettre_a_jour_listview_superviseur)
 
     def mettre_a_jour_listview_superviseur(self):
         model_superviseur = QStandardItemModel()
+        self.listViewGerantGestionnaire.setModel(model_superviseur)
+
         dict_superviseur = {}
+
 
         if self.checkBoxGestionnaire.isChecked():
             for gestionnaire in Gestionnaire.list_gestionnaire:
