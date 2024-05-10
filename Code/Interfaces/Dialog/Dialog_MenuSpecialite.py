@@ -29,6 +29,8 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         self.checkBoxDescription.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxNbEmploye.stateChanged.connect(self.nb_employe_checkbox_change)
         self.comboBoxTrierSpecialite.currentIndexChanged.connect(self.mettre_a_jour_listview)
+        self.lineEditRechercherSpecialite.textChanged.connect(self.mettre_a_jour_listview)
+
         self.mettre_a_jour_listview()
 
 
@@ -36,6 +38,7 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie une specialité
         """
+        liste_specialite = self.rechercher_par_lettre()
 
         model = QStandardItemModel()
         self.listViewSpecialite.setModel(model)
@@ -136,6 +139,22 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         else:
             self.comboBoxTrierSpecialite.findText(self.comboBoxTrierSpecialite.removeItem(self.comboBoxTrierSpecialite.findText("Croissant (nombres d'employe)")))
             self.comboBoxTrierSpecialite.findText(self.comboBoxTrierSpecialite.removeItem(self.comboBoxTrierSpecialite.findText("Décroissant (nombres d'employe)")))
+
+    def rechercher_par_lettre(self):
+        """
+        Rechercher un employe selon un groupe de lettre
+        """
+        lettres_a_rechercher = self.lineEditRechercherSpecialite.text()
+        if lettres_a_rechercher is not None:
+            if len(lettres_a_rechercher) > 0:
+                liste_specialite_valide = []
+                index = len(lettres_a_rechercher)
+                for specialite in Specialite.list_des_specialites:
+
+                    nom_specialie = specialite.nom[:index]
+                    if nom_specialie.lower() == lettres_a_rechercher.lower():
+                        liste_specialite_valide.append(specialite)
+                return liste_specialite_valide
 
 
 def main():
