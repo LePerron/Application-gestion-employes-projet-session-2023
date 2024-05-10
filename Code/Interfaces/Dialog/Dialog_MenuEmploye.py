@@ -41,38 +41,43 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxContrat.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
         self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
-        self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_par_lettre)
+        self.lineEditRechercherEmploye.textChanged.connect(self.mettre_a_jour_listview)
 
         self.mettre_a_jour_listview()
+
+    # def obtenir_type_de_donnees_pour_maj(self, type_donnees):
+    #     if type_donnees == "liste_employe"
 
     def mettre_a_jour_listview(self):
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie un employe
         """
+        liste_employe = self.rechercher_par_lettre()
 
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
         current_index = self.comboBoxTrierEmploye.currentIndex()
 
-        liste_employe = self.rechercher_par_lettre()
+        if liste_employe is None:
+            liste_employe = Employe.list_employe
 
         if current_index == 0:
-            employe_tries = sorted(Employe.list_employe, key=lambda x: x.nom)
+            employe_tries = sorted(liste_employe, key=lambda x: x.nom)
 
         elif current_index == 1:
-            employe_tries = sorted(Employe.list_employe, key=lambda x: x.nom, reverse=True)
+            employe_tries = sorted(liste_employe, key=lambda x: x.nom, reverse=True)
 
         elif current_index == 2:
-            employe_tries = sorted(Employe.list_employe, key=lambda x: x.contrat.salaire_horaire)
+            employe_tries = sorted(liste_employe, key=lambda x: x.contrat.salaire_horaire)
 
         elif current_index == 3:
-            employe_tries = sorted(Employe.list_employe, key=lambda x: x.contrat.salaire_horaire, reverse=True)
+            employe_tries = sorted(liste_employe, key=lambda x: x.contrat.salaire_horaire, reverse=True)
 
         elif current_index == 4:
-            employe_tries = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete)
+            employe_tries = sorted(liste_employe, key=lambda x: x.obtenir_anciennete)
 
         elif current_index == 5:
-            list_tries_croissant = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete)
+            list_tries_croissant = sorted(liste_employe, key=lambda x: x.obtenir_anciennete)
             employe_tries = list_tries_croissant[::-1]
 
         if current_index in range(5):
@@ -169,17 +174,18 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
     def rechercher_par_lettre(self):
         """
-        Rechercher un employe
+        Rechercher un employe selon un groupe de lettre
         """
         lettres_a_rechercher = self.lineEditRechercherEmploye.text()
         if lettres_a_rechercher is not None:
             if len(lettres_a_rechercher) > 0:
                 liste_employe_valide = []
-                index = len(lettres_a_rechercher) - 1
+                index = len(lettres_a_rechercher)
                 for employe in Employe.list_employe:
-                    if employe.nom[:index] == lettres_a_rechercher:
+
+                    prenom_employe = employe.prenom[:index]
+                    if prenom_employe.lower() == lettres_a_rechercher.lower():
                         liste_employe_valide.append(employe)
-                        print("yes")
                 return liste_employe_valide
 
         # index = 0
