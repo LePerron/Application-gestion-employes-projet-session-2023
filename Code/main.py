@@ -150,8 +150,6 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         ContratEmploi.list_contrat.pop()
 
 
-<<<<<<< HEAD
-=======
         #
         #
         # employe1 = Employe()
@@ -182,7 +180,6 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         #
         #
 
->>>>>>> b06bfc1d1dd8df1288706d98dae2ad42a5315416
 def main():
     """
     Méthode main : Point d'entré du programme.
