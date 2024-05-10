@@ -9,6 +9,10 @@ from PyQt5.QtCore import pyqtSlot, QAbstractListModel, Qt
 from PyQt5 import QtWidgets
 import sys
 
+# Dans ce Menu Superviseur, c'est le seul endroit qui n'est pas complet au niveau des fonctionnalités
+# C'est donc pas 100 % finis pour cette Fenetre de Dialog.
+# CRASHs et BUGs possible.
+
 
 # Cette classe permet au programme d'avoir une listview personnalisée avec des évènements de sélection.
 class ListModeleSelectionnable(QAbstractListModel):
@@ -21,7 +25,7 @@ class ListModeleSelectionnable(QAbstractListModel):
     def rowCount(self, parent):
         return len(self._donnees)
 
-    def data(self, index, role):
+    def data(self, index , role):
         if role == Qt.DisplayRole:
             return self._donnees[index.row()].obtenir_nom_complet()
 
@@ -70,8 +74,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                 if superviseur_selectionne.poste == "Gestionnaire":
                     if self.checkBoxCommis.isChecked():
                         employe.mettre_a_jour_dict_de_commis()
-                        liste_donnees = []
-                        liste_donnees.append(caissier.prenom for caissier in superviseur_selectionne.dict_commis)
+                        liste_donnees = [commis.prenom for commis in superviseur_selectionne.dict_commis]
 
                     if self.checkBoxCaissier.isChecked():
                         employe.mettre_a_jour_list_caissier()
@@ -172,7 +175,6 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
     def changement_selection_superviseur(self, selected, deselected):
         index_selectionnes = selected.indexes()
         if index_selectionnes:
-            # rangee_selectionnee = index_selectionnes[0].row()
             superviseur_selectionne = self.listViewGerantGestionnaire.model().data(index_selectionnes[0],
                                                                                    Qt.DisplayRole)
             self.peupler_liste_caissier_commis(superviseur_selectionne)

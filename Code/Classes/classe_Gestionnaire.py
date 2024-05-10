@@ -72,7 +72,7 @@ class Gestionnaire(Employe):
         if identifiant_commis_a_supprimer in self.dict_commis.keys():
             self.dict_commis.pop(identifiant_commis_a_supprimer)
 
-    def mettre_a_jour_list_caissier(self, identifiant_caissier_a_ajouter: str) -> None:
+    def mettre_a_jour_list_caissier(self) -> None:
         """
          Met à jour la liste_caissier que le gérant gère.
         """

@@ -1,1 +1,0 @@
-{"py/object": "Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi.ContratEmploi", "identifiant_contrat": 1, "_facteur_salaire": 0.0, "_nb_heures_semaine": 0, "_salaire_horaire": 15.75, "termes_embauche": "", "_date_du_contrat": {"py/object": "datetime.datetime", "__reduce__": [{"py/type": "datetime.datetime"}, ["B+gFCgAAAAAAAA=="]]}, "employe": ""}
