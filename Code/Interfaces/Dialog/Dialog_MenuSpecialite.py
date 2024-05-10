@@ -26,6 +26,9 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         super(MenuSpecialite, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Gestionnaire des Spécialités")
+        self.checkBoxDescription.stateChanged.connect(self.mettre_a_jour_listview)
+        self.checkBoxNbEmploye.stateChanged.connect(self.nb_employe_checkbox_change)
+        self.comboBoxTrierSpecialite.currentIndexChanged.connect(self.mettre_a_jour_listview)
         self.mettre_a_jour_listview()
 
 
@@ -33,11 +36,37 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
         """
         Modifie la listview lorsque l'utilisateur ajoute ou modifie une specialité
         """
+
         model = QStandardItemModel()
         self.listViewSpecialite.setModel(model)
+        current_index = self.comboBoxTrierSpecialite.currentIndex()
+
+        dictionnaire_triage = {}
 
         for specialite in Specialite.list_des_specialites:
-            item = QStandardItem(specialite.afficher_specialite_dans_list_view())
+            dictionnaire_triage[specialite.nom] = specialite
+
+        if current_index == 0:
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+
+        elif current_index == 1:
+            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
+
+        else:
+            dictionnaire_triage = {}
+
+            for specialite in Specialite.list_des_specialites:
+                dictionnaire_triage[specialite.calculer_nb_employe(specialite)] = specialite
+
+            if current_index == 2:
+                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+
+            elif current_index == 3:
+                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
+
+        for nom_specialite in dictionnaire_triage_nom:
+            specialite = dictionnaire_triage[nom_specialite]
+            item = QStandardItem(specialite.afficher_specialite_dans_list_view(self.checkBoxDescription.isChecked(), self.checkBoxNbEmploye.isChecked()))
             model.appendRow(item)
 
 
@@ -93,6 +122,20 @@ class MenuSpecialite(QtWidgets.QDialog, genere_menu_specialite.Ui_DialogMenuSpec
                 self.listViewSpecialite.model().removeRow(index_actuel.row())
         else:
             self.labelErreurSelection.setText("Veuillez sélectionner une spécialité d'abord.")
+
+    def nb_employe_checkbox_change(self, status):
+        """
+
+        :param status:
+        :return:
+        """
+        self.mettre_a_jour_listview()
+        if status == 2:
+            self.comboBoxTrierSpecialite.addItem("Croissant (nombres d'employe)")
+            self.comboBoxTrierSpecialite.addItem("Décroissant (nombres d'employe)")
+        else:
+            self.comboBoxTrierSpecialite.findText(self.comboBoxTrierSpecialite.removeItem(self.comboBoxTrierSpecialite.findText("Croissant (nombres d'employe)")))
+            self.comboBoxTrierSpecialite.findText(self.comboBoxTrierSpecialite.removeItem(self.comboBoxTrierSpecialite.findText("Décroissant (nombres d'employe)")))
 
 
 def main():

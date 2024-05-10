@@ -18,8 +18,7 @@ class Specialite:
         self._nom = p_nom
         self.description = p_description
 
-        if not Specialite.list_des_specialites:
-            Specialite.list_des_specialites.append(self)
+        Specialite.list_des_specialites.append(self)
 
     @property
     def nom(self):
@@ -30,7 +29,7 @@ class Specialite:
         if isinstance(nom_specialite, str) and nom_specialite.isalpha():
             for specialite in Specialite.list_des_specialites:
                 if specialite.nom == nom_specialite:
-                    return specialite.nom if specialite.nom != "" else ""
+                    return
             self._nom = nom_specialite.capitalize()
 
     @classmethod
@@ -44,7 +43,8 @@ class Specialite:
                 cls.list_des_specialites.remove(specialite)
 
     @classmethod
-    def modifier_specialite(cls, specialite_a_modifier: str, nouvelle_specialite: str, nouvelle_description: str) -> None:
+    def modifier_specialite(cls, specialite_a_modifier: str, nouvelle_specialite: str,
+                            nouvelle_description: str) -> None:
         """
         Modifie le nom et la description d'une spécialité.
         :param specialite_a_modifier: Le nom actuel de la spécialité
@@ -78,22 +78,39 @@ class Specialite:
                 list_employes_selon_specialite.append(employe)
         return list_employes_selon_specialite
 
+    def afficher_specialite_dans_list_view(self, description_=True, nb_employe_=True) -> str:
+        """
+        Une qui permet de retourner dans un beau format les informations de la spécialité pour être afficher dans la
+        listView des spécialité.
+        :return: Les informations de la spécialité dans un beau format d'affichage.
+        """
+
+        chaine_caracteres = f" ↳ Nom de la spécialitée : {self._nom}\n"
+
+        try:
+            if description_ == "":
+                chaine_caracteres += f" ↳ Description de la spécialitée : Aucune description\n"
+            elif description_:
+                chaine_caracteres += f" ↳ Description de la spécialitée : {self.description}\n"
+        except NameError:
+            pass
+        try:
+            if nb_employe_:
+                chaine_caracteres += f" ↳ Le nombre d'employe : {self.calculer_nb_employe(self)}\n"
+        except NameError:
+            pass
+        return chaine_caracteres
+
+    def calculer_nb_employe(self, specialite) -> int:
+        """
+        Permet de calculer le nombre d'employe selon une spécialité lier
+        :return: le nombre d'employé pour la spécialitée
+        """
+        return len(Specialite.trouve_employe_selon_specialite(specialite.nom))
 
     def __str__(self):
         """
         Une fonction magique qui permet de retourner dans un beau format les informations de la spécialité.
         :return: Les informations de la spécialité dans un beau format d'affichage.
         """
-        return f"en {self._nom}"
-
-    def afficher_specialite_dans_list_view(self):
-        """
-        Une qui permet de retourner dans un beau format les informations de la spécialité pour être afficher dans la
-        listView des spécialité.
-        :return: Les informations de la spécialité dans un beau format d'affichage.
-        """
-        return (f"Nom : {self._nom}"
-                f"\nDescription : {self.description}")
-
-
-
+        return self.afficher_specialite_dans_list_view()
