@@ -55,7 +55,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         liste_superviseur = []
         if len(Employe.list_employe) > 0:
             for employe in Employe.list_employe:
-                if employe.poste == "Gerant" or "Gestion":
+                if employe.poste in ["Gerant", "Gestionnaire"]:
                     liste_superviseur.append(employe)
 
         modele = ListModeleSelectionnable(liste_superviseur)
@@ -67,15 +67,20 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                 continue
             else:
                 superviseur_selectionne = employe
+                if superviseur_selectionne.poste == "Gestionnaire":
+                    if self.checkBoxCommis.isChecked():
+                        employe.mettre_a_jour_dict_de_commis()
+                        liste_donnees = []
+                        liste_donnees.append(caissier.prenom for caissier in superviseur_selectionne.dict_commis)
 
-                if self.checkBoxCommis.isChecked():
-                    liste_donnees = [caissier.nom for caissier in superviseur_selectionne.p_dict_commis.values()]
-
-                if self.checkBoxCaissier.isChecked():
-                    liste_donnees = [caissier.nom for caissier in superviseur_selectionne.liste_caissier]
+                    if self.checkBoxCaissier.isChecked():
+                        employe.mettre_a_jour_list_caissier()
+                        liste_donnees = [caissier.prenom for caissier in superviseur_selectionne.liste_caissier]
+                else:
+                    liste_donnees = [gestionnaire.prenom for gestionnaire in superviseur_selectionne.liste_gestionnaire]
 
                 modele = ListModeleSelectionnable(liste_donnees)
-                self.list_view.setModel(modele)
+                self.listViewCommisCaissier.setModel(modele)
 
     #
     # def mettre_a_jour_listview_superviseur(self):

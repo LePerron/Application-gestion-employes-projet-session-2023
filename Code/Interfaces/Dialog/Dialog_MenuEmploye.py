@@ -189,27 +189,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
                         liste_employe_valide.append(employe)
                 return liste_employe_valide
 
-        # index = 0
-        # liste_employe_valide = Employe.list_employe
-        #
-        # for employe in liste_employe_valide:
-        #     for lettre in lettre_rechercher:
-        #
-        #         lettre_employe = employe.prenom[index].lower()
-        #         lettre_recherche_employe = lettre_rechercher[index].lower()
-        #
-        #         if lettre_employe != lettre_recherche_employe:
-        #             liste_employe_valide.remove(employe)
-        #
-        #         index += 1
-        #
-        #  liste_employe_valide
-
-        # for employe in Employe.list_employe:
-        #     for lettre in employe.prenom:
-        #         if lettre.lower() != lettre_rechercher and lettre_rechercher.index != lettre.index:
-        #             break
-
     def anciennete_checkbox_change(self, status):
         """
         affiche l'ancienneté quand le checkbox est coché
@@ -224,17 +203,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
                 self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Croissant (anciennté)")))
             self.comboBoxTrierEmploye.findText(
                 self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant (anciennté)")))
-
-    # def trier_a_z_list_view(self):
-    #     for employe in Employe.list_employe:
-    # def trier_z_a_list_view(self):
-    # def trier_croissant_salaire_list_view(self):
-    # def trier_decroissant_salaire_list_view(self):
-    # def trier_croissant_anciennete_list_view(self):
-    #
-    # def trier_decroissant_anciennete_list_view(self):
-
-    # def trier_decroissant_anciennete_list_view(self):
 
 
 def main():

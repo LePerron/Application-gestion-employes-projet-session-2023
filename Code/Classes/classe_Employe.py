@@ -34,7 +34,7 @@ class Employe:
 
         if not self.contrat:
             from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
-            self.contrat = ContratEmploi(p_employe=self._nom)
+            self.contrat = ContratEmploi(p_employe=self.obtenir_nom_complet())
 
         if self.identifiant == p_identifiant:
             Employe.list_employe.append(self)
@@ -148,38 +148,38 @@ class Employe:
         try:
             if identifiant_:
                 chaine_caracteres += f" ↳ Identifiant : #{self.identifiant}\n"
-        except NameError:
+        except (NameError, AttributeError):
             pass
         try:
             if nom_:
                 chaine_caracteres += f" ↳ Nom :  {self._prenom} {self._nom}\n"
-        except NameError:
+        except (NameError, AttributeError):
             pass
         try:
             if poste_:
                 chaine_caracteres += f" ↳ Poste : {self.obtenir_poste_complet()}\n"
-        except NameError:
+        except (NameError, AttributeError):
             pass
         try:
             if salaire_:
                 chaine_caracteres += f" ↳ Salaire : {self.contrat.salaire_horaire} $/h\n"
-        except NameError:
+        except (NameError, AttributeError):
             pass
         try:
             if contrat_:
                 chaine_caracteres += f" ↳ Contrat : #{self.contrat.identifiant_contrat}\n"
-        except NameError:
+        except (NameError, AttributeError):
             pass
         try:
             if anciennete_:
                 chaine_caracteres += f" ↳ Ancienneté : {self.obtenir_anciennete()} an(s)\n"
-        except NameError:
+        except (NameError, AttributeError):
             pass
         try:
             if date_engagement_:
                 date_engagement = str(self.date_engagement).strip("00:00:00")
                 chaine_caracteres += f" ↳ La date d'engagement : {date_engagement}\n"
-        except NameError:
+        except (NameError, AttributeError):
             pass
         return chaine_caracteres
 

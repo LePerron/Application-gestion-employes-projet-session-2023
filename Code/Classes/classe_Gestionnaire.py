@@ -56,22 +56,15 @@ class Gestionnaire(Employe):
                 else:
                     return
 
-    def ajouter_commis_a_dict(self, identifiant_commis_a_ajouter: str) -> None:
+    def mettre_a_jour_dict_de_commis(self, ) -> None:
         """
-        Ajouter un commis dans dict_commis que le gérant gère.
-        :param identifiant_commis_a_ajouter: L'identifiant du commis à ajouter
+        Met à jour le dict_commis que le gérant gère.
         """
-
         for commis in Commis.list_commis:
-            if commis.gestionnaire.nom == self.nom:
+            if commis.gestionnaire == self.prenom:
                 self.dict_commis[commis.identifiant] = commis
 
-        # for commis in Commis.list_commis:
-        #     if commis.identifiant == identifiant_commis_a_ajouter:
-        #         if identifiant_commis_a_ajouter not in self.dict_commis.keys():
-        #             self.dict_commis[identifiant_commis_a_ajouter] = commis
-
-    def supprimer_commis_a_dict(self, identifiant_commis_a_supprimer: str) -> None:
+    def supprimer_commis_de_dict(self, identifiant_commis_a_supprimer: str) -> None:
         """
         Supprimer un commis dans dict_commis que le gérant gère.
         :param identifiant_commis_a_supprimer: L'identifiant du commis à supprimer
@@ -79,24 +72,15 @@ class Gestionnaire(Employe):
         if identifiant_commis_a_supprimer in self.dict_commis.keys():
             self.dict_commis.pop(identifiant_commis_a_supprimer)
 
-    def ajouter_caissier_a_dict(self, identifiant_caissier_a_ajouter: str) -> None:
+    def mettre_a_jour_list_caissier(self, identifiant_caissier_a_ajouter: str) -> None:
         """
-        Ajouter un caissier dans liste_caissier que le gérant gère.
-        :param identifiant_caissier_a_ajouter: L'identifiantCaissier du caissier à ajouter
+         Met à jour la liste_caissier que le gérant gère.
         """
         for caissier in Caissier.liste_caissier:
-            if caissier.gestionnaire.nom == self.nom:
+            if caissier.gestionnaire == self.prenom:
                 self.liste_caissier.append(caissier)
 
-        #
-        # for caissier in Caissier.liste_caissier:
-        #     if caissier.identifiant == identifiant_caissier_a_ajouter:
-        #         if caissier in self.liste_caissier:
-        #             return
-        #         else:
-        #             self.liste_caissier.append(caissier)
-
-    def supprimer_caissier_a_dict(self, identifiant_caissier_a_supprimer: str) -> None:
+    def supprimer_caissier_de_list(self, identifiant_caissier_a_supprimer: str) -> None:
         """
         Supprimer un caissier dans liste_caissier que le gérant gère.
         :param identifiant_caissier_a_supprimer: L'identifiant du caissier à supprimer
