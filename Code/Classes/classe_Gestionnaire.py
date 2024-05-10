@@ -79,7 +79,7 @@ class Gestionnaire(Employe):
         if identifiant_commis_a_supprimer in self.dict_commis.keys():
             self.dict_commis.pop(identifiant_commis_a_supprimer)
 
-    def ajouter_caissier_a_liste(self, identifiant_caissier_a_ajouter: str) -> None:
+    def ajouter_caissier_a_dict(self, identifiant_caissier_a_ajouter: str) -> None:
         """
         Ajouter un caissier dans liste_caissier que le gérant gère.
         :param identifiant_caissier_a_ajouter: L'identifiantCaissier du caissier à ajouter
@@ -96,7 +96,7 @@ class Gestionnaire(Employe):
         #         else:
         #             self.liste_caissier.append(caissier)
 
-    def supprimer_caissier_a_liste(self, identifiant_caissier_a_supprimer: str) -> None:
+    def supprimer_caissier_a_dict(self, identifiant_caissier_a_supprimer: str) -> None:
         """
         Supprimer un caissier dans liste_caissier que le gérant gère.
         :param identifiant_caissier_a_supprimer: L'identifiant du caissier à supprimer
