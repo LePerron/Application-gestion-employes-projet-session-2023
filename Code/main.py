@@ -1,4 +1,4 @@
-git from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSpecialite import MenuSpecialite
+from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSpecialite import MenuSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuContrats import MenuContrats
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuEmploye import MenuEmploye
 from Projet_intra_Entreprise.Code.Interfaces.Code_Genere import genere_menu_principal
@@ -34,12 +34,9 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe.show()
         self.hide()
         dialog_menu_employe.exec()
-<<<<<<< HEAD
         self.serialisation()
-=======
         dialog_menu_employe.mettre_a_jour_listview()
-#        self.serialisation()
->>>>>>> ed448fb50ceb2ea0b7b0db752a8f9d9582e58647
+        #        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -57,7 +54,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_contrat.show()
         self.hide()
         dialog_menu_contrat.exec()
-#        self.serialisation()
+        #        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -66,7 +63,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_paye.show()
         self.hide()
         dialog_menu_paye.exec()
-#        self.serialisation()
+        #        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -97,10 +94,10 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
         dict_serialise = {
             "contrat.json": ContratEmploi.list_contrat,
-             "paye.json": Paye.list_payes,
-             "specialite.json": Specialite.list_des_specialites,
-             "employe.json": Employe.list_employe
-         }
+            "paye.json": Paye.list_payes,
+            "specialite.json": Specialite.list_des_specialites,
+            "employe.json": Employe.list_employe
+        }
 
         for cle in dict_serialise.keys():
             for objet_a_serialiser in dict_serialise[cle]:
@@ -109,7 +106,6 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
                 with open(chemin, 'a') as file:
                     file.write(donnes_serialise)
-
 
     @staticmethod
     def deserialisation():
@@ -141,7 +137,6 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
                     else:
                         object_deserialise = jsonpickle.decode(object_a_deserialiser)
                         dict_a_deserialise[cle].append(object_deserialise)
-
 
 
 def main():

@@ -41,19 +41,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.checkBoxContrat.stateChanged.connect(self.mettre_a_jour_listview)
         self.checkBoxDateEngagement.stateChanged.connect(self.mettre_a_jour_listview)
         self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
-        self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_employe)
-
-        #####
-        # specialite_1 = Specialite(p_nom="viande")
-        # employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron",
-        #                          p_specialite=specialite_1)
-        # employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron",
-        #                      p_specialite=specialite_1, p_gestionnaire=employe_1)
-        # employe_1.contrat.nb_heures_semaine = 16
-        # employe_2.contrat.nb_heures_semaine = 2
-        # employe_1.contrat.facteur_salaire = 23
-        # employe_2.contrat.facteur_salaire = 3
-        # ######
+        self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_par_lettre)
 
         self.mettre_a_jour_listview()
 
@@ -65,6 +53,8 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         model = QStandardItemModel()
         self.listViewEmploye.setModel(model)
         current_index = self.comboBoxTrierEmploye.currentIndex()
+
+        liste_employe = self.rechercher_par_lettre()
 
         if current_index == 0:
             employe_tries = sorted(Employe.list_employe, key=lambda x: x.nom)
@@ -79,20 +69,22 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             employe_tries = sorted(Employe.list_employe, key=lambda x: x.contrat.salaire_horaire, reverse=True)
 
         elif current_index == 4:
-            employe_tries = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete())
+            employe_tries = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete)
 
         elif current_index == 5:
-            employe_tries = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete(), reverse=True)
+            list_tries_croissant = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete)
+            employe_tries = list_tries_croissant[::-1]
 
-        for employe in employe_tries:
-            item = QStandardItem(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(),
-                                                                       self.checkBoxNomComplet.isChecked(),
-                                                                       self.checkBoxPosteComplet.isChecked(),
-                                                                       self.checkBoxContrat.isChecked(),
-                                                                       self.checkBoxSalaire.isChecked(),
-                                                                       self.checkBoxAnciennete.isChecked(),
-                                                                       self.checkBoxDateEngagement.isChecked()))
-            model.appendRow(item)
+        if current_index in range(5):
+            for employe in employe_tries:
+                item = QStandardItem(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(),
+                                                                           self.checkBoxNomComplet.isChecked(),
+                                                                           self.checkBoxPosteComplet.isChecked(),
+                                                                           self.checkBoxContrat.isChecked(),
+                                                                           self.checkBoxSalaire.isChecked(),
+                                                                           self.checkBoxAnciennete.isChecked(),
+                                                                           self.checkBoxDateEngagement.isChecked()))
+                model.appendRow(item)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -175,26 +167,36 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             self.comboBoxTrierEmploye.findText(
                 self.comboBoxTrierEmploye.removeItem(self.comboBoxTrierEmploye.findText("Décroissant ($)")))
 
-    def rechercher_employe(self, lettre_rechercher: str):
+    def rechercher_par_lettre(self):
         """
         Rechercher un employe
-        :param lettre_rechercher: le nom de l'employer à rechercher
         """
-        index = 0
-        liste_employe_valide = Employe.list_employe
+        lettres_a_rechercher = self.lineEditRechercherEmploye.text()
+        if lettres_a_rechercher is not None:
+            if len(lettres_a_rechercher) > 0:
+                liste_employe_valide = []
+                index = len(lettres_a_rechercher) - 1
+                for employe in Employe.list_employe:
+                    if employe.nom[:index] == lettres_a_rechercher:
+                        liste_employe_valide.append(employe)
+                        print("yes")
+                return liste_employe_valide
 
-        for employe in liste_employe_valide:
-            for lettre in lettre_rechercher:
-
-                lettre_employe = employe.prenom[index].lower()
-                lettre_recherche_employe = lettre_rechercher[index].lower()
-
-                if lettre_employe != lettre_recherche_employe:
-                    liste_employe_valide.remove(employe)
-
-                index += 1
-
-        liste_employe_valide
+        # index = 0
+        # liste_employe_valide = Employe.list_employe
+        #
+        # for employe in liste_employe_valide:
+        #     for lettre in lettre_rechercher:
+        #
+        #         lettre_employe = employe.prenom[index].lower()
+        #         lettre_recherche_employe = lettre_rechercher[index].lower()
+        #
+        #         if lettre_employe != lettre_recherche_employe:
+        #             liste_employe_valide.remove(employe)
+        #
+        #         index += 1
+        #
+        #  liste_employe_valide
 
         # for employe in Employe.list_employe:
         #     for lettre in employe.prenom:
