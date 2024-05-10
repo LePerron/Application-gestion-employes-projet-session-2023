@@ -36,7 +36,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe.show()
         self.hide()
         dialog_menu_employe.exec()
-        self.serialisation()
+        # self.serialisation()
         dialog_menu_employe.mettre_a_jour_listview()
         self.show()
 
@@ -55,7 +55,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_contrat.show()
         self.hide()
         dialog_menu_contrat.exec()
-        self.serialisation()
+        # self.serialisation()
         dialog_menu_contrat.mettre_a_jour_listview()
         self.show()
 
@@ -65,7 +65,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_paye.show()
         self.hide()
         dialog_menu_paye.exec()
-        self.serialisation()
+        # self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -74,7 +74,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_specialite.show()
         self.hide()
         dialog_menu_specialite.exec()
-        self.serialisation()
+        # self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -83,55 +83,55 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         sys.exit(self)
         #   ici  #
 
-    @staticmethod
-    def serialisation():
-        """
-        Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
-        :return:
-        """
-        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
-        from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
-        from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
-        from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+    # @staticmethod
+    # def serialisation():
+    #     """
+    #     Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
+    #     :return:
+    #     """
+    #     from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+    #     from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+    #     from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
+    #     from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+    #
+    #     if len(ContratEmploi.list_contrat) > 0:
+    #         for contrat in ContratEmploi.list_contrat:
+    #             chemin = f"../Fichiers_sérialisations/contrat/{contrat.identifiant_contrat}.json"
+    #             donnes_serialise = jsonpickle.encode(contrat)
+    #             with open(chemin, 'w') as file:
+    #                 file.writelines(donnes_serialise)
+    #
+    #     if len(Employe.list_employe) > 0:
+    #         for employe in Employe.list_employe:
+    #             chemin = f"../Fichiers_sérialisations/employe/{employe.identifiant}.json"
+    #             donnes_serialise = jsonpickle.encode(employe)
+    #             with open(chemin, 'w') as file:
+    #                 file.writelines(donnes_serialise)
+    #
+    #     if len(Paye.list_payes) > 0:
+    #         for paye in Paye.list_payes:
+    #             chemin = f"../Fichiers_sérialisations/paye/{paye.identifiant_paye}.json"
+    #             donnes_serialise = jsonpickle.encode(paye)
+    #             with open(chemin, 'w') as file:
+    #                 file.writelines(donnes_serialise)
+    #
+    #     if len(Specialite.list_des_specialites) > 0:
+    #         for specialite in Specialite.list_des_specialites:
+    #             chemin = f"../Fichiers_sérialisations/specialite/{specialite.nom}.json"
+    #             donnes_serialise = jsonpickle.encode(specialite)
+    #             with open(chemin, 'w') as file:
+    #                 file.writelines(donnes_serialise)
 
-        if len(ContratEmploi.list_contrat) > 0:
-            for contrat in ContratEmploi.list_contrat:
-                chemin = f"../Fichiers_sérialisations/contrat/{contrat.identifiant_contrat}.json"
-                donnes_serialise = jsonpickle.encode(contrat)
-                with open(chemin, 'w') as file:
-                    file.writelines(donnes_serialise)
-
-        if len(Employe.list_employe) > 0:
-            for employe in Employe.list_employe:
-                chemin = f"../Fichiers_sérialisations/employe/{employe.identifiant}.json"
-                donnes_serialise = jsonpickle.encode(employe)
-                with open(chemin, 'w') as file:
-                    file.writelines(donnes_serialise)
-
-        if len(Paye.list_payes) > 0:
-            for paye in Paye.list_payes:
-                chemin = f"../Fichiers_sérialisations/paye/{paye.identifiant_paye}.json"
-                donnes_serialise = jsonpickle.encode(paye)
-                with open(chemin, 'w') as file:
-                    file.writelines(donnes_serialise)
-
-        if len(Specialite.list_des_specialites) > 0:
-            for specialite in Specialite.list_des_specialites:
-                chemin = f"../Fichiers_sérialisations/specialite/{specialite.nom}.json"
-                donnes_serialise = jsonpickle.encode(specialite)
-                with open(chemin, 'w') as file:
-                    file.writelines(donnes_serialise)
-
-    @staticmethod
-    def deserialisation():
-        """
-        Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
-        :return:
-        """
-        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
-        from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
-        from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
-        from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
+    # @staticmethod
+    # def deserialisation():
+    #     """
+    #     Une fonction qui s'occupe de sérialiser les données afin de pouvoir les sauvegarder.
+    #     :return:
+    #     """
+    #     from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+    #     from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+    #     from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
+    #     from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 
        # chemain = "../Fichiers_sérialisations/contrat"
 #
@@ -203,7 +203,7 @@ def main():
     app = QtWidgets.QApplication(sys.argv)
     fenetre_principale = MenuPrincipal()
     fenetre_principale.show()
-    MenuPrincipal.deserialisation()
+    # MenuPrincipal.deserialisation()
     app.exec()
 
 

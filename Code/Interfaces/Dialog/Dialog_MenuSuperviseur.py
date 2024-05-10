@@ -23,7 +23,7 @@ class ListModeleSelectionnable(QAbstractListModel):
 
     def data(self, index, role):
         if role == Qt.DisplayRole:
-            return not self._donnees[index.row()].nom
+            return self._donnees[index.row()].obtenir_nom_complet()
 
 
 class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSuperviseur):
@@ -46,7 +46,8 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.checkBoxCommis.stateChanged.connect(self.commis_change)
         self.checkBoxGestionnaire.stateChanged.connect(self.gestionnaire_change)
         self.checkBoxGerant.stateChanged.connect(self.gerant_change)
-        self.peupler_liste_superviseur(self.superviseur_selectionne)
+
+        self.peupler_liste_superviseur()
 
         self.listViewGerantGestionnaire.selectionModel().selectionChanged.connect(self.changement_selection_superviseur)
 
@@ -55,16 +56,26 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         if len(Employe.list_employe) > 0:
             for employe in Employe.list_employe:
                 if employe.poste == "Gerant" or "Gestion":
-                    liste_superviseur.append(employe.nom)
-
+                    liste_superviseur.append(employe)
 
         modele = ListModeleSelectionnable(liste_superviseur)
-        self.list_view.setModel(modele)
+        self.listViewGerantGestionnaire.setModel(modele)
 
-    def peupler_liste_caissier_commis(self, superviseur_selectionne):
+    def peupler_liste_caissier_commis(self, superviseur_selectionne: str):
+        for employe in Employe.list_employe:
+            if employe.obtenir_nom_complet() != superviseur_selectionne:
+                continue
+            else:
+                superviseur_selectionne = employe
 
-        modele = ListModeleSelectionnable(donnees)
-        self.list_view.setModel(modele)
+                if self.checkBoxCommis.isChecked():
+                    liste_donnees = [caissier.nom for caissier in superviseur_selectionne.p_dict_commis.values()]
+
+                if self.checkBoxCaissier.isChecked():
+                    liste_donnees = [caissier.nom for caissier in superviseur_selectionne.liste_caissier]
+
+                modele = ListModeleSelectionnable(liste_donnees)
+                self.list_view.setModel(modele)
 
     #
     # def mettre_a_jour_listview_superviseur(self):
@@ -156,8 +167,11 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
     def changement_selection_superviseur(self, selected, deselected):
         index_selectionnes = selected.indexes()
         if index_selectionnes:
-            rangee_selectionnee = index_selectionnes[0].row()
-            superviseur_selectionne = self.list_view.model().data(index_selectionnes[0], Qt.DisplayRole)
+            # rangee_selectionnee = index_selectionnes[0].row()
+            superviseur_selectionne = self.listViewGerantGestionnaire.model().data(index_selectionnes[0],
+                                                                                   Qt.DisplayRole)
+            self.peupler_liste_caissier_commis(superviseur_selectionne)
+
             return superviseur_selectionne
 
     def caissier_change(self, status):

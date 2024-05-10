@@ -193,6 +193,13 @@ class Employe:
         montant_paye = float(((contrat.salaire_horaire * contrat.nb_heures_semaine) * contrat.facteur_salaire) + (contrat.salaire_horaire * contrat.nb_heures_semaine))
         return montant_paye
 
+    def obtenir_nom_complet(self) -> str:
+        """
+        Une méthode qui retourne le prenom et le nom de l'employé
+        :return: le nom complet
+        """
+        return f"{self._prenom} {self._nom}"
+
     def __str__(self) -> str:
         """
         Une fonction magique qui permet de retourner dans un beau format les informations de l'employé.
