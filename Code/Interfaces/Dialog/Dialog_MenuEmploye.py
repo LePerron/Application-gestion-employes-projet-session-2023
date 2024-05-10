@@ -43,20 +43,6 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.comboBoxTrierEmploye.currentIndexChanged.connect(self.mettre_a_jour_listview)
         self.lineEditRechercherEmploye.textChanged.connect(self.rechercher_employe)
 
-
-        #####
-        specialite_1 = Specialite(p_nom="viande")
-        employe_1 = Gestionnaire(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1)
-        employe_2 = Caissier(p_identifiant="2360531", p_prenom="Marc-Antoine", p_nom="Perron", p_specialite=specialite_1, p_gestionnaire=employe_1)
-
-        employe_1.contrat.nb_heures_semaine = 16
-        employe_2.contrat.nb_heures_semaine = 2
-
-        employe_1.contrat.facteur_salaire = 16
-        employe_2.contrat.facteur_salaire = 2
-
-        ######
-
         self.mettre_a_jour_listview()
 
     def mettre_a_jour_listview(self, donnee_a_afficher=None):

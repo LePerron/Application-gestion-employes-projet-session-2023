@@ -75,7 +75,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         """
         self.reset_label_erreur()
 
-        specialite = self.comboBoxSpecialite.currentText()
+        nom_specialite = self.comboBoxSpecialite.currentText()
         prenom = self.lineEditPrenom.text().capitalize()
         nom = self.lineEditNom.text().capitalize()
         date_engagement = self.dateEditDateEngagement.text()
@@ -105,9 +105,14 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             self.labelErreurPrenom.setText("Veuillez entrer un prénom valide (peut contenir '-').")
             self.lineEditPrenom.clear()
 
-        if not specialite or specialite != "":
-            employe_temporaire.specialite = specialite
-            if employe_temporaire.specialite != specialite or not specialite:
+        if not nom_specialite or nom_specialite != "":
+            for specialite in Specialite.list_des_specialites:
+                if specialite.nom == nom_specialite:
+                    employe_temporaire.specialite = specialite
+                    break
+
+        if nom_specialite != "" or nom_specialite is not None:
+            if employe_temporaire.specialite.nom != nom_specialite or not nom_specialite:
                 self.labelErreurSpecialite.setText("Veuillez d'abord créer une spécialité dans le menu spécialité")
 
         employe_temporaire.date_engagement = date_engagement
@@ -120,8 +125,8 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             superviseur = self.comboBoxSuperviseur.currentText()
             employe_temporaire.gestionnaire = superviseur
 
-        if nom and prenom and identifiant and specialite:
-            if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom and employe_temporaire.specialite == specialite:
+        if nom and prenom and identifiant and nom_specialite:
+            if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom and employe_temporaire.specialite.nom == nom_specialite:
                 if not self.modification_employe:
                     fenetre_ajouter_contrat = AjouterContrat(employe_temporaire)
                     fenetre_ajouter_contrat.lineEditIdentifiant.setText(employe_temporaire.identifiant)
