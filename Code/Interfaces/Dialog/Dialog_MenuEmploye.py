@@ -66,38 +66,25 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         self.listViewEmploye.setModel(model)
         current_index = self.comboBoxTrierEmploye.currentIndex()
 
-        dictionnaire_triage = {}
-        for employe in Employe.list_employe:
-            dictionnaire_triage[employe.identifiant] = [employe.nom, employe]
-            
         if current_index == 0:
-            dictionnaire_triage_nom = sorted(list(dictionnaire_triage.keys()))
+            employe_tries = sorted(Employe.list_employe, key=lambda x: x.nom)
 
         elif current_index == 1:
-            dictionnaire_triage_nom = sorted(list(dictionnaire_triage.keys()), reverse=True)
-        else:
-            dictionnaire_triage = {}
-            for employe in Employe.list_employe:
-                dictionnaire_triage[employe.identifiant] = [employe.contrat.salaire_horaire, employe]
+            employe_tries = sorted(Employe.list_employe, key=lambda x: x.nom, reverse=True)
 
-            if current_index == 2:
-                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+        elif current_index == 2:
+            employe_tries = sorted(Employe.list_employe, key=lambda x: x.contrat.salaire_horaire)
 
-            elif current_index == 3:
-                dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
-            else:
-                dictionnaire_triage = {}
-                for employe in Employe.list_employe:
-                    dictionnaire_triage[employe.identifiant] = [employe.obtenir_anciennete(), employe]
+        elif current_index == 3:
+            employe_tries = sorted(Employe.list_employe, key=lambda x: x.contrat.salaire_horaire, reverse=True)
 
-                if current_index == 4:
-                    dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+        elif current_index == 4:
+            employe_tries = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete())
 
-                elif current_index == 5:
-                    dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
+        elif current_index == 5:
+            employe_tries = sorted(Employe.list_employe, key=lambda x: x.obtenir_anciennete(), reverse=True)
 
-        for nom_employe in dictionnaire_triage_nom:
-            employe = dictionnaire_triage[nom_employe]
+        for employe in employe_tries:
             item = QStandardItem(employe.afficher_informations_employe(self.checkBoxIdentifiant.isChecked(),
                                                                        self.checkBoxNomComplet.isChecked(),
                                                                        self.checkBoxPosteComplet.isChecked(),
@@ -144,7 +131,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
             fenetre_modifier_employe.dateEditDateEngagement.setMinimumDate(employe_a_modifier.date_engagement)
             fenetre_modifier_employe.dateEditDatePromotion.setMinimumDate(employe_a_modifier.date_engagement)
-            fenetre_modifier_employe.comboBoxSpecialite.setCurrentText(employe_a_modifier.specialite.nom)
+            fenetre_modifier_employe.comboBoxSpecialite.setCurrentText(employe_a_modifier.specialite)
             fenetre_modifier_employe.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
             fenetre_modifier_employe.comboBoxPoste.setCurrentText(employe_a_modifier.poste)
             fenetre_modifier_employe.lineEditPrenom.setText(employe_a_modifier.prenom)
@@ -207,7 +194,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
                 index += 1
 
-        self.liste_employe_valide
+        liste_employe_valide
 
         # for employe in Employe.list_employe:
         #     for lettre in employe.prenom:
