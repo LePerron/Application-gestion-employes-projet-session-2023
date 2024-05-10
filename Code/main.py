@@ -133,39 +133,37 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
         from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 
-        chemain = "../Fichiers_sérialisations/contrat"
-
-        for fichier in os.listdir(chemain):
-            with open(fichier, "r") as fichier:
-                donnes_a_deserialiser = fichier.readlines()
-                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
-                ContratEmploi.list_contrat.append(donnes_a_deserialisee)
-
-        chemain = "../Fichiers_sérialisations/employe"
-
-        for fichier in os.listdir(chemain):
-            with open(fichier, "r") as fichier:
-                donnes_a_deserialiser = fichier.readlines()
-                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
-                Employe.list_employe.append(donnes_a_deserialisee)
-
-        chemain = "../Fichiers_sérialisations/paye"
-
-<<<<<<< HEAD
-        for fichier in os.listdir(chemain):
-            with open(fichier, "r") as fichier:
-                donnes_a_deserialiser = fichier.readlines()
-                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
-                Paye.list_payes.append(donnes_a_deserialisee)
-
-        chemain = "../Fichiers_sérialisations/specialite"
-
-        for fichier in os.listdir(chemain):
-            with open(fichier, "r") as fichier:
-                donnes_a_deserialiser = fichier.readlines()
-                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
-                Specialite.list_des_specialites.append(donnes_a_deserialisee)
-=======
+       # chemain = "../Fichiers_sérialisations/contrat"
+#
+       # for fichier in os.listdir(chemain):
+       #     with open(fichier, "r") as fichier:
+       #         donnes_a_deserialiser = fichier.readlines()
+       #         donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+       #         ContratEmploi.list_contrat.append(donnes_a_deserialisee)
+#
+       # chemain = "../Fichiers_sérialisations/employe"
+#
+       # for fichier in os.listdir(chemain):
+       #     with open(fichier, "r") as fichier:
+       #         donnes_a_deserialiser = fichier.readlines()
+       #         donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+       #         Employe.list_employe.append(donnes_a_deserialisee)
+#
+       # chemain = "../Fichiers_sérialisations/paye"
+#
+       # for fichier in os.listdir(chemain):
+       #     with open(fichier, "r") as fichier:
+       #         donnes_a_deserialiser = fichier.readlines()
+       #         donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+       #         Paye.list_payes.append(donnes_a_deserialisee)
+#
+       # chemain = "../Fichiers_sérialisations/specialite"
+#
+       # for fichier in os.listdir(chemain):
+       #     with open(fichier, "r") as fichier:
+       #         donnes_a_deserialiser = fichier.readlines()
+       #         donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+       #         Specialite.list_des_specialites.append(donnes_a_deserialisee)
         #
         #
         # employe1 = Employe()
@@ -195,7 +193,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         #                     dict_a_deserialise[cle].append(don)
         #
         #
->>>>>>> f05bc2acddb384577518aea56d68ed9919c3a3b6
+
 
 def main():
     """
