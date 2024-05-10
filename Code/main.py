@@ -1,3 +1,5 @@
+import os
+
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSpecialite import MenuSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuContrats import MenuContrats
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuEmploye import MenuEmploye
@@ -92,24 +94,33 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
         from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 
-        dict_serialise = {
-            "contrat.json": ContratEmploi.list_contrat,
-            "paye.json": Paye.list_payes,
-            "specialite.json": Specialite.list_des_specialites,
-            "employe.json": Employe.list_employe
-        }
-
-        for cle in dict_serialise.keys():
-            chemin = f"../Fichiers_sérialisations/{cle}"
-            if len(dict_serialise[cle]) > 0:
-                list_seraliser = []
-                for objet_a_serialiser in dict_serialise[cle]:
-                    donnes_serialise = jsonpickle.encode(objet_a_serialiser)
-                    list_seraliser.append(donnes_serialise)
-                    list_seraliser.append(" , ")
-                list_seraliser.pop(-1)
+        if len(ContratEmploi.list_contrat) > 0:
+            for contrat in ContratEmploi.list_contrat:
+                chemin = f"../Fichiers_sérialisations/contrat/{contrat.identifiant_contrat}.json"
+                donnes_serialise = jsonpickle.encode(contrat)
                 with open(chemin, 'w') as file:
-                    file.writelines(list_seraliser)
+                    file.writelines(donnes_serialise)
+
+        if len(Employe.list_employe) > 0:
+            for employe in Employe.list_employe:
+                chemin = f"../Fichiers_sérialisations/employe/{employe.identifiant}.json"
+                donnes_serialise = jsonpickle.encode(employe)
+                with open(chemin, 'w') as file:
+                    file.writelines(donnes_serialise)
+
+        if len(Paye.list_payes) > 0:
+            for paye in Paye.list_payes:
+                chemin = f"../Fichiers_sérialisations/paye/{paye.identifiant_paye}.json"
+                donnes_serialise = jsonpickle.encode(paye)
+                with open(chemin, 'w') as file:
+                    file.writelines(donnes_serialise)
+
+        if len(Specialite.list_des_specialites) > 0:
+            for specialite in Specialite.list_des_specialites:
+                chemin = f"../Fichiers_sérialisations/specialite/{specialite.nom}.json"
+                donnes_serialise = jsonpickle.encode(specialite)
+                with open(chemin, 'w') as file:
+                    file.writelines(donnes_serialise)
 
     @staticmethod
     def deserialisation():
@@ -122,63 +133,37 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         from Projet_intra_Entreprise.Code.Classes.classe_Paye import Paye
         from Projet_intra_Entreprise.Code.Classes.classe_Specialite import Specialite
 
-        # dict_a_deserialise = {
-        #     "contrat.json": ContratEmploi.list_contrat,
-        #
-        #     "paye.json": Paye.list_payes,
-        #     "specialite.json": Specialite.list_des_specialites,
-        #     "employe.json": Employe.list_employe
-        #
-        # }
+        chemain = "../Fichiers_sérialisations/contrat"
 
-        list_serialiser = []
+        for fichier in os.listdir(chemain):
+            with open(fichier, "r") as fichier:
+                donnes_a_deserialiser = fichier.readlines()
+                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+                ContratEmploi.list_contrat.append(donnes_a_deserialisee)
 
-        with open("../Fichiers_sérialisations/contrat.json", 'r') as fichier:
-            donnes_a_deserialiser = fichier.readlines()
-            list_serialiser.append(donnes_a_deserialiser)
+        chemain = "../Fichiers_sérialisations/employe"
 
-        for object_a_deserialiser in list_serialiser:
-            for donnes in object_a_deserialiser:
-                if donnes == '\n':
-                    fichier.close()
-                else:
-                    contrat1 = ContratEmploi()
-                    del contrat1
-                    ContratEmploi.list_contrat = []
-                    donnee_desirialisee = jsonpickle.decode(donnes)
-                    ContratEmploi.list_contrat.append(donnee_desirialisee)
-        ContratEmploi.list_contrat.pop()
+        for fichier in os.listdir(chemain):
+            with open(fichier, "r") as fichier:
+                donnes_a_deserialiser = fichier.readlines()
+                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+                Employe.list_employe.append(donnes_a_deserialisee)
 
+        chemain = "../Fichiers_sérialisations/paye"
 
-        #
-        #
-        # employe1 = Employe()
-        # paye1 = Paye()
-        # specialite1 = Specialite()
-        # del employe1
-        # del paye1
-        # del specialite1
-        # Employe.list_employe = []
-        # Paye.list_payes = []
-        # Specialite.list_des_specialites = []
-        #
-        # for cle in dict_a_deserialise.keys():
-        #     chemin = f"../Fichiers_sérialisations/{cle}"
-        #     list_serialiser = []
-        #     with open(chemin, 'r') as fichier:
-        #         donnes_a_deserialiser = fichier.readlines()
-        #         list_serialiser.append(donnes_a_deserialiser)
-        #
-        #     for object_a_deserialiser in list_serialiser:
-        #         for donnes in object_a_deserialiser:
-        #             if donnes == '\n':
-        #                 fichier.close()
-        #             else:
-        #                 donnes = jsonpickle.decode(donnes)
-        #                 for don in donnes:
-        #                     dict_a_deserialise[cle].append(don)
-        #
-        #
+        for fichier in os.listdir(chemain):
+            with open(fichier, "r") as fichier:
+                donnes_a_deserialiser = fichier.readlines()
+                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+                Paye.list_payes.append(donnes_a_deserialisee)
+
+        chemain = "../Fichiers_sérialisations/specialite"
+
+        for fichier in os.listdir(chemain):
+            with open(fichier, "r") as fichier:
+                donnes_a_deserialiser = fichier.readlines()
+                donnes_a_deserialisee = jsonpickle.decode(donnes_a_deserialiser)
+                Specialite.list_des_specialites.append(donnes_a_deserialisee)
 
 def main():
     """
