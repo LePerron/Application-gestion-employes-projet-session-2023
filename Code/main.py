@@ -1,3 +1,6 @@
+import json
+import pickle
+
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuSpecialite import MenuSpecialite
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuContrats import MenuContrats
 from Projet_intra_Entreprise.Code.Interfaces.Dialog.Dialog_MenuEmploye import MenuEmploye
@@ -33,9 +36,9 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_employe = MenuEmploye()
         dialog_menu_employe.show()
         self.hide()
-        dialog_menu_employe.exec(
-        dialog_menu_employe.mettre_a_jour_listview())
-#       self.serialisation()
+        dialog_menu_employe.exec()
+        dialog_menu_employe.mettre_a_jour_listview()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -53,7 +56,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_contrat.show()
         self.hide()
         dialog_menu_contrat.exec()
-#        self.serialisation()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -62,7 +65,7 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
         dialog_menu_paye.show()
         self.hide()
         dialog_menu_paye.exec()
-#        self.serialisation()
+        self.serialisation()
         self.show()
 
     @pyqtSlot()
@@ -93,19 +96,24 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
 
         dict_serialise = {
             "contrat.json": ContratEmploi.list_contrat,
-             "paye.json": Paye.list_payes,
-             "specialite.json": Specialite.list_des_specialites,
-             "employe.json": Employe.list_employe
-         }
+            "paye.json": Paye.list_payes,
+            "specialite.json": Specialite.list_des_specialites,
+            "employe.json": Employe.list_employe
+        }
 
         for cle in dict_serialise.keys():
-            for objet_a_serialiser in dict_serialise[cle]:
-                chemin = f"../Fichiers_sérialisations/{cle}"
-                donnes_serialise = jsonpickle.encode(objet_a_serialiser)
-
-                with open(chemin, 'a') as file:
-                    file.write(donnes_serialise)
-
+            chemin = f"../Fichiers_sérialisations/{cle}"
+            if len(dict_serialise[cle]) > 0:
+                list_seraliser = []
+                list_seraliser.append("[")
+                for objet_a_serialiser in dict_serialise[cle]:
+                    donnes_serialise = jsonpickle.encode(objet_a_serialiser)
+                    list_seraliser.append(donnes_serialise)
+                    list_seraliser.append(" , ")
+                list_seraliser.pop(-1)
+                list_seraliser.append("]")
+                with open(chemin, 'w') as file:
+                    file.writelines(list_seraliser)
 
     @staticmethod
     def deserialisation():
@@ -125,19 +133,20 @@ class MenuPrincipal(QtWidgets.QMainWindow, genere_menu_principal.Ui_MainWindowMe
             "employe.json": Employe.list_employe
 
         }
-
         for cle in dict_a_deserialise.keys():
+            list_serialiser = []
             chemin = f"../Fichiers_sérialisations/{cle}"
             with open(chemin, 'r') as fichier:
                 donnes_a_deserialiser = fichier.readlines()
+                list_serialiser.append(donnes_a_deserialiser)
 
-                for object_a_deserialiser in donnes_a_deserialiser:
-                    if object_a_deserialiser == "":
-                        fichier.close()
-                    else:
-                        object_deserialise = jsonpickle.decode(object_a_deserialiser)
-                        dict_a_deserialise[cle].append(object_deserialise)
-
+                for object_a_deserialiser in list_serialiser:
+                    for donnes in object_a_deserialiser:
+                        if donnes == "":
+                            fichier.close()
+                        else:
+                            donnes = jsonpickle.decode(donnes)
+                            dict_a_deserialise[cle].append(donnes)
 
 
 def main():
