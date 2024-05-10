@@ -68,19 +68,17 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
         dictionnaire_triage = {}
         for employe in Employe.list_employe:
-            dictionnaire_triage[employe.nom] = employe
+            dictionnaire_triage[employe.identifiant] = [employe.nom, employe]
             
         if current_index == 0:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
+            dictionnaire_triage_nom = sorted(list(dictionnaire_triage.keys()))
 
         elif current_index == 1:
-            dictionnaire_triage_nom = sorted(dictionnaire_triage.keys(), reverse=True)
-
+            dictionnaire_triage_nom = sorted(list(dictionnaire_triage.keys()), reverse=True)
         else:
             dictionnaire_triage = {}
             for employe in Employe.list_employe:
-                dictionnaire_triage[employe.contrat.salaire_horaire] = employe
-
+                dictionnaire_triage[employe.identifiant] = [employe.contrat.salaire_horaire, employe]
 
             if current_index == 2:
                 dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
@@ -90,7 +88,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
             else:
                 dictionnaire_triage = {}
                 for employe in Employe.list_employe:
-                    dictionnaire_triage[employe.obtenir_anciennete()] = employe
+                    dictionnaire_triage[employe.identifiant] = [employe.obtenir_anciennete(), employe]
 
                 if current_index == 4:
                     dictionnaire_triage_nom = sorted(dictionnaire_triage.keys())
@@ -122,6 +120,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
         """
         Ouvre la fenêtre AjouterEmploye lorsque l'utilisateur click sur le bouton Ajouter un employe
         """
+
         dialog_ajouter_employe = AjouterEmploye()
         dialog_ajouter_employe.show()
         dialog_ajouter_employe.exec()
@@ -145,7 +144,7 @@ class MenuEmploye(QtWidgets.QDialog, genere_menu_employe.Ui_DialogMenuEmploye):
 
             fenetre_modifier_employe.dateEditDateEngagement.setMinimumDate(employe_a_modifier.date_engagement)
             fenetre_modifier_employe.dateEditDatePromotion.setMinimumDate(employe_a_modifier.date_engagement)
-            fenetre_modifier_employe.comboBoxSpecialite.setCurrentText(employe_a_modifier.specialite)
+            fenetre_modifier_employe.comboBoxSpecialite.setCurrentText(employe_a_modifier.specialite.nom)
             fenetre_modifier_employe.lineEditIdentifiant.setText(employe_a_modifier.identifiant)
             fenetre_modifier_employe.comboBoxPoste.setCurrentText(employe_a_modifier.poste)
             fenetre_modifier_employe.lineEditPrenom.setText(employe_a_modifier.prenom)

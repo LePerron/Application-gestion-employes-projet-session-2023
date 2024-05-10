@@ -75,58 +75,43 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
             item = QStandardItem(employe_gere)
             model_employe_gere.appendRow(item)
 
-    # def mettre_a_jour_superviseur(self):
-    #     for employe in Employe.list_employe:
-    #         if employe.gestionnaire
-    #         for autre_employe in Employe.list_employe:
-    #             if employe.poste == "Commis":
-    #                 if employe.poste == "Commis":
-    #
-    #
-    #
-    #             elif employe.poste == "Caissier":
-    #
-    #             elif employe.poste == "Gerant":
-    #
-    #             elif employe.poste == "Gestionnaire":
+    def mettre_a_jour_listview(self, listview):
+        """
+        Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
+        """
+        if listview == "superviseur":
+            model_superviseur = QStandardItemModel()
 
-    # def mettre_a_jour_listview(self, listview):
-    #     """
-    #     Modifie la listview lorsque l'utilisateur ajoute ou modifie un contrat
-    #     """
-    #     if listview == "superviseur":
-    #         model_superviseur = QStandardItemModel()
-    #
-    #         if self.checkBoxGerant.isChecked():
-    #             for gerant in Gerant.list_gerant:
-    #                 item = QStandardItem(gerant.nom)
-    #                 model_superviseur.appendRow(item)
-    #
-    #         if self.checkBoxGestionnaire.isChecked():
-    #             for gestionnaire in Gestionnaire.list_gestionnaire:
-    #                 item = QStandardItem(gestionnaire.nom)
-    #                 model_superviseur.appendRow(item)
-    #         self.listViewGerantGestionnaire.setModel(model_superviseur)
-    #
-    #     else:
-    #         superviseur_selectionne = self.listViewGerantGestionnaire.selectionModel().currentIndex()
-    #         if superviseur_selectionne:
-    #             model_commis_caissier = QStandardItemModel()
-    #             if self.checkBoxCaissier.isChecked():
-    #                 for employe in Employe.list_employe:
-    #                     if employe.nom == superviseur_selectionne:
-    #                         for caissier in employe.liste_caissier:
-    #                             item = QStandardItem(caissier.nom)
-    #                             model_commis_caissier.appendRow(item)
-    #
-    #             if self.checkBoxCommis.isChecked():
-    #                 for employe in Employe.list_employe:
-    #                     if employe.nom == superviseur_selectionne:
-    #                         for commis in employe.dict_commis.values():
-    #                             item = QStandardItem(commis.nom)
-    #                             model_commis_caissier.appendRow(item)
-    #
-    #             self.listViewCommisCaissier.setModel(model_commis_caissier)
+            if self.checkBoxGerant.isChecked():
+                for gerant in Gerant.list_gerant:
+                    item = QStandardItem(gerant.nom)
+                    model_superviseur.appendRow(item)
+
+            if self.checkBoxGestionnaire.isChecked():
+                for gestionnaire in Gestionnaire.list_gestionnaire:
+                    item = QStandardItem(gestionnaire.nom)
+                    model_superviseur.appendRow(item)
+            self.listViewGerantGestionnaire.setModel(model_superviseur)
+
+        else:
+            superviseur_selectionne = self.listViewGerantGestionnaire.selectionModel().currentIndex()
+            if superviseur_selectionne:
+                model_commis_caissier = QStandardItemModel()
+                if self.checkBoxCaissier.isChecked():
+                    for employe in Employe.list_employe:
+                        if employe.nom == superviseur_selectionne:
+                            for caissier in employe.liste_caissier:
+                                item = QStandardItem(caissier.nom)
+                                model_commis_caissier.appendRow(item)
+
+                if self.checkBoxCommis.isChecked():
+                    for employe in Employe.list_employe:
+                        if employe.nom == superviseur_selectionne:
+                            for commis in employe.dict_commis.values():
+                                item = QStandardItem(commis.nom)
+                                model_commis_caissier.appendRow(item)
+
+                self.listViewCommisCaissier.setModel(model_commis_caissier)
 
     @pyqtSlot()
     def on_pushButtonRetournerMenu_clicked(self):
@@ -171,7 +156,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les gerants si coché
         :param status: le status de checkbox (coché ou non)
         """
-        self.mettre_a_jour_listview("superviseur", None)
+        self.mettre_a_jour_listview_superviseur()
         for employe in Employe.list_employe:
             if employe.poste == "Gerant":
                 if status == 2:
@@ -184,7 +169,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les gestionnaires si coché
         :param status: le status de checkbox (coché ou non)
         """
-        self.mettre_a_jour_listview("supeviseur", None)
+        self.mettre_a_jour_listview_superviseur()
         for employe in Employe.list_employe:
             if employe.poste == "Gestionnaire":
                 if status == 2:

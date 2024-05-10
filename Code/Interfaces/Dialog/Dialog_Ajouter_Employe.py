@@ -49,7 +49,6 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         self.comboBoxPoste.activated.connect(self.index_combobox_change)
         self.comboBoxPoste.activated.connect(self.index_combobox_change)
 
-
     def reset_label_erreur(self):
         """
         Retire les messages d'erreurs
@@ -75,11 +74,11 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         """
         self.reset_label_erreur()
 
-        nom_specialite = self.comboBoxSpecialite.currentText()
         prenom = self.lineEditPrenom.text().capitalize()
         nom = self.lineEditNom.text().capitalize()
-        date_engagement = self.dateEditDateEngagement.text()
         poste = self.comboBoxPoste.currentText()
+        date_engagement = self.dateEditDateEngagement.text()
+        nom_specialite = self.comboBoxSpecialite.currentText()
 
         if self.modification_employe:
             employe_temporaire = eval(poste)(p_identifiant=self.modification_employe.identifiant)
@@ -88,9 +87,10 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         else:
 
             employe_temporaire = eval(poste)()
-            identifiant = self.lineEditIdentifiant.text()
 
+            identifiant = self.lineEditIdentifiant.text()
             employe_temporaire.identifiant = identifiant
+
             if employe_temporaire.identifiant != identifiant or not identifiant:
                 self.labelErreurIdentifiant.setText("Veuillez entrer un identifiant valide de 7 chiffre")
                 self.lineEditIdentifiant.clear()
@@ -112,7 +112,10 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
                     break
 
         if nom_specialite != "" or nom_specialite is not None:
-            if employe_temporaire.specialite.nom != nom_specialite or not nom_specialite:
+            try:
+                if employe_temporaire.specialite.nom != nom_specialite or not nom_specialite:
+                    raise AttributeError
+            except AttributeError:
                 self.labelErreurSpecialite.setText("Veuillez d'abord créer une spécialité dans le menu spécialité")
 
         employe_temporaire.date_engagement = date_engagement
@@ -125,16 +128,26 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             superviseur = self.comboBoxSuperviseur.currentText()
             employe_temporaire.gestionnaire = superviseur
 
-        if nom and prenom and identifiant and nom_specialite:
-            if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom and employe_temporaire.specialite.nom == nom_specialite:
+        try:
+            if (employe_temporaire.nom == nom and nom) and (employe_temporaire.prenom == prenom and prenom) and (employe_temporaire.identifiant == identifiant and identifiant) and (employe_temporaire.specialite.nom == nom_specialite):
+
                 if not self.modification_employe:
                     fenetre_ajouter_contrat = AjouterContrat(employe_temporaire)
                     fenetre_ajouter_contrat.lineEditIdentifiant.setText(employe_temporaire.identifiant)
                     fenetre_ajouter_contrat.show()
                     fenetre_ajouter_contrat.exec()
                 AjouterEmploye.close(self)
+
             else:
                 Employe.list_employe.remove(employe_temporaire)
+
+        except AttributeError:
+            Employe.list_employe.remove(employe_temporaire)
+            del employe_temporaire
+
+
+        # if nom and prenom and identifiant and nom_specialite:
+        #     if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom and employe_temporaire.specialite.nom:
 
     def index_combobox_change(self, index):
         """
