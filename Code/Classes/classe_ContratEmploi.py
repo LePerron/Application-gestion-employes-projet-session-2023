@@ -127,7 +127,7 @@ class ContratEmploi:
             pass
         try:
             if employe_:
-                chaine_caracteres += f" ↳ Nom et prenom : {self.employe}\n"
+                chaine_caracteres += f" ↳ Nom et prenom : {self.employe.prenom} {self.employe.nom}\n"
         except NameError:
             pass
         try:

@@ -34,7 +34,7 @@ class Employe:
 
         if not self.contrat:
             from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
-            self.contrat = ContratEmploi(p_employe=self.obtenir_nom_complet())
+            self.contrat = ContratEmploi(p_employe=self)
 
         if self.identifiant == p_identifiant:
             Employe.list_employe.append(self)
