@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>376</width>
-    <height>449</height>
+    <width>1767</width>
+    <height>641</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>20</y>
-      <width>291</width>
+      <x>745</x>
+      <y>85</y>
+      <width>342</width>
       <height>331</height>
      </rect>
     </property>
@@ -246,14 +246,60 @@
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="labelTitreEmploye_2">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>210</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Pas encore</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelTitreEmploye_3">
+    <property name="geometry">
+     <rect>
+      <x>1030</x>
+      <y>230</y>
+      <width>91</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Implémenté</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>376</width>
-     <height>21</height>
+     <width>1767</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>

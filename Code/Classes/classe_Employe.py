@@ -107,7 +107,7 @@ class Employe:
     @date_engagement.setter
     def date_engagement(self, v_date_engagement: str) -> None:
         if isinstance(v_date_engagement, str):
-            if v_date_engagement[:2].isdigit() and v_date_engagement[2] == "/" and v_date_engagement[3:5].isdigit() and v_date_engagement[5] == "/" and v_date_engagement[6:].isdigit():
+            if v_date_engagement[:2].isdigit() and v_date_engagement[2] == "-" and v_date_engagement[3:5].isdigit() and v_date_engagement[5] == "-" and v_date_engagement[6:].isdigit():
                 date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y").replace(second=0)
                 if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
                     self._date_engagement = date_formatee
@@ -177,7 +177,7 @@ class Employe:
             pass
         try:
             if date_engagement_:
-                date_engagement = str(self.date_engagement).strip("00:00:00")
+                date_engagement = str(self.date_engagement)
                 chaine_caracteres += f" ↳ La date d'engagement : {date_engagement}\n"
         except (NameError, AttributeError):
             pass

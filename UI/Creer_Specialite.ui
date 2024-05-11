@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>392</width>
-    <height>485</height>
+    <width>1782</width>
+    <height>551</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>69</y>
+     <x>725</x>
+     <y>79</y>
      <width>391</width>
-     <height>411</height>
+     <height>451</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -34,7 +34,7 @@
       <x>20</x>
       <y>23</y>
       <width>351</width>
-      <height>369</height>
+      <height>406</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -568,8 +568,8 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>49</y>
+     <x>735</x>
+     <y>59</y>
      <width>370</width>
      <height>21</height>
     </rect>
@@ -590,8 +590,8 @@
   <widget class="QLabel" name="labelTitreAjouterSpecialite">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>20</y>
+     <x>725</x>
+     <y>30</y>
      <width>381</width>
      <height>30</height>
     </rect>

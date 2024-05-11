@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>391</width>
-    <height>737</height>
+    <width>1721</width>
+    <height>776</height>
    </rect>
   </property>
   <property name="palette">
@@ -89,8 +89,8 @@
   <widget class="QLabel" name="labelTitreAjouterContrat">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>21</y>
+     <x>724</x>
+     <y>30</y>
      <width>381</width>
      <height>30</height>
     </rect>
@@ -119,8 +119,8 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>50</y>
+     <x>734</x>
+     <y>59</y>
      <width>370</width>
      <height>21</height>
     </rect>
@@ -141,8 +141,8 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>70</y>
+     <x>724</x>
+     <y>79</y>
      <width>391</width>
      <height>671</height>
     </rect>

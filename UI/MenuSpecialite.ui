@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
-    <height>538</height>
+    <width>1772</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="labelErreurSelection">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>150</y>
+     <x>570</x>
+     <y>174</y>
      <width>621</width>
      <height>21</height>
     </rect>
@@ -29,9 +29,9 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>176</y>
-     <width>161</width>
+     <x>1210</x>
+     <y>200</y>
+     <width>212</width>
      <height>101</height>
     </rect>
    </property>
@@ -71,8 +71,8 @@
   <widget class="QLabel" name="labelSpecialite">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>0</y>
+     <x>770</x>
+     <y>24</y>
      <width>461</width>
      <height>41</height>
     </rect>
@@ -91,8 +91,8 @@
   <widget class="Line" name="line">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>30</y>
+     <x>570</x>
+     <y>54</y>
      <width>791</width>
      <height>20</height>
     </rect>
@@ -110,8 +110,8 @@
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>70</y>
+     <x>570</x>
+     <y>94</y>
      <width>361</width>
      <height>81</height>
     </rect>
@@ -169,10 +169,10 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>70</y>
+     <x>1000</x>
+     <y>94</y>
      <width>361</width>
-     <height>81</height>
+     <height>85</height>
     </rect>
    </property>
    <property name="font">
@@ -182,14 +182,17 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="pushButtonRechercherSpecialite">
+     <widget class="QLabel" name="label">
       <property name="font">
        <font>
         <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Rechercher une spécialité:</string>
+       <string>Rechercher un employé:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
@@ -220,8 +223,8 @@
   <widget class="QListView" name="listViewSpecialite">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>176</y>
+     <x>570</x>
+     <y>200</y>
      <width>621</width>
      <height>341</height>
     </rect>
@@ -239,8 +242,8 @@
   <widget class="QPushButton" name="pushButtonAjouterSpecialite">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>296</y>
+     <x>1210</x>
+     <y>320</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -263,8 +266,8 @@
   <widget class="QPushButton" name="pushButtonSupprimerSpecialite">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>356</y>
+     <x>1210</x>
+     <y>380</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -287,8 +290,8 @@
   <widget class="QPushButton" name="pushButtonModifierSpecialite">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>416</y>
+     <x>1210</x>
+     <y>440</y>
      <width>161</width>
      <height>41</height>
     </rect>
@@ -311,8 +314,8 @@
   <widget class="QPushButton" name="pushButtonRetournerMenu">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>476</y>
+     <x>1210</x>
+     <y>500</y>
      <width>161</width>
      <height>41</height>
     </rect>
