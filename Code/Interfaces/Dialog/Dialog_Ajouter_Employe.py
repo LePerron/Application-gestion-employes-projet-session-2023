@@ -43,10 +43,9 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             self.comboBoxSpecialite.addItem(specialite.nom)
 
         for employe in Employe.list_employe:
-            if employe.poste == "Gestionnaire" or "Gerant":
-                self.comboBoxSuperviseur.addItem(employe.nom)
+            if employe.poste in ["Gestionnaire", "Gerant"]:
+                self.comboBoxSuperviseur.addItem(employe.prenom)
 
-        self.comboBoxPoste.activated.connect(self.index_combobox_change)
         self.comboBoxPoste.activated.connect(self.index_combobox_change)
 
     def reset_label_erreur(self):
@@ -120,11 +119,11 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
 
         employe_temporaire.date_engagement = date_engagement
 
-        if poste == "Gerant" or "Gestionnnaire":
+        if poste in ["Gerant", "Gestionnnaire"]:
             date_promotion = self.dateEditDatePromotion.text()
             employe_temporaire.date_promotion = date_promotion
 
-        if poste == "Commis" or "Caissier":
+        if poste in ["Commis", "Caissier"]:
             superviseur = self.comboBoxSuperviseur.currentText()
             employe_temporaire.gestionnaire = superviseur
 
@@ -145,31 +144,35 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
             Employe.list_employe.remove(employe_temporaire)
             del employe_temporaire
 
-
-        # if nom and prenom and identifiant and nom_specialite:
-        #     if employe_temporaire.identifiant == identifiant and employe_temporaire.nom == nom and employe_temporaire.prenom == prenom and employe_temporaire.specialite.nom:
-
     def index_combobox_change(self, index):
         """
 
         :param index:
         :return:
         """
-        if index == 3:
-            self.labelSuperviseur.hide()
-            self.comboBoxSuperviseur.hide()
-            self.labelErreurSuperviseur.hide()
-        if index >= 2:
-            self.labelDatePromotion.show()
-            self.dateEditDatePromotion.show()
-            self.labelErreurDatePromotion.show()
-        else:
+        if index == 0 or index == 1:
             self.labelDatePromotion.hide()
             self.dateEditDatePromotion.hide()
             self.labelErreurDatePromotion.hide()
             self.labelSuperviseur.show()
             self.comboBoxSuperviseur.show()
             self.labelErreurSuperviseur.show()
+
+        if index == 2:
+            self.labelDatePromotion.show()
+            self.dateEditDatePromotion.show()
+            self.labelErreurDatePromotion.show()
+            self.labelSuperviseur.show()
+            self.comboBoxSuperviseur.show()
+            self.labelErreurSuperviseur.show()
+
+        if index == 3:
+            self.labelSuperviseur.hide()
+            self.comboBoxSuperviseur.hide()
+            self.labelErreurSuperviseur.hide()
+            self.labelDatePromotion.show()
+            self.dateEditDatePromotion.show()
+            self.labelErreurDatePromotion.show()
 
 
 def main():

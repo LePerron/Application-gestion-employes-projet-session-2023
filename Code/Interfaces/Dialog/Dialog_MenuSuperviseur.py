@@ -9,6 +9,10 @@ from PyQt5.QtCore import pyqtSlot, QAbstractListModel, Qt
 from PyQt5 import QtWidgets
 import sys
 
+# Dans ce Menu Superviseur, c'est le seul endroit qui n'est pas complet au niveau des fonctionnalités
+# C'est donc pas 100 % finis pour cette Fenetre de Dialog.
+# CRASHs et BUGs possible.
+
 
 # Cette classe permet au programme d'avoir une listview personnalisée avec des évènements de sélection.
 class ListModeleSelectionnable(QAbstractListModel):
@@ -21,9 +25,9 @@ class ListModeleSelectionnable(QAbstractListModel):
     def rowCount(self, parent):
         return len(self._donnees)
 
-    def data(self, index, role):
+    def data(self, index , role):
         if role == Qt.DisplayRole:
-            return not self._donnees[index.row()].nom
+            return self._donnees[index.row()].obtenir_nom_complet()
 
 
 class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSuperviseur):
@@ -46,7 +50,8 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.checkBoxCommis.stateChanged.connect(self.commis_change)
         self.checkBoxGestionnaire.stateChanged.connect(self.gestionnaire_change)
         self.checkBoxGerant.stateChanged.connect(self.gerant_change)
-        self.peupler_liste_superviseur(self.superviseur_selectionne)
+
+        self.peupler_liste_superviseur()
 
         self.listViewGerantGestionnaire.selectionModel().selectionChanged.connect(self.changement_selection_superviseur)
 
@@ -54,17 +59,31 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         liste_superviseur = []
         if len(Employe.list_employe) > 0:
             for employe in Employe.list_employe:
-                if employe.poste == "Gerant" or "Gestion":
-                    liste_superviseur.append(employe.nom)
-
+                if employe.poste in ["Gerant", "Gestionnaire"]:
+                    liste_superviseur.append(employe)
 
         modele = ListModeleSelectionnable(liste_superviseur)
-        self.list_view.setModel(modele)
+        self.listViewGerantGestionnaire.setModel(modele)
 
-    def peupler_liste_caissier_commis(self, superviseur_selectionne):
+    def peupler_liste_caissier_commis(self, superviseur_selectionne: str):
+        for employe in Employe.list_employe:
+            if employe.obtenir_nom_complet() != superviseur_selectionne:
+                continue
+            else:
+                superviseur_selectionne = employe
+                if superviseur_selectionne.poste == "Gestionnaire":
+                    if self.checkBoxCommis.isChecked():
+                        employe.mettre_a_jour_dict_de_commis()
+                        liste_donnees = [commis.prenom for commis in superviseur_selectionne.dict_commis]
 
-        modele = ListModeleSelectionnable(donnees)
-        self.list_view.setModel(modele)
+                    if self.checkBoxCaissier.isChecked():
+                        employe.mettre_a_jour_list_caissier()
+                        liste_donnees = [caissier.prenom for caissier in superviseur_selectionne.liste_caissier]
+                else:
+                    liste_donnees = [gestionnaire.prenom for gestionnaire in superviseur_selectionne.liste_gestionnaire]
+
+                modele = ListModeleSelectionnable(liste_donnees)
+                self.listViewCommisCaissier.setModel(modele)
 
     #
     # def mettre_a_jour_listview_superviseur(self):
@@ -156,8 +175,10 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
     def changement_selection_superviseur(self, selected, deselected):
         index_selectionnes = selected.indexes()
         if index_selectionnes:
-            rangee_selectionnee = index_selectionnes[0].row()
-            superviseur_selectionne = self.list_view.model().data(index_selectionnes[0], Qt.DisplayRole)
+            superviseur_selectionne = self.listViewGerantGestionnaire.model().data(index_selectionnes[0],
+                                                                                   Qt.DisplayRole)
+            self.peupler_liste_caissier_commis(superviseur_selectionne)
+
             return superviseur_selectionne
 
     def caissier_change(self, status):

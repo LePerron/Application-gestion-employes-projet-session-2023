@@ -35,8 +35,6 @@ class ContratEmploi:
 
         self.identifiant_contrat = len(ContratEmploi.list_contrat)
 
-
-
     @property
     def nb_heures_semaine(self):
         return self._nb_heures_semaine
