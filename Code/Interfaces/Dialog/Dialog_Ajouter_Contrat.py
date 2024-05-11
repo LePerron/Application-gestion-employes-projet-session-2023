@@ -69,7 +69,8 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
 
         try:
-            ContratEmploi.list_contrat.remove(self.employe_modification.contrat)
+            if not self.employe_modification.contrat:
+                ContratEmploi.list_contrat.remove(self.employe_modification.contrat)
             Employe.list_employe.remove(self.employe_modification)
         finally:
             AjouterContrat.close(self)

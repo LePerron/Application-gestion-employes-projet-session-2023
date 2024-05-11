@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="fr" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code.Classes.classe_Employe &#8212; Documentation Projet entreprise Final</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=12dfc556" />
+    <script src="../../../_static/documentation_options.js?v=1d9c2509"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/translations.js?v=bf059b8c"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Recherche" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Code source de Code.Classes.classe_Employe</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+
+<span class="n">DATE_FONDATION_ENTREPRISE</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Employe">
+<a class="viewcode-back" href="../../../Code.Classes.html#Code.Classes.classe_Employe.Employe">[docs]</a>
+<span class="k">class</span> <span class="nc">Employe</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe mère Employe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">list_employe</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p_identifiant</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">p_nom</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">p_prenom</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                 <span class="n">p_poste</span><span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">p_date_engagement</span><span class="p">:</span> <span class="n">date</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">p_contrat</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p_specialite</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Le constructeur de la classe mère Employe</span>
+<span class="sd">        :param p_identifiant: L&#39;identifiant unique de l&#39;employé. | (7 digits, str)</span>
+<span class="sd">        :param p_nom: Le nom de l&#39;employé.</span>
+<span class="sd">        :param p_prenom: Le prénom de l&#39;employé.</span>
+<span class="sd">        :param p_date_engagement: La date d&#39;engagement de l&#39;employé dans l&#39;entreprise.</span>
+<span class="sd">        :param p_contrat: Le contrat d&#39;engagement de l&#39;employé par l&#39;entreprise.</span>
+<span class="sd">        :param p_specialite: La spécialisation du poste de l&#39;employé.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_identifiant</span> <span class="o">=</span> <span class="n">p_identifiant</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nom</span> <span class="o">=</span> <span class="n">p_nom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prenom</span> <span class="o">=</span> <span class="n">p_prenom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">poste</span> <span class="o">=</span> <span class="n">p_poste</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contrat</span> <span class="o">=</span> <span class="n">p_contrat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">specialite</span> <span class="o">=</span> <span class="n">p_specialite</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anciennete</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obtenir_anciennete</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">p_date_engagement</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_date_engagement</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrat</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi</span> <span class="kn">import</span> <span class="n">ContratEmploi</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">contrat</span> <span class="o">=</span> <span class="n">ContratEmploi</span><span class="p">(</span><span class="n">p_employe</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">obtenir_nom_complet</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">identifiant</span> <span class="o">==</span> <span class="n">p_identifiant</span><span class="p">:</span>
+            <span class="n">Employe</span><span class="o">.</span><span class="n">list_employe</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">identifiant</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_identifiant</span>
+
+    <span class="nd">@identifiant</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">identifiant</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_identifiant</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_identifiant</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v_identifiant</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">v_identifiant</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">employe</span> <span class="ow">in</span> <span class="n">Employe</span><span class="o">.</span><span class="n">list_employe</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">employe</span><span class="o">.</span><span class="n">identifiant</span> <span class="o">==</span> <span class="n">v_identifiant</span><span class="p">:</span>
+                    <span class="k">return</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_identifiant</span> <span class="o">=</span> <span class="n">v_identifiant</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nom</span>
+
+    <span class="nd">@nom</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">nom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_nom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">index_tirait</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v_nom</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">lettre</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">v_nom</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">lettre</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">lettre</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+                    <span class="k">continue</span>
+                <span class="k">elif</span> <span class="n">lettre</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">index_tirait</span><span class="p">:</span>
+                        <span class="n">index_tirait</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+                        <span class="k">continue</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">v_nom</span> <span class="o">=</span> <span class="n">v_nom</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">index_tirait</span><span class="p">:</span>
+                    <span class="n">v_nom</span> <span class="o">=</span> <span class="n">v_nom</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">v_nom</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">index_tirait</span><span class="p">]</span> <span class="o">+</span> <span class="n">v_nom</span><span class="p">[</span><span class="n">index_tirait</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">v_nom</span><span class="p">[(</span><span class="n">index_tirait</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_nom</span> <span class="o">=</span> <span class="n">v_nom</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">prenom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prenom</span>
+
+    <span class="nd">@prenom</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">prenom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_prenom</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">index_tirait</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v_prenom</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">lettre</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">v_prenom</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">lettre</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">lettre</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+                    <span class="k">continue</span>
+                <span class="k">elif</span> <span class="n">lettre</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">index_tirait</span><span class="p">:</span>
+                        <span class="n">index_tirait</span> <span class="o">=</span> <span class="n">index</span>
+                        <span class="k">continue</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">return</span>
+            <span class="k">if</span> <span class="n">index_tirait</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_prenom</span> <span class="o">=</span> <span class="n">v_prenom</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">v_prenom</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">index_tirait</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v_prenom</span><span class="p">[</span><span class="n">index_tirait</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">v_prenom</span><span class="p">[(</span><span class="n">index_tirait</span> <span class="o">+</span> <span class="mi">2</span><span class="p">):]</span>
+                <span class="k">return</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_prenom</span> <span class="o">=</span> <span class="n">v_prenom</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">date_engagement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date_engagement</span>
+
+    <span class="nd">@date_engagement</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">date_engagement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_date_engagement</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v_date_engagement</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">v_date_engagement</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">v_date_engagement</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span> <span class="ow">and</span> <span class="n">v_date_engagement</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="ow">and</span> <span class="n">v_date_engagement</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span> <span class="ow">and</span> <span class="n">v_date_engagement</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+                <span class="n">date_formatee</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">v_date_engagement</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">DATE_FONDATION_ENTREPRISE</span> <span class="o">&lt;=</span> <span class="n">date_formatee</span> <span class="o">&lt;=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_date_engagement</span> <span class="o">=</span> <span class="n">date_formatee</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span>
+
+<div class="viewcode-block" id="Employe.obtenir_anciennete">
+<a class="viewcode-back" href="../../../Code.Classes.html#Code.Classes.classe_Employe.Employe.obtenir_anciennete">[docs]</a>
+    <span class="k">def</span> <span class="nf">obtenir_anciennete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une méthode qui permet d&#39;obtenir l&#39;ancienneté d&#39;un employé.</span>
+<span class="sd">        :return: Le nombre d&#39;années d&#39;ancienneté</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date_engagement</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date_engagement</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="o">//</span> <span class="mi">365</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="Employe.est_temps_plein">
+<a class="viewcode-back" href="../../../Code.Classes.html#Code.Classes.classe_Employe.Employe.est_temps_plein">[docs]</a>
+    <span class="k">def</span> <span class="nf">est_temps_plein</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une méthode qui retourne True si l&#39;employé travail plus de 40 heures / semaine.</span>
+<span class="sd">        :return: True si l&#39;employé est à temps plein sinon False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrat</span><span class="o">.</span><span class="n">nb_heures_semaine</span> <span class="o">&gt;=</span> <span class="mi">40</span></div>
+
+
+<div class="viewcode-block" id="Employe.obtenir_poste_complet">
+<a class="viewcode-back" href="../../../Code.Classes.html#Code.Classes.classe_Employe.Employe.obtenir_poste_complet">[docs]</a>
+    <span class="k">def</span> <span class="nf">obtenir_poste_complet</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une fonction qui permet d&#39;obtenir le poste et la spécialité du poste de l&#39;employé</span>
+<span class="sd">        :return: Le poste de l&#39;employé avec sa spécialité.. ex: Commis Boucherie</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">poste</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2"> en </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">specialite</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+<div class="viewcode-block" id="Employe.afficher_informations_employe">
+<a class="viewcode-back" href="../../../Code.Classes.html#Code.Classes.classe_Employe.Employe.afficher_informations_employe">[docs]</a>
+    <span class="k">def</span> <span class="nf">afficher_informations_employe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifiant_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nom_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poste_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">contrat_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">salaire_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">anciennete_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">date_engagement_</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une fonction qui permet de retourner dans un bon format les informations de l&#39;employé.</span>
+<span class="sd">        :return: Les informations de l&#39;employé dans un beau format d&#39;affichage selon les paramètres d&#39;entrés.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">chaine_caracteres</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">identifiant_</span><span class="p">:</span>
+                <span class="n">chaine_caracteres</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ↳ Identifiant : #</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">identifiant</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">nom_</span><span class="p">:</span>
+                <span class="n">chaine_caracteres</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ↳ Nom :  </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_prenom</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_nom</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">poste_</span><span class="p">:</span>
+                <span class="n">chaine_caracteres</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ↳ Poste : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">obtenir_poste_complet</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">salaire_</span><span class="p">:</span>
+                <span class="n">chaine_caracteres</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ↳ Salaire : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">contrat</span><span class="o">.</span><span class="n">salaire_horaire</span><span class="si">}</span><span class="s2"> $/h</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">contrat_</span><span class="p">:</span>
+                <span class="n">chaine_caracteres</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ↳ Contrat : #</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">contrat</span><span class="o">.</span><span class="n">identifiant_contrat</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">anciennete_</span><span class="p">:</span>
+                <span class="n">chaine_caracteres</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ↳ Ancienneté : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">obtenir_anciennete</span><span class="p">()</span><span class="si">}</span><span class="s2"> an(s)</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">date_engagement_</span><span class="p">:</span>
+                <span class="n">date_engagement</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">date_engagement</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;00:00:00&quot;</span><span class="p">)</span>
+                <span class="n">chaine_caracteres</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; ↳ La date d&#39;engagement : </span><span class="si">{</span><span class="n">date_engagement</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">NameError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">chaine_caracteres</span></div>
+
+
+<div class="viewcode-block" id="Employe.calculer_paye">
+<a class="viewcode-back" href="../../../Code.Classes.html#Code.Classes.classe_Employe.Employe.calculer_paye">[docs]</a>
+    <span class="k">def</span> <span class="nf">calculer_paye</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une méthode qui permet de calculer la Paye de l&#39;employé selon le facteur_salaire, le salaire_horaire, et</span>
+<span class="sd">        le nombre_d_heure</span>
+<span class="sd">        :return: La Paye de l&#39;employé</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">contrat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">contrat</span>
+        <span class="n">montant_paye</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(((</span><span class="n">contrat</span><span class="o">.</span><span class="n">salaire_horaire</span> <span class="o">*</span> <span class="n">contrat</span><span class="o">.</span><span class="n">nb_heures_semaine</span><span class="p">)</span> <span class="o">*</span> <span class="n">contrat</span><span class="o">.</span><span class="n">facteur_salaire</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">contrat</span><span class="o">.</span><span class="n">salaire_horaire</span> <span class="o">*</span> <span class="n">contrat</span><span class="o">.</span><span class="n">nb_heures_semaine</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">montant_paye</span></div>
+
+
+<div class="viewcode-block" id="Employe.obtenir_nom_complet">
+<a class="viewcode-back" href="../../../Code.Classes.html#Code.Classes.classe_Employe.Employe.obtenir_nom_complet">[docs]</a>
+    <span class="k">def</span> <span class="nf">obtenir_nom_complet</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une méthode qui retourne le prenom et le nom de l&#39;employé</span>
+<span class="sd">        :return: le nom complet</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_prenom</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_nom</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une fonction magique qui permet de retourner dans un beau format les informations de l&#39;employé.</span>
+<span class="sd">         * La fonction **afficher_informations_employe** est utilisée pour permettre à ses enfants d&#39;avoir leur propre</span>
+<span class="sd">           fonction magique **__str__()** en plus de celui de la classe mère.</span>
+
+<span class="sd">        :return: Les informations de l&#39;employé dans un beau format d&#39;affichage.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">afficher_informations_employe</span><span class="p">()</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Une méthode magique de classe qui permet de retourner le nombre d&#39;employé total.</span>
+<span class="sd">        :return: Le nombre d&#39;employé total.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">list_employe</span><span class="p">)</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Projet entreprise</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Code du module</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Marc-Antoine, Benjamin et Maël.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
