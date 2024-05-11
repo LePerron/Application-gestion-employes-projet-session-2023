@@ -74,13 +74,13 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                 if superviseur_selectionne.poste == "Gestionnaire":
                     if self.checkBoxCommis.isChecked():
                         employe.mettre_a_jour_dict_de_commis()
-                        liste_donnees = [commis.prenom for commis in superviseur_selectionne.dict_commis]
+                        liste_donnees = [commis for commis in superviseur_selectionne.dict_commis]
 
                     if self.checkBoxCaissier.isChecked():
                         employe.mettre_a_jour_list_caissier()
-                        liste_donnees = [caissier.prenom for caissier in superviseur_selectionne.liste_caissier]
+                        liste_donnees = [caissier for caissier in superviseur_selectionne.liste_caissier]
                 else:
-                    liste_donnees = [gestionnaire.prenom for gestionnaire in superviseur_selectionne.liste_gestionnaire]
+                    liste_donnees = [gestionnaire for gestionnaire in superviseur_selectionne.liste_gestionnaire]
 
                 modele = ListModeleSelectionnable(liste_donnees)
                 self.listViewCommisCaissier.setModel(modele)
@@ -193,8 +193,6 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                 if nom_superviseur_actuel == employe.gestionnaire:
                     if status == 2:
                         return
-                    else:
-                        employe.hide()
 
     def commis_change(self, status):
         """
@@ -208,8 +206,6 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
                 if nom_superviseur_actuel == employe.gestionnaire:
                     if status == 2:
                         return
-                    else:
-                        employe.hide()
 
     def gerant_change(self, status):
         """
@@ -221,8 +217,6 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
             if employe.poste == "Gerant":
                 if status == 2:
                     return
-                else:
-                    employe.hide()
 
     def gestionnaire_change(self, status):
         """
@@ -234,8 +228,8 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
             if employe.poste == "Gestionnaire":
                 if status == 2:
                     return
-                else:
-                    employe.hide()
+
+
 
 
 def main():
