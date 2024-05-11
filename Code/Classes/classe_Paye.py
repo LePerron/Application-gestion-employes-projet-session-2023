@@ -59,8 +59,9 @@ class Paye:
 
     @date_de_paye.setter
     def date_de_paye(self, v_date_de_paye) -> None:
-        if DATE_FONDATION_ENTREPRISE <= v_date_de_paye <= datetime.now():
-            self._date_de_paye = v_date_de_paye
+        if isinstance(v_date_de_paye, date):
+            if DATE_FONDATION_ENTREPRISE <= v_date_de_paye <= datetime.now():
+                self._date_de_paye = v_date_de_paye
 
     @classmethod
     def calculer_moyenne_payes(cls) -> float:
