@@ -107,8 +107,8 @@ class Employe:
     @date_engagement.setter
     def date_engagement(self, v_date_engagement: str) -> None:
         if isinstance(v_date_engagement, str):
-            if v_date_engagement[:2].isdigit() and v_date_engagement[2] == "-" and v_date_engagement[3:5].isdigit() and v_date_engagement[5] == "-" and v_date_engagement[6:].isdigit():
-                date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y").replace(second=0)
+            if v_date_engagement[:4].isdigit() and v_date_engagement[4] == "-" and v_date_engagement[5:7].isdigit() and v_date_engagement[7] == "-" and v_date_engagement[8:].isdigit():
+                date_formatee = datetime.strptime(v_date_engagement, "%Y-%m-%d")
                 if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
                     self._date_engagement = date_formatee
             else:

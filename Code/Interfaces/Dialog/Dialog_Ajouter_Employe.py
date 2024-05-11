@@ -119,6 +119,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
 
         employe_temporaire.date_engagement = date_engagement
 
+
         if poste in ["Gerant", "Gestionnnaire"]:
             date_promotion = self.dateEditDatePromotion.text()
             employe_temporaire.date_promotion = date_promotion
