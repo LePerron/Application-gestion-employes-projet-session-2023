@@ -193,9 +193,9 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les caissiers si coché
         :param status: le status de la checkbox (coché ou non)
         """
-        nom_superviseur_actuel = self.tableWidget.currentIndex()
+        nom_superviseur_actuel = self.listViewCommisCaissier.currentIndex()
         if nom_superviseur_actuel.isValid():
-            self.mettre_a_jour_listview("employe", nom_superviseur_actuel)
+            self.peupler_liste_caissier_commis(nom_superviseur_actuel)
             for employe in Employe.list_employe:
                 if nom_superviseur_actuel == employe.gestionnaire:
                     if status == 2:
@@ -208,9 +208,9 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les commis si coché
         :param status: le status de checkbox (coché ou non)
         """
-        nom_superviseur_actuel = self.tableWidget.currentIndex()
+        nom_superviseur_actuel = self.listViewCommisCaissier.currentIndex()
         if nom_superviseur_actuel.isValid():
-            self.mettre_a_jour_listview("employe", nom_superviseur_actuel)
+            self.peupler_liste_caissier_commis(nom_superviseur_actuel)
             for employe in Employe.list_employe:
                 if nom_superviseur_actuel == employe.gestionnaire:
                     if status == 2:
@@ -223,7 +223,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les gerants si coché
         :param status: le status de checkbox (coché ou non)
         """
-        self.mettre_a_jour_listview_superviseur()
+        self.peupler_liste_superviseur()
         for employe in Employe.list_employe:
             if employe.poste == "Gerant":
                 if status == 2:
@@ -236,7 +236,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         Affiche les gestionnaires si coché
         :param status: le status de checkbox (coché ou non)
         """
-        self.mettre_a_jour_listview_superviseur()
+        self.peupler_liste_superviseur()
         for employe in Employe.list_employe:
             if employe.poste == "Gestionnaire":
                 if status == 2:

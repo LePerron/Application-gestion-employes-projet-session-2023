@@ -33,7 +33,7 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
             self.horizontalSliderNbHeure.setValue(contrat.nb_heures_semaine)
             self.doubleSpinBoxSalaireHoraire.setValue(contrat.salaire_horaire)
             self.textEditTermeContrat.setText(contrat.termes_embauche)
-            
+
     @pyqtSlot()
     def on_pushButtonAjouterEmploye_clicked(self):
         """
@@ -65,7 +65,14 @@ class AjouterContrat(QtWidgets.QDialog, genere_creer_contrat.Ui_DialogCreerContr
         """
         Ferme la fenêtre AjouterContrat lorsque l'utilisateur clique sur le bouton Annuler
         """
-        AjouterContrat.close(self)
+        from Projet_intra_Entreprise.Code.Classes.classe_Employe import Employe
+        from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
+
+        try:
+            ContratEmploi.list_contrat.remove(self.employe_modification.contrat)
+            Employe.list_employe.remove(self.employe_modification)
+        finally:
+            AjouterContrat.close(self)
 
 
 def main():
