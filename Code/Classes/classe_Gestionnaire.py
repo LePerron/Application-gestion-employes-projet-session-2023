@@ -56,7 +56,7 @@ class Gestionnaire(Employe):
                 else:
                     return
 
-    def mettre_a_jour_dict_de_commis(self, ) -> None:
+    def mettre_a_jour_dict_de_commis(self) -> None:
         """
         Met à jour le dict_commis que le gérant gère.
         """
