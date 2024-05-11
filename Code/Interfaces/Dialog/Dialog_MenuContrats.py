@@ -63,7 +63,7 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
         if index_actuel.isValid():
             self.listViewContrat.model().removeRow(index_actuel.row())
             employe = Employe.list_employe[index_actuel.row()]
-            ContratEmploi.list_contrat.pop(index_actuel.row())
+            # ContratEmploi.list_contrat.pop(index_actuel.row())
             fenetre_ajouter_contrat = AjouterContrat(employe)
             fenetre_ajouter_contrat.pushButtonAjouterEmploye.setText("Modifier")
             fenetre_ajouter_contrat.labelTitreAjouterContrat.setText("Modifier Contrat")
