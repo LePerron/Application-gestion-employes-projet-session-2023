@@ -87,7 +87,7 @@ class MenuContrats(QtWidgets.QDialog, genere_menu_contrat.Ui_DialogContratEmploy
                 index = len(lettres_a_rechercher)
                 for contrat in ContratEmploi.list_contrat:
 
-                    prenom_employe = contrat.employe[:index]
+                    prenom_employe = contrat.employe.prenom[:index]
                     if prenom_employe.lower() == lettres_a_rechercher.lower():
                         liste_contrat_valide.append(contrat)
                 return liste_contrat_valide

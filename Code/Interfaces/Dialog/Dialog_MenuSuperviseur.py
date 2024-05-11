@@ -52,6 +52,7 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
         self.checkBoxGerant.stateChanged.connect(self.gerant_change)
 
         self.peupler_liste_superviseur()
+
         self.listViewGerantGestionnaire.selectionModel().selectionChanged.connect(self.changement_selection_superviseur)
 
     def peupler_liste_superviseur(self):
@@ -71,25 +72,16 @@ class MenuSuperviseur(QtWidgets.QDialog, genere_menu_superviseur.Ui_MenuSupervis
             else:
                 superviseur_selectionne = employe
                 if superviseur_selectionne.poste == "Gestionnaire":
-                    liste_donnees = []
                     if self.checkBoxCommis.isChecked():
-                        for commis in Commis.list_commis:
-                            if commis.gestionnaire == superviseur_selectionne.prenom:
-                                liste_donnees.append(commis)
+                        employe.mettre_a_jour_dict_de_commis()
+                        liste_donnees = [commis for commis in superviseur_selectionne.dict_commis]
 
-
-                    if self.checkBoxCaissier.isChecked():
-                        for caissier in Caissier.liste_caissier:
-                            if caissier.gestionnaire == superviseur_selectionne.prenom:
-                                liste_donnees.append(caissier)
-
-                    modele = ListModeleSelectionnable(liste_donnees)
-                    self.listViewCommisCaissier.setModel(modele)
-                else:
-                    liste_donnees = superviseur_selectionne.liste_gestionnaire
                     if self.checkBoxCaissier.isChecked():
                         employe.mettre_a_jour_list_caissier()
                         liste_donnees = [caissier for caissier in superviseur_selectionne.liste_caissier]
+                else:
+                    liste_donnees = [gestionnaire for gestionnaire in superviseur_selectionne.liste_gestionnaire]
+
 
                 modele = ListModeleSelectionnable(liste_donnees)
                 self.listViewCommisCaissier.setModel(modele)
