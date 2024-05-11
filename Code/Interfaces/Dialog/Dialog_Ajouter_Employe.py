@@ -76,7 +76,7 @@ class AjouterEmploye(QtWidgets.QDialog, genere_ajouter_employe.Ui_DialogAjouterE
         prenom = self.lineEditPrenom.text().capitalize()
         nom = self.lineEditNom.text().capitalize()
         poste = self.comboBoxPoste.currentText()
-        date_engagement = self.dateEditDateEngagement.text()
+        date_engagement = self.dateEditDateEngagement.date()
         nom_specialite = self.comboBoxSpecialite.currentText()
 
         if self.modification_employe:

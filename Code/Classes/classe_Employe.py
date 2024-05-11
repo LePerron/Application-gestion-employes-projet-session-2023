@@ -30,7 +30,7 @@ class Employe:
         self.anciennete = self.obtenir_anciennete()
 
         if p_date_engagement is None:
-            self._date_engagement = datetime.now().replace(second=0)
+            self._date_engagement = datetime.now()
 
         if not self.contrat:
             from Projet_intra_Entreprise.Code.Classes.classe_ContratEmploi import ContratEmploi
@@ -107,8 +107,8 @@ class Employe:
     @date_engagement.setter
     def date_engagement(self, v_date_engagement: str) -> None:
         if isinstance(v_date_engagement, str):
-            if v_date_engagement[:2].isdigit() and v_date_engagement[2] == "/" and v_date_engagement[3:5].isdigit() and v_date_engagement[5] == "/" and v_date_engagement[6:].isdigit():
-                date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y").replace(second=0)
+            if v_date_engagement[:2].isdigit() and v_date_engagement[2] == "-" and v_date_engagement[3:5].isdigit() and v_date_engagement[5] == "-" and v_date_engagement[6:].isdigit():
+                date_formatee = datetime.strptime(v_date_engagement, "%d/%m/%Y")
                 if DATE_FONDATION_ENTREPRISE <= date_formatee <= datetime.now():
                     self._date_engagement = date_formatee
             else:
